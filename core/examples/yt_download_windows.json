@@ -1,0 +1,11 @@
+{
+  "Task": "yt_dlp_demo",
+  "Steps": [
+    { "Type": "run", "Cmd": "mkdir downloads" },
+    { "Type": "run", "Cmd": "yt-dlp -f mp4 -o \"downloads/%(title)s.%(ext)s\" https://www.youtube.com/watch?v=dQw4w9WgXcQ" },
+    { "Type": "validate_exists", "Path": "downloads" },
+    { "Type": "checksum", "Path": "downloads", "Algo": "SHA256", "SaveAs": "downloads\\download_log.sha256" },
+    { "Type": "run", "Cmd": "powershell -Command \"New-Item -ItemType Directory -Force build | Out-Null; Compress-Archive -Path .\\downloads\\* -DestinationPath .\\build\\yt_archive_$(Get-Date -Format yyyy-MM-dd).zip -Force\"" }
+  ]
+}
+
