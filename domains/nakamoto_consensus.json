@@ -61,5 +61,6 @@
     "obstruction_type": "UNITS_NOT_PROJECTABLE",
     "distance_provenance": "Deterministically triaged via M-Layer v0 rules.",
     "distance_confidence": "LOW"
-  }
+  },
+  "substrate_S1c_refined": "STOCHASTIC"
 }

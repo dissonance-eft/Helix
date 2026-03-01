@@ -85,5 +85,6 @@
     "obstruction_type": null,
     "distance_provenance": "Deterministically triaged via M-Layer v0 rules.",
     "distance_confidence": "HIGH"
-  }
+  },
+  "substrate_S1c_refined": "HYBRID"
 }

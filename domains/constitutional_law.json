@@ -61,5 +61,6 @@
     "obstruction_type": "NO_BOUNDARY_DISTANCE_CONCEPT",
     "distance_provenance": "Deterministically triaged via M-Layer v0 rules.",
     "distance_confidence": "LOW"
-  }
+  },
+  "substrate_S1c_refined": "DISCRETE_SYMBOLIC"
 }
