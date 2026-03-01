@@ -1,3 +1,12 @@
+Derived From:
+- /artifacts/run_manifest.json (dataset_hash: 3037aa8f7f03237d3483cb7e200573ce3ff2a834ffc7e061a7f1bae677eb0be4)
+- /artifacts/eigenspace/baseline_beams_v2.json
+- /artifacts/obstruction/obstruction_spectrum.json
+- /artifacts/periodic_atlas/periodic_atlas.json
+- /artifacts/risk/risk_scores.json
+- /artifacts/invariance/invariance_suite.json
+- /artifacts/counterexamples/synthetic_results.json
+
 # Falsification Hooks for Helix Laws
 
 To prove this atlas is a testable scientific instrument and not a descriptive myth, we provide absolute structural falsifiers. If any of these counterexamples exist in physical reality or can be synthetically proven to hold mathematically, the associated Helix Law must be revoked or modified.

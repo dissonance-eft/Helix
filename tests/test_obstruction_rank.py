@@ -6,8 +6,11 @@ ARTIFACTS_DIR = ROOT / 'artifacts'
 
 def test_obstruction_rank():
     with open(ARTIFACTS_DIR / 'obstruction/obstruction_spectrum.json', 'r') as f:
-        data = json.load(f)
+        wrapper = json.load(f)
         
+    assert "data" in wrapper, "Artifact missing metadata wrapper"
+    data = wrapper["data"]
+
     var_exp = data.get("variance_explained", [])
     if len(var_exp) > 0:
         top_variance = var_exp[0]
