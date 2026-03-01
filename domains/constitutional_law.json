@@ -54,5 +54,12 @@
     "metric_phi": null,
     "projection_method": null,
     "ineligibility_reason": "INCOMMENSURATE_UNITS"
+  },
+  "measurement_layer": {
+    "distance_kind": null,
+    "distance_status": "UNDEFINED",
+    "obstruction_type": "NO_BOUNDARY_DISTANCE_CONCEPT",
+    "distance_provenance": "Deterministically triaged via M-Layer v0 rules.",
+    "distance_confidence": "LOW"
   }
 }
