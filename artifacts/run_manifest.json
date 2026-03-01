@@ -1,19 +1,18 @@
 {
   "artifact_hashes": {
-    "counterexamples/synthetic_results.json": "38a40395bd9ff54377e65599a94081942377cd462c7f9f1f94d223b5dca6aea5",
-    "eigenspace/baseline_beams_v2.json": "ff1499b3cfad593afd6e78419822afa63d97c923cf8da932b68c439a300c498e",
-    "eip/eip_overlay.json": "f316830e97522f70d185727bf802cc870b9051b684b0330f5dc7a4afe5a193d9",
-    "eip/witness_ig_report.json": "212b08bec5e22e1bc2140dd49fce8b5082121605a42b67f1224b8de04fcce26e",
-    "eip/witness_matrix.json": "e1ab354acf1fb237d29aaf682e27ef243cfc1d8de31592a17b13c993a0bc1c69",
-    "eip/witness_spectral_report.json": "916f4b575afb4a586ae52230aea3e5840ad09e255fdc53244c3a8a2b49caa124",
-    "eip/witness_structure_summary.json": "1de695cb678203ea3e83659265236ee9b745d93a55021d579f606f4284f1f460",
-    "invariance/invariance_suite.json": "9937f4529681dab44f306f04c7bfb35912bc0c7232bc641168dc6272bc3f8133",
-    "kernels/kernel2_report.json": "5dde07dadf033f192e919afa4586bbd2b32bb6047c16f22f23aa52ab30f83ac8",
-    "memory/memory_suites_report.json": "b8d4f055ef57854e40bdf35b335e78fbdbf4847f335f9d046300cc05daabe479",
-    "obstruction/obstruction_spectrum.json": "e9380d65c73cf7f3444e1cedeaccba057824587ee5baf6dde211973fd197dbd4",
-    "periodic_atlas/periodic_atlas.json": "b7d4d2a28aa5d992cd2a9247347446db623ffd598cdef50920f26df377c74854",
-    "risk/risk_scores.json": "eac22f78300b4cc1a92ddbc00f22be435ac9c1510881fe8f4fffaca834f1218c",
-    "structural_debt_report.json": "3d392ac813ae3b4bfde06a6b787718fcaac8d5fd373b054446ab9eaa53ada90a"
+    "counterexamples/synthetic_results.json": "b6b55895a6ae0f19ee14c48c1fa6743705548504b9c36e144eeac55a79763f4e",
+    "eigenspace/baseline_beams_v2.json": "14209794094afc0901ef6ceaccb86e299567d74dd5e4c606973149e8ec4250e9",
+    "eip/eip_overlay.json": "14431f5395dfd70b039670d48c90767199cb655c447cd9b372d852df48519a73",
+    "eip/witness_ig_report.json": "cc76f9dd8d5955ff3510fd0e2ea4fc1407a0869f7e626b3d3bf20099ad6c9228",
+    "eip/witness_matrix.json": "78bec176f43c0ebdaf0ea47bf4c7e3a6e6010f7cc3297fd29ccb8672e1a146e6",
+    "eip/witness_spectral_report.json": "14bfa78f20181d982306231f084ae730c72fc5ac02dc193ef610a4cf4475be9f",
+    "eip/witness_structure_summary.json": "3c04fda40de71ae7f8b94e0ec3ca1ee657536744fbf8d107b83d8b281e8de9de",
+    "invariance/invariance_suite.json": "de1ac76c73a5d2cf171342aa247f43a4c3027f3bc69e5433248a2bc6e4eac025",
+    "memory/memory_suites_report.json": "438e901921afd2dce980321c9809cd274e9425cccfa40bc73c6080d047046448",
+    "obstruction/obstruction_spectrum.json": "e74d4253e701a4480c5d5a184a3dac922594e4d230326a9664da4affe2de7f5f",
+    "periodic_atlas/periodic_atlas.json": "59e730c439e12992228ea508ffcaebdb63b12f14ff9ddc359e4237acedb9cedd",
+    "risk/risk_scores.json": "4d7a2f69ed6385e2c3ee55da8de79fe9eca01e13621d20d76e210ff1e319c6d1",
+    "structural_debt_report.json": "17f3409fccd8519d4be977c1852bbb6879671648fb636a96a86638a4f7856954"
   },
   "bootstrap_seed": 42,
   "dataset_hash": "bca19c5253d22a90be3ea77329f285214f0d4b385f6996aa6b7242c95a758d4d",
@@ -21,8 +20,8 @@
     "numpy": "locked",
     "scikit-learn": "locked"
   },
-  "git_commit": "30805124ea6807174aa5f84a3b544d567cdcff7b",
+  "git_commit": "633bd97e17fdb85e8c30b19f8bd112eedd1189d5",
   "python_version": "3.14.3",
   "schema_version": "1.0.0",
-  "timestamp": "2026-03-01T21:57:35.630664+00:00"
+  "timestamp": "2026-03-01T22:06:13.486764+00:00"
 }
