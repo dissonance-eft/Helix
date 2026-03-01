@@ -234,3 +234,6 @@ It is not revelation.
 It is not immune to collapse.
 
 The map is provisional.
+
+## Archival Note: The φ (Golden Ratio) Artifact
+φ is not an axis, not a kernel, and not a formal mechanism within the Helix schema. It is a flagged numerical coincidence heavily observed during Phase 27–29 boundary ratio counts. Because it fails to extract numeric ratios directly from operator thresholds, it is officially classified as a `NUMERICAL_ARTIFACT` awaiting structural operationalization. Do not connect it to persistence space kernels.

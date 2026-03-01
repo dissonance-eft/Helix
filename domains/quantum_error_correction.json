@@ -34,5 +34,26 @@
   "boundary_type_primary": "COMBINATORIAL_THRESHOLD",
   "boundary_locality": "GLOBAL",
   "boundary_dimensionality_change": "NO",
-  "substrate_S1c": "DISCRETE_SYMBOLIC"
+  "substrate_S1c": "DISCRETE_SYMBOLIC",
+  "metric_layer": {
+    "eligible": false,
+    "metric_kind": null,
+    "control_parameter": null,
+    "threshold_parameter": null,
+    "normalization": null,
+    "distance_value": null,
+    "distance_definition": "Numeric distance strictly derived from domain object fields.",
+    "units": null,
+    "dimensionless": null,
+    "provenance": {
+      "used_fields": [],
+      "assumptions": [
+        "Assumed no numeric boundaries exist since none provided."
+      ],
+      "external_knowledge": true
+    },
+    "metric_phi": null,
+    "projection_method": null,
+    "ineligibility_reason": "NO_THRESHOLD_DEFINED"
+  }
 }

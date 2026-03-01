@@ -32,5 +32,26 @@
   "boundary_type_primary": "SINGULAR_DIVERGENCE",
   "boundary_locality": "GLOBAL",
   "boundary_dimensionality_change": "YES",
-  "substrate_S1c": "CONTINUOUS"
+  "substrate_S1c": "CONTINUOUS",
+  "metric_layer": {
+    "eligible": false,
+    "metric_kind": null,
+    "control_parameter": null,
+    "threshold_parameter": null,
+    "normalization": null,
+    "distance_value": null,
+    "distance_definition": "Numeric distance strictly derived from domain object fields.",
+    "units": null,
+    "dimensionless": null,
+    "provenance": {
+      "used_fields": [],
+      "assumptions": [
+        "Assumed no numeric boundaries exist since none provided."
+      ],
+      "external_knowledge": true
+    },
+    "metric_phi": null,
+    "projection_method": null,
+    "ineligibility_reason": "INCOMMENSURATE_UNITS"
+  }
 }

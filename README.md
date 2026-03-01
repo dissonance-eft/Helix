@@ -184,5 +184,23 @@ LLM must:
 - Request entropy comparison.
 - Request falsifier.
 
+------------------------------------------------------------
+11. BEAMS AND PREDICTIVE GEOMETRY Layer
+------------------------------------------------------------
+
+Boundary collapse types and locations must be predicted strictly using minimal validated eigenspaces ("Beams"). 
+Currently validated: Beams_v2 = Substrate (S1c) + Ontology (P0-P4).
+- Do not invent new predictive axes unless Beams_v2 fails isotopic rotation or drops below Information Gain bounds. 
+- Hybrid systems natively trigger `REPRESENTATION_DECOUPLING`. Do not attempt to force smooth mappings on mathematically decoupled state/decision spaces.
+
+------------------------------------------------------------
+12. MEASUREMENT LAYER (M1)
+------------------------------------------------------------
+
+When dealing with limits, thresholds, and boundary locations:
+- Numeric targets (e.g. `phi = (x - theta)/|theta|`) must be derived strictly from field values inherently present within the domain's `thresholds` JSON array.
+- Do not hallucinate KAM tori destruction limits, spectral gaps, or Lyapunov exponents where a domain only supplies textual qualitative descriptions.
+- Un-operationalized text hypotheses (e.g., the φ Golden Ratio boundary artifact) are classified as `NUMERICAL_ARTIFACT` and must not be used for calculations.
+
 Helix is a lab.
 Not a myth engine.
