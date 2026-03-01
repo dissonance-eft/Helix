@@ -1,0 +1,61 @@
+{
+  "id": "kernel-000",
+  "type": "structural",
+  "claim": "In far-from-equilibrium systems, structural persistence requires maintenance capacity M to exceed perturbation amplitude δ (M > δ); both quantities are domain-specifically bounded by physical or biological constraints.",
+  "statement": "In far-from-equilibrium systems, structural persistence requires maintenance capacity M to exceed perturbation amplitude δ (M > δ); both quantities are domain-specifically bounded by physical or biological constraints.",
+  "scope": "Far-from-equilibrium physical and biological systems with formally definable M and δ; explicitly excludes equilibrium systems (passive stability, δ ≈ 0) and systems where M and δ cannot be operationalized",
+  "assumptions": [
+    "The system is demonstrably far from thermodynamic equilibrium.",
+    "Maintenance capacity M and perturbation amplitude δ are formally definable in the target domain.",
+    "Physical or biological upper bounds on M and δ exist and are non-trivial."
+  ],
+  "formal_objects": [
+    "M: maintenance capacity — domain instantiations: energy flux (thermodynamic), exchange interaction strength (physical ordering), autopoietic closure rate (biological), neural integration rate proxy (neural)",
+    "δ: perturbation amplitude — domain instantiations: thermal noise kT (thermodynamic), symmetry-breaking fluctuation amplitude (physical), pathogenic or entropic load (biological), sensory prediction error (neural)",
+    "Stability condition: M > δ",
+    "Far-from-equilibrium constraint: δ > 0 and system is not at thermodynamic ground state"
+  ],
+  "differentiators": [
+    "Derived from compression of ont-001 (Landauer/Bekenstein as bounds on M in extremal thermodynamic regimes), ont-002 (symmetry-breaking threshold as δ > M_exchange → disordered; M_exchange > δ → ordered), ont-003 (biological M = autopoietic maintenance; δ = pathogenic/entropic load), ont-004 (neural M = integration metric; δ = prediction error / sensory noise).",
+    "Excludes equilibrium systems: a crystal at 0K has δ ≈ 0 and M ≈ 0; equilibrium stability does not require M > δ with δ > 0.",
+    "Does NOT claim a single universal formalism; M and δ are domain-specific and must be independently operationalized.",
+    "Does NOT apply to ont-005 directly: ont-005 was deprecated for self-sealing; kernel-000 provides the falsifiable replacement for its surviving content."
+  ],
+  "break_tests": [
+    {
+      "setup": "Perfect crystal at 0K. δ → 0, M → 0. Is M > δ satisfied?",
+      "expected": "If universal without equilibrium exclusion, crystal must satisfy M > δ for persistence.",
+      "observed": "Crystal at 0K is at thermodynamic equilibrium (δ ≈ 0). Scope explicitly excludes equilibrium systems. Claim does not apply.",
+      "verdict": "PASS — equilibrium exclusion correctly handles this case without falsifying the claim."
+    },
+    {
+      "setup": "Living cell treated with metabolic inhibitor eliminating ATP production (M → 0) in environment with pathogenic load δ > 0.",
+      "expected": "If M > δ fails, structural persistence (life) terminates.",
+      "observed": "Cell dies. Biological structure collapses when maintenance capacity is eliminated under non-zero perturbation.",
+      "verdict": "PASS — claim confirmed."
+    },
+    {
+      "setup": "Ferromagnet: above T_c (δ_thermal > M_exchange → disordered); below T_c (M_exchange > δ_thermal → ordered).",
+      "expected": "Ordered structure appears only when M > δ.",
+      "observed": "Above T_c: disordered symmetric state (M < δ). Below T_c: broken-symmetry ordered state (M > δ). Transition at M = δ is T_c.",
+      "verdict": "PASS — claim confirmed for physical ordering transition."
+    }
+  ],
+  "falsifiers": [
+    "A far-from-equilibrium system demonstrably persisting structurally with M < δ by domain-specific metrics.",
+    "A domain where M and δ cannot be formally operationalized, requiring scope reduction rather than falsification."
+  ],
+  "neighbors": [
+    "Dissipative structures (Prigogine)",
+    "Free energy principle (Friston)",
+    "Lyapunov stability theory",
+    "ont-001",
+    "ont-002",
+    "ont-003",
+    "ont-004",
+    "ont-005"
+  ],
+  "status": "CAPTURE",
+  "references": [],
+  "decay_chain": ["kernel-000"]
+}

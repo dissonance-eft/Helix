@@ -2,6 +2,7 @@
 """Helix KB validator. Usage: python core/validate.py"""
 
 import json
+import subprocess
 import sys
 from pathlib import Path
 
@@ -51,6 +52,42 @@ def validate_objects(objects, schema):
     return errors
 
 
+VALID_TRANSITIONS = {
+    "CAPTURE":       {"CAPTURE", "STRESS_TESTED", "DEPRECATED"},
+    "STRESS_TESTED": {"STRESS_TESTED", "COMPRESSED", "DEPRECATED"},
+    "COMPRESSED":    {"COMPRESSED", "DEPRECATED"},
+    "DEPRECATED":    {"DEPRECATED"},
+}
+
+
+def validate_transitions(objects):
+    """Check status transitions against git HEAD. Return list of error strings."""
+    errors = []
+    for filename, obj in objects.items():
+        new_status = obj.get("status")
+        if not isinstance(new_status, str):
+            continue
+        try:
+            result = subprocess.run(
+                ["git", "show", f"HEAD:kb/{filename}"],
+                capture_output=True, text=True, encoding="utf-8", cwd=str(ROOT)
+            )
+            if result.returncode != 0:
+                continue
+            old_obj = json.loads(result.stdout)
+            old_status = old_obj.get("status")
+        except Exception:
+            continue
+        if not isinstance(old_status, str):
+            continue
+        if new_status not in VALID_TRANSITIONS.get(old_status, set()):
+            obj_id = obj.get("id", filename)
+            errors.append(
+                f"Invalid status transition: {old_status} -> {new_status} for {obj_id}"
+            )
+    return errors
+
+
 def validate_references(objects):
     """Check that every reference points to a known id. Return list of error strings."""
     known_ids = {obj["id"] for obj in objects.values() if isinstance(obj.get("id"), str)}
@@ -79,6 +116,7 @@ def main():
     all_errors.extend(parse_errors)
     all_errors.extend(validate_objects(objects, schema))
     all_errors.extend(validate_references(objects))
+    all_errors.extend(validate_transitions(objects))
 
     if not objects and not parse_errors:
         print("kb/ is empty — nothing to validate.")
