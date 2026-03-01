@@ -23,5 +23,16 @@
     "Strong disorder",
     "Gap closing"
   ],
-  "notes": "State persistence relies on topological invariant."
+  "notes": "State persistence relies on topological invariant.",
+  "persistence_ontology": "P2_GLOBAL_INVARIANT",
+  "persistence_ontology_confidence": "HIGH",
+  "persistence_ontology_rationale": "Derived via structural matching of observables and dynamics to ontology definitions.",
+  "substrate_type": "CONTINUOUS_MANIFOLD",
+  "substrate_formalism": "smooth manifold / ODE",
+  "dimensionality_form": "finite",
+  "metric_defined": "YES (Euclidean/Metric)",
+  "boundary_type_primary": "GLOBAL_DISCONTINUITY",
+  "boundary_locality": "GLOBAL",
+  "boundary_dimensionality_change": "YES",
+  "substrate_S1c": "CONTINUOUS"
 }

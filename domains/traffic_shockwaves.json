@@ -1,25 +1,36 @@
 {
-    "id": "traffic_shockwaves",
-    "domain": "Traffic flow shockwaves (Lighthill–Whitham–Richards PDE)",
-    "state_space": "Vehicle density ρ(x,t) and flow q(ρ) on a 1D spatial domain",
-    "dynamics_operator": "Continuity equation ∂ρ/∂t + ∂q/∂x = 0",
-    "perturbation_operator": "Local density fluctuations (braking, merging)",
-    "stability_condition": "Density ρ < critical density ρ_c (free flow regime)",
-    "failure_mode": "Shockwave formation (kinematic wave propagating upstream)",
-    "observable_metrics": [
-        "Vehicle density ρ",
-        "Average velocity v",
-        "Flow rate q"
-    ],
-    "timescale_regime": "Seconds to minutes (vehicle reaction times and wave propagation)",
-    "persistence_type": "PATTERN",
-    "non_geometric_elements": [
-        "Kinematic wave speed discontinuity",
-        "Jam density limit"
-    ],
-    "edge_conditions": [
-        "Capacity bottlenecks",
-        "Extreme density ρ → ρ_max"
-    ],
-    "notes": "Shockwaves represent a topological discontinuity in the density field."
+  "id": "traffic_shockwaves",
+  "domain": "Traffic flow shockwaves (Lighthill\u2013Whitham\u2013Richards PDE)",
+  "state_space": "Vehicle density \u03c1(x,t) and flow q(\u03c1) on a 1D spatial domain",
+  "dynamics_operator": "Continuity equation \u2202\u03c1/\u2202t + \u2202q/\u2202x = 0",
+  "perturbation_operator": "Local density fluctuations (braking, merging)",
+  "stability_condition": "Density \u03c1 < critical density \u03c1_c (free flow regime)",
+  "failure_mode": "Shockwave formation (kinematic wave propagating upstream)",
+  "observable_metrics": [
+    "Vehicle density \u03c1",
+    "Average velocity v",
+    "Flow rate q"
+  ],
+  "timescale_regime": "Seconds to minutes (vehicle reaction times and wave propagation)",
+  "persistence_type": "PATTERN",
+  "non_geometric_elements": [
+    "Kinematic wave speed discontinuity",
+    "Jam density limit"
+  ],
+  "edge_conditions": [
+    "Capacity bottlenecks",
+    "Extreme density \u03c1 \u2192 \u03c1_max"
+  ],
+  "notes": "Shockwaves represent a topological discontinuity in the density field.",
+  "persistence_ontology": "P2_GLOBAL_INVARIANT",
+  "persistence_ontology_confidence": "HIGH",
+  "persistence_ontology_rationale": "Derived via structural matching of observables and dynamics to ontology definitions.",
+  "substrate_type": "CONTINUOUS_FIELD",
+  "substrate_formalism": "PDE spatial field",
+  "dimensionality_form": "infinite",
+  "metric_defined": "YES (L2)",
+  "boundary_type_primary": "SINGULAR_DIVERGENCE",
+  "boundary_locality": "GLOBAL",
+  "boundary_dimensionality_change": "YES",
+  "substrate_S1c": "CONTINUOUS"
 }

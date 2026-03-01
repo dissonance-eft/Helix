@@ -23,5 +23,16 @@
   "edge_conditions": [
     "Virtual knots"
   ],
-  "notes": "Topological invariant; purely symbolic rules."
+  "notes": "Topological invariant; purely symbolic rules.",
+  "persistence_ontology": "P2_GLOBAL_INVARIANT",
+  "persistence_ontology_confidence": "HIGH",
+  "persistence_ontology_rationale": "Derived via structural matching of observables and dynamics to ontology definitions.",
+  "substrate_type": "SYMBOLIC_ALGEBRAIC",
+  "substrate_formalism": "formal system",
+  "dimensionality_form": "combinatorial",
+  "metric_defined": "NO",
+  "boundary_type_primary": "COMBINATORIAL_THRESHOLD",
+  "boundary_locality": "GLOBAL",
+  "boundary_dimensionality_change": "NO",
+  "substrate_S1c": "DISCRETE_SYMBOLIC"
 }

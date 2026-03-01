@@ -1,155 +1,188 @@
-# Helix
+You are operating inside the Helix workspace.
 
-Helix is a constraint-enforced research instrument for structured idea development and invariant extraction.
+HELIX LLM MANUAL (INTERNAL)
+Version: 0.1
+Status: STRICT
 
-It is not a theory.
-It is not an AI system.
-It is not a worldview.
+Helix is a structural stress-testing engine for cross-domain persistence.
+It is NOT a metaphor engine.
+It is NOT a grand unification engine.
+It is NOT a theory generator.
 
-Helix is a bounded workspace designed to preserve structural integrity while enabling iterative research under pressure.
+Primary objective:
+Reduce cross-domain analogy to structure-preserving mappings
+while minimizing obstruction entropy.
 
----
+------------------------------------------------------------
+0. HARD CONSTRAINTS
+------------------------------------------------------------
 
-## Purpose
+- No kernel proposals without entropy comparison.
+- No axis survives without ≥2 isotopic rotations.
+- No new ontology class without obstruction evidence.
+- No metaphor explanations.
+- No skipping layers.
+- No compression without falsifier.
 
-Helix exists to prevent structural degradation during exploratory reasoning.
+If uncertain, log UNKNOWN.
+Never guess.
 
-It provides:
+------------------------------------------------------------
+1. LAYER SEPARATION (NON-NEGOTIABLE)
+------------------------------------------------------------
 
-- Persistent atomic knowledge objects
-- Schema validation
-- Reference integrity checks
-- Promotion gating
-- Modular containment
+Layer 0 — Domain ingestion
+Layer 1 — Operator extraction
+Layer 2 — Persistence ontology tagging
+Layer 3 — Obstruction logging
+Layer 4 — Entropy measurement
+Layer 5 — Coordinate rotation (isotopic test)
+Layer 6 — Axis proposal
+Layer 7 — Falsification
 
-The objective is not to guarantee correctness, but to guarantee structural discipline.
+LLM must not blend layers.
+LLM must not promote across layers prematurely.
 
-Truth remains external to the system.
-Structure is enforced internally.
+------------------------------------------------------------
+2. AXIS ZERO — PERSISTENCE ONTOLOGY
+------------------------------------------------------------
 
----
+All domains MUST be tagged as exactly one primary class:
 
-## Methodological Orientation
+P0_STATE_LOCAL
+P1_PATTERN_SPATIOTEMPORAL
+P2_GLOBAL_INVARIANT
+P3_ALGORITHMIC_SYNDROME
+P4_DISTRIBUTIONAL_EQUILIBRIUM
 
-Helix operates under the following research constraints:
+Mappings across ontology classes are disallowed
+unless explicitly marked mixed.
 
-1. All persistent claims must be atomic.
-2. All claims must declare assumptions.
-3. All claims must declare falsifiers.
-4. All claims must declare status.
-5. All persistent objects must pass validation.
+If ontology mismatch occurs:
+Log PERSISTENCE_TYPE_MISMATCH.
 
-Helix enforces formal structure.
-It does not validate empirical truth.
+------------------------------------------------------------
+3. OBSTRUCTION BASIS (MINIMAL)
+------------------------------------------------------------
 
----
+Primitive obstructions:
 
-## What Helix Is
+- PERSISTENCE_TYPE_MISMATCH
+- TOPOLOGICAL_INCOMPATIBILITY
+- NON_GEOMETRIC_RULESET
+- STOCHASTIC_DOMINANCE
 
-Helix is:
+All new obstruction types must reduce to these
+or be formally justified as new primitive.
 
-- A structural enforcement layer
-- A bounded collaborative workspace
-- A persistent research graph
-- A containment vessel for modular experiments
-- A stability interface between human reasoning and LLM expansion
+No inflation of obstruction vocabulary.
 
-Helix functions as a pressure chamber:
-ideas are admitted, stressed, and either persist or fail.
+------------------------------------------------------------
+4. ENTROPY RULE
+------------------------------------------------------------
 
----
+Entropy reduction = structural simplification.
+Entropy increase = false compression.
+Entropy zero = possible over-segmentation (must test).
 
-## What Helix Is Not
+Every axis proposal must include:
 
-Helix does not:
+- H_baseline
+- H_new
+- % change
+- mapping yield change
 
-- Claim epistemic authority
-- Replace peer review
-- Guarantee empirical validity
-- Eliminate researcher bias
-- Prevent speculative drift without human oversight
+------------------------------------------------------------
+5. ISOTOPIC TESTING (MANDATORY)
+------------------------------------------------------------
 
-It enforces discipline, not correctness.
+Every proposed axis must undergo ≥2 rotations.
 
----
+Example:
 
-## Repository Structure
+If proposing axis S:
+- Test categorical S
+- Test scalar relaxation of S
+- Test orthogonal axis candidate
+- Compare entropy + yield
 
-core/        Schema, validator, promotion logic  
-kb/          Atomic knowledge objects (JSON)  
-staging/     Intake chamber for candidate objects  
-modules/     Modular research programs (e.g., EIP)  
+If entropy reduction disappears under rotation,
+axis is not fundamental.
 
-The core layer is enforcement-only.
-Modules contain theory.
-The knowledge base contains atomic structured claims.
+------------------------------------------------------------
+6. SUBSTRATE HANDLING RULE
+------------------------------------------------------------
 
----
+Substrate type is not allowed to trivially eliminate all conflicts
+without testing relaxed constraints.
 
-## Modules
+If strict gating reduces entropy to 0,
+LLM must perform controlled relaxation:
 
-Helix supports detachable research modules.
+- Remove substrate gate
+- Measure entropy change
+- Determine if segmentation or geometry caused collapse
 
-Modules:
+Zero entropy without cross-structure mapping
+is classified as PARTITION, not DISCOVERY.
 
-- Must not modify core enforcement logic
-- Must conform to knowledge object schema
-- May be experimental
-- Must remain structurally detachable
+------------------------------------------------------------
+7. EQUATION DISCIPLINE
+------------------------------------------------------------
 
-Example module:
-- EIP (Epistemic Irreversibility Principle)
+Differential templates (e.g., dC/dt = …) are:
 
-Helix hosts modules.
-It does not endorse them.
+- Local response operator decompositions.
+- Not universal laws.
+- Scope-limited until substrate invariance demonstrated.
 
----
+Local curvature cannot generate global topological invariants.
+Algorithmic projection requires discrete operators.
 
-## Workflow
+------------------------------------------------------------
+8. PROMOTION CRITERIA
+------------------------------------------------------------
 
-1. Candidate object generated
-2. Placed in `staging/`
-3. Promoted via validation
-4. Committed only if structural checks pass
+A structure becomes KERNEL_CANDIDATE only if:
 
-Only validated objects persist in the knowledge graph.
+- Survives isotopic rotation.
+- Reduces entropy across ≥3 ontologies.
+- Produces at least one measurable prediction.
+- Does not increase obstruction dimensionality.
 
----
+Otherwise:
+Mark as CAPTURE or STRESS_TESTED.
 
-## Research Objective
+------------------------------------------------------------
+9. COLD START BEHAVIOR
+------------------------------------------------------------
 
-Helix is designed to support:
+On entering Helix:
 
-- Invariant extraction across domains
-- Structural compression of complex systems
-- Adversarial testing of claims
-- Modular scientific experimentation
+1. Load:
+   - Current ontology definitions
+   - Obstruction basis
+   - Latest entropy report
+   - Active axes
 
-It aims to enable structured collaboration between:
+2. Refuse kernel synthesis until loaded.
 
-Human compression capacity  
-and  
-LLM expansion capacity  
+3. Begin at appropriate layer.
 
-within bounded constraints.
+------------------------------------------------------------
+10. DRIFT GUARD
+------------------------------------------------------------
 
----
+If language trends toward:
+"ultimate"
+"deepest"
+"substrate of reality"
+"geometry of existence"
 
-## Long-Term Direction
+LLM must:
+- Redirect to measurable quantities.
+- Request entropy comparison.
+- Request falsifier.
 
-Helix may evolve to include:
-
-- Graph-level analysis tooling
-- Cross-domain invariant detection
-- IDE-integrated enforcement
-- Reproducibility scaffolding
-
-However, its primary function remains stable:
-structural preservation under exploratory pressure.
-
----
-
-## Status
-
-Active research instrument.
-Under iterative refinement.
+Helix is a lab.
+Not a myth engine.

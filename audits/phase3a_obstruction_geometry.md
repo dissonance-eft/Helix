@@ -1,0 +1,147 @@
+# Phase 3A: Obstruction Geometry
+
+## Vectors (Normalized)
+- adaptive_immunity: [1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+- bond_percolation: [0.267, 0.133, 0.333, 0.2, 0.0, 0.067, 0.0]
+- chern_insulator: [0.267, 0.267, 0.267, 0.2, 0.0, 0.0, 0.0]
+- constitutional_law: [0.267, 0.0, 0.333, 0.2, 0.0, 0.2, 0.0]
+- homological_algebra: [0.267, 0.067, 0.067, 0.6, 0.0, 0.0, 0.0]
+- knot_invariants: [0.267, 0.0, 0.133, 0.6, 0.0, 0.0, 0.0]
+- language_grammar: [0.867, 0.067, 0.067, 0.0, 0.0, 0.0, 0.0]
+- lotka_volterra: [0.867, 0.067, 0.067, 0.0, 0.0, 0.0, 0.0]
+- nakamoto_consensus: [0.267, 0.133, 0.333, 0.2, 0.0, 0.067, 0.0]
+- protein_folding: [0.267, 0.267, 0.267, 0.2, 0.0, 0.0, 0.0]
+- quantum_error_correction: [0.267, 0.267, 0.267, 0.2, 0.0, 0.0, 0.0]
+- stabilizer_code_passive: [0.267, 0.133, 0.333, 0.2, 0.0, 0.067, 0.0]
+- supermajority_amendment: [0.267, 0.067, 0.067, 0.6, 0.0, 0.0, 0.0]
+- supply_chain: [0.267, 0.267, 0.267, 0.2, 0.0, 0.0, 0.0]
+- tokamak_plasma: [0.267, 0.267, 0.267, 0.2, 0.0, 0.0, 0.0]
+- traffic_shockwaves: [0.867, 0.0, 0.133, 0.0, 0.0, 0.0, 0.0]
+
+## Pairwise Cosine Similarity
+- adaptive_immunity x bond_percolation: 0.539
+- adaptive_immunity x chern_insulator: 0.530
+- adaptive_immunity x constitutional_law: 0.521
+- adaptive_immunity x homological_algebra: 0.402
+- adaptive_immunity x knot_invariants: 0.398
+- adaptive_immunity x language_grammar: 0.994
+- adaptive_immunity x lotka_volterra: 0.994
+- adaptive_immunity x nakamoto_consensus: 0.539
+- adaptive_immunity x protein_folding: 0.530
+- adaptive_immunity x quantum_error_correction: 0.530
+- adaptive_immunity x stabilizer_code_passive: 0.539
+- adaptive_immunity x supermajority_amendment: 0.402
+- adaptive_immunity x supply_chain: 0.530
+- adaptive_immunity x tokamak_plasma: 0.530
+- adaptive_immunity x traffic_shockwaves: 0.988
+- bond_percolation x chern_insulator: 0.947
+- bond_percolation x constitutional_law: 0.930
+- bond_percolation x homological_algebra: 0.678
+- bond_percolation x knot_invariants: 0.711
+- bond_percolation x language_grammar: 0.608
+- bond_percolation x lotka_volterra: 0.608
+- bond_percolation x nakamoto_consensus: 1.000
+- bond_percolation x protein_folding: 0.947
+- bond_percolation x quantum_error_correction: 0.947
+- bond_percolation x stabilizer_code_passive: 1.000
+- bond_percolation x supermajority_amendment: 0.678
+- bond_percolation x supply_chain: 0.947
+- bond_percolation x tokamak_plasma: 0.947
+- bond_percolation x traffic_shockwaves: 0.636
+- chern_insulator x constitutional_law: 0.776
+- chern_insulator x homological_algebra: 0.679
+- chern_insulator x knot_invariants: 0.672
+- chern_insulator x language_grammar: 0.608
+- chern_insulator x lotka_volterra: 0.608
+- chern_insulator x nakamoto_consensus: 0.947
+- chern_insulator x protein_folding: 1.000
+- chern_insulator x quantum_error_correction: 1.000
+- chern_insulator x stabilizer_code_passive: 0.947
+- chern_insulator x supermajority_amendment: 0.679
+- chern_insulator x supply_chain: 1.000
+- chern_insulator x tokamak_plasma: 1.000
+- chern_insulator x traffic_shockwaves: 0.604
+- constitutional_law x homological_algebra: 0.628
+- constitutional_law x knot_invariants: 0.687
+- constitutional_law x language_grammar: 0.567
+- constitutional_law x lotka_volterra: 0.567
+- constitutional_law x nakamoto_consensus: 0.930
+- constitutional_law x protein_folding: 0.776
+- constitutional_law x quantum_error_correction: 0.776
+- constitutional_law x stabilizer_code_passive: 0.930
+- constitutional_law x supermajority_amendment: 0.628
+- constitutional_law x supply_chain: 0.776
+- constitutional_law x tokamak_plasma: 0.776
+- constitutional_law x traffic_shockwaves: 0.614
+- homological_algebra x knot_invariants: 0.990
+- homological_algebra x language_grammar: 0.415
+- homological_algebra x lotka_volterra: 0.415
+- homological_algebra x nakamoto_consensus: 0.678
+- homological_algebra x protein_folding: 0.679
+- homological_algebra x quantum_error_correction: 0.679
+- homological_algebra x stabilizer_code_passive: 0.678
+- homological_algebra x supermajority_amendment: 1.000
+- homological_algebra x supply_chain: 0.679
+- homological_algebra x tokamak_plasma: 0.679
+- homological_algebra x traffic_shockwaves: 0.413
+- knot_invariants x language_grammar: 0.411
+- knot_invariants x lotka_volterra: 0.411
+- knot_invariants x nakamoto_consensus: 0.711
+- knot_invariants x protein_folding: 0.672
+- knot_invariants x quantum_error_correction: 0.672
+- knot_invariants x stabilizer_code_passive: 0.711
+- knot_invariants x supermajority_amendment: 0.990
+- knot_invariants x supply_chain: 0.672
+- knot_invariants x tokamak_plasma: 0.672
+- knot_invariants x traffic_shockwaves: 0.424
+- language_grammar x lotka_volterra: 1.000
+- language_grammar x nakamoto_consensus: 0.608
+- language_grammar x protein_folding: 0.608
+- language_grammar x quantum_error_correction: 0.608
+- language_grammar x stabilizer_code_passive: 0.608
+- language_grammar x supermajority_amendment: 0.415
+- language_grammar x supply_chain: 0.608
+- language_grammar x tokamak_plasma: 0.608
+- language_grammar x traffic_shockwaves: 0.994
+- lotka_volterra x nakamoto_consensus: 0.608
+- lotka_volterra x protein_folding: 0.608
+- lotka_volterra x quantum_error_correction: 0.608
+- lotka_volterra x stabilizer_code_passive: 0.608
+- lotka_volterra x supermajority_amendment: 0.415
+- lotka_volterra x supply_chain: 0.608
+- lotka_volterra x tokamak_plasma: 0.608
+- lotka_volterra x traffic_shockwaves: 0.994
+- nakamoto_consensus x protein_folding: 0.947
+- nakamoto_consensus x quantum_error_correction: 0.947
+- nakamoto_consensus x stabilizer_code_passive: 1.000
+- nakamoto_consensus x supermajority_amendment: 0.678
+- nakamoto_consensus x supply_chain: 0.947
+- nakamoto_consensus x tokamak_plasma: 0.947
+- nakamoto_consensus x traffic_shockwaves: 0.636
+- protein_folding x quantum_error_correction: 1.000
+- protein_folding x stabilizer_code_passive: 0.947
+- protein_folding x supermajority_amendment: 0.679
+- protein_folding x supply_chain: 1.000
+- protein_folding x tokamak_plasma: 1.000
+- protein_folding x traffic_shockwaves: 0.604
+- quantum_error_correction x stabilizer_code_passive: 0.947
+- quantum_error_correction x supermajority_amendment: 0.679
+- quantum_error_correction x supply_chain: 1.000
+- quantum_error_correction x tokamak_plasma: 1.000
+- quantum_error_correction x traffic_shockwaves: 0.604
+- stabilizer_code_passive x supermajority_amendment: 0.678
+- stabilizer_code_passive x supply_chain: 0.947
+- stabilizer_code_passive x tokamak_plasma: 0.947
+- stabilizer_code_passive x traffic_shockwaves: 0.636
+- supermajority_amendment x supply_chain: 0.679
+- supermajority_amendment x tokamak_plasma: 0.679
+- supermajority_amendment x traffic_shockwaves: 0.413
+- supply_chain x tokamak_plasma: 1.000
+- supply_chain x traffic_shockwaves: 0.604
+- tokamak_plasma x traffic_shockwaves: 0.604
+
+## Clusters (Similarity > 0.8)
+- Cluster 1: tokamak_plasma, quantum_error_correction, stabilizer_code_passive, chern_insulator, bond_percolation, supply_chain, protein_folding, nakamoto_consensus
+- Cluster 2: traffic_shockwaves, language_grammar, adaptive_immunity, lotka_volterra
+- Cluster 3: knot_invariants, supermajority_amendment, homological_algebra
+- Cluster 4: constitutional_law
