@@ -1,0 +1,25 @@
+{
+    "id": "lotka_volterra",
+    "domain": "Predator–prey Lotka–Volterra oscillatory ecosystems",
+    "state_space": "Population sizes of prey x(t) and predator y(t)",
+    "dynamics_operator": "Coupled differential equations: dx/dt = αx - βxy, dy/dt = δxy - γy",
+    "perturbation_operator": "Stochastic population shocks, environmental carrying capacity changes, disease",
+    "stability_condition": "Trajectories form closed orbits (neutrally stable limit cycles) around fixed point",
+    "failure_mode": "Local extinction of either species (x=0 or y=0 absorbing states)",
+    "observable_metrics": [
+        "Prey population count",
+        "Predator population count",
+        "Phase amplitude"
+    ],
+    "timescale_regime": "Generations (seasons to years)",
+    "persistence_type": "PATTERN",
+    "non_geometric_elements": [
+        "Absorbing boundary at zero population",
+        "Neutral stability of orbits without carrying capacity"
+    ],
+    "edge_conditions": [
+        "Low population numbers (demographic stochasticity)",
+        "Allee effects"
+    ],
+    "notes": "Persistence is a dynamical pattern, not a static state."
+}

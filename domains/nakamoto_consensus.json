@@ -1,0 +1,26 @@
+{
+    "id": "nakamoto_consensus",
+    "domain": "Nakamoto-style blockchain consensus",
+    "state_space": "Distributed ledger appending a chain of cryptographic hash blocks",
+    "dynamics_operator": "Proof-of-Work hashing, block propagation, longest-chain rule adoption",
+    "perturbation_operator": "Network partitions, adversarial hash power, selfish mining",
+    "stability_condition": "Honest node hash rate > 50% of total network hash rate",
+    "failure_mode": "51% attack, deep chain reorganization, double spending",
+    "observable_metrics": [
+        "Total computational hash rate",
+        "Block time",
+        "Network latency",
+        "Orphan rate"
+    ],
+    "timescale_regime": "Minutes (block time) to hours (transaction finality)",
+    "persistence_type": "STATE",
+    "non_geometric_elements": [
+        "Cryptographic hash collision resistance",
+        "Economic incentives"
+    ],
+    "edge_conditions": [
+        "Difficulty adjustment lag",
+        "Network eclipse"
+    ],
+    "notes": "State persistence relies on continuous competitive energy expenditure."
+}

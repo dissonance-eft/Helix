@@ -1,0 +1,27 @@
+{
+  "id": "homological_algebra",
+  "domain": "Homological algebra (exact sequence persistence)",
+  "state_space": "Chain complexes of R-modules",
+  "dynamics_operator": "Boundary morphisms (d^2 = 0)",
+  "perturbation_operator": "Chain homotopies",
+  "stability_condition": "Isomorphism of homology groups",
+  "failure_mode": "Failure of exactness at boundaries",
+  "observable_metrics": [
+    {
+      "name": "Betti numbers",
+      "type": "TOPOLOGICAL_INVARIANT",
+      "estimator": "Rank of homology groups",
+      "units_or_none": "integer"
+    }
+  ],
+  "timescale_regime": "Index of complex (integer steps)",
+  "persistence_type": "STATE",
+  "non_geometric_elements": [
+    "Algebraic symbols",
+    "Morphisms"
+  ],
+  "edge_conditions": [
+    "Non-Noetherian rings"
+  ],
+  "notes": "Purely symbolic and algebraic structure."
+}

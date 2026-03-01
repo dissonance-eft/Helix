@@ -88,6 +88,15 @@ def validate_transitions(objects):
     return errors
 
 
+def validate_observables(objects):
+    errors = []
+    for filename, obj in objects.items():
+        obs = obj.get('observable_metrics', [])
+        for o in obs:
+            if o.get('type') == 'CUSTOM':
+                print(f'WARNING: {filename} uses CUSTOM observable type for {o.get("name")}')
+    return errors
+
 def validate_references(objects):
     """Check that every reference points to a known id. Return list of error strings."""
     known_ids = {obj["id"] for obj in objects.values() if isinstance(obj.get("id"), str)}
@@ -117,6 +126,7 @@ def main():
     all_errors.extend(validate_objects(objects, schema))
     all_errors.extend(validate_references(objects))
     all_errors.extend(validate_transitions(objects))
+    all_errors.extend(validate_observables(objects))
 
     if not objects and not parse_errors:
         print("kb/ is empty — nothing to validate.")

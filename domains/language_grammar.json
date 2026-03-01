@@ -1,0 +1,25 @@
+{
+    "id": "language_grammar",
+    "domain": "Language grammar drift (neutral cultural evolution)",
+    "state_space": "Population distribution of syntactic rules and lexical usage frequencies",
+    "dynamics_operator": "Intergenerational transmission, stochastic learning, social interaction",
+    "perturbation_operator": "Transmission errors, substrate interference, language contact, sociolinguistic innovation",
+    "stability_condition": "Fixation or high-frequency equilibrium of grammatical variants",
+    "failure_mode": "Grammatical restructuring, Creole formation, language death",
+    "observable_metrics": [
+        "Variant frequency",
+        "Rate of lexical replacement",
+        "Syntactic complexity"
+    ],
+    "timescale_regime": "Generations (decades to centuries)",
+    "persistence_type": "PATTERN",
+    "non_geometric_elements": [
+        "Arbitrariness of the sign",
+        "Discrete combinatorial syntax"
+    ],
+    "edge_conditions": [
+        "Population bottlenecks",
+        "Rapid substrate shift"
+    ],
+    "notes": "Grammar persists through continuous imperfect replication without singular state attractors."
+}

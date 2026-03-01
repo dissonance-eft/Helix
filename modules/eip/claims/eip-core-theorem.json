@@ -22,6 +22,11 @@
     "E: energy budget",
     "L*: locality horizon certificate"
   ],
+  "reduction_map": [
+    "POMDP reachability with irreversible sinks",
+    "Decision tree lower bounds",
+    "Active learning under absorbing states"
+  ],
   "status": "CAPTURE",
   "references": []
 }

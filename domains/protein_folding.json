@@ -1,0 +1,27 @@
+{
+    "id": "protein_folding",
+    "domain": "Protein folding energy landscapes",
+    "state_space": "Conformational space of polypeptide backbone and side-chain dihedral angles",
+    "dynamics_operator": "Molecular dynamics driven by free energy minimization (funnel landscape)",
+    "perturbation_operator": "Thermal fluctuations, pH changes, denaturants, mechanical force",
+    "stability_condition": "Native state free energy minimum separated by sufficiently high kinetic barrier (ΔG_fold < 0 and E_a large)",
+    "failure_mode": "Unfolding, misfolding, amyloid aggregation",
+    "observable_metrics": [
+        "Fraction folded",
+        "Radius of gyration",
+        "Heat capacity C_p",
+        "FRET efficiency"
+    ],
+    "timescale_regime": "Microseconds to seconds (folding trajectory and residence time)",
+    "persistence_type": "STATE",
+    "non_geometric_elements": [
+        "Topological knots in native fold",
+        "Frustration in non-native contacts",
+        "Sequence specificity"
+    ],
+    "edge_conditions": [
+        "High temperature (T > T_m)",
+        "Extreme crowding"
+    ],
+    "notes": "Structure is trapped in a deep local minimum of a funnel-shaped free energy landscape."
+}

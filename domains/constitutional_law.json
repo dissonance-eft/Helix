@@ -1,0 +1,26 @@
+{
+    "id": "constitutional_law",
+    "domain": "Constitutional legal systems under judicial review",
+    "state_space": "Corpus of binding legal doctrine and constitutional precedent",
+    "dynamics_operator": "Legislative enactment, executive action, judicial interpretation",
+    "perturbation_operator": "Unconstitutional legislation, novel jurisprudential challenges, societal value shifts",
+    "stability_condition": "Judicial invalidation of unconstitutional acts maintains doctrinal coherence",
+    "failure_mode": "Constitutional crisis, judicial capture, or systemic abrogation of binding precedent",
+    "observable_metrics": [
+        "Overturned laws ratio",
+        "Supreme Court decision alignments",
+        "Amending frequency"
+    ],
+    "timescale_regime": "Years to decades (judicial terms and legal generations)",
+    "persistence_type": "STATE",
+    "non_geometric_elements": [
+        "Normative interpretation",
+        "Institutional legitimacy",
+        "Semantic ambiguity"
+    ],
+    "edge_conditions": [
+        "Court packing",
+        "Executive non-compliance"
+    ],
+    "notes": "Stability requires continuous interpretative maintenance against legislative drift."
+}

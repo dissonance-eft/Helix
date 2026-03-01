@@ -1,0 +1,25 @@
+{
+    "id": "quantum_error_correction",
+    "domain": "Quantum Error Correction Codes (surface code)",
+    "state_space": "Hilbert space with logical qubit subspace defined by stabilizer syndromes",
+    "dynamics_operator": "Unitary evolution and projective syndrome measurements",
+    "perturbation_operator": "Pauli errors (X, Y, Z)",
+    "stability_condition": "Error weight < code distance d/2",
+    "failure_mode": "Logical Pauli operator formation (unrecoverable state change)",
+    "observable_metrics": [
+        "Syndrome measurements",
+        "Logical error rate",
+        "Code distance d"
+    ],
+    "timescale_regime": "Discrete syndrome measurement cycles",
+    "persistence_type": "STATE",
+    "non_geometric_elements": [
+        "Topological code distance",
+        "Projective measurement collapse"
+    ],
+    "edge_conditions": [
+        "Error probability approaching physical threshold",
+        "Measurement latency"
+    ],
+    "notes": "Topological invariant protects information; stability scales with code distance."
+}

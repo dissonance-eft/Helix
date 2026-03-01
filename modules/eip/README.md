@@ -8,8 +8,13 @@ Core claim: for any agent with finite epistemic capacity, there exists an inform
 
 ## Status
 
-Experimental. Active empirical testing underway.
-Theory is provisional. Results are partial.
+Current reduction map indicates that EIP may compress known results in:
+- POMDP reachability with irreversible sinks
+- Decision tree lower bounds
+- Active learning under absorbing states
+
+Novel predictive content remains unproven.
+EIP is currently positioned as a compression candidate, not a confirmed generative law.
 
 ## Structure
 

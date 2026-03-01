@@ -1,0 +1,27 @@
+{
+  "id": "knot_invariants",
+  "domain": "Knot invariants under Reidemeister moves",
+  "state_space": "Set of knot diagrams",
+  "dynamics_operator": "Sequence of Reidemeister moves",
+  "perturbation_operator": "Ambient isotopy preserving ambient space",
+  "stability_condition": "Topological equivalence class under Reidemeister moves",
+  "failure_mode": "Strand crossing (cutting and re-gluing)",
+  "observable_metrics": [
+    {
+      "name": "Crossing number",
+      "type": "TOPOLOGICAL_INVARIANT",
+      "estimator": "Minimal diagram crossings",
+      "units_or_none": "integer"
+    }
+  ],
+  "timescale_regime": "Discrete sequence length",
+  "persistence_type": "STATE",
+  "non_geometric_elements": [
+    "Topological invariant",
+    "Reidemeister moves (symbolic manipulation)"
+  ],
+  "edge_conditions": [
+    "Virtual knots"
+  ],
+  "notes": "Topological invariant; purely symbolic rules."
+}

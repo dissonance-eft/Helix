@@ -1,0 +1,25 @@
+{
+    "id": "tokamak_plasma",
+    "domain": "Magnetically confined plasma (tokamak MHD stability)",
+    "state_space": "Plasma pressure p, magnetic field B, fluid velocity v",
+    "dynamics_operator": "Ideal and resistive Magnetohydrodynamics (MHD) equations",
+    "perturbation_operator": "Kink modes, tearing modes, ballooning instabilities, neoclassical tearing",
+    "stability_condition": "Safety factor q > 1; energy principle δW > 0 for all displacements",
+    "failure_mode": "Major disruption, thermal quench, magnetic reconnection, loss of confinement",
+    "observable_metrics": [
+        "Plasma current",
+        "Magnetic safety factor q",
+        "Beta (ratio of plasma pressure to magnetic pressure)"
+    ],
+    "timescale_regime": "Microseconds (Alfvén time) to seconds (resistive diffusion time)",
+    "persistence_type": "STATE",
+    "non_geometric_elements": [
+        "Magnetic helicity",
+        "Topological reconnection of magnetic field lines"
+    ],
+    "edge_conditions": [
+        "Density limit (Greenwald limit)",
+        "Resonant magnetic perturbations"
+    ],
+    "notes": "Confinement requires continuous external magnetic flux maintenance against intrinsic fluid instabilities."
+}

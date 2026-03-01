@@ -1,0 +1,26 @@
+{
+  "id": "bond_percolation",
+  "domain": "Phase transition in percolation (bond percolation criticality)",
+  "state_space": "Configuration of open and closed bonds on a lattice",
+  "dynamics_operator": "Independent random bond activation with probability p",
+  "perturbation_operator": "Macroscopic variation in bond probability parameter",
+  "stability_condition": "p < p_c (subcritical) or p > p_c (supercritical)",
+  "failure_mode": "Critical transition p -> p_c",
+  "observable_metrics": [
+    {
+      "name": "Correlation length",
+      "type": "CORRELATION_LENGTH",
+      "estimator": "Average finite cluster size radius",
+      "units_or_none": "lattice units"
+    }
+  ],
+  "timescale_regime": "Static configuration ensembles",
+  "persistence_type": "STATE",
+  "non_geometric_elements": [
+    "Critical exponent universality"
+  ],
+  "edge_conditions": [
+    "Finite size effects"
+  ],
+  "notes": "Geometric scale-invariant criticality."
+}

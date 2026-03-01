@@ -1,0 +1,27 @@
+{
+  "id": "stabilizer_code_passive",
+  "domain": "Stabilizer code logical qubits without active correction",
+  "state_space": "Simultaneous +1 eigenspace of commuting Pauli stabilizers",
+  "dynamics_operator": "Unitary Pauli channel noise accumulation",
+  "perturbation_operator": "Local physical Pauli errors",
+  "stability_condition": "Error weight w < d/2",
+  "failure_mode": "Logical error accumulation crossing distance threshold",
+  "observable_metrics": [
+    {
+      "name": "Stabilizer expectation",
+      "type": "INFORMATION_METRIC",
+      "estimator": "Ancilla parity checks",
+      "units_or_none": "bits"
+    }
+  ],
+  "timescale_regime": "Exponential decay as T approaches coherence limit",
+  "persistence_type": "STATE",
+  "non_geometric_elements": [
+    "Commutation relations",
+    "Syndrome algebraic structure"
+  ],
+  "edge_conditions": [
+    "High physical error rate exceeding threshold"
+  ],
+  "notes": "Algebraic persistence scaling with distance without active throughput."
+}

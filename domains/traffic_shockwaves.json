@@ -1,0 +1,25 @@
+{
+    "id": "traffic_shockwaves",
+    "domain": "Traffic flow shockwaves (Lighthill–Whitham–Richards PDE)",
+    "state_space": "Vehicle density ρ(x,t) and flow q(ρ) on a 1D spatial domain",
+    "dynamics_operator": "Continuity equation ∂ρ/∂t + ∂q/∂x = 0",
+    "perturbation_operator": "Local density fluctuations (braking, merging)",
+    "stability_condition": "Density ρ < critical density ρ_c (free flow regime)",
+    "failure_mode": "Shockwave formation (kinematic wave propagating upstream)",
+    "observable_metrics": [
+        "Vehicle density ρ",
+        "Average velocity v",
+        "Flow rate q"
+    ],
+    "timescale_regime": "Seconds to minutes (vehicle reaction times and wave propagation)",
+    "persistence_type": "PATTERN",
+    "non_geometric_elements": [
+        "Kinematic wave speed discontinuity",
+        "Jam density limit"
+    ],
+    "edge_conditions": [
+        "Capacity bottlenecks",
+        "Extreme density ρ → ρ_max"
+    ],
+    "notes": "Shockwaves represent a topological discontinuity in the density field."
+}
