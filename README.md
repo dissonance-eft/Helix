@@ -137,7 +137,10 @@ Layer 6 — Axis proposal (Meta-Kernel Lab)
 Layer 7 — Falsification / Necessity Suite
 Layer 8 — Consolidation (Measurement / Operator Algebra)
 Layer 9 — Hardening (CE-OS Privilege Rings / Determinism Probes)
-Layer 10 — Intervention Transfer (Structural Vaccines)
+Layer 10 — Intervention Transfer (Structural Transfers)
+Layer 11 — Meta-Kernel Projection (Manifold Compression)
+Layer 12 — Relational Discovery (Isomorphic Matching)
+Layer 13 — Isotopic Feedback Loops (Schema Mutation)
 
 LLM must not blend layers.
 LLM must not promote across layers prematurely.
