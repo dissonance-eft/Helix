@@ -11,9 +11,9 @@ ROOT = Path(__file__).resolve().parent.parent
 def check_ring_vulnerabilities():
     """
     Scans /core/ (Ring 0) for upward dependencies.
-    Ring 0 MUST NOT import from instrumentation, modules, or os.
+    Ring 0 MUST NOT import from protocol, sandbox, or runtime.
     """
-    forbidden_layers = ['instrumentation', 'modules', 'os', 'infra', 'layers']
+    forbidden_layers = ['protocol', 'sandbox', 'runtime', 'infra', 'layers']
     core_path = ROOT / 'core'
     violations = []
 

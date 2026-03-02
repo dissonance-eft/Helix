@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CORE_DIR = ROOT / 'core'
-LOG_FILE = ROOT / 'instrumentation' / 'amendment_log.json'
+LOG_FILE = ROOT / 'protocol' / 'amendment_log.json'
 
 def log_amendment_request(proposal_data):
     log = []

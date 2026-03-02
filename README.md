@@ -74,11 +74,11 @@ Human-readable reports.
 
 /tests
 Structural invariance enforcement.
-- Eigenspace stability.
-- Obstruction rank.
-- Representation invariance.
-- Pipeline integrity.
-- (Optional) Doc traceability checks.
+- Ring 0: `/core/` (Sacred Foundation)
+- Ring 1: `/protocol/` (Instrumentation & Governance)
+- Ring 2: `/sandbox/` (Research & Modules)
+- Ring 3: `/runtime/` (Host Interface & OS)
+- Structural invariance enforcement.
 
 PIPELINE FLOW (STRICT)
 
