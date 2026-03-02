@@ -29,7 +29,7 @@ def run_tests():
             sys.exit(1)
 
 def validate_run_environment():
-    ds_hash = compute_dataset_hash([os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'), 'data/overlays', 'core/schema', 'core/enums'])
+    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'), 'data/overlays', 'core/schema', 'core/enums']])
     manifest_path = ARTIFACTS_DIR / 'run_manifest.json'
     if not manifest_path.exists():
         print("Manifest missing, cannot execute read-only command.")
@@ -86,19 +86,19 @@ def test_cmd(args):
     run_tests()
 
 def diff_cmd(args):
-    print(f"Structural Diff {args.old_hash} -> {args.new_hash}")
-    print("Entropy delta: -0.015 bits")
-    print("Beam variance delta: +0.02%")
-    print("Obstruction spectrum delta: 0 (stable)")
-    print("Hybrid risk delta: -5.3")
-    print("Dataset size delta: +12 domains")
-    print("Structural debt delta: -1 TODOs")
+    from infra.platform.structural_diff import execute_diff
+    execute_diff(ARTIFACTS_DIR, ROOT, args.old_hash, args.new_hash)
 
 def query_cmd(args):
-    manifest = validate_environment()
-    print(f"Querying state {manifest['dataset_hash']}...")
-    print(f"Filters applied: {args.filters}")
-    print("Results: 42 domains match query.")
+    validate_run_environment()
+    from infra.platform.cli_query import execute_query
+    execute_query(ARTIFACTS_DIR, args.query_type, args.query_args)
+
+def graph_cmd(args):
+    validate_run_environment()
+    from infra.platform.visual_graphing import generate_graph
+    out_dir = ROOT / 'docs' / 'runs'
+    generate_graph(args.domain_id, ARTIFACTS_DIR, out_dir)
 
 def snapshot_cmd(args):
     validate_environment()
@@ -112,10 +112,9 @@ def audit_cmd(args):
     print("Audit passed: crosslink integrity verified.")
 
 def falsify_cmd(args):
-    validate_environment()
-    print("Generating synthetic counterexamples...")
-    print("Attempting invariant violations: 420 cases.")
-    print("Falsification complete. Laws broken: 0")
+    validate_run_environment()
+    from layers.l5_expansion.adversarial_red_team import run_adversarial_sandbox
+    run_adversarial_sandbox(ARTIFACTS_DIR, ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'))
 
 def main():
     parser = argparse.ArgumentParser(description="Helix Research Instrument CLI")
@@ -126,11 +125,15 @@ def main():
     parser_test = subparsers.add_parser('test', help="Run test suite")
     
     parser_diff = subparsers.add_parser('diff', help="Diff two structural runs")
-    parser_diff.add_argument('old_hash')
-    parser_diff.add_argument('new_hash')
+    parser_diff.add_argument('old_hash', help="Older git commit hash to compare against")
+    parser_diff.add_argument('new_hash', nargs='?', default='HEAD', help="Newer git commit hash (default HEAD)")
     
     parser_query = subparsers.add_parser('query', help="Query artifacts")
-    parser_query.add_argument('filters', nargs='*')
+    parser_query.add_argument('query_type', choices=['anomalies', 'trace', 'search', 'isomorphic', 'synthesize'], help="Type of query to run")
+    parser_query.add_argument('query_args', nargs='*', help="Arguments for the specific query type")
+    
+    parser_graph = subparsers.add_parser('graph', help="Generate Mermaid.js epistemic graph")
+    parser_graph.add_argument('domain_id', help="ID of domain to graph (e.g., traffic_shockwaves)")
     
     parser_snapshot = subparsers.add_parser('snapshot', help="Bundle snapshot")
     parser_audit = subparsers.add_parser('audit', help="Audit crosslinks")
@@ -142,6 +145,7 @@ def main():
     elif args.command == 'test': test_cmd(args)
     elif args.command == 'diff': diff_cmd(args)
     elif args.command == 'query': query_cmd(args)
+    elif args.command == 'graph': graph_cmd(args)
     elif args.command == 'snapshot': snapshot_cmd(args)
     elif args.command == 'audit': audit_cmd(args)
     elif args.command == 'falsify': falsify_cmd(args)

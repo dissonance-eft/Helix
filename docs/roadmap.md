@@ -145,12 +145,37 @@ Consolidate all planned but not yet fully implemented structural upgrades into a
 
 ---
 
-### PHASE H — Infrastructure (Optional Future)
-**H1)** Cloud execution mode
-**H2)** Remote LLM audit interface
-**H3)** Scalable dataset ingestion pipeline
+### PHASE I — Infrastructure & Ergonomics
+**I1) Interactive Query CLI**
+- Expose artifacts through read-only `helix.py query` commands.
+- Quick path-tracing for anomalies without JSON diving.
 
-*Not required for structural validity.*
+**I2) Automated Structural Diff**
+- Compute `helix.py diff` to show eigenspace drift and risk changes between git HEAD and current artifacts.
+- Immediate feedback on theoretical collateral damage.
+
+**I3) Visual Epistemic Graphing**
+- `helix.py graph` to output `docs/runs/<domain>_graph.md` via Mermaid.js.
+- Trace domain execution path visually via the Constraint Pyramid.
+
+---
+
+### PHASE J — Discovery Engine
+**J1) Cross-Domain Isomorphism Engine**
+- Compute structural distance across L1-L4 artifacts.
+- Output domains with >95% similarity in boundary preconditions.
+
+**J2) Missing Constraint Synthesis**
+- Trace `UNDEFINED` domains to extrapolate theoretical boundaries required for stabilization.
+- Output formal questions for directed research.
+
+**J3) Adversarial Red-Teaming Sub-Agent**
+- Programmatically mutate parameters (zero noise, infinite dimension) to hunt for edge-cases.
+
+### PHASE K — Data Ingestion Pipeline
+**K1) Automated ArXiv Parsing Interface**
+- Scaffolding to consume raw textual PDFs/papers.
+- Automated conversion into rigid `core/` domain topologies for high-throughput stress testing.
 
 ---
 
