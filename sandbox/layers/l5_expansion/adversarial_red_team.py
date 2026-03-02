@@ -11,7 +11,7 @@ def run_adversarial_sandbox(artifacts_dir: Path, domains_dir: Path = None):
     print("Hunting for Kernel-002 Edge Cases via Parameter Mutation...\n")
     
     if domains_dir is None:
-        domains_dir = Path("data/domains")
+        domains_dir = Path("sandbox/domain_data/domains")
         
     if not domains_dir.exists():
         print(f"Cannot find domains directory at {domains_dir}.")

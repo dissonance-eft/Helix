@@ -4,10 +4,10 @@ import random
 from pathlib import Path
 from sklearn.metrics import mutual_info_score, normalized_mutual_info_score
 from sklearn.ensemble import RandomForestClassifier
-from infra.platform import claims_suite_utils as utils
+from runtime.infra.platform import claims_suite_utils as utils
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-REPORT_FILE = ROOT / 'reports/bridge_decoupling_verdict.md'
+REPORT_FILE = ROOT / 'artifacts/reports/bridge_decoupling_verdict.md'
 
 class BridgeDecouplingSuite:
     def __init__(self):
@@ -15,17 +15,23 @@ class BridgeDecouplingSuite:
         self._load_data()
 
     def _load_data(self):
+        from runtime.infra.io.persistence import load_domains
         # Base
-        for p in (ROOT / 'data/domains').glob('*.json'):
-            if p.name.startswith('phase'): continue
-            with open(p, 'r') as f:
-                try: self.domains.append(json.load(f))
-                except: continue
+        domain_items = load_domains(ROOT / 'sandbox/domain_data/domains')
+        self.domains = [d for _, d in domain_items]
+        
         # Expansion
-        expansion_file = ROOT / 'data/domains_extreme_expansion.json'
+        expansion_file = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
         if expansion_file.exists():
-            with open(expansion_file, 'r') as f:
-                self.domains.extend(json.load(f))
+            with open(expansion_file, 'r', encoding='utf-8') as f:
+                try:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        self.domains.extend(data)
+                    else:
+                        self.domains.append(data)
+                except:
+                    pass
         print(f"Bridge Decoupling Suite: Loaded {len(self.domains)} domains.")
 
     def run(self):

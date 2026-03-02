@@ -1,5 +1,11 @@
+from pathlib import Path
+import json
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import mutual_info_score
+
 from collections import defaultdict
-from infra.io.persistence import save_wrapped
+from runtime.infra.io.persistence import save_wrapped
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 ART_DIR = ROOT / 'artifacts'
@@ -26,17 +32,22 @@ class FractureMapper:
         if not EXPORT_DIR.exists(): EXPORT_DIR.mkdir(parents=True, exist_ok=True)
 
     def _load_all_domains(self):
+        from runtime.infra.io.persistence import load_domains
         # Base
-        for p in (ROOT / 'data/domains').glob('*.json'):
-            if p.name.startswith('phase'): continue
-            with open(p, 'r') as f:
-                try: self.domains.append(json.load(f))
-                except: continue
+        domain_items = load_domains(ROOT / 'sandbox/domain_data/domains')
+        self.domains = [d for _, d in domain_items]
+
         # Expansion
-        expansion_file = ROOT / 'data/domains_extreme_expansion.json'
+        expansion_file = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
         if expansion_file.exists():
-            with open(expansion_file, 'r') as f:
-                self.domains.extend(json.load(f))
+            with open(expansion_file, 'r', encoding='utf-8') as f:
+                try: 
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        self.domains.extend(data)
+                    else:
+                        self.domains.append(data)
+                except: pass
         print(f"Fracture Mapper: Loaded {len(self.domains)} domains.")
 
     def map_fractures(self):

@@ -7,7 +7,7 @@ from collections import Counter
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 DOMAINS_DIR = ROOT / 'domains'
-REPORTS_DIR = ROOT / 'reports'
+REPORTS_DIR = ROOT / 'artifacts/reports'
 OUTPUTS_DIR = ROOT / 'outputs'
 CORE_DIR = ROOT / 'core'
 

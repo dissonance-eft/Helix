@@ -2,11 +2,11 @@ import json
 import numpy as np
 from pathlib import Path
 from sklearn.metrics import mutual_info_score, normalized_mutual_info_score
-from infra.platform import claims_suite_utils as utils
+from runtime.infra.platform import claims_suite_utils as utils
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 ARTIFACT_FILE = ROOT / 'artifacts/constraint_dependency_matrix.json'
-REPORT_FILE = ROOT / 'reports/layered_constraint_pyramid.md'
+REPORT_FILE = ROOT / 'artifacts/reports/layered_constraint_pyramid.md'
 
 class ConstraintPyramid:
     def __init__(self):
@@ -23,13 +23,13 @@ class ConstraintPyramid:
 
     def _load_data(self):
         # Base
-        for p in (ROOT / 'data/domains').glob('*.json'):
+        for p in (ROOT / 'sandbox/domain_data/domains').glob('*.json'):
             if p.name.startswith('phase'): continue
             with open(p, 'r') as f:
                 try: self.domains.append(json.load(f))
                 except: continue
         # Expansion
-        expansion_file = ROOT / 'data/domains_extreme_expansion.json'
+        expansion_file = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
         if expansion_file.exists():
             with open(expansion_file, 'r') as f:
                 self.domains.extend(json.load(f))

@@ -1,7 +1,7 @@
 import json
 import os
 import math
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 from pathlib import Path
 from collections import Counter, defaultdict
 
@@ -19,11 +19,11 @@ if str(ROOT) not in sys.path:
     sys.path.append(str(ROOT))
 
 ARTIFACTS_DIR = ROOT / 'artifacts'
-REPORTS_DIR = ROOT / 'reports'
-DATA_DIR = ROOT / 'data/domains'
+REPORTS_DIR = ROOT / 'artifacts/reports'
+DATA_DIR = ROOT / 'sandbox/domain_data/domains'
 
 def save_wrapped(path, data):
-    from infra.io import persistence as m_io; from infra.platform import environment as m_env
+    from runtime.infra.io import persistence as m_io; from runtime.infra.platform import environment as m_env
     m_io.save_wrapped(path, data)
 
 def load_all_domain_packs():
@@ -45,7 +45,7 @@ def load_all_domain_packs():
                 packs["baseline"].append(d)
                 
     # Load expansion pack if exists
-    ext_file = ROOT / 'data/domains_extreme_expansion.json'
+    ext_file = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
     if ext_file.exists():
         with open(ext_file, 'r', encoding='utf-8') as f:
             packs["expansion"] = json.load(f)

@@ -2,7 +2,7 @@ import json
 import itertools
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent.parent
 ID_DIR = ROOT / 'data' / 'domains_identity_pack'
 
 def load_domains():

@@ -1,10 +1,18 @@
+from pathlib import Path
+import json
+import numpy as np
+from sklearn.decomposition import TruncatedSVD
+from sklearn.preprocessing import LabelEncoder
+
 from sklearn.feature_extraction import DictVectorizer
-from infra.io.persistence import save_wrapped
+from runtime.infra.io.persistence import save_wrapped, load_domains
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-ART_DIR = ROOT / 'artifacts'
+DOMAINS_DIR = ROOT / 'sandbox/domain_data/domains'
+ARTIFACT_DIR = ROOT / 'artifacts/eigenspace'
 
 def extract_eigenspace(domains):
+    if not domains: return None
     X = []
     for _, d in domains:
         s = d.get('substrate_S1c_refined', d.get('substrate_S1c', 'HYBRID'))
@@ -13,6 +21,8 @@ def extract_eigenspace(domains):
     
     vec = DictVectorizer(sparse=False)
     X_mat = vec.fit_transform(X)
+    if X_mat.shape[1] < 1: return None
+    
     U, S, Vt = np.linalg.svd(X_mat, full_matrices=False)
     var_exp = (S**2) / np.sum(S**2)
     
@@ -22,62 +32,42 @@ def extract_eigenspace(domains):
         "components": Vt.tolist(),
         "features": vec.get_feature_names_out().tolist()
     }
-    save_wrapped(ART_DIR / 'eigenspace/baseline_beams_v2.json', out)
+    save_wrapped(ARTIFACT_DIR / 'baseline_beams_v2.json', out)
     return out
-
-def extract_obstructions(domains):
-    obs_X = []
-    for _, d in domains:
-        obs = d.get('measurement_layer', {}).get('obstruction_type')
-        if obs:
-            obs_X.append({
-                "Substrate": d.get('substrate_S1c_refined', 'UNKNOWN'),
-                "Ontology": d.get('persistence_ontology', 'UNKNOWN'),
-                "Boundary": d.get('boundary_type_primary', 'UNKNOWN'),
-                "Obstruction": obs
-            })
-    vec = DictVectorizer(sparse=False)
-    if not obs_X: return None
-    X_mat = vec.fit_transform(obs_X)
-    U, S, Vt = np.linalg.svd(X_mat, full_matrices=False)
-    var_exp = (S**2) / np.sum(S**2)
-    
-    out = {
-        "singular_values": S.tolist(),
-        "variance_explained": var_exp.tolist()
-    }
-    save_wrapped(ART_DIR / 'obstruction/obstruction_spectrum.json', out)
-    return out
-
-DOMAINS_DIR = ROOT / 'data/domains'
-ARTIFACT_DIR = ROOT / 'artifacts/eigenspace'
 
 def track():
     if not ARTIFACT_DIR.exists(): ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     
-    domains = [p for p in DOMAINS_DIR.glob('*.json') if not p.name.startswith('phase')]
+    domains_with_names = load_domains(DOMAINS_DIR)
+    if not domains_with_names:
+        print("No domains found for tracking.")
+        return
+        
     valid_data = []
     ids = []
     
-    # Simple feature vector from ontology and substrate
+    ontologies = [d.get('persistence_ontology', 'UNKNOWN') for _, d in domains_with_names]
+    substrates = [d.get('substrate_S1c', 'UNKNOWN') for _, d in domains_with_names]
+    
     le_ont = LabelEncoder()
-    onts = [json.load(open(p))['persistence_ontology'] for p in domains]
-    le_ont.fit(onts)
+    le_ont.fit(ontologies)
     
     le_sub = LabelEncoder()
-    subs = [json.load(open(p)).get('substrate_S1c', 'UNKNOWN') for p in domains]
-    le_sub.fit(subs)
+    le_sub.fit(substrates)
     
-    for p in domains:
-        with open(p, 'r') as f:
-            d = json.load(f)
-            v = [le_ont.transform([d['persistence_ontology']])[0], 
-                 le_sub.transform([d.get('substrate_S1c', 'UNKNOWN')])[0]]
-            valid_data.append(v)
-            ids.append(d['id'])
+    for _, d in domains_with_names:
+        v = [le_ont.transform([d.get('persistence_ontology', 'UNKNOWN')])[0], 
+             le_sub.transform([d.get('substrate_S1c', 'UNKNOWN')])[0]]
+        valid_data.append(v)
+        ids.append(d.get('id', 'unknown'))
             
     X = np.array(valid_data)
-    svd = TruncatedSVD(n_components=2)
+    if X.shape[0] < 2:
+        print("Not enough data points for eigenspace tracking.")
+        return
+
+    n_comp = min(X.shape[0], X.shape[1], 2)
+    svd = TruncatedSVD(n_components=n_comp)
     svd.fit(X)
     
     # Eigenvectors
@@ -86,13 +76,16 @@ def track():
     history_path = ARTIFACT_DIR / 'history.json'
     if history_path.exists():
         with open(history_path, 'r') as f:
-            history = json.load(f)
+            try:
+                history = json.load(f)
+            except:
+                history = []
     else:
         history = []
         
     history.append({
-        "timestamp": "latest",
-        "dataset_hash": "placeholder_hash",
+        "timestamp": datetime.datetime.now().isoformat(),
+        "dataset_hash": os.environ.get('HELIX_DATASET_HASH', 'unknown'),
         "singular_values": svd.singular_values_.tolist(),
         "eigenvectors": evs
     })
@@ -103,4 +96,6 @@ def track():
     print(f"Eigenspace drift tracked. Primary SV: {svd.singular_values_[0]:.4f}")
 
 if __name__ == "__main__":
+    import datetime
+    import os
     track()

@@ -6,39 +6,38 @@ from sklearn.metrics import mutual_info_score, normalized_mutual_info_score
 from sklearn.decomposition import TruncatedSVD
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import StratifiedKFold, cross_val_score
-from infra.platform import claims_suite_utils as utils
+from runtime.infra.platform import claims_suite_utils as utils
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-DOMAINS_FILE = ROOT / 'data/domains_extreme_expansion.json'
-REPORT_FILE = ROOT / 'reports/extreme_validation_report.md'
+DOMAINS_FILE = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
+REPORT_FILE = ROOT / 'artifacts/reports/extreme_validation_report.md'
 
 class HostileValidation:
     def __init__(self):
         self.domains = []
         self._load_datasets()
-        if not (ROOT / 'reports').exists(): (ROOT / 'reports').mkdir(parents=True, exist_ok=True)
+        if not (ROOT / 'artifacts/reports').exists(): (ROOT / 'artifacts/reports').mkdir(parents=True, exist_ok=True)
         
     def _load_datasets(self):
-        # 1. Base 1470 (Approximate)
-        # Base 616
-        for p in (ROOT / 'data/domains').glob('*.json'):
-            if p.name.startswith('phase'): continue
-            with open(p, 'r') as f:
-                try: self.domains.append(json.load(f))
-                except: continue
-        # External/Ablation packs
-        for p in (ROOT / 'data/packs').rglob('*.json'):
-            with open(p, 'r') as f:
-                try: 
-                    data = json.load(f)
-                    if isinstance(data, list): self.domains.extend(data)
-                    else: self.domains.append(data)
-                except: continue
+        from runtime.infra.io.persistence import load_domains
+        # 1. Base + Packs
+        base_items = load_domains(ROOT / 'sandbox/domain_data/domains')
+        self.domains = [d for _, d in base_items]
         
-        # 2. Extreme Expansion 2000
+        pack_items = load_domains(ROOT / 'sandbox/domain_data/packs', recursive=True)
+        self.domains.extend([d for _, d in pack_items])
+        
+        # 2. Extreme Expansion
         if DOMAINS_FILE.exists():
-            with open(DOMAINS_FILE, 'r') as f:
-                self.domains.extend(json.load(f))
+            with open(DOMAINS_FILE, 'r', encoding='utf-8') as f:
+                try:
+                    data = json.load(f)
+                    if isinstance(data, list):
+                        self.domains.extend(data)
+                    else:
+                        self.domains.append(data)
+                except:
+                    pass
         print(f"Hostile Validation: Total Domains = {len(self.domains)}")
 
     def run(self):

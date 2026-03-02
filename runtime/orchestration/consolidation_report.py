@@ -17,7 +17,7 @@ def report():
     triad = json.load(open(ARTIFACT_DIR / 'triad/triad_results.json')) if (ARTIFACT_DIR / 'triad/triad_results.json').exists() else {}
     periodic = json.load(open(ARTIFACT_DIR / 'structural_lab/structural_periodic_table.json')) if (ARTIFACT_DIR / 'structural_lab/structural_periodic_table.json').exists() else []
     phi = json.load(open(ARTIFACT_DIR / 'phi_artifact_scan.json')) if (ARTIFACT_DIR / 'phi_artifact_scan.json').exists() else []
-    validation_path = ROOT / 'reports/extreme_validation_report.md'
+    validation_path = ROOT / 'artifacts/reports/extreme_validation_report.md'
     validation_content = validation_path.read_text('utf-8') if validation_path.exists() else "PENDING"
 
     # Singular value

@@ -14,7 +14,7 @@ except ImportError:
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 DOMAINS_DIR = ROOT / 'domains'
-REPORTS_DIR = ROOT / 'reports'
+REPORTS_DIR = ROOT / 'artifacts/reports'
 REPORTS_DIR.mkdir(parents=True, exist_ok=True)
 
 domains = []

@@ -6,7 +6,7 @@ from sklearn.metrics import mutual_info_score, normalized_mutual_info_score
 from scipy.stats import spearmanr
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-REPORT_FILE = ROOT / 'reports/emergence_validation_verdict.md'
+REPORT_FILE = ROOT / 'artifacts/reports/emergence_validation_verdict.md'
 
 class EmergenceSimulator:
     def __init__(self, n_systems=200):

@@ -3,7 +3,7 @@ import random
 from pathlib import Path
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-OUTPUT_FILE = ROOT / 'data/domains_extreme_expansion.json'
+OUTPUT_FILE = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
 
 REGIMES = [
     "High-dimensional continuous systems",

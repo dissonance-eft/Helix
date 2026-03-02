@@ -7,7 +7,7 @@ from sklearn.metrics import mutual_info_score, normalized_mutual_info_score
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import cross_val_score
 from sklearn.decomposition import TruncatedSVD
-from infra.platform import claims_suite_utils as utils
+from runtime.infra.platform import claims_suite_utils as utils
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 ARTIFACT_DIR = ROOT / 'artifacts/structural_lab'
@@ -25,13 +25,13 @@ class StructuralLab:
 
     def _load_datasets(self):
         # Base 616
-        for p in (ROOT / 'data/domains').glob('*.json'):
+        for p in (ROOT / 'sandbox/domain_data/domains').glob('*.json'):
             if p.name.startswith('phase'): continue
             with open(p, 'r') as f:
                 try: self.domains.append(json.load(f))
                 except: continue
         # External/Ablation packs if they exist
-        for p in (ROOT / 'data/packs').rglob('*.json'):
+        for p in (ROOT / 'sandbox/domain_data/packs').rglob('*.json'):
             with open(p, 'r') as f:
                 try:
                     data = json.load(f)

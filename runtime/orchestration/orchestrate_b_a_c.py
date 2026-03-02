@@ -1,7 +1,7 @@
 import os
 import json
 import math
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 import random
 import statistics
 from pathlib import Path

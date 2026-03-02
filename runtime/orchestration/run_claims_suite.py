@@ -5,10 +5,10 @@ import random
 from pathlib import Path
 from sklearn.decomposition import TruncatedSVD
 from sklearn.metrics import mutual_info_score
-from infra.platform import claims_suite_utils as utils
+from runtime.infra.platform import claims_suite_utils as utils
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-DOMAINS_DIR = ROOT / 'data/domains'
+DOMAINS_DIR = ROOT / 'sandbox/domain_data/domains'
 ARTIFACT_DIR = ROOT / 'artifacts/claims_suite'
 DOCS_DIR = ROOT / 'docs/claims_suite'
 
@@ -168,7 +168,7 @@ class ClaimsSuiteRunner:
         # Claim C1: Discrete boundaries dominate in compositions
         # We simulate this by taking a few real domains and "composing" them
         # For simplicity, we create a synthetic pack
-        comp_pack_dir = ROOT / 'data/packs/composition_suite/domains'
+        comp_pack_dir = ROOT / 'sandbox/domain_data/packs/composition_suite/domains'
         if not comp_pack_dir.exists(): comp_pack_dir.mkdir(parents=True, exist_ok=True)
         
         continuous_types = ['GLOBAL_DISCONTINUITY', 'LOCAL_BIFURCATION'] # Simplified

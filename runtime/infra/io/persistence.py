@@ -43,9 +43,28 @@ def archive_artifacts(artifacts_dir, archive_dir, dataset_hash):
                 shutil.move(str(item), str(archive_path / item.name))
             print(f"Archived previous run to {archive_path}")
 
-def load_domains(data_dir):
+def load_domains(data_dir=None, recursive=False):
+    if data_dir is None:
+        data_dir = os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains')
     domains = []
-    for p in sorted(Path(data_dir).glob('*.json')):
-        with open(p, 'r') as f:
-            domains.append((p.name, json.load(f)))
+    path_obj = Path(data_dir)
+    if not path_obj.exists():
+        return []
+        
+    pattern = '**/*.json' if recursive else '*.json'
+    # Explicitly walk and sort to ensure deterministic loading order
+    for p in sorted(path_obj.glob(pattern)):
+        with open(p, 'r', encoding='utf-8') as f:
+            try:
+                data = json.load(f)
+                if isinstance(data, list):
+                    for idx, item in enumerate(data):
+                        # Use a synthetic ID if needed, but usually these have 'id'
+                        name = f"{p.stem}_{idx}.json"
+                        domains.append((name, item))
+                else:
+                    domains.append((p.name, data))
+            except json.JSONDecodeError:
+                print(f"Warning: Failed to decode {p}")
+                continue
     return domains

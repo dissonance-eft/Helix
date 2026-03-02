@@ -1,7 +1,9 @@
+from collections import defaultdict
+
 import json
 import random
 import os
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 import argparse
 import numpy as np
 from pathlib import Path
@@ -13,7 +15,7 @@ from sklearn.cluster import KMeans, SpectralClustering
 from sklearn.feature_extraction.text import CountVectorizer
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-DOMAINS_DIR = ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'data/domains')
+DOMAINS_DIR = ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains')
 ART_DIR = ROOT / 'artifacts' / 'meta_kernel'
 DOCS_DIR = ROOT / 'docs'
 

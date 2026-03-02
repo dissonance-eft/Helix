@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 DOMAINS_DIR = ROOT / 'domains'
-REPORTS_DIR = ROOT / 'reports'
+REPORTS_DIR = ROOT / 'artifacts/reports'
 OUTPUTS_DIR = ROOT / 'outputs'
 DOCS_DIR = ROOT / 'docs'
 

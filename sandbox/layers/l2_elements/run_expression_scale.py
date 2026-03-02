@@ -3,7 +3,7 @@ import os
 import sys
 import random
 import numpy as np
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 import datetime
 from pathlib import Path
 from collections import Counter
@@ -27,7 +27,7 @@ def execute():
     DOCS_DIR.mkdir(exist_ok=True, parents=True)
     
     # PHASE 1: Data Load & Primitives Instrumentation
-    with open(ROOT / 'data/overlays/domains_expression_expansion.json', 'r') as f:
+    with open(ROOT / 'sandbox/domain_data/overlays/domains_expression_expansion.json', 'r') as f:
         domains = json.load(f)
         
     ds_hash = get_hash(domains)

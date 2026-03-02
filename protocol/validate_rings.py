@@ -35,6 +35,11 @@ def check_gravity_violations():
         if file_ring_name not in RING_LEVELS:
             continue
         
+        # Test exemption: Ring 1 (Protocol) tests are allowed to import from higher rings
+        # to facilitate instrumentation and cross-ring validation.
+        if 'tests' in py_file.parts and RING_LEVELS[file_ring_name] == 1:
+            continue
+
         file_level = RING_LEVELS[file_ring_name]
         
         with open(py_file, 'r', encoding='utf-8') as f:

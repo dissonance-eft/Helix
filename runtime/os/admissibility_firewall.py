@@ -1,7 +1,7 @@
 import json
 import shutil
 from pathlib import Path
-from runtime.infra.os.panic_handler import emit_panic
+from runtime.os.panic_handler import emit_panic
 
 def run_admissibility_pass(domains_dir: Path, attempt_dir: Path, dataset_hash: str):
     print("--- Running Admissibility Firewall ---")
@@ -22,27 +22,39 @@ def run_admissibility_pass(domains_dir: Path, attempt_dir: Path, dataset_hash: s
     for df in domain_files:
         try:
             with open(df, 'r', encoding='utf-8') as f:
-                domain = json.load(f)
+                data = json.load(f)
         except:
             continue
             
-        text_content = json.dumps(domain).lower()
-        impurity_score = 0.0
-        
-        for token in flagged_tokens:
-            if token in text_content:
-                impurity_score += 0.3
-                
-        if not domain.get("stability_condition"): impurity_score += 0.4
-        if not domain.get("perturbation_operator"): impurity_score += 0.4
-        if not domain.get("failure_mode"): impurity_score += 0.4
-        
-        if impurity_score > 0.5:
-            quarantined += 1
-            shutil.copy(df, quarantine_dir / df.name)
-            impurity_distribution[df.name] = impurity_score
+        # Handle both single objects and lists of objects
+        if isinstance(data, dict):
+            domains_to_process = [data]
+        elif isinstance(data, list):
+            domains_to_process = data
         else:
-            valid_domains.append(df)
+            continue
+
+        for domain in domains_to_process:
+            if not isinstance(domain, dict):
+                continue
+
+            text_content = json.dumps(domain).lower()
+            impurity_score = 0.0
+            
+            for token in flagged_tokens:
+                if token in text_content:
+                    impurity_score += 0.3
+                    
+            if not domain.get("stability_condition"): impurity_score += 0.4
+            if not domain.get("perturbation_operator"): impurity_score += 0.4
+            if not domain.get("failure_mode"): impurity_score += 0.4
+            
+            if impurity_score > 0.5:
+                quarantined += 1
+                shutil.copy(df, quarantine_dir / f"{df.stem}_{domain.get('id', 'unknown')}.json")
+            else:
+                valid_domains.append(domain)
+                impurity_distribution[domain.get('id', 'unknown')] = impurity_score
             
     report = {
         "total_domains": total_domains,

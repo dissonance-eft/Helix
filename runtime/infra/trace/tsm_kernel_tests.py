@@ -5,11 +5,11 @@ import numpy as np
 from sklearn.metrics import mutual_info_score
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent.parent
 ART_DIR = ROOT / 'artifacts'
 
 def save_wrapped(path, data):
-    from infra.io import persistence as m_io; from infra.platform import environment as m_env
+    from runtime.infra.io import persistence as m_io; from runtime.infra.platform import environment as m_env
     m_io.save_wrapped(path, data)
 
 def compute_ig(x_labels, y_labels):
@@ -72,7 +72,7 @@ def run_tests(domains, tsm_results):
     return report
 
 if __name__ == "__main__":
-    from infra.io import persistence as m_io; from infra.platform import environment as m_env
+    from runtime.infra.io import persistence as m_io; from runtime.infra.platform import environment as m_env
     m_env.init_random(42)
     ext_domains = m_io.load_domains()
     

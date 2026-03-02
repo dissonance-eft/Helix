@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-DOMAINS_DIR = ROOT / 'data/domains'
+DOMAINS_DIR = ROOT / 'sandbox/domain_data/domains'
 REGISTRY_PATH = ROOT / 'core/measurement/projection_registry.json'
 REPORT_PATH = ROOT / 'artifacts/measurement/leakage_report.json'
 

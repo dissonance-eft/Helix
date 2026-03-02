@@ -6,7 +6,8 @@ from pathlib import Path
 # Helix — Layer 0 Orchestrator
 # Enforces the execution of the Constraint Pyramid layers.
 
-ROOT = Path(__file__).resolve().parent.parent.parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
+# Corrected: Parent of orchestration is runtime, parent of runtime is Helix root.
 
 # Centralized list of modules to execute in order
 PYRAMID_EXECUTION_PLAN = [
@@ -47,11 +48,14 @@ PYRAMID_EXECUTION_PLAN = [
 
 def execute_pyramid():
     print("Helix: Beginning Pyramid Execution...")
+    env = os.environ.copy()
+    env["PYTHONPATH"] = str(ROOT) + os.pathsep + env.get("PYTHONPATH", "")
+    
     for rel_path in PYRAMID_EXECUTION_PLAN:
         abs_path = ROOT / rel_path
         if abs_path.exists():
             print(f"Executing: {rel_path}")
-            res = subprocess.run([sys.executable, str(abs_path)], cwd=str(ROOT))
+            res = subprocess.run([sys.executable, str(abs_path)], cwd=str(ROOT), env=env)
             if res.returncode != 0:
                 print(f"CRITICAL FAILURE: {rel_path} exited with code {res.returncode}")
                 sys.exit(1)

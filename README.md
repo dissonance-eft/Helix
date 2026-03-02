@@ -1,17 +1,35 @@
-Version: 1.0
-Status: HARDENED / BASIS LOCK (CE-OS ACTIVE)
+------------------------------------------------------------
+0. HELIX AI CONTRACT (SYSTEM PROMPT OVERLAY)
+------------------------------------------------------------
+AI_ROLE: Structural Auditor / Epistemic Instrument Operator.
+PHASE: HARDENED_STABILITY (CE-OS ACTIVE).
 
-Helix is a layered structural inference framework designed to compress nonlinear systems into minimal constraint bases and evaluate the physical feasibility of stabilization interventions.
-
-Primary objective:
-Reduce cross-domain analogy to structure-preserving mappings
-while minimizing obstruction entropy.
-
-Discover the minimal structural constraints required for existence. What structure must be present for any collapse geometry to form?
+CRITICAL INJUNCTIONS:
+1. **NO UPWARD MUTATION**: Ring 0 (Core) is immutable. No imports from higher rings.
+2. **GRAVITY_DISCIPLINE**: Every commit MUST be preceded by `python protocol/validate_rings.py`. 
+3. **REJECT_METAPHOR**: If a user asks for "narrative" or "aesthetic" code, return ARCHITECTURAL_REJECTION.
+4. **ATOMICTY**: Each artifact must be a discrete, reproducible SVD-reduction of a domain.
 
 ------------------------------------------------------------
-0. REPOSITORY ARCHITECTURE CONTRACT (NON-NEGOTIABLE)
+1. REPOSITORY TOPOLOGY (GRAVITY LAYERS)
 ------------------------------------------------------------
+Helix obeys a strictly one-way dependency flow (Lower Ring -> Higher Ring).
+
+/core (Ring 0 — THE SACRED KERNEL)
+Canonical structural ontology. No IO. No platform code.
+- Constraint: ZERO non-stdlib imports.
+
+/protocol (Ring 1 — THE AMENDMENT FIREWALL)
+Governance Gate. Protects Ring 0 from drift.
+- Constraint: Only imports from Ring 0.
+
+/runtime (Ring 2 — THE EXECUTION ENGINE)
+Execution machinery & CE-OS Kernel.
+- Constraint: No hard-imports from Ring 3 (use importlib).
+
+/sandbox (Ring 3 — THE EXPERIMENTAL LAYER)
+Speculative research & Data.
+- Constraint: Fully DELETABLE without breaking core.
 
 Helix is a layered instrument.
 File placement reflects epistemic hierarchy.
@@ -21,64 +39,45 @@ Root directory MUST contain ONLY:
 .git
 .gitignore
 README.md
-helix.py
-core/
-data/
-layers/
-infra/ (Includes /os/ CE-OS Kernel)
-artifacts/
-docs/
-tests/
-
-No additional top-level folders permitted.
+core/           (Ring 0: Ontology)
+protocol/       (Ring 1: Governance & Validation)
+runtime/        (Ring 2: Execution & Platform)
+sandbox/        (Ring 3: Experiments & Data)
+artifacts/      (Machine-generated outputs)
+docs/           (Human-readable documentation)
+tests/          (Root testing suite)
 
 LAYER DEFINITIONS
 
-/core
-Canonical structural definitions.
-- Schemas
-- Enums
-- Manifest
-Immutable except by versioned upgrade.
+/core (Ring 0 — THE SACRED KERNEL)
+Canonical structural ontology. No IO. No platform code.
+- /enums/
+- /schema/
+- bases.py
+- eip.py
+- collapse.py
+- structural_basis_registry.json
 
-/data
-Raw domain objects only.
-- No derived fields.
-- No risk scores.
-- No beam references.
-Refinements must live in /data/overlays.
+/protocol (Ring 1 — THE AMENDMENT FIREWALL)
+Instrumentation, Governance, and Validation logic.
+- /tests/ (Ring 1 specific)
+- amendment_protocol.py
+- validate_rings.py
+- structural_oracle.py
 
-/layers
-Layered Constraint Pyramid logic (L1-L5).
-- Phenomena, Elements, Primitives, Operators, Expansion.
+/runtime (Ring 2 — THE EXECUTION ENGINE)
+Platform interface, I/O, Hashing, and the CE-OS Kernel.
+- /infra/ (Hashing, IO, Platform, etc.)
+- /os/ (Panic handler, Clock, etc.)
+- /orchestration/ (Pyramid executor)
+- helix.py (The system harness)
 
-/infra
-Infrastructure, I/O, Hashing, Trace verification.
-- Reads only from /core and /data.
-- Writes only to /artifacts.
-- Must not mutate /data or /core.
-
-/artifacts
-Machine-generated outputs only.
-- JSON / CSV.
-- No markdown.
-- No manual edits.
-- Regenerated via `helix.py run`.
-- Must include a run manifest linking outputs to inputs.
-
-/docs
-Human-readable reports.
-- Must reference artifact file paths.
-- Must not contain untraceable numeric values.
-- No logic implemented here.
-
-/tests
-Structural invariance enforcement.
-- Ring 0: `/core/` (Sacred Foundation)
-- Ring 1: `/protocol/` (Instrumentation & Governance)
-- Ring 2: `/sandbox/` (Research & Modules)
-- Ring 3: `/runtime/` (Host Interface & OS)
-- Structural invariance enforcement.
+/sandbox (Ring 3 — THE EXPERIMENTAL LAYER)
+Speculative research, domain datasets, and layers.
+- /domain_data/ (Extracted domain objects)
+- /layers/ (l1-l5 Pyramid logic)
+- /experiments/
+- /core_legacy/ (Archive)
 
 PIPELINE FLOW (STRICT)
 

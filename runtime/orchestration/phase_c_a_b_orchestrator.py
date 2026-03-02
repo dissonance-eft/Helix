@@ -2,7 +2,7 @@ import os
 import json
 import math
 import random
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 import statistics
 from collections import Counter, defaultdict
 from pathlib import Path
@@ -18,7 +18,7 @@ except ImportError:
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 DOMAINS_DIR = ROOT / 'domains'
-REPORTS_DIR = ROOT / 'reports'
+REPORTS_DIR = ROOT / 'artifacts/reports'
 DOMAINS_ADDED_DIR = ROOT / 'domains_added'
 
 REPORTS_DIR.mkdir(parents=True, exist_ok=True)

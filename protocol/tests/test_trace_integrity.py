@@ -11,7 +11,7 @@ DOCS_DIR = ROOT / 'docs'
 def compute_dataset_hash():
     hasher = hashlib.sha256()
     paths = []
-    for d in ['data/domains', 'data/overlays', 'core/schema', 'core/enums']:
+    for d in ['sandbox/domain_data/domains', 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']:
         d_path = ROOT / d
         if d_path.exists():
             for p in d_path.rglob('*'):

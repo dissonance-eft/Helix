@@ -50,13 +50,13 @@ def validate_run_environment(args=None):
     return manifest
 
 def run_cmd(args):
-    from runtime.infra.os.stable_channel_manager import prepare_attempt_channel, promote_to_stable
-    from runtime.infra.os.admissibility_firewall import run_admissibility_pass
-    from runtime.infra.os.instrument_clock import check_clock, update_clock
-    from runtime.infra.os.throughput_guard import ThroughputGuard
-    from runtime.infra.os.determinism_probe import check_determinism
-    from runtime.infra.os.instrument_health_reporter import generate_health_report
-    from runtime.infra.os.panic_handler import emit_panic
+    from runtime.os.stable_channel_manager import prepare_attempt_channel, promote_to_stable
+    from runtime.os.admissibility_firewall import run_admissibility_pass
+    from runtime.os.instrument_clock import check_clock, update_clock
+    from runtime.os.throughput_guard import ThroughputGuard
+    from runtime.os.determinism_probe import check_determinism
+    from runtime.os.instrument_health_reporter import generate_health_report
+    from runtime.os.panic_handler import emit_panic
 
     print("Computing dataset hash...")
     paths = [Path(d) for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']]
@@ -67,6 +67,9 @@ def run_cmd(args):
         existing_paths = [ROOT / p for p in existing_paths if 'sandbox' not in str(p)]
         
     ds_hash = compute_dataset_hash(existing_paths)
+    schema_ver = get_schema_version(ROOT)
+    commit_hash = get_git_commit(ROOT) or 'unknown'
+    print(f"Dataset Hash: {ds_hash}")
     
     archive_artifacts(ARTIFACTS_DIR, ARCHIVE_DIR, ds_hash)
     

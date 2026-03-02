@@ -6,7 +6,7 @@ import random
 from collections import Counter
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent.parent
 ART_DIR = ROOT / 'artifacts'
 
 try:
@@ -17,7 +17,7 @@ except ImportError:
     NUMPY_AVAILABLE = False
 
 def save_wrapped(path, data):
-    from infra.io import persistence as m_io; from infra.platform import environment as m_env
+    from runtime.infra.io import persistence as m_io; from runtime.infra.platform import environment as m_env
     m_io.save_wrapped(path, data)
 
 def compute_ig(x_labels, y_labels):

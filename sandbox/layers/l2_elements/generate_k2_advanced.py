@@ -1,7 +1,7 @@
 import json
 import random
 import os
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 from pathlib import Path
 from sklearn.metrics import mutual_info_score
 
@@ -12,7 +12,7 @@ DOCS_DIR = ROOT / 'docs'
 def execute():
     random.seed(42)
     # Load scaling pack
-    with open(ROOT / 'data/overlays/domains_expression_expansion.json') as f:
+    with open(ROOT / 'sandbox/domain_data/overlays/domains_expression_expansion.json') as f:
         domains = json.load(f)
 
     # 1) Primitive Minimality

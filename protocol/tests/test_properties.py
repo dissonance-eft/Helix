@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT))
 
-from infra.io import persistence as m_io; from infra.platform import environment as m_env
+from runtime.infra.io import persistence as m_io; from runtime.infra.platform import environment as m_env
 
 def test_permutation_invariance():
     m_env.init_random(42)

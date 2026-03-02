@@ -1,6 +1,6 @@
 # USER: DISSONANCE (dissident93)
 
-Role: Architect. System design, constraint logic, invariant discovery.
+Role: System design, constraint logic, invariant discovery.
 Does not implement — defines structure others execute.
 
 ---

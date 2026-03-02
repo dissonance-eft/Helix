@@ -7,11 +7,11 @@ from sklearn.decomposition import TruncatedSVD
 from sklearn.metrics import mutual_info_score, normalized_mutual_info_score
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import StandardScaler
-from infra.platform import claims_suite_utils as utils
+from runtime.infra.platform import claims_suite_utils as utils
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 ARTIFACTS_DIR = ROOT / 'artifacts/structural_lab'
-REPORT_FILE = ROOT / 'reports/foreign_regime_expansion_verdict.md'
+REPORT_FILE = ROOT / 'artifacts/reports/foreign_regime_expansion_verdict.md'
 
 class ForeignRegimeExpansionSuite:
     def __init__(self, n_per_family=200):

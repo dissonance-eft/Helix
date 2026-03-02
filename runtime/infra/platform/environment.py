@@ -18,3 +18,9 @@ def get_schema_version(root):
         with open(manifest_path, 'r', encoding='utf-8') as f:
             return json.load(f).get('version', 'unknown')
     return 'unknown'
+def init_random(seed=42):
+    import random
+    import numpy as np
+    random.seed(seed)
+    np.random.seed(seed)
+    os.environ['HELIX_BOOTSTRAP_SEED'] = str(seed)

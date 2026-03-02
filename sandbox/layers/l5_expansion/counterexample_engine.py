@@ -4,8 +4,8 @@ import os
 from pathlib import Path
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-DOMAINS_DIR = ROOT / 'data/domains'
-FALSIFIERS_PACK = ROOT / 'data/packs/counterexamples/domains'
+DOMAINS_DIR = ROOT / 'sandbox/domain_data/domains'
+FALSIFIERS_PACK = ROOT / 'sandbox/domain_data/packs/counterexamples/domains'
 ARTIFACT_DIR = ROOT / 'artifacts/counterexamples'
 
 def mutate():

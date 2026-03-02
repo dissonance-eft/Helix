@@ -1,5 +1,5 @@
 {
-  "artifact_hash": "5c0120a531d5914a4d02c9bce4e5d1331d148be1740c375d3f6957e5fcd9bcb4",
+  "artifact_hash": "c1b0d15d0d77f31c0fe1521b9017ce67f20516decda9e15822bd920654b00d68",
   "bootstrap_seed": 42,
   "data": {
     "detail": [
@@ -28,6 +28,36 @@
         "control_kind": "NONE",
         "domain_id": "aharonov_bohm_flux",
         "obstruction": "UNITS_NOT_PROJECTABLE",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "ai_mode_collapse",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "ADAPTIVE",
+        "domain_id": "ai_gradient_explosion",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "ai_alignment_drift",
+        "obstruction": "WITNESS_ABSENT",
         "provenance": [],
         "trace_kind": "UNKNOWN",
         "tsm_class": "NONE",
@@ -134,6 +164,88 @@
         "trace_kind": "UNKNOWN",
         "tsm_class": "NONE",
         "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_babel_threshold",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_bronze_age_collapse",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_casimir_effect",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_great_filter",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_kessler_syndrome",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_myxomycetes",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "bizarre_reddit_place",
+        "obstruction": "WITNESS_ABSENT",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "UNKNOWN",
+        "domain_id": "bizarre_rowhammer",
+        "obstruction": null,
+        "provenance": [
+          "categorical_witness"
+        ],
+        "trace_kind": "ACCUMULATOR",
+        "tsm_class": "TRACE_ONLY",
+        "tsm_status": "DEFINED"
       },
       {
         "commitment_kind": "UNKNOWN",
@@ -522,6 +634,16 @@
         "control_kind": "NONE",
         "domain_id": "heat_equation_diffusion",
         "obstruction": "UNITS_NOT_PROJECTABLE",
+        "provenance": [],
+        "trace_kind": "UNKNOWN",
+        "tsm_class": "NONE",
+        "tsm_status": "UNDEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
+        "control_kind": "NONE",
+        "domain_id": "helix_epistemic_engine",
+        "obstruction": "WITNESS_ABSENT",
         "provenance": [],
         "trace_kind": "UNKNOWN",
         "tsm_class": "NONE",
@@ -6115,6 +6237,18 @@
       },
       {
         "commitment_kind": "UNKNOWN",
+        "control_kind": "UNKNOWN",
+        "domain_id": "twitch_plays_pokemon",
+        "obstruction": null,
+        "provenance": [
+          "categorical_witness"
+        ],
+        "trace_kind": "ACCUMULATOR",
+        "tsm_class": "TRACE_ONLY",
+        "tsm_status": "DEFINED"
+      },
+      {
+        "commitment_kind": "UNKNOWN",
         "control_kind": "NONE",
         "domain_id": "type_inference_unification",
         "obstruction": "UNITS_NOT_PROJECTABLE",
@@ -6175,24 +6309,24 @@
       }
     ],
     "summary": {
-      "coverage_percent": 0.81,
-      "defined": 5,
+      "coverage_percent": 1.11,
+      "defined": 7,
       "distribution": {
         "COMMIT_ONLY": 1,
-        "NONE": 611,
-        "TRACE_ONLY": 4
+        "NONE": 622,
+        "TRACE_ONLY": 6
       },
       "obstructions": {
         "MULTIPLE_COUPLED_STATE_SPACES": 14,
         "UNITS_NOT_PROJECTABLE": 522,
-        "WITNESS_ABSENT": 75
+        "WITNESS_ABSENT": 86
       },
-      "total": 616,
-      "undefined": 611
+      "total": 629,
+      "undefined": 622
     }
   },
-  "dataset_hash": "bca19c5253d22a90be3ea77329f285214f0d4b385f6996aa6b7242c95a758d4d",
+  "dataset_hash": "f84effcdb49e6b0c4399bfaa0229426a4e0f0d769d5209716a9d56221fca0e6f",
   "generated_by": "helix.py run",
-  "git_commit": "9c0b89e1f35e15233b15c2563ed5460a3d570152",
+  "git_commit": "0136b32914a267dd77a7afd58c37f0bc015ecf6e",
   "schema_version": "1.0.0"
 }

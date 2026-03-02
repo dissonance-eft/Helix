@@ -1,7 +1,7 @@
 import json
 import random
 import os
-from infra.hashing.integrity import compute_content_hash
+from runtime.infra.hashing.integrity import compute_content_hash
 from pathlib import Path
 from sklearn.metrics import mutual_info_score
 

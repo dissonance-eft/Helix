@@ -7,7 +7,7 @@ from sklearn.metrics import mutual_info_score
 from sklearn.decomposition import TruncatedSVD
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
-DOMAINS_DIR = ROOT / 'data/domains'
+DOMAINS_DIR = ROOT / 'sandbox/domain_data/domains'
 ARTIFACT_DIR = ROOT / 'artifacts/triad'
 DOCS_DIR = ROOT / 'docs'
 
@@ -38,22 +38,20 @@ def detect_proxies(domain):
     }
 
 def run_triad_lab():
+    from runtime.infra.io.persistence import load_domains
     if not ARTIFACT_DIR.exists(): ARTIFACT_DIR.mkdir(parents=True, exist_ok=True)
     
-    domains = [p for p in DOMAINS_DIR.glob('*.json') if not p.name.startswith('phase')]
+    domains_with_names = load_domains(DOMAINS_DIR)
     
     overlay = {}
     X = []
     Y = []
     
-    for p in domains:
-        with open(p, 'r') as f:
-            try:
-                domain = json.load(f)
-            except: continue
+    for _, domain in domains_with_names:
+        if not isinstance(domain, dict): continue
         
         proxies = detect_proxies(domain)
-        overlay[domain['id']] = proxies
+        overlay[domain.get('id', 'unknown')] = proxies
         
         # CollapsePresent: 1 if recognizable macro collapse geometry exists
         collapse_present = 1 if domain.get('boundary_type_primary') != 'UNKNOWN' else 0
@@ -155,10 +153,11 @@ def run_triad_lab():
         json.dump(results, f, indent=2)
 
     # Save ablation packs for record
-    if not (ROOT / 'data/packs/ablation').exists(): (ROOT / 'data/packs/ablation').mkdir(parents=True, exist_ok=True)
-    with open(ROOT / 'data/packs/ablation/null_pack.json', 'w') as f:
+    if not (ROOT / 'sandbox/experiments/ablation').exists(): (ROOT / 'sandbox/experiments/ablation').mkdir(parents=True, exist_ok=True)
+    with open(ROOT / 'sandbox/experiments/ablation/null_pack.json', 'w') as f:
         json.dump(ablation_pack, f, indent=2)
 
+    names = [name for name, _ in domains_with_names]
     # Phase 6: Counterexample Search
     with open(DOCS_DIR / 'triad_falsifiers.md', 'w') as f:
         f.write("# Triad Necessity Falsifiers\n\nAnalyzed across base (N=616) and synthetic nulls (N=200).\n\n")
@@ -169,7 +168,7 @@ def run_triad_lab():
                 f.write(f"## {proxy_name} Necessity: FAIL\n")
                 f.write(f"Systems with collapse but lacking {proxy_name} proxy proxy terms:\n")
                 for v in violators[:5]:
-                    d_id = domains[v].stem if v < len(domains) else f"synthetic_{v}"
+                    d_id = names[v] if v < len(names) else f"synthetic_{v}"
                     f.write(f"- `{d_id}`\n")
             else:
                 f.write(f"## {proxy_name} Necessity: PASS\n")

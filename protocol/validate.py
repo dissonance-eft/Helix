@@ -129,7 +129,7 @@ def main():
     all_errors.extend(validate_observables(objects))
 
     if not objects and not parse_errors:
-        print("data/overlays/kb/ is empty — nothing to validate.")
+        print("sandbox/domain_data/overlays/kb/ is empty — nothing to validate.")
         sys.exit(0)
 
     if all_errors:

@@ -5,7 +5,7 @@ from pathlib import Path
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 ARTIFACT_DIR = ROOT / 'artifacts'
-REPORT_DIR = ROOT / 'reports'
+REPORT_DIR = ROOT / 'artifacts/reports'
 
 def run_symbiosis():
     # Load EIP
@@ -21,7 +21,7 @@ def run_symbiosis():
 
     domains = []
     # Load baseline
-    for p in (ROOT / 'data/domains').glob('*.json'):
+    for p in (ROOT / 'sandbox/domain_data/domains').glob('*.json'):
         with open(p, 'r') as f:
             d = json.load(f)
             domains.append({
@@ -30,7 +30,7 @@ def run_symbiosis():
                 "ontology": d.get("persistence_ontology", "UNKNOWN")
             })
     # Load expansion
-    ext_file = ROOT / 'data/domains_extreme_expansion.json'
+    ext_file = ROOT / 'sandbox/domain_data/domains_extreme_expansion.json'
     if ext_file.exists():
         with open(ext_file, 'r') as f:
             for d in json.load(f):
