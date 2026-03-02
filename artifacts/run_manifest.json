@@ -149,6 +149,7 @@
     "eip/witness_matrix.json": "56085b0dfb49b55ae19cbf1b0aee7c6e3b69506971e5030360ec2b2992022e73",
     "eip/witness_spectral_report.json": "89fb911eb353b0694c2613b1f28484cccd9da0c8ea85e4262f13b58692253fd1",
     "eip/witness_structure_summary.json": "d3674a7eb5b22ad6115adc1f3a2d980b4a760112ce05be1e4312a72e229fa83d",
+    "element_weights.json": "fe678e4d08e3adc997907576a93ab7149e9d5aeec325b46cff515f2b0396ed81",
     "expression/expression_overlay.json": "c92a40074936e8d24a92d0706ab60ad09b028c419dc7fb920daa0689b7e07740",
     "expression/expression_report.json": "4905df1ca2bcb88b13b3d4e15e23747d8ed1f8bdbf600d1f713d28592ca518a7",
     "falsifier_pack/manifest.json": "15e0bcb21f6c086cc4a2414d852b08cf707cb4195f6cdd40e995af75da61a0aa",
@@ -174,11 +175,13 @@
     "periodic_atlas/periodic_atlas.json": "11a31002757ef483d206151549411ba9b4e68f1b036684bcdb341f8fad02b420",
     "registry_snapshots/collapse_prevention_map.json": "0e5d5cf1c4a088878052a94eecfe9afc99293d2ea3697cc145b3e558d125732d",
     "registry_snapshots/containment_overlay.json": "fbe869a8a8ffcbcda4904821d26237db312cf70682acefea216790feb1540892",
+    "registry_snapshots/layered_structure_snapshot.json": "9abd28b69e1c13ddda899eadcc78f6a4ab33e0f52e799a0f036a084a684ab8e7",
     "registry_snapshots/obstruction_log.json": "33a9acdf82fc73429611f3c7df68256dc5f0d3de07718643817448fcd1797b18",
     "registry_snapshots/run_fingerprint.json": "25f4c56aa8221a517ae6581b961082fcdb3e90f4c0646e618c23b33d8f582e36",
     "registry_snapshots/stabilizer_registry.json": "f90bf28d1fa87ff766ccc6d15edb6ea76fddfb925503ae479a2d185644641615",
     "registry_snapshots/trace_index.json": "707853701db2556dd6e9593dcbe47dd0036c30e07ac58dd4e2b5cf8dbdb67934",
     "risk/risk_scores.json": "1aac985e4bff882d4f930c61085a2b6e67b50296a7cf3195386baf2806020b2e",
+    "run_manifest.json": "84baace0c92afeb057ce2a13675f6b4a3ed7479eca76c8da47ab296f27728ddc",
     "runs/bootstrap/constraint_dependency_matrix.json": "f3f68964f1d4dcff7f82aee6b51709f767ec19a9352370d7e9a263ca9e3921da",
     "runs/bootstrap/containment_overlay.json": "916ff3526d3b8b2768d793da9a50074ea313919d1db1ed3ee2faf3c4ae1db5cc",
     "runs/bootstrap/eip_overlay_frontier.json": "14e203d21ea746aa4a401c0de113fce0051d24fab1751d040d14c1d6c4e87fe8",
@@ -196,6 +199,7 @@
     "structural_lab/structural_periodic_table.json": "5c00e78e8654f46661afe6fc710ad002b4bdbde4ca955ba742e9cb32f0f6fa2e",
     "structural_lab/structural_periodic_table_v2.json": "5811574fb87266bbed2feb3d6725c8fccf1a1a0d5196f57e0af7ea445954cfb0",
     "structural_lab/structural_reaction_table.json": "2227b0945458fa68989ecdf80cefdd5716414d5384bce4ddae8d9e2d7a710564",
+    "summary_metrics.json": "b07005777dbf5768bf4586799b4be8e1654a25a67654ef1c8838c97a78fbd949",
     "triad/triad_overlay.json": "b908ebb5fe36e93811c0a3874a78f9a3c7aef4afc2f09ef0910a4ab07a29e7c5",
     "triad/triad_results.json": "98a2105996e0e0ddbdc96492aef45874c0f02b20a06cbe3f200254a9fe7b0cfe",
     "tsm/tsm_kernel_tests.json": "1751e524f27dea8ff01e7ff5d3fbd1be553672bbd9f36ddb27a3c925c3e2a40a",
@@ -207,8 +211,8 @@
     "numpy": "locked",
     "scikit-learn": "locked"
   },
-  "git_commit": "9c0b89e1f35e15233b15c2563ed5460a3d570152",
+  "git_commit": "9e2255efa2da44f91e8dcb692cff2f8626b37dac",
   "python_version": "3.14.3",
   "schema_version": "1.0.0",
-  "timestamp": "2026-03-02T01:40:08.288570+00:00"
+  "timestamp": "2026-03-02T03:06:55.175183+00:00"
 }
