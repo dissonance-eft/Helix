@@ -159,6 +159,7 @@
     "kernels/kernel-002_candidate_2.json": "1ec98c9e029d6469adfd2b8ac99716ba63e104c52087353a0f12e978c8b4a2cb",
     "kernels/kernel-002_candidate_3.json": "c0a504b1869b62ef0513953013a9b7a28a97097d8d20364ac79ed5f5d09add17",
     "kernels/kernel2_report.json": "94f39a9d528cc21c5fbc139c83e7ef0c6a2f40b5e4b6949df32918eaa3ce3cf2",
+    "latest_attempt/instrument_health/admissibility_report.json": "f0eb6089406f029717947894037418e3302646cdba52f9e4a0f0836c623a6385",
     "measurement/densification_report.json": "c531cd4bb3dc1c87ab74b4f32e7a6208d3383cff4b2017692426b0afe1cc1086",
     "measurement/leakage_report.json": "3ebb5964cd526d6b710300cba8cadd9c2bf1d391c6674e799a1f5d07d5f3e1ee",
     "memory/memory_suites_report.json": "46af7dab336b8ae225af66c741383b755e688e8d4ef74d8583ed721626bfe52b",
@@ -181,7 +182,7 @@
     "registry_snapshots/stabilizer_registry.json": "f90bf28d1fa87ff766ccc6d15edb6ea76fddfb925503ae479a2d185644641615",
     "registry_snapshots/trace_index.json": "707853701db2556dd6e9593dcbe47dd0036c30e07ac58dd4e2b5cf8dbdb67934",
     "risk/risk_scores.json": "1aac985e4bff882d4f930c61085a2b6e67b50296a7cf3195386baf2806020b2e",
-    "run_manifest.json": "84baace0c92afeb057ce2a13675f6b4a3ed7479eca76c8da47ab296f27728ddc",
+    "run_manifest.json": "7479fa36c0d95daa4f73a76d411166bbe8e00a64fd5d25d23776b0ec1301e860",
     "runs/bootstrap/constraint_dependency_matrix.json": "f3f68964f1d4dcff7f82aee6b51709f767ec19a9352370d7e9a263ca9e3921da",
     "runs/bootstrap/containment_overlay.json": "916ff3526d3b8b2768d793da9a50074ea313919d1db1ed3ee2faf3c4ae1db5cc",
     "runs/bootstrap/eip_overlay_frontier.json": "14e203d21ea746aa4a401c0de113fce0051d24fab1751d040d14c1d6c4e87fe8",
@@ -211,8 +212,8 @@
     "numpy": "locked",
     "scikit-learn": "locked"
   },
-  "git_commit": "9e2255efa2da44f91e8dcb692cff2f8626b37dac",
+  "git_commit": "202962ac09506c236fd0b109b6413e26df91f55d",
   "python_version": "3.14.3",
   "schema_version": "1.0.0",
-  "timestamp": "2026-03-02T03:06:55.175183+00:00"
+  "timestamp": "2026-03-02T04:06:17.174889+00:00"
 }

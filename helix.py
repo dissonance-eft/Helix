@@ -42,6 +42,14 @@ def validate_run_environment():
     return manifest
 
 def run_cmd(args):
+    from infra.os.stable_channel_manager import prepare_attempt_channel, promote_to_stable
+    from infra.os.admissibility_firewall import run_admissibility_pass
+    from infra.os.instrument_clock import check_clock, update_clock
+    from infra.os.throughput_guard import ThroughputGuard
+    from infra.os.determinism_probe import check_determinism
+    from infra.os.instrument_health_reporter import generate_health_report
+    from infra.os.panic_handler import emit_panic
+
     print("Computing dataset hash...")
     ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'), 'data/overlays', 'core/schema', 'core/enums']])
     schema_ver = get_schema_version(ROOT)
@@ -54,32 +62,65 @@ def run_cmd(args):
     os.environ['HELIX_SCHEMA_VERSION'] = schema_ver
     os.environ['HELIX_GIT_COMMIT'] = commit_hash
     os.environ['HELIX_BOOTSTRAP_SEED'] = '42'
+
+    stable_dir = ARTIFACTS_DIR / 'latest_stable'
+    status = check_clock(stable_dir)
+    if status == "STALE":
+        print("[WARNING] Instrument is STALE. Promotion locked.")
     
-    print("Executing Layer 0 Orchestrator...")
-    from layers.l0_orchestrator.orchestrator import execute_pyramid
-    execute_pyramid()
+    attempt_dir = prepare_attempt_channel(ARTIFACTS_DIR)
+    
+    try:
+        guard = ThroughputGuard(max_runtime=300)
+        
+        domains_dir = ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'data/domains')
+        valid = run_admissibility_pass(domains_dir, attempt_dir, ds_hash)
+        if not valid:
+            generate_health_report(attempt_dir, status, True)
+            return
             
-    print("Generating Run Manifest...")
-    generate_run_manifest(ROOT, ARTIFACTS_DIR, ds_hash, schema_ver, commit_hash)
-    
-    print("Enforcing Doc Traces...")
-    enforce_doc_traces(ROOT, ARTIFACTS_DIR, ds_hash)
-    
-    print("Running Tests (invariance + determinism)...")
-    run_tests()
-    
-    print("Pipeline Execution Completed Successfully.")
+        print("Executing Layer 0 Orchestrator...")
+        from layers.l0_orchestrator.orchestrator import execute_pyramid
+        execute_pyramid()
+                
+        print("Generating Run Manifest...")
+        generate_run_manifest(ROOT, ARTIFACTS_DIR, ds_hash, schema_ver, commit_hash)
+        
+        print("Enforcing Doc Traces...")
+        enforce_doc_traces(ROOT, ARTIFACTS_DIR, ds_hash)
+        
+        if not guard.check(attempt_dir, ds_hash):
+            generate_health_report(attempt_dir, status, True)
+            return
             
-    print("Generating Run Manifest...")
-    generate_run_manifest(ds_hash, schema_ver)
-    
-    print("Enforcing Doc Traces...")
-    enforce_doc_traces(ds_hash)
-    
-    print("Running Tests (invariance + determinism)...")
-    run_tests()
-    
-    print("Pipeline Execution Completed Successfully.")
+        print("Running Tests (invariance + determinism)...")
+        run_tests()
+        
+        print("Dumping artifacts to Attempt Channel...")
+        for item in ARTIFACTS_DIR.iterdir():
+            if item.name not in ["latest_attempt", "latest_stable", "archive", "quarantine", "instrument_health"]:
+                if item.is_dir():
+                    shutil.copytree(item, attempt_dir / item.name, dirs_exist_ok=True)
+                else:
+                    shutil.copy2(item, attempt_dir)
+
+        det_ok = check_determinism(attempt_dir, stable_dir, ds_hash)
+        if not det_ok:
+            emit_panic(attempt_dir, "INSTRUMENT_NONDETERMINISM", "DeterminismProbe", "Hash Mismatch", ds_hash)
+            generate_health_report(attempt_dir, status, True)
+            return
+            
+        update_clock(attempt_dir, ds_hash, schema_ver, commit_hash)
+        generate_health_report(attempt_dir, status, False)
+        
+        if status != "STALE":
+            promote_to_stable(ARTIFACTS_DIR)
+            
+        print("Pipeline Execution Completed Successfully under CE-OS Enforcement.")
+    except Exception as e:
+        emit_panic(attempt_dir, "EXECUTION_OVERFLOW", "Unknown", str(e), ds_hash)
+        generate_health_report(attempt_dir, status, True)
+        raise
 
 def test_cmd(args):
     validate_environment()
