@@ -1,6 +1,6 @@
 import time
 from pathlib import Path
-from infra.os.panic_handler import emit_panic
+from runtime.infra.os.panic_handler import emit_panic
 
 class ThroughputGuard:
     def __init__(self, max_runtime=300):

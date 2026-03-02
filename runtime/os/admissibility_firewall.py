@@ -1,7 +1,7 @@
 import json
 import shutil
 from pathlib import Path
-from infra.os.panic_handler import emit_panic
+from runtime.infra.os.panic_handler import emit_panic
 
 def run_admissibility_pass(domains_dir: Path, attempt_dir: Path, dataset_hash: str):
     print("--- Running Admissibility Firewall ---")

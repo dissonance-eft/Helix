@@ -14,11 +14,11 @@ ROOT = Path('c:/Users/dissonance/Desktop/Helix')
 ARTIFACTS_DIR = ROOT / 'artifacts'
 ARCHIVE_DIR = ARTIFACTS_DIR / 'archive'
 
-from infra.hashing.integrity import compute_dataset_hash
-from infra.platform.environment import get_git_commit, get_schema_version
-from infra.io.persistence import save_wrapped, archive_artifacts
-from infra.trace.integrity import enforce_doc_traces
-from infra.manifest.runner import generate_run_manifest
+from runtime.infra.hashing.integrity import compute_dataset_hash
+from runtime.infra.platform.environment import get_git_commit, get_schema_version
+from runtime.infra.io.persistence import save_wrapped, archive_artifacts
+from runtime.infra.trace.integrity import enforce_doc_traces
+from runtime.infra.manifest.runner import generate_run_manifest
 
 def run_tests():
     for test_script in (ROOT / 'tests').glob('*.py'):
@@ -29,7 +29,7 @@ def run_tests():
             sys.exit(1)
 
 def validate_run_environment():
-    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'), 'data/overlays', 'core/schema', 'core/enums']])
+    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']])
     manifest_path = ARTIFACTS_DIR / 'run_manifest.json'
     if not manifest_path.exists():
         print("Manifest missing, cannot execute read-only command.")
@@ -42,16 +42,16 @@ def validate_run_environment():
     return manifest
 
 def run_cmd(args):
-    from infra.os.stable_channel_manager import prepare_attempt_channel, promote_to_stable
-    from infra.os.admissibility_firewall import run_admissibility_pass
-    from infra.os.instrument_clock import check_clock, update_clock
-    from infra.os.throughput_guard import ThroughputGuard
-    from infra.os.determinism_probe import check_determinism
-    from infra.os.instrument_health_reporter import generate_health_report
-    from infra.os.panic_handler import emit_panic
+    from runtime.infra.os.stable_channel_manager import prepare_attempt_channel, promote_to_stable
+    from runtime.infra.os.admissibility_firewall import run_admissibility_pass
+    from runtime.infra.os.instrument_clock import check_clock, update_clock
+    from runtime.infra.os.throughput_guard import ThroughputGuard
+    from runtime.infra.os.determinism_probe import check_determinism
+    from runtime.infra.os.instrument_health_reporter import generate_health_report
+    from runtime.infra.os.panic_handler import emit_panic
 
     print("Computing dataset hash...")
-    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'), 'data/overlays', 'core/schema', 'core/enums']])
+    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']])
     schema_ver = get_schema_version(ROOT)
     commit_hash = get_git_commit(ROOT) or 'unknown'
     print(f"Dataset Hash: {ds_hash}")
@@ -73,14 +73,14 @@ def run_cmd(args):
     try:
         guard = ThroughputGuard(max_runtime=300)
         
-        domains_dir = ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'data/domains')
+        domains_dir = ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains')
         valid = run_admissibility_pass(domains_dir, attempt_dir, ds_hash)
         if not valid:
             generate_health_report(attempt_dir, status, True)
             return
             
         print("Executing Layer 0 Orchestrator...")
-        from layers.l0_orchestrator.orchestrator import execute_pyramid
+        from sandbox.layers.l0_orchestrator.orchestrator import execute_pyramid
         execute_pyramid()
                 
         print("Generating Run Manifest...")
@@ -127,17 +127,17 @@ def test_cmd(args):
     run_tests()
 
 def diff_cmd(args):
-    from infra.platform.structural_diff import execute_diff
+    from runtime.infra.platform.structural_diff import execute_diff
     execute_diff(ARTIFACTS_DIR, ROOT, args.old_hash, args.new_hash)
 
 def query_cmd(args):
     validate_run_environment()
-    from infra.platform.cli_query import execute_query
+    from runtime.infra.platform.cli_query import execute_query
     execute_query(ARTIFACTS_DIR, args.query_type, args.query_args)
 
 def graph_cmd(args):
     validate_run_environment()
-    from infra.platform.visual_graphing import generate_graph
+    from runtime.infra.platform.visual_graphing import generate_graph
     out_dir = ROOT / 'docs' / 'runs'
     generate_graph(args.domain_id, ARTIFACTS_DIR, out_dir)
 
@@ -154,8 +154,8 @@ def audit_cmd(args):
 
 def falsify_cmd(args):
     validate_run_environment()
-    from layers.l5_expansion.adversarial_red_team import run_adversarial_sandbox
-    run_adversarial_sandbox(ARTIFACTS_DIR, ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'data/domains'))
+    from sandbox.layers.l5_expansion.adversarial_red_team import run_adversarial_sandbox
+    run_adversarial_sandbox(ARTIFACTS_DIR, ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'))
 
 def main():
     parser = argparse.ArgumentParser(description="Helix Research Instrument CLI")

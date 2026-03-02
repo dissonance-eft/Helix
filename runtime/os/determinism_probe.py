@@ -1,5 +1,5 @@
 from pathlib import Path
-from infra.os.panic_handler import emit_panic
+from runtime.infra.os.panic_handler import emit_panic
 
 def check_determinism(attempt_dir: Path, stable_dir: Path, dataset_hash: str):
     print("--- Running Determinism Probe ---")
