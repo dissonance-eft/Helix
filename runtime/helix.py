@@ -8,6 +8,7 @@ import re
 import argparse
 import subprocess
 import zipfile
+import importlib
 from pathlib import Path
 
 ROOT = Path('c:/Users/dissonance/Desktop/Helix')
@@ -28,8 +29,15 @@ def run_tests():
             print(f"Test {test_script.name} failed.")
             sys.exit(1)
 
-def validate_run_environment():
-    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']])
+def validate_run_environment(args=None):
+    paths = [Path(d) for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']]
+    # Filter only existing paths (Decoupling)
+    existing_paths = [ROOT / p for p in paths if (ROOT / p).exists()]
+    
+    if args and getattr(args, 'kernel_only', False):
+        existing_paths = [ROOT / p for p in existing_paths if 'sandbox' not in str(p)]
+        
+    ds_hash = compute_dataset_hash(existing_paths)
     manifest_path = ARTIFACTS_DIR / 'run_manifest.json'
     if not manifest_path.exists():
         print("Manifest missing, cannot execute read-only command.")
@@ -51,10 +59,14 @@ def run_cmd(args):
     from runtime.infra.os.panic_handler import emit_panic
 
     print("Computing dataset hash...")
-    ds_hash = compute_dataset_hash([ROOT / d for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']])
-    schema_ver = get_schema_version(ROOT)
-    commit_hash = get_git_commit(ROOT) or 'unknown'
-    print(f"Dataset Hash: {ds_hash}")
+    paths = [Path(d) for d in [os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'), 'sandbox/domain_data/overlays', 'core/schema', 'core/enums']]
+    existing_paths = [ROOT / p for p in paths if (ROOT / p).exists()]
+    
+    if args.kernel_only:
+        print("[KERNEL_ONLY] Bypassing Sandbox domains and overlays.")
+        existing_paths = [ROOT / p for p in existing_paths if 'sandbox' not in str(p)]
+        
+    ds_hash = compute_dataset_hash(existing_paths)
     
     archive_artifacts(ARTIFACTS_DIR, ARCHIVE_DIR, ds_hash)
     
@@ -79,9 +91,15 @@ def run_cmd(args):
             generate_health_report(attempt_dir, status, True)
             return
             
-        print("Executing Layer 0 Orchestrator...")
-        from sandbox.layers.l0_orchestrator.orchestrator import execute_pyramid
-        execute_pyramid()
+        # Dynamic import (Ring 2 orchestration engine)
+        if args.kernel_only:
+             print("[KERNEL_ONLY] Bypassing L0 Orchestrator (Sandbox).")
+        else:
+             try:
+                 orch_module = importlib.import_module("runtime.orchestration.orchestrator")
+                 orch_module.execute_pyramid()
+             except (ModuleNotFoundError, ImportError):
+                 print("[WARNING] Orchestrator missing or invalid. Skipping L0 execution.")
                 
         print("Generating Run Manifest...")
         generate_run_manifest(ROOT, ARTIFACTS_DIR, ds_hash, schema_ver, commit_hash)
@@ -123,7 +141,7 @@ def run_cmd(args):
         raise
 
 def test_cmd(args):
-    validate_environment()
+    validate_run_environment(args)
     run_tests()
 
 def diff_cmd(args):
@@ -131,34 +149,40 @@ def diff_cmd(args):
     execute_diff(ARTIFACTS_DIR, ROOT, args.old_hash, args.new_hash)
 
 def query_cmd(args):
-    validate_run_environment()
+    validate_run_environment(args)
     from runtime.infra.platform.cli_query import execute_query
     execute_query(ARTIFACTS_DIR, args.query_type, args.query_args)
 
 def graph_cmd(args):
-    validate_run_environment()
+    validate_run_environment(args)
     from runtime.infra.platform.visual_graphing import generate_graph
     out_dir = ROOT / 'docs' / 'runs'
     generate_graph(args.domain_id, ARTIFACTS_DIR, out_dir)
 
 def snapshot_cmd(args):
-    validate_environment()
+    validate_run_environment(args)
     out_zip = ROOT / 'snapshot.zip'
     with zipfile.ZipFile(out_zip, 'w') as zf:
         zf.write(ARTIFACTS_DIR / 'run_manifest.json', 'run_manifest.json')
     print(f"Created snapshot bundle at {out_zip}")
 
 def audit_cmd(args):
-    validate_environment()
+    validate_run_environment(args)
     print("Audit passed: crosslink integrity verified.")
 
 def falsify_cmd(args):
-    validate_run_environment()
-    from sandbox.layers.l5_expansion.adversarial_red_team import run_adversarial_sandbox
-    run_adversarial_sandbox(ARTIFACTS_DIR, ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'))
+    validate_run_environment(args)
+    # Dynamic import to satisfy Ring 2 -> Ring 3 decoupling (Gravity Contract)
+    try:
+        falsify_module = importlib.import_module("sandbox.layers.l5_expansion.adversarial_red_team")
+        falsify_module.run_adversarial_sandbox(ARTIFACTS_DIR, ROOT / os.environ.get('HELIX_DOMAINS_DIR', 'sandbox/domain_data/domains'))
+    except (ModuleNotFoundError, ImportError):
+        print("[ERROR] Adversarial Sandbox (Ring 3) is missing or broken. Falsification failed.")
+        sys.exit(1)
 
 def main():
     parser = argparse.ArgumentParser(description="Helix Research Instrument CLI")
+    parser.add_argument('--kernel-only', action='store_true', help="Bypass all Sandbox dependencies (Ring 3 isolation test)")
     subparsers = parser.add_subparsers(dest="command", required=True)
     
     parser_run = subparsers.add_parser('run', help="Run deterministic pipeline")

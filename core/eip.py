@@ -9,7 +9,7 @@ class EpistemicIrreversibility:
     """
     @staticmethod
     def is_irreversible(failure_mode, stability_condition):
-        terms = ['hysteresis', 'irreversible', 'latch', 'absorbing', 'path-depend', 'lock-in']
+        terms = ['hysteresis', 'irreversible', 'latch', 'absorbing', 'path-depend', 'lock-in', 'collapse', 'loss', 'extinction']
         combined = (failure_mode + " " + stability_condition).lower()
         return any(term in combined for term in terms)
 
