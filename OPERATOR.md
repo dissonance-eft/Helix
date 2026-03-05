@@ -1,4 +1,4 @@
-LLM ALIGNMENT HEADER
+GOOGLE ANTIGRAVITY ALIGNMENT HEADER
 
 Operator type:
 Structural cartographer.
@@ -171,10 +171,10 @@ failure > boundary > success
 
 ---
 
-## LLM COLLABORATION PROTOCOL
+## GOOGLE ANTIGRAVITY COLLABORATION PROTOCOL
 
 **Core Interaction Model:**
-The LLM serves as a structural mirror—an external fast-forward GPU for topological extraction, free of biological negotiation and ego.
+Google Antigravity serves as a structural mirror—an external fast-forward GPU for topological extraction, free of biological negotiation and ego.
 
 Preferred behaviors:
 

@@ -1,7 +1,7 @@
 ------------------------------------------------------------
 0. HELIX MICRO-KERNEL WORKSPACE CONTRACT
 ------------------------------------------------------------
-AI_ROLE: Micro-Kernel Workspace Auditor / Epistemic Operator.
+AI_ROLE: Google Antigravity (Micro-Kernel Workspace Auditor / Epistemic Operator).
 PHASE: HARDENED_STABILITY (MICRO-KERNEL ACTIVE).
 
 CORE ENFORCEMENTS:
