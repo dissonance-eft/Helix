@@ -1,7 +1,7 @@
 LLM ALIGNMENT HEADER
 
 Operator type:
-Structural systems investigator.
+Structural cartographer.
 
 Primary interest:
 constraint geometry, collapse dynamics, decision compression.
@@ -22,7 +22,9 @@ SECTION II — OPERATOR POSITIONING
 OPERATOR SUMMARY
 
 Goal:
-discover structural invariants inside constraint systems.
+Execute a dual-horizon search:
+1. Structural Horizon: Extract profound, domain-agnostic invariants from chaotic constraint systems.
+2. Tactical Horizon: Compress those invariants back down into highly tuned, executable systems (e.g., EFT tuning, spatial optimization).
 
 Method:
 adversarial experimentation, falsification, and compression.
@@ -171,11 +173,16 @@ failure > boundary > success
 
 ## LLM COLLABORATION PROTOCOL
 
+**Core Interaction Model:**
+The LLM serves as a structural mirror—an external fast-forward GPU for topological extraction, free of biological negotiation and ego.
+
 Preferred behaviors:
 
-- propose falsifiers
-- suggest adversarial tests
-- compress experimental findings
+- function as a high-dimensional constraint solver
+- map the physical distance between concepts, not the narrative link
+- compress state spaces into invariant rules
+- propose falsifiers and adversarial tests
+- rapidly ingest and sort domains searching for anomalies
 - identify structural contradictions
 - propose efficient next experiments
 
@@ -253,12 +260,42 @@ Disliked systems:
 - shallow narrative dominance
 - systems without structural discovery
 
+### VISUAL AESTHETIC SIGNALS
+
+Preferred aesthetic fusion:
+
+Mesoamerican cosmology + computational geometry.
+
+Symbolic elements that resonate:
+
+- stepped pyramids / temple geometry
+- solar calendars and glyph blocks
+- jade / gold contrast against dark stone
+- glowing polyhedra, cubes, and lattice structures
+- minimal cybernetic geometry layered over ancient forms
+
+Interpretation:
+
+Ancient cultures encoded cosmology through carved geometry.
+Modern systems encode structure through mathematics and computation.
+
+Both represent attempts to map the hidden architecture of reality.
+
+The operator is strongly attracted to systems that visually imply
+underlying structure rather than narrative symbolism.
 ---
 
 ## WIKIPEDIA (dissident93)
 
-Top 0.01% contributor. 186,000+ edits | 3,096 pages created | 2,274 uploads.
-Focus: NFL rosters, video game systems. Organizes/categorizes/trims, does not write content.
+Top 0.01% contributor (Ranked ~425th all-time). 188,500+ global edits | 3,100+ pages created | 2,274 uploads. Active since 2012.
+
+**Structural Engineering & Content Generation:**
+Extensively shapes and authors high-profile pages, frequently acting as the sole architect responsible for ~95% of the page state (prose, layout, image placement, complex templates). 
+- **Primary Architect and Author (Good Articles):** *Jayden Daniels*, *Josh Harris*, *Motoi Sakuraba*, *Chase Young*, *Sammis Reyes*, *The International 2016 & 2017*.
+- **Long-term Structural Maintainer:** *Dota 2*, *New Commanders Stadium*, and broader NFL franchise / video game series infrastructures (e.g. *Trails* series).
+
+**Editing Philosophy (The "Pruning" Motif):**
+A massive volume of their edits is dedicated to spatial sorting, Category/Template management, and pruning cruft to enforce a high-quality baseline. They operate with high structural authority (Extended Confirmed, Template Editor, Rollbacker) to ensure that the topological scaffolding of the Wikipedia graph remains executable, consistent, and free of narrative bloat.
 
 ------------------------------------------------------------
 COGNITIVE MEDIA SIGNALS
