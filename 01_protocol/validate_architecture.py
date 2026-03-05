@@ -9,6 +9,7 @@ ALLOWED_ROOT_ENTITIES = {
     ".gitignore",
     "HELIX.md",
     "OPERATOR.md",
+    "helix.py",
     "00_core",
     "01_protocol",
     "02_runtime",
@@ -16,103 +17,106 @@ ALLOWED_ROOT_ENTITIES = {
     "04_workspaces",
     "05_atlas",
     "06_artifacts",
-    "docs",
-    "helix.py"
+    "docs"
 }
 
-def enforce_topology():
-    print("Running Topology Enforcement...")
-    violations = []
-    
-    # 1. Root level scan
+class ArchitectureViolation(Exception):
+    pass
+
+def validate_repository_topology():
     for item in os.listdir(ROOT):
-        # Skip hidden files we don't care about entirely except .git/.gitignore
-        if item not in ALLOWED_ROOT_ENTITIES and not (item.startswith('.') and item not in ['.git', '.gitignore']):
-            if os.path.isdir(ROOT / item) and "module" in item.lower():
-                suggestion = f"Move to 03_forge/modules/{item.replace('helix_modules', '')}"
-            else:
-                suggestion = "Delete or move to appropriate ring."
-                
-            violations.append(f"VIOLATION: Unauthorized root entity '{item}'. {suggestion}")
+        if item not in ALLOWED_ROOT_ENTITIES:
+            raise ArchitectureViolation(
+                f"TOPOLOGY_VIOLATION: Unauthorized root entity '{item}'. "
+                f"Only {ALLOWED_ROOT_ENTITIES} are permitted. Please remove or relocate."
+            )
+
+def _check_import(module_name, area, filepath, lineno):
+    if area == "module" and "04_workspaces" in module_name:
+        raise ArchitectureViolation(f"FLOW_VIOLATION: Module {filepath}:{lineno} illegally imports from {module_name}")
+    if area == "workspace" and ("03_forge" in module_name and "modules" in module_name):
+        raise ArchitectureViolation(f"FLOW_VIOLATION: Workspace {filepath}:{lineno} illegally imports from module {module_name}")
+
+def _check_write(node, filepath, area):
+    if len(node.args) > 0:
+        arg0 = node.args[0]
+        path_str = None
+        if isinstance(arg0, ast.Constant):
+            path_str = arg0.value
+        elif hasattr(arg0, 's'):
+            path_str = arg0.s
             
-    if violations:
-        for v in violations:
-            print(v)
-        return False
-    print("Topology OK.")
-    return True
+        if isinstance(path_str, str):
+            if area == "module" and "06_artifacts" not in path_str and "stdout" not in path_str:
+                raise ArchitectureViolation(f"FLOW_VIOLATION: Module {filepath} attempting write outside of 06_artifacts to '{path_str}'")
+            if area == "forge_experiment" and "04_workspaces" in path_str:
+                raise ArchitectureViolation(f"FLOW_VIOLATION: Forge experiment {filepath} attempting write to workspace '{path_str}'")
 
-def classify_entity(path):
-    """
-    Classifies a directory inside the macro-structure to ensure it aligns with
-    either a WORKSPACE or a MODULE schema.
-    """
-    files = " ".join(os.listdir(path)).lower()
-    
-    if "dataset" in files or "ingestion" in files or "telemetry" in files:
-        return "WORKSPACE"
-    if "cli" in files or "app" in files or "suggestion" in files or "engine" in files:
-        return "MODULE"
-    return "UNKNOWN"
+def check_ast_file(filepath, area):
+    with open(filepath, "r", encoding="utf-8") as f:
+        try:
+            tree = ast.parse(f.read(), filename=str(filepath))
+        except SyntaxError:
+            return
 
-def enforce_artifact_flow():
-    print("Running Artifact Flow Validation...")
-    violations = []
-    
-    forge_modules_dir = ROOT / "03_forge" / "modules"
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            for alias in node.names:
+                _check_import(alias.name, area, filepath, getattr(node, 'lineno', 0))
+        elif isinstance(node, ast.ImportFrom):
+            if node.module:
+                _check_import(node.module, area, filepath, getattr(node, 'lineno', 0))
+
+        if isinstance(node, ast.Call):
+            func_id = getattr(node.func, 'id', None)
+            if func_id in ['exec', 'eval']:
+                raise ArchitectureViolation(f"FLOW_VIOLATION: Dynamic execution ({func_id}) forbidden in {filepath}:{getattr(node, 'lineno', 0)}")
+            
+            if func_id == 'open' and len(node.args) > 1:
+                mode_node = node.args[1]
+                if isinstance(mode_node, ast.Constant) and isinstance(mode_node.value, str):
+                    if any(mode in mode_node.value for mode in ['w', 'a', '+']):
+                        _check_write(node, filepath, area)
+            
+            if isinstance(node.func, ast.Attribute):
+                if getattr(node.func.value, 'id', None) == 'importlib' and node.func.attr == 'import_module':
+                    raise ArchitectureViolation(f"FLOW_VIOLATION: Dynamic import (importlib) forbidden in {filepath}:{getattr(node, 'lineno', 0)}")
+            
+            if func_id == 'import_module':
+                raise ArchitectureViolation(f"FLOW_VIOLATION: Dynamic import (importlib) forbidden in {filepath}:{getattr(node, 'lineno', 0)}")
+
+def validate_ast_dependencies():
+    modules_dir = ROOT / "03_forge" / "modules"
+    if modules_dir.exists():
+        for root, _, files in os.walk(modules_dir):
+            for file in files:
+                if file.endswith(".py"):
+                    check_ast_file(Path(root) / file, "module")
+                    
     workspaces_dir = ROOT / "04_workspaces"
-    forge_dir = ROOT / "03_forge"
-    
-    # 1. Modules reading only artifacts, not writing upstream
-    # A naive AST check for module files
-    if forge_modules_dir.exists():
-        for root_dir, _, files in os.walk(forge_modules_dir):
-            for file in files:
-                if file.endswith(".py"):
-                    filepath = Path(root_dir) / file
-                    with open(filepath, "r", encoding="utf-8") as f:
-                        try:
-                            tree = ast.parse(f.read())
-                            for node in ast.walk(tree):
-                                if isinstance(node, ast.ImportFrom):
-                                    if node.module and ("04_workspaces" in node.module or "00_core" in node.module):
-                                        violations.append(f"FLOW VIOLATION in Module {file}: Illegal upstream import from {node.module}")
-                                elif isinstance(node, ast.Call):
-                                    # Very naive write detection check 
-                                    if hasattr(node.func, 'id') and node.func.id == 'open':
-                                        if len(node.args) > 1:
-                                            mode_node = node.args[1]
-                                            if isinstance(mode_node, ast.Constant) and 'w' in mode_node.value:
-                                                pass # Need deeper semantic analysis to know if they write to 04_workspaces, but manual review flagged.
-                        except SyntaxError:
-                            pass
-
-    # 2. Workspaces importing from modules
     if workspaces_dir.exists():
-        for root_dir, _, files in os.walk(workspaces_dir):
+        for root, _, files in os.walk(workspaces_dir):
             for file in files:
                 if file.endswith(".py"):
-                    filepath = Path(root_dir) / file
-                    with open(filepath, "r", encoding="utf-8") as f:
-                        try:
-                            tree = ast.parse(f.read())
-                            for node in ast.walk(tree):
-                                if isinstance(node, ast.ImportFrom):
-                                    if node.module and ("modules" in node.module):
-                                        violations.append(f"FLOW VIOLATION in Workspace {file}: Illegal circular dependency import from module {node.module}")
-                        except SyntaxError:
-                            pass
-                            
-    if violations:
-        for v in violations:
-            print(v)
-        return False
-    print("Artifact Flow OK.")
-    return True
-    
+                    check_ast_file(Path(root) / file, "workspace")
+                    
+    forge_dir = ROOT / "03_forge"
+    if forge_dir.exists():
+        for root, _, files in os.walk(forge_dir):
+            if "modules" in Path(root).parts:
+                continue
+            for file in files:
+                if file.endswith(".py"):
+                    check_ast_file(Path(root) / file, "forge_experiment")
+
+def execute():
+    try:
+        validate_repository_topology()
+        validate_ast_dependencies()
+        print("Architectural coherence verified.")
+    except ArchitectureViolation as e:
+        print(f"Error: {e}")
+        raise
+
 if __name__ == "__main__":
-    t_ok = enforce_topology()
-    f_ok = enforce_artifact_flow()
-    if not t_ok or not f_ok:
-        exit(1)
-    print("All architecture contracts respected.")
+    execute()

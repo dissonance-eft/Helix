@@ -58,6 +58,13 @@ def write_artifact(run_id, relative_path, data, schema_type=None):
         json.dump(manifest, f, indent=4)
 
 def cmd_verify():
+    try:
+        val_arch = import_module('01_protocol.validate_architecture')
+        val_arch.execute()
+    except Exception as e:
+        print(e)
+        return False
+        
     moved = enforce_root_quarantine()
     if moved: print(f"Quarantined files: {moved}")
     imp_violations = validate_forge_imports(ROOT / '03_forge')
