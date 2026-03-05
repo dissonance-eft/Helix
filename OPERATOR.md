@@ -455,7 +455,7 @@ These patterns align with the operator's **collapse-geometry cognitive profile**
 - Mechanics (freq): Pass 1600, Catch 680, Tackle 555, Fumble 296, Bhop 110, Ragdoll 73
 
 **Top Played/Completed Systems:**
-- **Garry's Mod** (2,981 hrs) — *Peak topological sandbox; pure structural manipulation without linear constraints.*
+- **Garry's Mod** (2,981 hrs) — *Host engine for Extreme Football Throwdown and Hammer Editor map geometry. Zero interest in standard sandbox, TTT, or RP servers. GMod is strictly a physics engine host for structural collision experiments.*
 - **Overwatch** (931 hrs) — *Geometry-control influence casting (Moira/Ana).*
 - **Stardew Valley** (370 hrs) — *Sustained loop-stability / resource boundary management.*
 - **High-Completion Trophies:** Assassin's Creed II (90%), Horizon Zero Dawn (83%), Dark Souls II (80%).
