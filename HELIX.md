@@ -23,7 +23,7 @@ CORE ENFORCEMENTS:
 5. **04_workspaces/**: Domain instances and functional reasoning layers.
 6. **05_atlas/**: Deterministically generated epistemic manifold.
 7. **06_artifacts/**: Machine trace outputs.
-8. **OPERATOR.md**: Exploratory mapping and operator context. (Not canonical).
+8. **DISSONANCE.md**: Exploratory mapping and operator context. (Not canonical).
 ------------------------------------------------------------
 ## PROJECT VISION & SCOPE
 ------------------------------------------------------------
@@ -195,7 +195,7 @@ Root directory MUST contain ONLY:
 .git
 .gitignore
 HELIX.md
-OPERATOR.md
+DISSONANCE.md
 00_core/           (Ring 0: Ontology)
 01_protocol/       (Ring 1: Governance & Validation)
 02_runtime/        (Ring 2: Execution & Platform)

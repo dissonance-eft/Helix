@@ -133,7 +133,7 @@ print("\n====================================")
 print("STEP 4: MERGE UNIFIED DATASET       ")
 print("====================================")
 
-# Mocked from OPERATOR.md context
+# Mocked from DISSONANCE.md context
 music_data = {
     "top_composers": ["Motoi Sakuraba", "Yasunori Mitsuda", "Nobuo Uematsu", "Shoji Meguro"],
     "preferences": ["loop-stable attractors", "recursive structures", "micro-variation", "layer accumulation"]

@@ -4,7 +4,7 @@ from pathlib import Path
 
 WHITELIST = {
     ".git", ".gitignore", ".agents",
-    "HELIX.md", "OPERATOR.md", "REBUILD_CHECKPOINT.md", "operator.json",
+    "HELIX.md", "DISSONANCE.md", "REBUILD_CHECKPOINT.md", "dissonance.json",
     "helix.py",
     "00_kernel", "01_basis", "02_governance", "03_engines",
     "04_labs", "05_applications", "06_atlas", "07_artifacts",
