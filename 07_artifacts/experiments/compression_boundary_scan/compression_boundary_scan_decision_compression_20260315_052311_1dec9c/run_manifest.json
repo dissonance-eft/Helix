@@ -1,0 +1,19 @@
+{
+  "run_id": "compression_boundary_scan_decision_compression_20260315_052311_1dec9c",
+  "timestamp_utc": "2026-03-15T05:23:11.312496+00:00",
+  "probe_name": "decision_compression",
+  "lab_name": "games",
+  "dataset_hash": "1d3ce62fa99e88adfa95a25f189c5544c67c7d07167f10d573ccc8a6a2a3b98c",
+  "probe_code_hash": "e11608a229574d8eb4b0d1cbea88e3312d345c2e43f0f0cee9395de70be36bf7",
+  "probe_version": "1.0.0",
+  "python_version": "3.12.3",
+  "platform": "Linux",
+  "sandbox_limits": {},
+  "helix_version": "0.4.0",
+  "experiment_name": "compression_boundary_scan",
+  "parameters": {
+    "agent_count": 5,
+    "competition_strength": 0.3,
+    "topology": "scale_free"
+  }
+}

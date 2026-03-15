@@ -1,0 +1,17 @@
+{
+  "probe_name": "decision_compression",
+  "domain": "games",
+  "passed": false,
+  "signal": 0.1628,
+  "signal_strength": 0.1628,
+  "confidence": "absent",
+  "decision_dimension": 6.6977,
+  "n_agents": 8,
+  "n_rounds": 1,
+  "k_eff_per_round": [
+    6.6977,
+    6.6977
+  ],
+  "compression_ratio": 0.1628,
+  "version": "1.0.0"
+}

@@ -1,0 +1,14 @@
+experiment_name: compression_boundary_scan
+
+probes:
+  - decision_compression
+
+labs:
+  - games
+
+parameters:
+  agent_count: [5, 8, 10, 12, 15]
+  competition_strength: [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]
+  topology: [random, scale_free]
+
+runs_per_configuration: 15

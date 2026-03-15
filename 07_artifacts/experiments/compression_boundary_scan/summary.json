@@ -1,0 +1,714 @@
+{
+    "experiment_name": "compression_boundary_scan",
+    "total_runs": 70,
+    "parameter_grid_size": 70,
+    "results_summary": [
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.5,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.35,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.25,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.45,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.5,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.4,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.4,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.2,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.35,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.3,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.2,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.3,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.2,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.45,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.25,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 5,
+                "competition_strength": 0.2,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.25,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.25,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.3,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.5,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.3,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.35,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.45,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.45,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.35,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.5,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.4,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.2,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 8,
+                "competition_strength": 0.4,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.2,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.25,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.25,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.3,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.3,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.35,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.35,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.5,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.2,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.45,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.4,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.45,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.4,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 10,
+                "competition_strength": 0.5,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.25,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.25,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.3,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.2,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.3,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.45,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.35,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.4,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.4,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.35,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": true,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.5,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.25,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": true,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.5,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.2,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 12,
+                "competition_strength": 0.45,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.2,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.25,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.3,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.3,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.35,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.35,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": true,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.45,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.4,
+                "topology": "scale_free"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": false,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.4,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": true,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.45,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": true,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.5,
+                "topology": "random"
+            }
+        },
+        {
+            "probe": "decision_compression",
+            "lab": "games",
+            "passed": true,
+            "params": {
+                "agent_count": 15,
+                "competition_strength": 0.5,
+                "topology": "scale_free"
+            }
+        }
+    ],
+    "regimes_detected": {
+        "decision_compression": {
+            "agent_count": "Range: 12 -> 15",
+            "competition_strength": "Range: 0.45 -> 0.5",
+            "topology": "Range: random -> scale_free"
+        }
+    }
+}
