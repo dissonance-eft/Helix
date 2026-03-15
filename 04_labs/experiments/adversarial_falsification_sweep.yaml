@@ -1,0 +1,24 @@
+experiment_name: adversarial_falsification_sweep
+
+probes:
+  - decision_compression
+  - oscillator_locking
+
+labs:
+  - games
+  - music
+  - adversarial_topo
+
+parameters:
+  agent_count: [3, 10, 30, 60]
+  competition_strength: [0.0, 0.2, 0.5, 0.8, 1.0]
+  topology:
+    - ring
+    - random
+    - scale_free
+    - small_world
+    - star
+  coupling_override: [0.0, 0.1, 0.5, 1.0, -0.5] # Frustration injection
+  latency_jitter: [0, 10, 50] # For leadership latency checks
+
+runs_per_configuration: 5

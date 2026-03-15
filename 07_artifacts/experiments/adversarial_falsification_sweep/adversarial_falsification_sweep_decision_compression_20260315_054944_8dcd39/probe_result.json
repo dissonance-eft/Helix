@@ -1,0 +1,17 @@
+{
+  "probe_name": "decision_compression",
+  "domain": "adversarial_topo",
+  "passed": true,
+  "signal": 0.463,
+  "signal_strength": 0.463,
+  "confidence": "moderate",
+  "decision_dimension": 16.1111,
+  "n_agents": 30,
+  "n_rounds": 1,
+  "k_eff_per_round": [
+    16.1111,
+    16.1111
+  ],
+  "compression_ratio": 0.463,
+  "version": "1.0.0"
+}

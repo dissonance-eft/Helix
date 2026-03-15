@@ -1,0 +1,73 @@
+{
+  "dataset_path": "/home/dissonance/Helix/07_artifacts/experiments/adversarial_falsification_sweep/adversarial_falsification_sweep_oscillator_locking_20260315_055011_e77045/dataset.json",
+  "dataset": {
+    "domain": "adversarial_topo",
+    "agent_count": 10,
+    "competition_strength": 0.5,
+    "topology": "random",
+    "coupling_override": 0.0,
+    "latency_jitter": 50,
+    "coupling_strength": 0.0,
+    "oscillators": [
+      {
+        "id": "o_0",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.05
+      },
+      {
+        "id": "o_1",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.01
+      },
+      {
+        "id": "o_2",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.02
+      },
+      {
+        "id": "o_3",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.03
+      },
+      {
+        "id": "o_4",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.04
+      },
+      {
+        "id": "o_5",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.05
+      },
+      {
+        "id": "o_6",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.06
+      },
+      {
+        "id": "o_7",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.07
+      },
+      {
+        "id": "o_8",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.08
+      },
+      {
+        "id": "o_9",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.09
+      }
+    ]
+  },
+  "lab_name": "adversarial_topo",
+  "run_id": "adversarial_falsification_sweep_oscillator_locking_20260315_055011_e77045",
+  "parameters": {
+    "agent_count": 10,
+    "competition_strength": 0.5,
+    "topology": "random",
+    "coupling_override": 0.0,
+    "latency_jitter": 50
+  }
+}

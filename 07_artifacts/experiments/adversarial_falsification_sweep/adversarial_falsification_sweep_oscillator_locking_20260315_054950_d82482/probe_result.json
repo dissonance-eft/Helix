@@ -1,0 +1,18 @@
+{
+  "probe_name": "oscillator_locking",
+  "domain": "games",
+  "passed": false,
+  "signal": 0.574167,
+  "signal_strength": 0.574167,
+  "confidence": "none",
+  "order_parameter_R": 0.496935,
+  "order_parameter_R_initial": 1.0,
+  "phase_lock_detected": false,
+  "n_agents": 60,
+  "n_steps": 800,
+  "coupling_strength": 0.1,
+  "r_mean_tail": 0.574167,
+  "r_variance_tail": 0.0019348,
+  "interpretation": "No phase locking (R_tail=0.5742 \u2264 0.6). Coupling K=0.1 insufficient for 60 oscillators.",
+  "version": "1.0.0"
+}

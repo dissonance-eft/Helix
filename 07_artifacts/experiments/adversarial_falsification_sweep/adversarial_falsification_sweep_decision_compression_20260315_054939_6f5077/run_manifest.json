@@ -1,0 +1,21 @@
+{
+  "run_id": "adversarial_falsification_sweep_decision_compression_20260315_054939_6f5077",
+  "timestamp_utc": "2026-03-15T05:49:39.412244+00:00",
+  "probe_name": "decision_compression",
+  "lab_name": "music",
+  "dataset_hash": "22c2156974549d069c806c638ab3aabfb258f140e1d72c26698d2539548891f3",
+  "probe_code_hash": "e11608a229574d8eb4b0d1cbea88e3312d345c2e43f0f0cee9395de70be36bf7",
+  "probe_version": "1.0.0",
+  "python_version": "3.12.3",
+  "platform": "Linux",
+  "sandbox_limits": {},
+  "helix_version": "0.4.0",
+  "experiment_name": "adversarial_falsification_sweep",
+  "parameters": {
+    "agent_count": 10,
+    "competition_strength": 0.8,
+    "topology": "small_world",
+    "coupling_override": 0.1,
+    "latency_jitter": 50
+  }
+}

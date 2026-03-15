@@ -1,0 +1,21 @@
+{
+  "run_id": "adversarial_falsification_sweep_oscillator_locking_20260315_054957_1d8e5b",
+  "timestamp_utc": "2026-03-15T05:49:57.902826+00:00",
+  "probe_name": "oscillator_locking",
+  "lab_name": "music",
+  "dataset_hash": "3fd90b41da3c445c4c3bc75f190c3dfccb5331a1a872b7ebf5df562f9cda36a8",
+  "probe_code_hash": "d20c966490597fad1eed58aa8fc32fae4f1655387b54eb1da5e6b659d977d717",
+  "probe_version": "1.0.0",
+  "python_version": "3.12.3",
+  "platform": "Linux",
+  "sandbox_limits": {},
+  "helix_version": "0.4.0",
+  "experiment_name": "adversarial_falsification_sweep",
+  "parameters": {
+    "agent_count": 3,
+    "competition_strength": 0.5,
+    "topology": "random",
+    "coupling_override": 0.0,
+    "latency_jitter": 10
+  }
+}

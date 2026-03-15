@@ -1,0 +1,80 @@
+{
+  "dataset_path": "/home/dissonance/Helix/07_artifacts/experiments/adversarial_falsification_sweep/adversarial_falsification_sweep_decision_compression_20260315_054943_88c3f0/dataset.json",
+  "dataset": {
+    "domain": "adversarial_topo",
+    "agent_count": 10,
+    "competition_strength": 1.0,
+    "topology": "random",
+    "coupling_override": 0.5,
+    "latency_jitter": 10,
+    "agents": [
+      {
+        "id": "p_0",
+        "influence_weight": 0.6
+      },
+      {
+        "id": "p_1",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_2",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_3",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_4",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_5",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_6",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_7",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_8",
+        "influence_weight": 0.1
+      },
+      {
+        "id": "p_9",
+        "influence_weight": 0.1
+      }
+    ],
+    "decision_rounds": [
+      {
+        "round": 1,
+        "weights": [
+          0.6,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        "outcome": "A"
+      }
+    ]
+  },
+  "lab_name": "adversarial_topo",
+  "run_id": "adversarial_falsification_sweep_decision_compression_20260315_054943_88c3f0",
+  "parameters": {
+    "agent_count": 10,
+    "competition_strength": 1.0,
+    "topology": "random",
+    "coupling_override": 0.5,
+    "latency_jitter": 10
+  }
+}

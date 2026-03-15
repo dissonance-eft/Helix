@@ -22,25 +22,52 @@ def generate_dataset_for_probe(probe_name: str, base_dataset: dict, params: dict
     ds.update(params)
     
     agent_count = params.get("agent_count", len(ds.get("agents", [])) if "agents" in ds else 5)
+    topology = params.get("topology", "random")
+    comp_strength = params.get("competition_strength", 0.0)
+    coupling_override = params.get("coupling_override", None)
+    latency_jitter = params.get("latency_jitter", 0)
     
     if probe_name == "decision_compression":
-        # Generate dummy agents and rounds based on parameters
-        comp_strength = params.get("competition_strength", 0.0)
         agents = []
-        for i in range(agent_count):
-            # If high comp strength, skew the weights
-            w = 1.0/agent_count
-            if i == 0:
-                w += comp_strength * 0.5
-            agents.append({"id": f"p_{i}", "influence_weight": w})
+        if topology == "star":
+            # Direct central authority (Leader node)
+            for i in range(agent_count):
+                w = 0.0
+                if i == 0:
+                    w = comp_strength # Central dominance
+                else:
+                    w = (1.0 - comp_strength) / (agent_count - 1)
+                agents.append({"id": f"p_{i}", "influence_weight": w})
+        elif topology == "ring":
+            # Perfect symmetry (Zero inherent compression)
+            w = 1.0 / agent_count
+            for i in range(agent_count):
+                agents.append({"id": f"p_{i}", "influence_weight": w})
+        else:
+            # Default biased distribution
+            for i in range(agent_count):
+                w = 1.0/agent_count
+                if i == 0:
+                    w += comp_strength * 0.5
+                agents.append({"id": f"p_{i}", "influence_weight": w})
+        
         ds["agents"] = agents
         ds["decision_rounds"] = [{"round": 1, "weights": [a["influence_weight"] for a in agents], "outcome": "A"}]
         
     elif probe_name == "oscillator_locking":
-        ds["coupling_strength"] = params.get("coupling_strength", params.get("competition_strength", 0.0) * 2)
+        # Handle Frustration (negative coupling)
+        if coupling_override is not None:
+            ds["coupling_strength"] = coupling_override
+        else:
+            ds["coupling_strength"] = comp_strength * 2.0
+            
         oscillators = []
         for i in range(agent_count):
-            oscillators.append({"id": f"o_{i}", "initial_phase": 0.0, "natural_frequency": 1.0 + (i*0.01)})
+            freq = 1.0 + (i*0.01)
+            # Inject leadership latency/jitter for specific nodes
+            if i == 0 and latency_jitter > 0:
+                freq += (latency_jitter / 1000.0) # Convert jitter to frequency offset/drift
+            oscillators.append({"id": f"o_{i}", "initial_phase": 0.0, "natural_frequency": freq})
         ds["oscillators"] = oscillators
         
     return ds

@@ -1,0 +1,211 @@
+{
+    "experiment": "adversarial_falsification_sweep",
+    "total_comparisons": 1500,
+    "divergent_runs": 909,
+    "divergence_rate": 0.606,
+    "verdict": "H3: Shared Order Parameter (Divergent Signals Observed)",
+    "top_falsifiers": [
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.0,
+                "latency_jitter": 10,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.1,
+                "latency_jitter": 10,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.0,
+                "latency_jitter": 0,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.1,
+                "latency_jitter": 50,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.5,
+                "latency_jitter": 50,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.5,
+                "latency_jitter": 10,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.1,
+                "latency_jitter": 0,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 1.0,
+                "latency_jitter": 0,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 0.5,
+                "latency_jitter": 0,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        },
+        {
+            "params": {
+                "agent_count": 3,
+                "competition_strength": 0.0,
+                "coupling_override": 1.0,
+                "latency_jitter": 50,
+                "topology": "ring"
+            },
+            "decision": 0.0,
+            "oscillator": 1.0
+        }
+    ],
+    "interpretation": {
+        "H1_status": "REJECTED",
+        "critical_falsifier_topology": [
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star",
+            "random",
+            "random",
+            "random",
+            "scale_free",
+            "scale_free",
+            "scale_free",
+            "small_world",
+            "small_world",
+            "small_world",
+            "star",
+            "star",
+            "star"
+        ]
+    }
+}

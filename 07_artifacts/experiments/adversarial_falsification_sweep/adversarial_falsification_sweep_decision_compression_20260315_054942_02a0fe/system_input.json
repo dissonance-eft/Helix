@@ -1,0 +1,45 @@
+{
+  "dataset_path": "/home/dissonance/Helix/07_artifacts/experiments/adversarial_falsification_sweep/adversarial_falsification_sweep_decision_compression_20260315_054942_02a0fe/dataset.json",
+  "dataset": {
+    "domain": "adversarial_topo",
+    "agent_count": 3,
+    "competition_strength": 0.8,
+    "topology": "random",
+    "coupling_override": 1.0,
+    "latency_jitter": 50,
+    "agents": [
+      {
+        "id": "p_0",
+        "influence_weight": 0.7333333333333334
+      },
+      {
+        "id": "p_1",
+        "influence_weight": 0.3333333333333333
+      },
+      {
+        "id": "p_2",
+        "influence_weight": 0.3333333333333333
+      }
+    ],
+    "decision_rounds": [
+      {
+        "round": 1,
+        "weights": [
+          0.7333333333333334,
+          0.3333333333333333,
+          0.3333333333333333
+        ],
+        "outcome": "A"
+      }
+    ]
+  },
+  "lab_name": "adversarial_topo",
+  "run_id": "adversarial_falsification_sweep_decision_compression_20260315_054942_02a0fe",
+  "parameters": {
+    "agent_count": 3,
+    "competition_strength": 0.8,
+    "topology": "random",
+    "coupling_override": 1.0,
+    "latency_jitter": 50
+  }
+}

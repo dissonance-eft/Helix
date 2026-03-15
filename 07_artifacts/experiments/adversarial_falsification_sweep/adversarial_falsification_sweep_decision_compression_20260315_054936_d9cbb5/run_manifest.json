@@ -1,0 +1,21 @@
+{
+  "run_id": "adversarial_falsification_sweep_decision_compression_20260315_054936_d9cbb5",
+  "timestamp_utc": "2026-03-15T05:49:36.360315+00:00",
+  "probe_name": "decision_compression",
+  "lab_name": "games",
+  "dataset_hash": "3c72fa0dd4f346b5af058bc732b00ccc7dcf65aafae518353f321ae1e3e1928d",
+  "probe_code_hash": "e11608a229574d8eb4b0d1cbea88e3312d345c2e43f0f0cee9395de70be36bf7",
+  "probe_version": "1.0.0",
+  "python_version": "3.12.3",
+  "platform": "Linux",
+  "sandbox_limits": {},
+  "helix_version": "0.4.0",
+  "experiment_name": "adversarial_falsification_sweep",
+  "parameters": {
+    "agent_count": 30,
+    "competition_strength": 0.8,
+    "topology": "random",
+    "coupling_override": 0.0,
+    "latency_jitter": 10
+  }
+}

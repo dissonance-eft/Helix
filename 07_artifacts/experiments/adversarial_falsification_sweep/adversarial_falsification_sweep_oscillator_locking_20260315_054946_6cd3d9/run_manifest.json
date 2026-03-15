@@ -1,0 +1,21 @@
+{
+  "run_id": "adversarial_falsification_sweep_oscillator_locking_20260315_054946_6cd3d9",
+  "timestamp_utc": "2026-03-15T05:49:46.839481+00:00",
+  "probe_name": "oscillator_locking",
+  "lab_name": "games",
+  "dataset_hash": "17ec66ea4babacdb384b7b2d850ab4a94878983e739cf1fc3c06e4afb14cb4df",
+  "probe_code_hash": "d20c966490597fad1eed58aa8fc32fae4f1655387b54eb1da5e6b659d977d717",
+  "probe_version": "1.0.0",
+  "python_version": "3.12.3",
+  "platform": "Linux",
+  "sandbox_limits": {},
+  "helix_version": "0.4.0",
+  "experiment_name": "adversarial_falsification_sweep",
+  "parameters": {
+    "agent_count": 10,
+    "competition_strength": 0.2,
+    "topology": "ring",
+    "coupling_override": -0.5,
+    "latency_jitter": 10
+  }
+}

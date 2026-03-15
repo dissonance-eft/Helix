@@ -1,0 +1,38 @@
+{
+  "dataset_path": "/home/dissonance/Helix/07_artifacts/experiments/adversarial_falsification_sweep/adversarial_falsification_sweep_oscillator_locking_20260315_055010_842dc0/dataset.json",
+  "dataset": {
+    "domain": "adversarial_topo",
+    "agent_count": 3,
+    "competition_strength": 0.0,
+    "topology": "scale_free",
+    "coupling_override": 0.0,
+    "latency_jitter": 50,
+    "coupling_strength": 0.0,
+    "oscillators": [
+      {
+        "id": "o_0",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.05
+      },
+      {
+        "id": "o_1",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.01
+      },
+      {
+        "id": "o_2",
+        "initial_phase": 0.0,
+        "natural_frequency": 1.02
+      }
+    ]
+  },
+  "lab_name": "adversarial_topo",
+  "run_id": "adversarial_falsification_sweep_oscillator_locking_20260315_055010_842dc0",
+  "parameters": {
+    "agent_count": 3,
+    "competition_strength": 0.0,
+    "topology": "scale_free",
+    "coupling_override": 0.0,
+    "latency_jitter": 50
+  }
+}

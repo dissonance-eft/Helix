@@ -1,0 +1,18 @@
+{
+  "probe_name": "oscillator_locking",
+  "domain": "adversarial_topo",
+  "passed": true,
+  "signal": 0.984759,
+  "signal_strength": 0.984759,
+  "confidence": "high",
+  "order_parameter_R": 0.984579,
+  "order_parameter_R_initial": 1.0,
+  "phase_lock_detected": true,
+  "n_agents": 60,
+  "n_steps": 500,
+  "coupling_strength": 1.0,
+  "r_mean_tail": 0.984759,
+  "r_variance_tail": 2e-08,
+  "interpretation": "Phase locking detected (R_tail=0.9848 > 0.6). Oscillators synchronised after 500 steps with K=1.0.",
+  "version": "1.0.0"
+}
