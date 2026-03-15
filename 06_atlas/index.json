@@ -1,16 +1,17 @@
 {
-  "generated_at": "2026-03-15T05:13:43.959891+00:00",
+  "generated_at": "2026-03-15T05:39:02.139888+00:00",
   "invariants": [
     {
       "invariant": "decision_compression",
-      "confidence": "Verified",
+      "confidence": "Structural",
       "observed_in": [
         "games",
         "language",
-        "music"
+        "music",
+        "white_noise"
       ],
-      "run_count": 9,
-      "pass_rate": 1.0,
+      "run_count": 10,
+      "pass_rate": 0.9,
       "latest_probe_version": "1.0.0"
     },
     {
@@ -19,9 +20,20 @@
       "observed_in": [
         "games",
         "language",
-        "music"
+        "music",
+        "white_noise"
       ],
-      "run_count": 3,
+      "run_count": 4,
+      "pass_rate": 0.75,
+      "latest_probe_version": "1.0.0"
+    },
+    {
+      "invariant": "temporal_metronome",
+      "confidence": "Exploratory",
+      "observed_in": [
+        "substrate"
+      ],
+      "run_count": 20,
       "pass_rate": 1.0,
       "latest_probe_version": "1.0.0"
     }

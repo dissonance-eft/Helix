@@ -1,0 +1,18 @@
+{
+  "probe_name": "oscillator_locking",
+  "domain": "white_noise",
+  "passed": false,
+  "signal": 0.395817,
+  "signal_strength": 0.395817,
+  "confidence": "none",
+  "order_parameter_R": 0.789712,
+  "order_parameter_R_initial": 0.477761,
+  "phase_lock_detected": false,
+  "n_agents": 3,
+  "n_steps": 100,
+  "coupling_strength": 0.0,
+  "r_mean_tail": 0.395817,
+  "r_variance_tail": 0.02743537,
+  "interpretation": "No phase locking (R_tail=0.3958 \u2264 0.6). Coupling K=0.0 insufficient for 3 oscillators.",
+  "version": "1.0.0"
+}

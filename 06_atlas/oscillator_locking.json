@@ -4,7 +4,8 @@
   "observed_in": [
     "games",
     "language",
-    "music"
+    "music",
+    "white_noise"
   ],
   "supporting_runs": [
     {
@@ -24,14 +25,20 @@
       "domain": "music",
       "passed": true,
       "signal": 0.974282
+    },
+    {
+      "run_id": "oscillator_locking_20260315_053755_745680",
+      "domain": "white_noise",
+      "passed": false,
+      "signal": 0.395817
     }
   ],
-  "pass_rate": 1.0,
-  "mean_signal": 0.9912,
-  "run_count": 3,
+  "pass_rate": 0.75,
+  "mean_signal": 0.8423,
+  "run_count": 4,
   "probe_versions_used": [
     "1.0.0"
   ],
   "latest_probe_version": "1.0.0",
-  "last_updated": "2026-03-15T05:13:43.959696+00:00"
+  "last_updated": "2026-03-15T05:39:02.139316+00:00"
 }

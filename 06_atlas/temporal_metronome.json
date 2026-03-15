@@ -1,0 +1,137 @@
+{
+  "invariant": "temporal_metronome",
+  "confidence": "Exploratory",
+  "observed_in": [
+    "substrate"
+  ],
+  "supporting_runs": [
+    {
+      "run_id": "temporal_metronome_20260315_053814_0cbb70",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 42.267196
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053814_518203",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 44.757524
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053814_c0b6d7",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 45.858736
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053814_f78497",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 43.280999
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_063274",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 40.111191
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_09c8a6",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.655226
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_656644",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 40.986684
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_7cd5b7",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.938607
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_88d5fb",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.520899
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_a26d53",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 40.107115
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_ba6f95",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.542852
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_d05182",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 42.741563
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_d5740e",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 49.397801
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053815_df6b44",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 41.11144
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053816_73e650",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.97486
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053816_7e5aab",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 40.089781
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053816_7f5923",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.504073
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053816_b09d4d",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 41.943132
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053816_d4a6c2",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 40.104954
+    },
+    {
+      "run_id": "temporal_metronome_20260315_053816_eba4c8",
+      "domain": "substrate",
+      "passed": true,
+      "signal": 39.74126
+    }
+  ],
+  "pass_rate": 1.0,
+  "mean_signal": 41.5318,
+  "run_count": 20,
+  "probe_versions_used": [
+    "1.0.0"
+  ],
+  "latest_probe_version": "1.0.0",
+  "last_updated": "2026-03-15T05:39:02.139566+00:00"
+}

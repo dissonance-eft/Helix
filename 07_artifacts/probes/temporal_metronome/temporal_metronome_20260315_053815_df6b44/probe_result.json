@@ -1,0 +1,9 @@
+{
+  "probe_name": "temporal_metronome",
+  "domain": "substrate",
+  "passed": true,
+  "signal": 41.11144,
+  "signal_strength": 1.0,
+  "duration_ms": 41.11144,
+  "version": "1.0.0"
+}

@@ -1,0 +1,19 @@
+{
+  "probe_name": "decision_compression",
+  "domain": "white_noise",
+  "passed": false,
+  "signal": 0.2054,
+  "signal_strength": 0.2054,
+  "confidence": "weak",
+  "decision_dimension": 3.9732,
+  "n_agents": 5,
+  "n_rounds": 3,
+  "k_eff_per_round": [
+    4.9751,
+    5.0,
+    4.5455,
+    1.3721
+  ],
+  "compression_ratio": 0.2054,
+  "version": "1.0.0"
+}

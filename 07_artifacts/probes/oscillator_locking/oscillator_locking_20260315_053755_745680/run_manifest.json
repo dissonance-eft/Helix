@@ -1,0 +1,13 @@
+{
+  "run_id": "oscillator_locking_20260315_053755_745680",
+  "timestamp_utc": "2026-03-15T05:37:55.867926+00:00",
+  "probe_name": "oscillator_locking",
+  "lab_name": "white_noise",
+  "dataset_hash": "267c76e3326dfe70e89aff65e19289afd55d1a308c0a17069484bd61037c958a",
+  "probe_code_hash": "d20c966490597fad1eed58aa8fc32fae4f1655387b54eb1da5e6b659d977d717",
+  "probe_version": "1.0.0",
+  "python_version": "3.12.3",
+  "platform": "Linux",
+  "sandbox_limits": {},
+  "helix_version": "0.4.0"
+}

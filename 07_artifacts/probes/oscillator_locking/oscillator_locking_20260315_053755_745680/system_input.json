@@ -1,0 +1,86 @@
+{
+  "dataset_path": "/home/dissonance/Helix/04_labs/white_noise/noise_dataset.json",
+  "dataset": {
+    "domain": "white_noise",
+    "description": "Statistically distributed random noise. Contains zero intentional signal.",
+    "agents": [
+      {
+        "id": "n_0",
+        "influence_weight": 0.21
+      },
+      {
+        "id": "n_1",
+        "influence_weight": 0.18
+      },
+      {
+        "id": "n_2",
+        "influence_weight": 0.19
+      },
+      {
+        "id": "n_3",
+        "influence_weight": 0.22
+      },
+      {
+        "id": "n_4",
+        "influence_weight": 0.2
+      }
+    ],
+    "decision_rounds": [
+      {
+        "round": 1,
+        "weights": [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "outcome": "rand_71"
+      },
+      {
+        "round": 2,
+        "weights": [
+          0.1,
+          0.3,
+          0.2,
+          0.2,
+          0.2
+        ],
+        "outcome": "rand_12"
+      },
+      {
+        "round": 3,
+        "weights": [
+          0.05,
+          0.85,
+          0.05,
+          0.03,
+          0.02
+        ],
+        "outcome": "rand_99"
+      }
+    ],
+    "oscillators": [
+      {
+        "id": "osc_0",
+        "initial_phase": 3.14,
+        "natural_frequency": 1.0
+      },
+      {
+        "id": "osc_1",
+        "initial_phase": 0.5,
+        "natural_frequency": 9.5
+      },
+      {
+        "id": "osc_2",
+        "initial_phase": 1.2,
+        "natural_frequency": 0.1
+      }
+    ],
+    "coupling_strength": 0.0,
+    "n_steps": 100,
+    "dt": 0.1
+  },
+  "lab_name": "white_noise",
+  "run_id": "oscillator_locking_20260315_053755_745680"
+}

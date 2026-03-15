@@ -1,10 +1,11 @@
 {
   "invariant": "decision_compression",
-  "confidence": "Verified",
+  "confidence": "Structural",
   "observed_in": [
     "games",
     "language",
-    "music"
+    "music",
+    "white_noise"
   ],
   "supporting_runs": [
     {
@@ -60,14 +61,20 @@
       "domain": "games",
       "passed": true,
       "signal": 0.4649
+    },
+    {
+      "run_id": "decision_compression_20260315_053755_e7743f",
+      "domain": "white_noise",
+      "passed": false,
+      "signal": 0.2054
     }
   ],
-  "pass_rate": 1.0,
-  "mean_signal": 0.4407,
-  "run_count": 9,
+  "pass_rate": 0.9,
+  "mean_signal": 0.4172,
+  "run_count": 10,
   "probe_versions_used": [
     "1.0.0"
   ],
   "latest_probe_version": "1.0.0",
-  "last_updated": "2026-03-15T05:13:43.959452+00:00"
+  "last_updated": "2026-03-15T05:39:02.138948+00:00"
 }
