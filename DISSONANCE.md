@@ -15,11 +15,11 @@ SECTION I — STRUCTURAL IDEAS & TEST CANDIDATES
 (No active content)
 
 ------------------------------------------------------------
-SECTION II — OPERATOR POSITIONING
+SECTION II — DISSONANCE POSITIONING
 ------------------------------------------------------------
 # USER: DISSONANCE (dissident93)
 
-OPERATOR SUMMARY
+DISSONANCE SUMMARY
 
 Goal:
 Execute a dual-horizon search:
@@ -114,7 +114,7 @@ Helix externalizes this loop.
 - observers frequently measure outdated states
 - many apparent constants are actually hidden ratios
 
-The operator therefore reasons using three primary coordinates:
+The dissonance therefore reasons using three primary coordinates:
 
 STRUCTURE
 TOPOLOGY / CONSTRAINTS / GEOMETRY
@@ -138,7 +138,7 @@ Resolution levels:
 3 Minimal falsifier
 4 Artifact experiment
 
-The operator strongly prefers compressing ideas from level 1 → level 4.
+The dissonance strongly prefers compressing ideas from level 1 → level 4.
 
 ---
 
@@ -281,7 +281,7 @@ Modern systems encode structure through mathematics and computation.
 
 Both represent attempts to map the hidden architecture of reality.
 
-The operator is strongly attracted to systems that visually imply
+The dissonance is strongly attracted to systems that visually imply
 underlying structure rather than narrative symbolism.
 ---
 
@@ -303,10 +303,10 @@ COGNITIVE MEDIA SIGNALS
 
 Purpose:
 These domains represent recurring external systems
-that provide structural stimuli to the operator.
+that provide structural stimuli to the dissonance.
 
 They act as environmental pattern libraries that influence
-how the operator detects structure and invariants.
+how the dissonance detects structure and invariants.
 
 ### 1) Music
 **Dataset overview (Last.fm** — 197,778 scrobbles, 13.7 years)
@@ -333,7 +333,7 @@ Interpretation: Compact expressive units revisited repeatedly. Exploration withi
 
 ### STRUCTURAL LISTENING SIGNATURE
 
-Using the Last.fm dataset, infer the structural characteristics of the operator's listening patterns.
+Using the Last.fm dataset, infer the structural characteristics of the dissonance's listening patterns.
 
 Analysis points:
 • prevalence of game composers
@@ -347,7 +347,7 @@ Inferred tendencies:
 - exploration inside stable harmonic basins
 - strong tolerance for repetition when structural variation exists
 
-These patterns align with the operator's **collapse-geometry cognitive profile**.
+These patterns align with the dissonance's **collapse-geometry cognitive profile**.
 
 ### Top 50 Artists
 | # | Artist | Plays | | # | Artist | Plays |
