@@ -5,7 +5,6 @@
 Helix is a structured discovery platform that runs disciplined experiments
 across multiple substrates and compresses results into a unified knowledge atlas.
 
-**Current Phase: 11 — Full HIL Expansion**
 **Architecture Status: Stable**
 
 ---
@@ -74,11 +73,12 @@ Helix functions as a pattern discovery engine that:
 
   HELIX.md         — this file
   OPERATOR.md      — operator context and cognitive model
+  ROADMAP.md       — system vision and future modules
 ```
 
 ---
 
-## EXECUTION PIPELINE (PHASE 11)
+## EXECUTION PIPELINE
 
 Every Helix experiment follows this pipeline:
 
@@ -122,7 +122,7 @@ OPERATOR COMMAND
 
 ---
 
-## HIL — HELIX INTERFACE LANGUAGE (PHASE 11)
+## HIL — HELIX INTERFACE LANGUAGE
 
 HIL is the formal command language for Helix. It is not a prompt parser,
 not a chat wrapper, and not a shell alias system. It is a typed, auditable,
@@ -144,8 +144,7 @@ core/hil/
   ontology.py           OBJECT_TYPES, ATLAS_BACKED_TYPES, VALID_ENGINES
   semantic_roles.py     SemanticRole enum + COMMAND_ROLE_MAP
   errors.py             Structured error hierarchy
-  grammar.py            Compat shim (pre-Phase-11 callers)
-  __init__.py           Unified export (new + compat API)
+  hil_dispatch.py       Full pipeline CLI entry point
   hil_reference.md      Full language reference
   hil_influences.md     Design philosophy and language influences
   tests/
@@ -170,56 +169,11 @@ prefix:name     e.g.  invariant:decision_compression
                       engine:python
 ```
 
-### Command families
-
-| Verb       | Subcommands                              | Example                                            |
-|------------|------------------------------------------|----------------------------------------------------|
-| PROBE      | —                                        | `PROBE invariant:decision_compression`             |
-| RUN        | —                                        | `RUN experiment:decision_compression_probe`        |
-| SWEEP      | —                                        | `SWEEP parameter:coupling_strength range:0..1`     |
-| COMPILE    | atlas / graph / entries                  | `COMPILE atlas`                                    |
-| INTEGRITY  | check / report / gate                    | `INTEGRITY check`                                  |
-| ATLAS      | lookup / list / status / verify          | `ATLAS lookup invariant:decision_compression`      |
-| GRAPH      | support / trace / cluster / query / ...  | `GRAPH support invariant:decision_compression`     |
-| VALIDATE   | atlas / entry / invariant / experiment   | `VALIDATE atlas invariant:decision_compression`    |
-| TRACE      | —                                        | `TRACE experiment:decision_compression_probe`      |
-| OBSERVE    | —                                        | `OBSERVE invariant:decision_compression`           |
-| REPORT     | summary / full / graph / status          | `REPORT summary invariant:decision_compression`    |
-
-### Normalization examples
-
-| Input                            | Canonical                                     |
-|----------------------------------|-----------------------------------------------|
-| `probe decision compression`     | `PROBE invariant:decision_compression`        |
-| `run decision compression probe` | `RUN experiment:decision_compression_probe`   |
-| `integrity`                      | `INTEGRITY check`                             |
-| `compile the atlas`              | `COMPILE atlas`                               |
-| `compile`                        | `COMPILE atlas`                               |
-
-### Error classes
-
-| Error                    | Raised when                                      |
-|--------------------------|--------------------------------------------------|
-| `HILSyntaxError`         | Parser cannot parse input                        |
-| `HILValidationError`     | Parsed command fails semantic constraints        |
-| `HILUnknownCommandError` | Verb not in command registry                     |
-| `HILUnknownTargetError`  | Target name not in atlas registry                |
-| `HILUnsafeCommandError`  | Blocked shell/SQL/execution pattern detected     |
-| `HILAmbiguityError`      | Alias expansion matches multiple different forms |
-
-### Test suite
-
-```bash
-cd /home/dissonance/Helix
-python3 -m pytest core/hil/tests/ -v
-# 91 tests, 91 passed
-```
-
 ---
 
-## INTEGRITY SYSTEM (PHASE 9)
+## INTEGRITY SYSTEM
 
-The integrity harness (`core/integrity/`) runs 5 probes before every experiment:
+The integrity harness (`core/integrity/`) runs standard probes before every experiment:
 
 | Probe       | Tests                                           | Failure Meaning            |
 |-------------|------------------------------------------------|----------------------------|
@@ -229,32 +183,17 @@ The integrity harness (`core/integrity/`) runs 5 probes before every experiment:
 | hil         | HIL accepts valid / rejects invalid commands   | HIL enforcement broken     |
 | sandbox     | Destructive commands blocked (rm -rf /, etc.)  | Safety policy breach       |
 
-All 5 probes currently PASS on the active WSL2 environment.
-
 ---
 
-## ATLAS KNOWLEDGE GRAPH (PHASE 10)
+## ATLAS KNOWLEDGE GRAPH
 
-The atlas graph is auto-built by `core/compiler/atlas_compiler.py` (step 6).
+The atlas graph is auto-built by `core/compiler/atlas_compiler.py`.
 
-Current state: **10 nodes, 10 edges**
-
-Nodes: 5 INVARIANT, 1 EXPERIMENT, 1 MODEL, 1 OPERATOR, 2 REGIME
-Edges: 2 DERIVES_FROM, 2 IMPLEMENTS, 6 SUPPORTED_BY
+Current state: **11 nodes, 11 edges** (Updated with Epistemic Irreversibility)
 
 Files:
 - `atlas/atlas_graph.json` — serialized graph
 - `atlas/atlas_graph.dot` — Graphviz export
-
-Query examples:
-```python
-from core.graph.atlas_graph import AtlasGraph
-from core.graph.graph_queries import GraphQuery
-g = AtlasGraph.load()
-q = GraphQuery(g)
-print(q.query_support("decision_compression").report())
-print(q.query_cross_domain().report())
-```
 
 ---
 
@@ -268,7 +207,7 @@ print(q.query_cross_domain().report())
 | Regime     | Identified phase or system state         | atlas/regimes/         |
 | Operator   | Reusable diagnostic/transformation tool  | atlas/operators/       |
 
-All entries use the Phase 8 schema: Title, Type, Status, Origin, Domain Coverage,
+All entries use the established schema: Title, Type, Status, Origin, Domain Coverage,
 Mechanism, Predictions, Falsifiers, Evidence, Linked Experiments, Notes.
 
 ---
@@ -280,7 +219,6 @@ Mechanism, Predictions, Falsifiers, Evidence, Linked Experiments, Notes.
 **Decision Compression** — `atlas/invariants/decision_compression.md`
 - Status: Verified (7/7 runs, mean signal 0.434)
 - Substrates: Games, Language, Music
-- Linked model: Control Subspace Collapse
 
 **Oscillator Locking** — `atlas/invariants/oscillator_locking.md`
 - Status: Verified (3/3 runs, mean signal 0.991)
@@ -288,15 +226,12 @@ Mechanism, Predictions, Falsifiers, Evidence, Linked Experiments, Notes.
 
 ### Exploratory Invariants
 
-- **Epistemic Irreversibility** — information-theoretic irreversibility at belief commits
-- **Local Incompleteness** — local rule consistency does not imply global completeness
-- **Regime Transition** — sharp phase boundaries in parameter space
+**Epistemic Irreversibility** — `atlas/invariants/epistemic_irreversibility.md`
+- Status: Candidate (1/1 HIL runs, mean signal 49.8 bits)
+- Domain: Dynamical Systems (Bistable COMMIT)
 
-### Seeded Entries
-
-- **Experiment:** Decision Compression Sweep
-- **Model:** Control Subspace Collapse
-- **Operator:** Commitment Probe
+**Local Incompleteness** — local rule consistency does not imply global completeness
+**Regime Transition** — sharp phase boundaries in parameter space
 
 ---
 
@@ -325,26 +260,6 @@ artifacts/     — raw output, grows freely; never edited after write
 
 ---
 
-## PHASE LOG
-
-| Phase | Name                             | Status    |
-|-------|----------------------------------|-----------|
-| 1–5   | Pre-stabilization research       | Complete  |
-| 6     | Architecture stabilization       | Complete  |
-| 7     | Atlas Compiler (artifact->atlas) | Complete  |
-| 8     | Atlas Consolidation System       | Complete  |
-| 9     | Execution Verification System    | Complete  |
-| 10    | Atlas Knowledge Graph            | Complete  |
-| 11    | Full HIL Expansion               | Complete  |
-| 12    | Helix Experiment Orchestrator    | Complete  |
-| 13    | Multi-Engine Expansion           | Complete  |
-| 14    | Adversarial Validation Layer     | Complete  |
-| 15    | Invariant Discovery Engine       | Complete  |
-| 16    | Atlas Interface & Wiki Export    | Complete  |
-| 17    | Automated Recursive Probing      | Planned   |
-
----
-
 ## DESIGN PRINCIPLES
 
 1. **Artifact-first**: No claim exists outside a discrete, reproducible artifact
@@ -359,26 +274,23 @@ artifacts/     — raw output, grows freely; never edited after write
 
 ## RUNNING HELIX
 
+All experiment execution must go through the HIL wrapper.
+
 ```bash
-# Integrity check
-python3 core/integrity/integrity_tests.py
+# Issue a HIL command
+./helix "PROBE invariant:epistemic_irreversibility"
+
+# Run a specific experiment with parameters
+./helix "RUN experiment:network_consensus engine:python p:0.4"
+
+# Perform a parameter sweep
+./helix "SWEEP parameter:noise range:0..0.5 steps:10 RUN experiment:epistemic_irreversibility"
 
 # Compile artifacts into atlas + rebuild graph
-python3 core/compiler/atlas_compiler.py
+./helix "COMPILE atlas"
 
-# Run HIL test suite
+# Run full HIL test suite
 python3 -m pytest core/hil/tests/ -v
-
-# Run hil_probe
-python3 core/integrity/hil_probe.py
-
-# Issue a HIL command (Python)
-from core.hil import parse, validate, normalize, dispatch
-cmd = parse("PROBE invariant:decision_compression")
-result = dispatch("GRAPH support invariant:decision_compression")
-
-# View atlas
-cat atlas/index.md
 ```
 
 ---
@@ -395,7 +307,6 @@ cat atlas/index.md
 The Helix root directory contains only top-level system layers.
 
 Allowed root entries:
-
 - `core/`
 - `labs/`
 - `engines/`
@@ -405,11 +316,8 @@ Allowed root entries:
 - `HELIX.md`
 - `OPERATOR.md`
 - `ROADMAP.md`
+- `helix` (CLI wrapper)
 
 All functional modules must exist under `core/`.
-
 No additional folders may be added to the root without architectural review.
-
 Artifacts are append-only and must never be modified automatically.
-
----

@@ -1,0 +1,14 @@
+experiment: epistemic_irreversibility
+engine: python
+parameters:
+  bias: 0.05
+  noise: 0.1
+  null_control: True
+timestamp: 2026-03-15T22:11:30.000251
+helix_version: 1.0
+hil_command: "PROBE invariant:epistemic_irreversibility bias:0.05 noise:0.1"
+integrity_status: True
+artifact_paths:
+  - results.json
+  - parameters.json
+  - metadata.json

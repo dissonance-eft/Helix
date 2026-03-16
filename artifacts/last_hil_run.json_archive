@@ -1,0 +1,94 @@
+{
+  "status": "ok",
+  "message": null,
+  "artifact_dir": "artifacts/epistemic_irreversibility_041",
+  "result": {
+    "probe_name": "epistemic_irreversibility",
+    "signal": 49.82892114504928,
+    "confidence": "HIGH",
+    "passed": true,
+    "domain": "dynamical_systems",
+    "findings": {
+      "mean_info_loss_bits": 49.82892114504928,
+      "commitment_bias": 0.8800232340029278,
+      "unstable_ratio": 0.0
+    },
+    "features": {
+      "final_states_stats": {
+        "mean": 0.8800232340029278,
+        "variance": 0.27495650745749955,
+        "max": 1.164431949626047,
+        "min": -1.0991561534486711
+      },
+      "final_states_entropy": 0.41861836923195894,
+      "irreversibility_distribution_stats": {
+        "mean": 49.82892114504928,
+        "variance": 5.048709793414476e-29,
+        "max": 49.828921145049286,
+        "min": 49.828921145049286
+      },
+      "irreversibility_distribution_entropy": 2.1623265891184758e-08
+    }
+  },
+  "manifest_path": "artifacts/epistemic_irreversibility_041/run_manifest.yaml",
+  "validation": {
+    "status": "UNSTABLE",
+    "confidence": "LOW",
+    "replication": {
+      "variance": 0.0,
+      "passed": true,
+      "count": 5
+    },
+    "perturbation": {
+      "resilience": 1.0,
+      "passed": true
+    },
+    "null_model": {
+      "null_model_difference": 0.0,
+      "passed": false
+    }
+  },
+  "discovered_invariants": {
+    "invariant_epistemic_irreversibility": {
+      "name": "invariant_epistemic_irreversibility",
+      "occurrences": 32,
+      "similarity_mean": 0.9999256379651429,
+      "supporting_artifacts": [
+        "artifacts/epistemic_irreversibility_041",
+        "artifacts/epistemic_irreversibility_049",
+        "artifacts/epistemic_irreversibility_029",
+        "artifacts/epistemic_irreversibility_033",
+        "artifacts/epistemic_irreversibility_024",
+        "artifacts/epistemic_irreversibility_043",
+        "artifacts/epistemic_irreversibility_046",
+        "artifacts/epistemic_irreversibility_035",
+        "artifacts/epistemic_irreversibility_030",
+        "artifacts/epistemic_irreversibility_044",
+        "artifacts/epistemic_irreversibility_025",
+        "artifacts/epistemic_irreversibility_021",
+        "artifacts/epistemic_irreversibility_038",
+        "artifacts/epistemic_irreversibility_026",
+        "artifacts/epistemic_irreversibility_027",
+        "artifacts/epistemic_irreversibility_047",
+        "artifacts/epistemic_irreversibility_040",
+        "artifacts/epistemic_irreversibility_050",
+        "artifacts/epistemic_irreversibility_032",
+        "artifacts/epistemic_irreversibility_031",
+        "artifacts/epistemic_irreversibility_036",
+        "artifacts/epistemic_irreversibility_034",
+        "artifacts/epistemic_irreversibility_039",
+        "artifacts/oscillator_lock_probe_015",
+        "artifacts/epistemic_irreversibility_028",
+        "artifacts/test_scene_001",
+        "artifacts/epistemic_irreversibility_048",
+        "artifacts/epistemic_irreversibility_023",
+        "artifacts/epistemic_irreversibility_045",
+        "artifacts/epistemic_irreversibility_022",
+        "artifacts/epistemic_irreversibility_037",
+        "artifacts/epistemic_irreversibility_042"
+      ],
+      "confidence": 0.99,
+      "status": "candidate"
+    }
+  }
+}

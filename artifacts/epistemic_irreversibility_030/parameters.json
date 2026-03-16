@@ -1,0 +1,5 @@
+{
+    "steps": "500",
+    "noise": "0.08",
+    "null_control": true
+}

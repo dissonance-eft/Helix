@@ -1,4 +1,3 @@
-```python
 from __future__ import annotations
 import os
 import time
@@ -111,6 +110,7 @@ class ExperimentRunner:
             
         return {
             "status": result.get("status"),
+            "message": result.get("message"),
             "artifact_dir": artifact_dir,
             "result": result.get("result"),
             "manifest_path": os.path.join(artifact_dir, "run_manifest.yaml"),

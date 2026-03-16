@@ -9,7 +9,7 @@
         "language",
         "music"
       ],
-      "path": "atlas\\invariants\\decision_compression.md",
+      "path": "atlas/invariants/decision_compression.md",
       "metadata": {
         "confidence": "1.0",
         "run_count": "7",
@@ -25,7 +25,7 @@
         "language",
         "cognition"
       ],
-      "path": "atlas\\invariants\\epistemic_irreversibility.md",
+      "path": "atlas/invariants/epistemic_irreversibility.md",
       "metadata": {
         "confidence": "null",
         "run_count": "0",
@@ -42,7 +42,7 @@
         "cellular_automata",
         "language"
       ],
-      "path": "atlas\\invariants\\local_incompleteness.md",
+      "path": "atlas/invariants/local_incompleteness.md",
       "metadata": {
         "confidence": "null",
         "run_count": "0",
@@ -59,7 +59,7 @@
         "language",
         "music"
       ],
-      "path": "atlas\\invariants\\oscillator_locking.md",
+      "path": "atlas/invariants/oscillator_locking.md",
       "metadata": {
         "confidence": "0.991",
         "run_count": "3",
@@ -76,7 +76,7 @@
         "evolutionary",
         "network"
       ],
-      "path": "atlas\\invariants\\regime_transition.md",
+      "path": "atlas/invariants/regime_transition.md",
       "metadata": {
         "confidence": "null",
         "run_count": "0",
@@ -89,7 +89,7 @@
       "type": "EXPERIMENT",
       "status": "completed",
       "domains": [],
-      "path": "atlas\\experiments\\decision_compression_sweep.md",
+      "path": "atlas/experiments/decision_compression_sweep.md",
       "metadata": {
         "linked_invariant": "decision_compression",
         "substrate": "[games, language, music]",
@@ -102,7 +102,7 @@
       "type": "MODEL",
       "status": "candidate",
       "domains": [],
-      "path": "atlas\\models\\control_subspace_collapse.md",
+      "path": "atlas/models/control_subspace_collapse.md",
       "metadata": {
         "explains": "decision_compression",
         "formalized": "false"
@@ -113,7 +113,7 @@
       "type": "REGIME",
       "status": "unknown",
       "domains": [],
-      "path": "atlas\\regimes\\finding_status_table.md",
+      "path": "atlas/regimes/finding_status_table.md",
       "metadata": {}
     },
     {
@@ -121,7 +121,7 @@
       "type": "REGIME",
       "status": "unknown",
       "domains": [],
-      "path": "atlas\\regimes\\probe_result.md",
+      "path": "atlas/regimes/probe_result.md",
       "metadata": {}
     },
     {
@@ -129,7 +129,7 @@
       "type": "REGIME",
       "status": "unknown",
       "domains": [],
-      "path": "atlas\\regimes\\results.md",
+      "path": "atlas/regimes/results.md",
       "metadata": {}
     },
     {
@@ -137,7 +137,7 @@
       "type": "OPERATOR",
       "status": "active",
       "domains": [],
-      "path": "atlas\\operators\\commitment_probe.md",
+      "path": "atlas/operators/commitment_probe.md",
       "metadata": {
         "used_in": "[decision_compression_sweep]",
         "reusable": "true"

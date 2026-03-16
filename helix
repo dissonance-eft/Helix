@@ -1,0 +1,17 @@
+#!/bin/bash
+# Helix Interface Language (HIL) CLI Wrapper
+# Usage: ./helix "PROBE invariant:epistemic_irreversibility"
+
+# Get the script directory
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+# Set PYTHONPATH to the repo root
+export PYTHONPATH="$DIR"
+
+# Run through the venv if it exists
+if [ -f "$DIR/venv/bin/python" ]; then
+    "$DIR/venv/bin/python" "$DIR/core/hil/hil_dispatch.py" "$@"
+else
+    # Fallback to system python
+    python3 "$DIR/core/hil/hil_dispatch.py" "$@"
+fi
