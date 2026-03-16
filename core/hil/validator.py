@@ -82,7 +82,7 @@ def validate(cmd: HILCommand, registry: dict | None = None) -> HILCommand:
             if t.prefix not in spec.required_target_types | {"engine", "parameter",
                                                                "artifact", "atlas",
                                                                "graph", "atlas_entry",
-                                                               "graph_query"}:
+                                                               "graph_query", "experiment"}:
                 raise HILValidationError(
                     f"{cmd.verb} does not accept {t.prefix!r} targets. "
                     f"Expected: {sorted(spec.required_target_types)}",

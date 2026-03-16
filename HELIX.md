@@ -32,19 +32,22 @@ Helix functions as a pattern discovery engine that:
 
 ---
 
-## ARCHITECTURE (PHASE 11)
+## ARCHITECTURE
 
 ```
 /helix
   /core
     /kernel        — execution kernel, dispatcher, runtime, governance
-    /hil           — Helix Interface Language (full formal package, Phase 11)
-    /validator     — atlas entry validation (atomicity, falsifiability, cross-ref)
-    /integrity     — execution verification harness (5 probes)
-    /graph         — Atlas Knowledge Graph (Phase 10)
+    /hil           — Helix Interface Language (full formal package)
+    /validator     — atlas entry validation
+    /integrity     — execution verification harness
+    /graph         — Atlas Knowledge Graph
+    /analysis      — automated analysis suite (migrated)
+    /compiler      — atlas_compiler.py: artifacts -> atlas pipeline (migrated)
+    /validation    — adversarial validation layer (migrated)
 
   /engines
-    /python        — Python experiment engine (network, dynamical, CA, evolutionary)
+    /python        — Python experiment engine
     /godot         — Godot spatial engine adapter
 
   /labs
@@ -59,20 +62,13 @@ Helix functions as a pattern discovery engine that:
     /models        — candidate explanatory structures
     /regimes       — identified system phases and states
     /operators     — reusable diagnostic and transformation tools
-    index.md       — full atlas index
-    atlas_index.yaml — structured YAML registry
-    atlas_graph.json — knowledge graph (Phase 10)
-    atlas_graph.dot  — Graphviz export (Phase 10)
+    atlas_index.json — structured knowledge registry
 
-  /applications
-    /rrs           — Repo Reliability Scanner
-    /language_lab  — language substrate application
-    /creativity_lab — creativity substrate application
-    /game_systems_lab — game systems substrate application
+  /interface
+    /wiki          — Atlas Interface & Wiki Export (from atlas_interface)
+    /apps          — User-facing systems (rrs, language_lab, etc.)
 
-  /artifacts       — raw experiment output (never edited, grows freely)
-                     hil_command_log.jsonl — Phase 11 command audit log
-  /compiler        — atlas_compiler.py: artifacts -> atlas pipeline
+  /artifacts       — raw experiment output (append-only)
 
   HELIX.md         — this file
   OPERATOR.md      — operator context and cognitive model
@@ -114,7 +110,7 @@ OPERATOR COMMAND
   ARTIFACTS           artifacts/<run>/
       |
       v
-  ATLAS COMPILER      compiler/atlas_compiler.py
+  ATLAS COMPILER      core/compiler/atlas_compiler.py
       |
       v
   ATLAS               atlas/<type>/<entry>.md
@@ -237,7 +233,7 @@ All 5 probes currently PASS on the active WSL2 environment.
 
 ## ATLAS KNOWLEDGE GRAPH (PHASE 10)
 
-The atlas graph is auto-built by `compiler/atlas_compiler.py` (step 6).
+The atlas graph is auto-built by `core/compiler/atlas_compiler.py` (step 6).
 
 Current state: **10 nodes, 10 edges**
 
@@ -319,8 +315,8 @@ labs/          — active experimentation zone
 atlas/         — read-only compressed knowledge
                — written by compiler/ only
 
-applications/  — user-facing systems
-               — import from core/ only
+interface/     — human interface layers
+               — imports from core/ only
 
 artifacts/     — raw output, grows freely; never edited after write
 ```
@@ -338,8 +334,12 @@ artifacts/     — raw output, grows freely; never edited after write
 | 9     | Execution Verification System    | Complete  |
 | 10    | Atlas Knowledge Graph            | Complete  |
 | 11    | Full HIL Expansion               | Complete  |
-| 12    | Adversarial Validation Probes    | Planned   |
-| 13    | Module Expansion                 | Planned   |
+| 12    | Helix Experiment Orchestrator    | Complete  |
+| 13    | Multi-Engine Expansion           | Complete  |
+| 14    | Adversarial Validation Layer     | Complete  |
+| 15    | Invariant Discovery Engine       | Complete  |
+| 16    | Atlas Interface & Wiki Export    | Complete  |
+| 17    | Automated Recursive Probing      | Planned   |
 
 ---
 
@@ -362,7 +362,7 @@ artifacts/     — raw output, grows freely; never edited after write
 python3 core/integrity/integrity_tests.py
 
 # Compile artifacts into atlas + rebuild graph
-python3 compiler/atlas_compiler.py
+python3 core/compiler/atlas_compiler.py
 
 # Run HIL test suite
 python3 -m pytest core/hil/tests/ -v
@@ -385,3 +385,29 @@ cat atlas/index.md
 *The Atlas is its memory.*
 *The Core is its foundation.*
 *HIL is its voice.*
+
+---
+
+## REPOSITORY ARCHITECTURE RULES
+
+The Helix root directory contains only top-level system layers.
+
+Allowed root entries:
+
+- `core/`
+- `labs/`
+- `engines/`
+- `atlas/`
+- `interface/`
+- `artifacts/`
+- `HELIX.md`
+- `OPERATOR.md`
+- `ROADMAP.md`
+
+All functional modules must exist under `core/`.
+
+No additional folders may be added to the root without architectural review.
+
+Artifacts are append-only and must never be modified automatically.
+
+---

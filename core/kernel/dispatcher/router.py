@@ -23,30 +23,27 @@ def _run_integrity_gate(verbose: bool = False) -> bool:
     return ok
 
 
-try:
-    from engines.python.engine import PythonEngine
-    _python_engine = PythonEngine()
-except ImportError:
-    _python_engine = None  # type: ignore
 
-# from engines.godot.adapter import GodotAdapter  # Phase 10
 
-ENGINE_REGISTRY: dict = {
-    "python": _python_engine,
-    # "godot": GodotAdapter(),
-}
+from core.runner.experiment_runner import ExperimentRunner
+from core.runner.sweep_runner import SweepRunner
+from core.runner.scheduler import Scheduler
 
+from core.kernel.engine_registry import EngineRegistry
 
 class Dispatcher:
     """
-    Routes normalized HIL envelopes to the correct engine.
+    Routes normalized HIL envelopes to the correct engine through the Orchestrator.
 
-    Phase 9 pipeline:
-      HIL envelope -> integrity gate -> engine dispatch -> result
+    Phase 13 pipeline:
+      HIL envelope -> integrity gate -> scheduler -> experiment runner -> engine -> result
     """
 
     def __init__(self, skip_integrity: bool = False):
         self._skip_integrity = skip_integrity
+        self.experiment_runner = ExperimentRunner()
+        self.sweep_runner = SweepRunner(self.experiment_runner)
+        self.scheduler = Scheduler(self.experiment_runner, self.sweep_runner)
 
     def route(self, envelope: dict) -> dict:
         # ── Phase 9: integrity gate ──────────────────────────────────────
@@ -60,15 +57,5 @@ class Dispatcher:
                     "artifact_flag": "INVALID_ENVIRONMENT",
                 }
 
-        # ── Engine dispatch ──────────────────────────────────────────────
-        target     = envelope.get("target", "")
-        engine_key = target.split(".")[0] if "." in target else "python"
-
-        engine = ENGINE_REGISTRY.get(engine_key)
-        if engine is None:
-            return {
-                "status":  "error",
-                "message": f"No engine registered for '{engine_key}'",
-            }
-
-        return engine.run(envelope)
+        # ── Orchestrator dispatch ────────────────────────────────────────
+        return self.scheduler.dispatch(envelope)

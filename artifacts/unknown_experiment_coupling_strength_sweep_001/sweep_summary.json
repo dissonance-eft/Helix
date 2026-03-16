@@ -1,0 +1,36 @@
+{
+    "parameter": "coupling_strength",
+    "range": [
+        0.0,
+        1.0
+    ],
+    "steps": 5,
+    "experiment": "unknown_experiment",
+    "runs": [
+        {
+            "value": 0.0,
+            "status": "error",
+            "dir": "artifacts\\unknown_experiment_001"
+        },
+        {
+            "value": 0.25,
+            "status": "error",
+            "dir": "artifacts\\unknown_experiment_002"
+        },
+        {
+            "value": 0.5,
+            "status": "error",
+            "dir": "artifacts\\unknown_experiment_003"
+        },
+        {
+            "value": 0.75,
+            "status": "error",
+            "dir": "artifacts\\unknown_experiment_004"
+        },
+        {
+            "value": 1.0,
+            "status": "error",
+            "dir": "artifacts\\unknown_experiment_005"
+        }
+    ]
+}

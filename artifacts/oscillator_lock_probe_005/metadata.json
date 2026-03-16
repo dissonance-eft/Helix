@@ -1,0 +1,18 @@
+{
+    "runtime_duration": "0.0000s",
+    "engine_used": "python",
+    "parameter_values": {
+        "range": "0..1",
+        "steps": "5",
+        "coupling_strength": 0.0
+    },
+    "system_environment": {
+        "os": "Windows",
+        "node": "dissonance",
+        "release": "11",
+        "machine": "AMD64",
+        "python_version": "3.14.3"
+    },
+    "execution_status": "ok",
+    "timestamp": 1773623035.52377
+}

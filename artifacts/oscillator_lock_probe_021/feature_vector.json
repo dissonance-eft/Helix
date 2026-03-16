@@ -1,0 +1,7 @@
+{
+    "val_signal": 0.9,
+    "global_mean": 0.9,
+    "global_variance": 0.0,
+    "global_max": 0.9,
+    "entropy": -0.0
+}

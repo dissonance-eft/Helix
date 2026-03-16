@@ -1,0 +1,36 @@
+{
+    "parameter": "coupling_strength",
+    "range": [
+        0.0,
+        1.0
+    ],
+    "steps": 5,
+    "experiment": "oscillator_lock_probe",
+    "runs": [
+        {
+            "value": 0.0,
+            "status": "ok",
+            "dir": "artifacts\\oscillator_lock_probe_005"
+        },
+        {
+            "value": 0.25,
+            "status": "ok",
+            "dir": "artifacts\\oscillator_lock_probe_006"
+        },
+        {
+            "value": 0.5,
+            "status": "ok",
+            "dir": "artifacts\\oscillator_lock_probe_007"
+        },
+        {
+            "value": 0.75,
+            "status": "ok",
+            "dir": "artifacts\\oscillator_lock_probe_008"
+        },
+        {
+            "value": 1.0,
+            "status": "ok",
+            "dir": "artifacts\\oscillator_lock_probe_009"
+        }
+    ]
+}

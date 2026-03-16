@@ -1,0 +1,8 @@
+{
+    "val_signal": 0.85,
+    "val_locked": 1.0,
+    "global_mean": 0.925,
+    "global_variance": 0.0056250000000000015,
+    "global_max": 1.0,
+    "entropy": 1.0
+}

@@ -1,0 +1,5 @@
+{
+    "range": "0..1",
+    "steps": "5",
+    "coupling_strength": 0.25
+}

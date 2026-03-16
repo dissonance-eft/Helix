@@ -1,0 +1,12 @@
+status: UNSTABLE
+confidence: LOW
+replication:
+  variance: 0.0917641059477726
+  passed: False
+  count: 5
+perturbation:
+  resilience: 0.31777256199678805
+  passed: False
+null_model:
+  null_model_difference: 0.8090474322318637
+  passed: True

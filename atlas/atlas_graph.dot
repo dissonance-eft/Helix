@@ -19,6 +19,7 @@ digraph HelixAtlas {
   oscillator_locking [label="oscillator\nlocking", tooltip="INVARIANT: verified", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
   probe_result [label="probe\nresult", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
   regime_transition [label="regime\ntransition", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  results [label="results", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
 
   // Edges
   commitment_probe -> decision_compression [label="IMPLEMENTS", tooltip="IMPLEMENTS", color="#3B1F2B", style="dotted", arrowhead="box"];

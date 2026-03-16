@@ -1,0 +1,11 @@
+{
+    "val_spatial_sync": 0.88,
+    "val_agent_count": 100.0,
+    "global_mean": 50.44,
+    "global_variance": 2456.1935999999996,
+    "global_max": 100.0,
+    "entropy": 1.0,
+    "is_spatial": 1.0,
+    "density": 100.0,
+    "sync_index": 0.88
+}

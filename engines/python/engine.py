@@ -29,12 +29,22 @@ class PythonEngine:
         params = envelope.get("params", {})
 
         probe_key = target.split(".")[-1] if "." in target else target
+        
+        # Simple fuzzy matching for common probe names
+        matched_key = None
+        if probe_key in PROBE_REGISTRY:
+            matched_key = probe_key
+        else:
+            for k in PROBE_REGISTRY:
+                if k in probe_key:
+                    matched_key = k
+                    break
 
-        if probe_key not in PROBE_REGISTRY:
+        if not matched_key:
             return {"status": "error", "message": f"Unknown probe '{probe_key}'"}
 
         try:
-            module_path = PROBE_REGISTRY[probe_key]
+            module_path = PROBE_REGISTRY[matched_key]
             module = importlib.import_module(f"engines.python.{module_path}")
             result = module.run(params)
             return {"status": "ok", "result": result}

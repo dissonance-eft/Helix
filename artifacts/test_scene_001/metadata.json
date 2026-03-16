@@ -1,0 +1,16 @@
+{
+    "runtime_duration": "1.0004s",
+    "engine_used": "godot",
+    "parameter_values": {
+        "engine": "engine:godot"
+    },
+    "system_environment": {
+        "os": "Windows",
+        "node": "dissonance",
+        "release": "11",
+        "machine": "AMD64",
+        "python_version": "3.14.3"
+    },
+    "execution_status": "ok",
+    "timestamp": 1773623423.8708556
+}

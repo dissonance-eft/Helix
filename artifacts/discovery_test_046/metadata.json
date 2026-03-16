@@ -1,0 +1,16 @@
+{
+    "runtime_duration": "0.0000s",
+    "engine_used": "python",
+    "parameter_values": {
+        "engine": "engine:python"
+    },
+    "system_environment": {
+        "os": "Windows",
+        "node": "dissonance",
+        "release": "11",
+        "machine": "AMD64",
+        "python_version": "3.14.3"
+    },
+    "execution_status": "error",
+    "timestamp": 1773624225.456611
+}

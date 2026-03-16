@@ -1,0 +1,14 @@
+experiment: unknown_experiment
+engine: python
+parameters:
+  range: 0..1
+  steps: 5
+  coupling_strength: 1.0
+timestamp: 2026-03-15T21:03:38.344286
+helix_version: 1.0
+hil_command: "SWEEP coupling_strength val:1.0 RUN unknown_experiment"
+integrity_status: True
+artifact_paths:
+  - results.json
+  - parameters.json
+  - metadata.json
