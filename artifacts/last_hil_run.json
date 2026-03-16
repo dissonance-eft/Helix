@@ -1,9 +1,26 @@
 {
-  "status": "hil_error",
-  "error": {
-    "error_type": "HILUnsafeCommandError",
-    "message": "Blocked pattern in canonical command: 'dd'",
-    "raw": "SYSTEM sync message:\"ARCH: Enforce HIL execution pipeline - add ExperimentRegistry, source gates, helix CLI, and SYSTEM git commands\"",
-    "position": -1
-  }
+  "status": "ok",
+  "path": "core/hil",
+  "items": [
+    "__init__.py",
+    "__pycache__",
+    "aliases.py",
+    "ast_nodes.py",
+    "command_logger.py",
+    "command_registry.py",
+    "debug_safety.py",
+    "dispatch_interface.py",
+    "errors.py",
+    "grammar.ebnf",
+    "grammar.py",
+    "hil_dispatch.py",
+    "hil_influences.md",
+    "hil_reference.md",
+    "normalizer.py",
+    "ontology.py",
+    "parser.py",
+    "semantic_roles.py",
+    "tests",
+    "validator.py"
+  ]
 }
