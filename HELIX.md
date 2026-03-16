@@ -63,7 +63,6 @@ Helix functions as a pattern discovery engine that:
     atlas_index.yaml — structured YAML registry
 
   /applications
-    /eft           — Eigenspace Fragility Toolkit
     /rrs           — Repo Reliability Scanner
     /language_lab  — language substrate application
     /creativity_lab — creativity substrate application
