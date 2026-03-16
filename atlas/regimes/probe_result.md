@@ -1,8 +1,8 @@
 # Regime: Probe Result
 
 **Type:** Regime
-**Status:** high
-**Origin:** Auto-detected from `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json`
+**Status:** moderate
+**Origin:** Auto-detected from `artifacts/experiments/probes/decision_compression/decision_compression_20260315_040912_9b9715/probe_result.json`
 **Last Updated:** 2026-03-16
 
 ---
@@ -29,7 +29,7 @@ Pattern extracted from artifact.
 
 ## Evidence
 
-- `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json`
+- `artifacts/experiments/probes/decision_compression/decision_compression_20260315_040912_9b9715/probe_result.json`
 
 ## Linked Experiments
 
@@ -37,4 +37,4 @@ Pattern extracted from artifact.
 
 ## Notes
 
-Auto-compiled from `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json`.
+Auto-compiled from `artifacts/experiments/probes/decision_compression/decision_compression_20260315_040912_9b9715/probe_result.json`.

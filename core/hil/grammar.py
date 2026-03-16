@@ -8,16 +8,22 @@
 # Targets: engine name, experiment path, or substrate identifier
 # Params:  key=value pairs
 
-HIL_VERBS = {"run", "probe", "sweep", "observe", "report", "validate", "reset"}
+HIL_VERBS = {"run", "probe", "sweep", "observe", "report", "validate", "reset", "graph", "integrity", "compile"}
+
+# GRAPH subcommands (Phase 10)
+GRAPH_SUBCOMMANDS = {"build", "query", "cluster", "export"}
 
 HIL_SCHEMA = {
-    "run":      {"required": ["target"], "optional": ["params", "mode"]},
-    "probe":    {"required": ["target"], "optional": ["depth", "substrate"]},
-    "sweep":    {"required": ["target", "param"], "optional": ["range", "steps"]},
-    "observe":  {"required": ["target"], "optional": ["window", "metric"]},
-    "report":   {"required": ["target"], "optional": ["format", "output"]},
-    "validate": {"required": ["target"], "optional": ["strict"]},
-    "reset":    {"required": [],         "optional": ["scope"]},
+    "run":       {"required": ["target"], "optional": ["params", "mode"]},
+    "probe":     {"required": ["target"], "optional": ["depth", "substrate"]},
+    "sweep":     {"required": ["target", "param"], "optional": ["range", "steps"]},
+    "observe":   {"required": ["target"], "optional": ["window", "metric"]},
+    "report":    {"required": ["target"], "optional": ["format", "output"]},
+    "validate":  {"required": ["target"], "optional": ["strict"]},
+    "reset":     {"required": [],         "optional": ["scope"]},
+    "graph":     {"required": ["target"], "optional": ["node", "format"]},    # Phase 10
+    "integrity": {"required": [],         "optional": ["verbose", "no_atlas"]},
+    "compile":   {"required": [],         "optional": ["overwrite", "quiet"]},
 }
 
 

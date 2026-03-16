@@ -1,0 +1,34 @@
+digraph HelixAtlas {
+  rankdir=LR;
+  node [fontname=Helvetica fontsize=11];
+  edge [fontname=Helvetica fontsize=9];
+
+  // Legend
+  subgraph cluster_legend {
+    label='Node Types'; style=filled; color=lightgrey;
+    INVARIANT  [shape=ellipse  style=filled color=    EXPERIMENT [shape=box      style=filled color=    MODEL      [shape=diamond  style=filled color=    REGIME     [shape=hexagon  style=filled color=    OPERATOR   [shape=pentagon style=filled color=  }
+
+  // Nodes
+  commitment_probe [label="commitment\nprobe", tooltip="OPERATOR: active", shape="pentagon", color="#3B1F2B", fontcolor="white", style="filled"];
+  control_subspace_collapse [label="control\nsubspace\ncollapse", tooltip="MODEL: candidate", shape="diamond", color="#F18F01", fontcolor="white", style="filled"];
+  decision_compression [label="decision\ncompression", tooltip="INVARIANT: verified", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  decision_compression_sweep [label="decision\ncompression\nsweep", tooltip="EXPERIMENT: completed", shape="box", color="#A23B72", fontcolor="white", style="filled"];
+  epistemic_irreversibility [label="epistemic\nirreversibility", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  finding_status_table [label="finding\nstatus\ntable", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
+  local_incompleteness [label="local\nincompleteness", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  oscillator_locking [label="oscillator\nlocking", tooltip="INVARIANT: verified", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  probe_result [label="probe\nresult", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
+  regime_transition [label="regime\ntransition", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+
+  // Edges
+  commitment_probe -> decision_compression [label="IMPLEMENTS", tooltip="IMPLEMENTS", color="#3B1F2B", style="dotted", arrowhead="box"];
+  commitment_probe -> decision_compression [label="SUPPORTED_BY", tooltip="SUPPORTED_BY", color="#2E86AB", style="solid", arrowhead="normal"];
+  commitment_probe -> decision_compression_sweep [label="IMPLEMENTS", tooltip="IMPLEMENTS", color="#3B1F2B", style="dotted", arrowhead="box"];
+  commitment_probe -> decision_compression_sweep [label="SUPPORTED_BY", tooltip="SUPPORTED_BY", color="#2E86AB", style="solid", arrowhead="normal"];
+  control_subspace_collapse -> decision_compression [label="DERIVES_FROM", tooltip="DERIVES_FROM", color="#F18F01", style="solid", arrowhead="vee"];
+  control_subspace_collapse -> decision_compression [label="SUPPORTED_BY", tooltip="SUPPORTED_BY", color="#2E86AB", style="solid", arrowhead="normal"];
+  control_subspace_collapse -> decision_compression_sweep [label="DERIVES_FROM", tooltip="DERIVES_FROM", color="#F18F01", style="solid", arrowhead="vee"];
+  decision_compression -> decision_compression_sweep [label="SUPPORTED_BY", tooltip="SUPPORTED_BY", color="#2E86AB", style="solid", arrowhead="normal"];
+  decision_compression_sweep -> control_subspace_collapse [label="SUPPORTED_BY", tooltip="SUPPORTED_BY", color="#2E86AB", style="solid", arrowhead="normal"];
+  decision_compression_sweep -> decision_compression [label="SUPPORTED_BY", tooltip="SUPPORTED_BY", color="#2E86AB", style="solid", arrowhead="normal"];
+}

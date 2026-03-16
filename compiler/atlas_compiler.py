@@ -548,11 +548,28 @@ def run(verbose: bool = True, overwrite: bool = False) -> dict[str, Any]:
     except ImportError as e:
         log(f"  Validator unavailable: {e}")
 
+    # 6. Build Atlas Knowledge Graph (Phase 10)
+    log("\n[6/6] Building Atlas Knowledge Graph...")
+    try:
+        from core.graph.graph_builder   import build_graph
+        from core.graph.graph_visualizer import export_dot
+        graph = build_graph()
+        graph.save()
+        log(f"  WRITE: atlas/atlas_graph.json")
+        dot_path = export_dot(graph)
+        log(f"  WRITE: atlas/atlas_graph.dot")
+        log(f"  {graph.summary()}")
+        stats["graph"] = {"nodes": len(graph.nodes), "edges": len(graph.edges)}
+    except ImportError as e:
+        log(f"  Graph engine unavailable: {e}")
+
     log("\n=== Compilation complete ===")
     log(f"  Created:    {len(stats['created'])}")
     log(f"  Skipped:    {len(stats['skipped'])}")
     log(f"  Errors:     {len(stats['errors'])}")
     log(f"  Candidates: {len(stats['candidates'])}")
+    if "graph" in stats:
+        log(f"  Graph:      {stats['graph']['nodes']} nodes, {stats['graph']['edges']} edges")
     return stats
 
 
@@ -562,8 +579,9 @@ def run(verbose: bool = True, overwrite: bool = False) -> dict[str, Any]:
 
 if __name__ == "__main__":
     import argparse
-    p = argparse.ArgumentParser(description="Helix Atlas Compiler — Phase 8")
-    p.add_argument("--overwrite", action="store_true", help="Overwrite existing atlas entries")
-    p.add_argument("--quiet",     action="store_true", help="Suppress output")
+    p = argparse.ArgumentParser(description="Helix Atlas Compiler — Phase 8/10")
+    p.add_argument("--overwrite",   action="store_true", help="Overwrite existing atlas entries")
+    p.add_argument("--quiet",       action="store_true", help="Suppress output")
+    p.add_argument("--no-graph",    action="store_true", help="Skip graph build step")
     args = p.parse_args()
     run(verbose=not args.quiet, overwrite=args.overwrite)
