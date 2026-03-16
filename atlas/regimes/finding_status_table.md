@@ -1,12 +1,17 @@
 # Regime: Finding Status Table
 
-**Confidence:** experimental
-**Last Updated:** 2026-03-15
-**Source:** artifacts/experiments/mega_177260397078/finding_status_table.json
+**Type:** Regime
+**Status:** experimental
+**Origin:** Auto-detected from `artifacts/experiments/mega_177260397078/finding_status_table.json`
+**Last Updated:** 2026-03-16
 
 ---
 
-## Description
+## Domain Coverage
+
+- Not yet characterized
+
+## Mechanism
 
 Pattern extracted from artifact.
 
@@ -23,36 +28,25 @@ Pattern extracted from artifact.
     "notes": "Cliff holds exactly at 12% across 5 new families."
   },
   {
-    "id": "H-03",
-    "status": "CONFIRMED",
-    "notes": "Linear slope applies across multiplex structures perfectly."
-  },
-  {
-    "id": "H-04",
-    "status": "CONFIRMED",
-    "notes": "Funnel vs Field split...
+    "id":...
 ```
 
----
+## Predictions
 
-## Observed Conditions
+- Requires characterization
 
-- Conditions not yet characterized
-
----
-
-## Boundary Conditions
+## Falsifiers
 
 - Failure conditions not yet characterized
-
----
 
 ## Evidence
 
 - `artifacts/experiments/mega_177260397078/finding_status_table.json`
 
----
+## Linked Experiments
+
+- None recorded
 
 ## Notes
 
-Auto-compiled from `artifacts/experiments/mega_177260397078/finding_status_table.json` by atlas_compiler.
+Auto-compiled from `artifacts/experiments/mega_177260397078/finding_status_table.json`.

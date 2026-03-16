@@ -1,18 +1,26 @@
 """
-Atlas Compiler — Helix Phase 7
+Atlas Compiler — Helix Phase 8
 ==============================
-Converts raw experimental artifacts into structured Atlas knowledge entries.
+Converts raw experimental artifacts into structured Atlas knowledge objects.
 
-Flow:
-    artifacts/<run>/  →  atlas_compiler  →  atlas/laws/<name>.md
-                                         →  atlas/regimes/<name>.md
-                                         →  atlas/audits/<name>.md
-                                         →  atlas/index.md (updated)
+Object types:
+  Invariant   — cross-domain structural rule
+  Experiment  — runnable falsification test with dataset + results
+  Model       — candidate explanatory structure
+  Regime      — identified phase or system state
+  Operator    — reusable transformation or diagnostic tool
+
+Pipeline:
+  artifacts/<run>/  ->  [discover] -> [extract] -> [validate]
+                    ->  [dedup]    -> [link]     -> [write]
+                    ->  atlas/<type>/<id>.md
+                    ->  atlas/atlas_index.yaml  (updated)
+                    ->  atlas/index.md          (updated)
 
 Design rules:
-  - Atlas entries must NEVER contain raw experiment data
-  - Atlas entries must link to artifacts, not copy them
-  - Atlas entries must remain short and structured
+  - Atlas must NEVER contain raw experiment data
+  - Atlas entries link to artifacts, never copy them
+  - Atlas entries must be atomic and falsifiable
   - Atlas is the reasoning memory of Helix
 """
 
@@ -25,101 +33,78 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-
 # ---------------------------------------------------------------------------
-# Paths (resolved relative to this file's location → project root)
-# ---------------------------------------------------------------------------
-
-REPO_ROOT     = Path(__file__).parent.parent
-ARTIFACTS_DIR = REPO_ROOT / "artifacts"
-ATLAS_DIR     = REPO_ROOT / "atlas"
-LAWS_DIR      = ATLAS_DIR / "laws"
-REGIMES_DIR   = ATLAS_DIR / "regimes"
-AUDITS_DIR    = ATLAS_DIR / "audits"
-REPORTS_DIR   = ATLAS_DIR / "reports"
-DATASETS_DIR  = ATLAS_DIR / "datasets"
-INDEX_PATH    = ATLAS_DIR / "index.md"
-
-
-# ---------------------------------------------------------------------------
-# Entry template
+# Paths
 # ---------------------------------------------------------------------------
 
-LAW_TEMPLATE = """\
-# Law: {name}
+REPO_ROOT       = Path(__file__).parent.parent
+ARTIFACTS_DIR   = REPO_ROOT / "artifacts"
+ATLAS_DIR       = REPO_ROOT / "atlas"
+INVARIANTS_DIR  = ATLAS_DIR / "invariants"
+EXPERIMENTS_DIR = ATLAS_DIR / "experiments"
+MODELS_DIR      = ATLAS_DIR / "models"
+REGIMES_DIR     = ATLAS_DIR / "regimes"
+OPERATORS_DIR   = ATLAS_DIR / "operators"
+INDEX_MD        = ATLAS_DIR / "index.md"
+INDEX_YAML      = ATLAS_DIR / "atlas_index.yaml"
 
-**Confidence:** {confidence}
+# ---------------------------------------------------------------------------
+# Phase 8 entry template
+# ---------------------------------------------------------------------------
+
+_HEADER = """\
+# {type_label}: {name}
+
+**Type:** {object_type}
+**Status:** {status}
+**Origin:** {origin}
 **Last Updated:** {date}
-**Source:** {source}
 
 ---
-
-## Description
-
-{description}
-
----
-
-## Observed Conditions
-
-{observed_conditions}
-
----
-
-## Failure Conditions
-
-{failure_conditions}
-
----
-
-## Evidence
-
-{evidence}
-
----
-
-## Notes
-
-{notes}
 """
 
-REGIME_TEMPLATE = """\
-# Regime: {name}
+_SECTION = "\n## {heading}\n\n{body}\n"
 
-**Confidence:** {confidence}
-**Last Updated:** {date}
-**Source:** {source}
 
----
-
-## Description
-
-{description}
-
----
-
-## Observed Conditions
-
-{observed_conditions}
-
----
-
-## Boundary Conditions
-
-{failure_conditions}
-
----
-
-## Evidence
-
-{evidence}
-
----
-
-## Notes
-
-{notes}
-"""
+def _build_entry(
+    object_type: str,
+    name: str,
+    status: str,
+    origin: str,
+    domain_coverage: str,
+    mechanism: str,
+    predictions: str,
+    falsifiers: str,
+    evidence: str,
+    linked_experiments: str,
+    notes: str,
+    date: str,
+) -> str:
+    parts = [
+        _HEADER.format(
+            type_label=object_type,
+            name=name,
+            object_type=object_type,
+            status=status,
+            origin=origin,
+            date=date,
+        )
+    ]
+    sections = [
+        ("Domain Coverage",    domain_coverage),
+        ("Mechanism",          mechanism),
+        ("Predictions",        predictions),
+        ("Falsifiers",         falsifiers),
+        ("Evidence",           evidence),
+        ("Linked Experiments", linked_experiments),
+        ("Notes",              notes),
+    ]
+    for heading, body in sections:
+        parts.append(_SECTION.format(
+            heading=heading,
+            body=body.strip() or "*Not yet characterized.*",
+        ))
+    return "".join(parts)
 
 
 # ---------------------------------------------------------------------------
@@ -127,273 +112,339 @@ REGIME_TEMPLATE = """\
 # ---------------------------------------------------------------------------
 
 def discover_artifacts() -> list[dict]:
-    """
-    Walk artifacts/ and collect all JSON result files.
-    Returns a list of dicts with artifact metadata.
-    """
+    """Walk artifacts/ and return all parseable JSON files."""
     found = []
     for root, _dirs, files in os.walk(ARTIFACTS_DIR):
-        for fname in files:
+        for fname in sorted(files):
             if fname.endswith(".json") and not fname.startswith("_"):
                 path = Path(root) / fname
                 try:
-                    with open(path) as f:
-                        data = json.load(f)
-                    found.append({
-                        "path": path,
-                        "rel_path": path.relative_to(REPO_ROOT),
-                        "data": data,
-                    })
-                except (json.JSONDecodeError, OSError):
+                    data = json.loads(path.read_text())
+                    found.append({"path": path, "rel": path.relative_to(REPO_ROOT), "data": data})
+                except Exception:
                     pass
     return found
 
 
 def discover_atlas_json() -> list[dict]:
-    """
-    Collect existing top-level atlas JSON files (legacy format).
-    These are authoritative and should be promoted to law entries.
-    """
+    """Collect legacy atlas/*.json files for promotion."""
     found = []
-    for path in ATLAS_DIR.glob("*.json"):
+    for path in sorted(ATLAS_DIR.glob("*.json")):
         if path.name == "index.json":
             continue
         try:
-            with open(path) as f:
-                data = json.load(f)
-            found.append({
-                "path": path,
-                "rel_path": path.relative_to(REPO_ROOT),
-                "data": data,
-            })
-        except (json.JSONDecodeError, OSError):
+            data = json.loads(path.read_text())
+            found.append({"path": path, "rel": path.relative_to(REPO_ROOT), "data": data})
+        except Exception:
             pass
     return found
 
 
 # ---------------------------------------------------------------------------
-# Pattern extraction
+# Extraction
 # ---------------------------------------------------------------------------
 
-def _slugify(name: str) -> str:
-    return re.sub(r"[^a-z0-9_]", "_", name.lower()).strip("_")
+def _slugify(s: str) -> str:
+    return re.sub(r"[^a-z0-9_]", "_", s.lower()).strip("_")
 
 
-def _format_run_list(runs: list[dict]) -> str:
+def _fmt_runs(runs: list[dict]) -> str:
     lines = []
-    for r in runs:
+    for r in runs[:10]:
         run_id  = r.get("run_id", "unknown")
         domain  = r.get("domain", "?")
-        passed  = r.get("passed", None)
-        signal  = r.get("signal", None)
-        status  = "PASS" if passed else "FAIL"
+        signal  = r.get("signal")
+        passed  = r.get("passed")
         sig_str = f", signal={signal:.4f}" if signal is not None else ""
-        lines.append(f"- `{run_id}` ({domain}{sig_str}) [{status}]")
-    return "\n".join(lines) if lines else "- None recorded"
+        st_str  = " PASS" if passed is True else " FAIL" if passed is False else ""
+        lines.append(f"- `{run_id}` ({domain}{sig_str}){st_str}")
+    return "\n".join(lines) if lines else "- No runs recorded"
 
 
-def extract_from_invariant_json(artifact: dict) -> dict | None:
-    """
-    Extract a law entry from a Helix invariant JSON blob.
-    Expected shape: {invariant, confidence, observed_in, supporting_runs,
-                     pass_rate, mean_signal, run_count}
-    """
+def extract_invariant(artifact: dict) -> dict | None:
     d = artifact["data"]
-    if not isinstance(d, dict):
-        return None  # raw arrays / lists are data, not knowledge
-    invariant = d.get("invariant")
-    if not invariant:
+    if not isinstance(d, dict) or not d.get("invariant"):
         return None
 
-    confidence     = d.get("confidence", "experimental")
-    observed_in    = d.get("observed_in", [])
-    supporting     = d.get("supporting_runs", [])
-    pass_rate      = d.get("pass_rate", None)
-    mean_signal    = d.get("mean_signal", None)
-    run_count      = d.get("run_count", len(supporting))
+    name        = d["invariant"]
+    confidence  = d.get("confidence", "experimental")
+    observed_in = d.get("observed_in", [])
+    runs        = d.get("supporting_runs", [])
+    pass_rate   = d.get("pass_rate")
+    mean_signal = d.get("mean_signal")
+    run_count   = d.get("run_count", len(runs))
 
-    observed_lines = []
+    obs_lines = []
     if observed_in:
-        observed_lines.append(f"- Substrates: {', '.join(observed_in)}")
+        obs_lines.append(f"- Substrates: {', '.join(observed_in)}")
     if mean_signal is not None:
-        observed_lines.append(f"- Mean signal: {mean_signal:.4f}")
+        obs_lines.append(f"- Mean signal: {mean_signal:.4f}")
     if pass_rate is not None:
-        observed_lines.append(f"- Pass rate: {pass_rate:.1%} ({run_count} runs)")
+        obs_lines.append(f"- Pass rate: {pass_rate:.1%} ({run_count} runs)")
 
-    run_block = _format_run_list(supporting)
-    evidence_lines = [
-        f"- Source JSON: `{artifact['rel_path']}`",
-        "",
-        "Supporting runs:",
-        run_block,
-    ]
+    pr_str = f"1. Signal > threshold in all tested substrates\n2. Pass rate >= {pass_rate:.0%}" if pass_rate else "1. Signal > threshold in all tested substrates"
 
     return {
-        "type":       "law",
-        "name":       invariant.replace("_", " ").title(),
-        "slug":       _slugify(invariant),
-        "confidence": confidence,
-        "description": (
-            f"Structural invariant detected across substrates: "
-            f"{', '.join(observed_in) or 'unknown'}.\n"
-            f"Signal mean: {mean_signal:.4f}. "
-            f"Pass rate: {pass_rate:.1%} across {run_count} runs."
-            if mean_signal is not None else
-            f"Structural invariant candidate observed in: {', '.join(observed_in) or 'unknown'}."
-        ),
-        "observed_conditions": "\n".join(observed_lines) if observed_lines else "- Not yet characterized",
-        "failure_conditions":  "- Failure conditions not yet characterized — adversarial probes needed (Phase 11)",
-        "evidence":            "\n".join(evidence_lines),
-        "source":              str(artifact["rel_path"]),
-        "notes":               f"Auto-compiled from `{artifact['rel_path']}` by atlas_compiler.",
+        "object_type":        "Invariant",
+        "slug":               _slugify(name),
+        "name":               name.replace("_", " ").title(),
+        "status":             confidence,
+        "origin":             f"Helix probe — {', '.join(observed_in) or 'unknown'}",
+        "domain_coverage":    "\n".join(obs_lines) or "- Not yet characterized",
+        "mechanism":          f"Structural pattern detected across substrates: {', '.join(observed_in)}.",
+        "predictions":        pr_str,
+        "falsifiers":         "1. Any substrate showing signal < 0.20 under equivalent conditions\n2. Replication failure across substrates",
+        "evidence":           f"- Source: `{artifact['rel']}`\n\n{_fmt_runs(runs)}",
+        "linked_experiments": "- See atlas registry",
+        "notes":              f"Auto-compiled from `{artifact['rel']}`.",
     }
 
 
-def extract_from_generic_json(artifact: dict) -> dict | None:
-    """
-    Try to extract any useful law/regime from a generic JSON artifact.
-    Returns None if no meaningful pattern is detectable.
-    """
+def extract_regime(artifact: dict) -> dict | None:
     d = artifact["data"]
     if not isinstance(d, dict):
-        return None  # raw arrays are data, not knowledge entries
-
-    # Must have at least a result or signal field to be meaningful
-    if not any(k in d for k in ("result", "signal", "regime", "pattern", "law", "findings")):
+        return None
+    if not any(k in d for k in ("result", "signal", "regime", "pattern", "findings")):
         return None
 
-    name = artifact["path"].stem.replace("_", " ").title()
-    slug = _slugify(artifact["path"].stem)
-    confidence = d.get("confidence", "experimental")
-
-    findings = d.get("findings") or d.get("result") or d.get("pattern") or {}
-    desc = (
-        json.dumps(findings, indent=2)[:500] + "..."
-        if isinstance(findings, (dict, list))
-        else str(findings)[:500]
-    )
+    stem = artifact["path"].stem
+    raw  = d.get("findings") or d.get("result") or d.get("pattern") or {}
+    desc = json.dumps(raw, indent=2)[:300] + "..." if isinstance(raw, (dict, list)) else str(raw)[:300]
 
     return {
-        "type":       "regime",
-        "name":       name,
-        "slug":       slug,
-        "confidence": confidence,
-        "description": f"Pattern extracted from artifact.\n\n```\n{desc}\n```",
-        "observed_conditions": "- Conditions not yet characterized",
-        "failure_conditions":  "- Failure conditions not yet characterized",
-        "evidence":            f"- `{artifact['rel_path']}`",
-        "source":              str(artifact["rel_path"]),
-        "notes":               f"Auto-compiled from `{artifact['rel_path']}` by atlas_compiler.",
+        "object_type":        "Regime",
+        "slug":               _slugify(stem),
+        "name":               stem.replace("_", " ").title(),
+        "status":             d.get("confidence", "experimental"),
+        "origin":             f"Auto-detected from `{artifact['rel']}`",
+        "domain_coverage":    "- Not yet characterized",
+        "mechanism":          f"Pattern extracted from artifact.\n\n```\n{desc}\n```",
+        "predictions":        "- Requires characterization",
+        "falsifiers":         "- Failure conditions not yet characterized",
+        "evidence":           f"- `{artifact['rel']}`",
+        "linked_experiments": "- None recorded",
+        "notes":              f"Auto-compiled from `{artifact['rel']}`.",
     }
 
 
 # ---------------------------------------------------------------------------
-# Entry generation
+# Registry (atlas_index.yaml)
 # ---------------------------------------------------------------------------
 
-def entry_exists(entry: dict) -> bool:
-    if entry["type"] == "law":
-        return (LAWS_DIR / f"{entry['slug']}.md").exists()
-    elif entry["type"] == "regime":
-        return (REGIMES_DIR / f"{entry['slug']}.md").exists()
-    return False
+def load_registry() -> dict:
+    if not INDEX_YAML.exists():
+        return {"invariants": [], "experiments": [], "models": [], "regimes": [], "operators": [], "candidates": []}
+    try:
+        import yaml
+        return yaml.safe_load(INDEX_YAML.read_text()) or {}
+    except ImportError:
+        return _parse_yaml_simple(INDEX_YAML.read_text())
 
 
-def write_entry(entry: dict, overwrite: bool = False) -> Path | None:
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
-    template = LAW_TEMPLATE if entry["type"] == "law" else REGIME_TEMPLATE
-    target_dir = LAWS_DIR if entry["type"] == "law" else REGIMES_DIR
-    out_path = target_dir / f"{entry['slug']}.md"
+def _parse_yaml_simple(text: str) -> dict:
+    result: dict = {}
+    current_list: list | None = None
+    current_item: dict | None = None
+    current_key: str | None = None
 
-    if out_path.exists() and not overwrite:
-        return None  # skip — don't overwrite human-edited entries
+    for line in text.splitlines():
+        stripped = line.rstrip()
+        if not stripped or stripped.startswith("#"):
+            continue
+        indent = len(line) - len(line.lstrip())
 
-    content = template.format(
-        name                = entry["name"],
-        confidence          = entry["confidence"],
-        date                = today,
-        source              = entry["source"],
-        description         = entry["description"],
-        observed_conditions = entry["observed_conditions"],
-        failure_conditions  = entry["failure_conditions"],
-        evidence            = entry["evidence"],
-        notes               = entry["notes"],
+        if indent == 0 and stripped.endswith(":"):
+            current_key = stripped[:-1]
+            result[current_key] = []
+            current_list = result[current_key]
+            current_item = None
+        elif indent == 2 and stripped.startswith("- id:"):
+            current_item = {"id": stripped.split(":", 1)[1].strip()}
+            if current_list is not None:
+                current_list.append(current_item)
+        elif indent == 4 and current_item is not None and ":" in stripped:
+            k, _, v = stripped.partition(":")
+            current_item[k.strip()] = v.strip()
+
+    return result
+
+
+def registry_ids(registry: dict, object_type: str) -> set[str]:
+    key_map = {
+        "Invariant":  "invariants",
+        "Experiment": "experiments",
+        "Model":      "models",
+        "Regime":     "regimes",
+        "Operator":   "operators",
+    }
+    entries = registry.get(key_map.get(object_type, ""), []) or []
+    return {e.get("id", "") for e in entries if isinstance(e, dict)}
+
+
+# ---------------------------------------------------------------------------
+# Entry writing
+# ---------------------------------------------------------------------------
+
+TYPE_DIRS: dict[str, Path] = {
+    "Invariant":  INVARIANTS_DIR,
+    "Experiment": EXPERIMENTS_DIR,
+    "Model":      MODELS_DIR,
+    "Regime":     REGIMES_DIR,
+    "Operator":   OPERATORS_DIR,
+}
+
+
+def entry_path(obj: dict) -> Path:
+    return TYPE_DIRS.get(obj["object_type"], ATLAS_DIR) / f"{obj['slug']}.md"
+
+
+def write_entry(obj: dict, overwrite: bool = False) -> Path | None:
+    out = entry_path(obj)
+    if out.exists() and not overwrite:
+        return None
+    today   = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    content = _build_entry(
+        object_type=obj["object_type"],
+        name=obj["name"],
+        status=obj["status"],
+        origin=obj["origin"],
+        domain_coverage=obj.get("domain_coverage", ""),
+        mechanism=obj.get("mechanism", ""),
+        predictions=obj.get("predictions", ""),
+        falsifiers=obj.get("falsifiers", ""),
+        evidence=obj.get("evidence", ""),
+        linked_experiments=obj.get("linked_experiments", ""),
+        notes=obj.get("notes", ""),
+        date=today,
     )
-    out_path.write_text(content)
-    return out_path
+    out.write_text(content)
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Validation
+# ---------------------------------------------------------------------------
+
+def validate_entry(obj: dict) -> tuple[bool, list[str]]:
+    issues = []
+    for field in ("name", "mechanism", "falsifiers", "evidence"):
+        if not obj.get(field, "").strip():
+            issues.append(f"missing field: {field}")
+    falsifiers = obj.get("falsifiers", "")
+    weak = ("unknown", "tbd", "n/a", "none", "unclear")
+    if any(w in falsifiers.lower() for w in weak) and len(falsifiers) < 60:
+        issues.append("falsifiers appear to be placeholder text")
+    return len(issues) == 0, issues
+
+
+# ---------------------------------------------------------------------------
+# Cross-linking
+# ---------------------------------------------------------------------------
+
+def propose_links(obj: dict, registry: dict) -> list[str]:
+    proposals = []
+    name_lower = obj["name"].lower()
+    for section in ("invariants", "experiments", "models", "operators"):
+        for entry in (registry.get(section) or []):
+            if not isinstance(entry, dict):
+                continue
+            eid = entry.get("id", "")
+            if eid and eid.replace("_", " ") in name_lower:
+                proposals.append(f"atlas/{section}/{eid}.md")
+    return proposals
 
 
 # ---------------------------------------------------------------------------
 # Index generation
 # ---------------------------------------------------------------------------
 
-def collect_index_entries() -> dict[str, list[str]]:
-    """
-    Scan atlas subdirectories and collect entry names for the index.
-    """
-    sections: dict[str, list[str]] = {
-        "Laws":     [],
-        "Regimes":  [],
-        "Audits":   [],
-        "Reports":  [],
-        "Datasets": [],
-    }
-
-    def _collect(directory: Path, section: str) -> None:
-        if not directory.exists():
-            return
-        for p in sorted(directory.glob("*.md")):
-            # Read the first heading to get the display name
-            try:
-                first_line = p.read_text().split("\n", 1)[0].lstrip("# ").strip()
-                display = first_line if first_line else p.stem.replace("_", " ").title()
-            except OSError:
-                display = p.stem.replace("_", " ").title()
-            rel = p.relative_to(ATLAS_DIR)
-            sections[section].append(f"- [{display}]({rel})")
-
-    _collect(LAWS_DIR,     "Laws")
-    _collect(REGIMES_DIR,  "Regimes")
-    _collect(AUDITS_DIR,   "Audits")
-    _collect(REPORTS_DIR,  "Reports")
-    _collect(DATASETS_DIR, "Datasets")
+def collect_sections() -> dict[str, list[str]]:
+    sections: dict[str, list[str]] = {}
+    for label, directory in [
+        ("Invariants",  INVARIANTS_DIR),
+        ("Experiments", EXPERIMENTS_DIR),
+        ("Models",      MODELS_DIR),
+        ("Regimes",     REGIMES_DIR),
+        ("Operators",   OPERATORS_DIR),
+    ]:
+        entries = []
+        if directory.exists():
+            for p in sorted(directory.glob("*.md")):
+                try:
+                    first = p.read_text().split("\n", 1)[0].lstrip("# ").strip()
+                except OSError:
+                    first = p.stem
+                rel = p.relative_to(ATLAS_DIR)
+                entries.append(f"- [{first}]({rel})")
+        sections[label] = entries
     return sections
 
 
-def write_index(sections: dict[str, list[str]]) -> None:
+def write_index_md(sections: dict[str, list[str]]) -> None:
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     lines = [
         "# Helix Atlas",
         "",
-        f"*Generated by atlas_compiler on {today}*",
+        f"*Compiled {today} — Phase 8: Atlas Consolidation System*",
         "",
-        "The Atlas is Helix's long-term reasoning memory.",
-        "It contains only compressed, structured knowledge.",
-        "Raw experiment data lives in `artifacts/`.",
+        "The Atlas is Helix's structured reasoning memory.",
+        "Raw data lives in `artifacts/`. Only validated knowledge lives here.",
+        "",
+        "Registry: `atlas/atlas_index.yaml`",
         "",
         "---",
         "",
     ]
     for section, entries in sections.items():
-        lines.append(f"## {section}")
-        lines.append("")
-        if entries:
-            lines.extend(entries)
-        else:
-            lines.append("*No entries yet.*")
+        lines += [f"## {section}", ""]
+        lines += entries if entries else ["*No entries yet.*"]
         lines.append("")
 
-    lines += [
-        "---",
-        "",
-        f"*Atlas last compiled: {today}*",
-        "",
-        "To add a new entry: run `python compiler/atlas_compiler.py` after",
-        "placing experiment results in `artifacts/`.",
-        "",
-    ]
+    audit_dir = ATLAS_DIR / "audits"
+    if audit_dir.exists():
+        audits = sorted(audit_dir.glob("*.md"))
+        if audits:
+            lines += ["## Audits", ""]
+            for a in audits:
+                rel   = a.relative_to(ATLAS_DIR)
+                title = a.read_text().split("\n", 1)[0].lstrip("# ").strip()
+                lines.append(f"- [{title}]({rel})")
+            lines.append("")
 
-    INDEX_PATH.write_text("\n".join(lines))
+    lines += ["---", "", f"*Atlas last compiled: {today}*", ""]
+    INDEX_MD.write_text("\n".join(lines))
+
+
+# ---------------------------------------------------------------------------
+# Candidate proposals
+# ---------------------------------------------------------------------------
+
+def propose_candidates(artifacts: list[dict], registry: dict) -> list[dict]:
+    known_ids: set[str] = set()
+    for section in ("invariants", "regimes"):
+        for e in (registry.get(section) or []):
+            if isinstance(e, dict) and e.get("id"):
+                known_ids.add(e["id"])
+
+    seen: dict[str, int] = {}
+    for a in artifacts:
+        d = a["data"]
+        if isinstance(d, dict) and d.get("invariant"):
+            inv = d["invariant"]
+            seen[inv] = seen.get(inv, 0) + 1
+
+    candidates = []
+    for inv_name, count in seen.items():
+        slug = _slugify(inv_name)
+        if slug not in known_ids:
+            candidates.append({
+                "id":     slug,
+                "name":   inv_name.replace("_", " ").title(),
+                "type":   "Invariant",
+                "count":  count,
+                "reason": f"Appeared {count}x in artifacts but has no atlas entry",
+            })
+    return candidates
 
 
 # ---------------------------------------------------------------------------
@@ -401,30 +452,29 @@ def write_index(sections: dict[str, list[str]]) -> None:
 # ---------------------------------------------------------------------------
 
 def run(verbose: bool = True, overwrite: bool = False) -> dict[str, Any]:
-    """
-    Full Atlas compilation pipeline.
-    Returns a summary dict of what was created/skipped.
-    """
-    stats = {"created": [], "skipped": [], "errors": []}
+    stats: dict[str, Any] = {"created": [], "skipped": [], "errors": [], "candidates": []}
     log = print if verbose else (lambda *a, **k: None)
 
-    log("=== Helix Atlas Compiler ===")
-    log(f"Artifacts root: {ARTIFACTS_DIR}")
-    log(f"Atlas root:     {ATLAS_DIR}")
-    log("")
+    log("=== Helix Atlas Compiler — Phase 8 ===")
+    log(f"Repo root: {REPO_ROOT}")
 
-    # --- 1. Promote legacy atlas JSON files to law entries ---
-    log("[1/4] Scanning legacy atlas JSON files...")
+    registry = load_registry()
+
+    # 1. Promote legacy atlas JSON -> invariant entries
+    log("\n[1/5] Promoting legacy atlas JSON files...")
     for artifact in discover_atlas_json():
         try:
-            entry = extract_from_invariant_json(artifact)
-            if entry is None:
+            obj = extract_invariant(artifact)
+            if obj is None:
                 continue
-            if entry_exists(entry) and not overwrite:
-                log(f"  SKIP (exists): {entry['slug']}")
-                stats["skipped"].append(entry["slug"])
+            if obj["slug"] in registry_ids(registry, "Invariant") and not overwrite:
+                log(f"  SKIP: {obj['slug']}")
+                stats["skipped"].append(obj["slug"])
                 continue
-            out = write_entry(entry, overwrite=overwrite)
+            valid, issues = validate_entry(obj)
+            if not valid:
+                log(f"  WARN ({obj['slug']}): {'; '.join(issues)}")
+            out = write_entry(obj, overwrite=overwrite)
             if out:
                 log(f"  WRITE: {out.relative_to(REPO_ROOT)}")
                 stats["created"].append(str(out.relative_to(REPO_ROOT)))
@@ -432,20 +482,24 @@ def run(verbose: bool = True, overwrite: bool = False) -> dict[str, Any]:
             log(f"  ERROR ({artifact['path'].name}): {e}")
             stats["errors"].append(str(artifact["path"]))
 
-    # --- 2. Scan artifact directories for result JSON ---
-    log("\n[2/4] Scanning artifacts/ for result files...")
-    for artifact in discover_artifacts():
+    # 2. Scan artifacts/ for new entries
+    log("\n[2/5] Scanning artifacts/ for new entries...")
+    all_artifacts = discover_artifacts()
+    for artifact in all_artifacts:
         try:
-            # Try invariant format first, then generic
-            entry = extract_from_invariant_json(artifact)
-            if entry is None:
-                entry = extract_from_generic_json(artifact)
-            if entry is None:
+            obj = extract_invariant(artifact) or extract_regime(artifact)
+            if obj is None:
                 continue
-            if entry_exists(entry) and not overwrite:
-                stats["skipped"].append(entry["slug"])
+            if obj["slug"] in registry_ids(registry, obj["object_type"]) and not overwrite:
+                stats["skipped"].append(obj["slug"])
                 continue
-            out = write_entry(entry, overwrite=overwrite)
+            valid, issues = validate_entry(obj)
+            if not valid:
+                log(f"  WARN ({obj['slug']}): {'; '.join(issues)}")
+            links = propose_links(obj, registry)
+            if links:
+                log(f"  LINKS for {obj['slug']}: {', '.join(links)}")
+            out = write_entry(obj, overwrite=overwrite)
             if out:
                 log(f"  WRITE: {out.relative_to(REPO_ROOT)}")
                 stats["created"].append(str(out.relative_to(REPO_ROOT)))
@@ -453,41 +507,63 @@ def run(verbose: bool = True, overwrite: bool = False) -> dict[str, Any]:
             log(f"  ERROR ({artifact['path'].name}): {e}")
             stats["errors"].append(str(artifact["path"]))
 
-    # --- 3. Collect index entries ---
-    log("\n[3/4] Collecting atlas entries for index...")
-    sections = collect_index_entries()
-    for section, entries in sections.items():
-        log(f"  {section}: {len(entries)} entries")
+    # 3. Candidate proposals
+    log("\n[3/5] Proposing invariant candidates...")
+    candidates = propose_candidates(all_artifacts, registry)
+    for c in candidates:
+        log(f"  CANDIDATE: {c['name']} — {c['reason']}")
+    stats["candidates"] = candidates
+    if not candidates:
+        log("  No new candidates.")
 
-    # --- 4. Write index ---
-    log("\n[4/4] Writing atlas/index.md...")
-    write_index(sections)
-    log(f"  WRITE: atlas/index.md")
+    # 4. Regenerate index.md
+    log("\n[4/5] Regenerating atlas/index.md...")
+    sections = collect_sections()
+    for label, entries in sections.items():
+        log(f"  {label}: {len(entries)} entries")
+    write_index_md(sections)
+    log("  WRITE: atlas/index.md")
+
+    # 5. Validate all atlas entries
+    log("\n[5/5] Validating existing atlas entries...")
+    try:
+        import sys as _sys
+        _sys.path.insert(0, str(REPO_ROOT))
+        from core.validator.pipeline import validate_file
+        all_pass = True
+        for directory in [INVARIANTS_DIR, EXPERIMENTS_DIR, MODELS_DIR, REGIMES_DIR, OPERATORS_DIR]:
+            if not directory.exists():
+                continue
+            for md_path in sorted(directory.glob("*.md")):
+                result = validate_file(md_path)
+                icon   = "PASS" if result.passed else "FAIL"
+                log(f"  [{icon}] {md_path.relative_to(REPO_ROOT)}")
+                if not result.passed:
+                    all_pass = False
+                    for r in result.results:
+                        if not r.passed:
+                            log(f"         x {r.rule}: {r.reason}")
+        if all_pass:
+            log("  All entries passed.")
+    except ImportError as e:
+        log(f"  Validator unavailable: {e}")
 
     log("\n=== Compilation complete ===")
-    log(f"  Created: {len(stats['created'])}")
-    log(f"  Skipped: {len(stats['skipped'])}")
-    log(f"  Errors:  {len(stats['errors'])}")
+    log(f"  Created:    {len(stats['created'])}")
+    log(f"  Skipped:    {len(stats['skipped'])}")
+    log(f"  Errors:     {len(stats['errors'])}")
+    log(f"  Candidates: {len(stats['candidates'])}")
     return stats
 
 
 # ---------------------------------------------------------------------------
-# CLI entry point
+# CLI
 # ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
     import argparse
-
-    parser = argparse.ArgumentParser(description="Helix Atlas Compiler")
-    parser.add_argument(
-        "--overwrite",
-        action="store_true",
-        help="Overwrite existing atlas entries (default: skip existing)",
-    )
-    parser.add_argument(
-        "--quiet",
-        action="store_true",
-        help="Suppress output",
-    )
-    args = parser.parse_args()
+    p = argparse.ArgumentParser(description="Helix Atlas Compiler — Phase 8")
+    p.add_argument("--overwrite", action="store_true", help="Overwrite existing atlas entries")
+    p.add_argument("--quiet",     action="store_true", help="Suppress output")
+    args = p.parse_args()
     run(verbose=not args.quiet, overwrite=args.overwrite)

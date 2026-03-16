@@ -1,12 +1,17 @@
 # Regime: Probe Result
 
-**Confidence:** high
-**Last Updated:** 2026-03-15
-**Source:** artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json
+**Type:** Regime
+**Status:** high
+**Origin:** Auto-detected from `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json`
+**Last Updated:** 2026-03-16
 
 ---
 
-## Description
+## Domain Coverage
+
+- Not yet characterized
+
+## Mechanism
 
 Pattern extracted from artifact.
 
@@ -14,26 +19,22 @@ Pattern extracted from artifact.
 {}...
 ```
 
----
+## Predictions
 
-## Observed Conditions
+- Requires characterization
 
-- Conditions not yet characterized
-
----
-
-## Boundary Conditions
+## Falsifiers
 
 - Failure conditions not yet characterized
-
----
 
 ## Evidence
 
 - `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json`
 
----
+## Linked Experiments
+
+- None recorded
 
 ## Notes
 
-Auto-compiled from `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json` by atlas_compiler.
+Auto-compiled from `artifacts/experiments/probes/oscillator_locking/oscillator_locking_20260315_041608_5b1924/probe_result.json`.
