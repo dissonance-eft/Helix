@@ -1,27 +1,60 @@
-import os
-import shutil
+"""
+Root Guard -- Helix Phase 9
+===========================
+Enforces that no file is written to the repo root at runtime.
+
+Only these files are permitted at the repo root:
+  HELIX.md
+  OPERATOR.md
+
+All other paths must resolve inside a registered subdirectory.
+
+Usage:
+  from core.kernel.infra.root_guard import assert_not_root
+  assert_not_root(path)  # raises RootViolation if path is at root
+"""
+
+from __future__ import annotations
 from pathlib import Path
 
-WHITELIST = {
-    ".git", ".gitignore", ".agents",
-    "HELIX.md", "OPERATOR.md", "REBUILD_CHECKPOINT.md", "operator.json",
-    "helix.py",
-    "00_kernel", "01_basis", "02_governance", "03_engines",
-    "04_labs", "05_applications", "06_atlas", "07_artifacts",
-    "docs", "__pycache__"
-}
+REPO_ROOT = Path(__file__).parent.parent.parent.parent
 
-def enforce_root_quarantine(dry_run=False):
-    root = next(p for p in Path(__file__).resolve().parents if (p / 'helix.py').exists())
-    quarantine_dir = root / "07_artifacts" / "_quarantine"
-    moved = []
-    for item in root.iterdir():
-        if item.name not in WHITELIST and item.name != "_quarantine":
-            quarantine_dir.mkdir(parents=True, exist_ok=True)
-            if not dry_run:
-                try:
-                    shutil.move(str(item), str(quarantine_dir / item.name))
-                except Exception:
-                    pass
-            moved.append(item.name)
-    return moved
+ROOT_ALLOWLIST = frozenset({
+    "HELIX.md",
+    "OPERATOR.md",
+    ".gitignore",
+    ".git",
+})
+
+REGISTERED_DIRS = frozenset({
+    "core", "engines", "labs", "atlas", "applications",
+    "artifacts", "compiler",
+})
+
+
+class RootViolation(Exception):
+    pass
+
+
+def assert_not_root(path) -> None:
+    """Raise RootViolation if path resolves to the repo root level."""
+    p = Path(path).resolve()
+    try:
+        rel = p.relative_to(REPO_ROOT)
+    except ValueError:
+        return  # outside repo — not our concern
+    parts = rel.parts
+    if len(parts) == 1 and parts[0] not in ROOT_ALLOWLIST:
+        raise RootViolation(
+            f"Root lock violation: '{parts[0]}' may not be written to repo root.\n"
+            f"Allowed root files: {sorted(ROOT_ALLOWLIST)}\n"
+            f"Place it inside: {sorted(REGISTERED_DIRS)}"
+        )
+
+
+def safe_write(path, content: str) -> Path:
+    """Write content to path after confirming it is not in the repo root."""
+    p = Path(path)
+    assert_not_root(p)
+    p.write_text(content)
+    return p
