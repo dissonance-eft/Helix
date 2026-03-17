@@ -1,5 +1,4 @@
 {
-  "status": "error",
-  "error": "GRAPH does not accept 'entity' targets. Expected: ['composer', 'experiment', 'graph', 'graph_query', 'invariant', 'model', 'soundtrack']",
-  "command": "GRAPH edges entity:music_track_golden_axe_iii_track_1"
+  "status": "ok",
+  "message": "Synced: Run composer style probe sega sound team"
 }
