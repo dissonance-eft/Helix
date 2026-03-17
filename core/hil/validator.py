@@ -29,7 +29,7 @@ from core.hil.errors import (
     HILValidationError, HILUnknownTargetError,
 )
 from core.hil.ontology import (
-    OBJECT_TYPES, VALID_ENGINES, is_atlas_backed, plural_key,
+    OBJECT_TYPES, VALID_ENGINES, is_atlas_backed, plural_key, is_entity_type,
 )
 from core.hil.command_registry import get_spec, VALID_VERBS
 
@@ -59,9 +59,9 @@ def validate(cmd: HILCommand, registry: dict | None = None) -> HILCommand:
                 raw=cmd.raw,
             )
 
-    # 2. Target type validity
+    # 2. Target type validity — accept OBJECT_TYPES and entity ontology types
     for t in cmd.targets:
-        if t.prefix not in OBJECT_TYPES:
+        if t.prefix not in OBJECT_TYPES and not is_entity_type(t.prefix):
             raise HILValidationError(
                 f"Unknown object type: {t.prefix!r}", raw=cmd.raw
             )
@@ -77,12 +77,14 @@ def validate(cmd: HILCommand, registry: dict | None = None) -> HILCommand:
             )
 
     # 4. Target type must be in required_target_types (if spec constrains it)
+    #    Entity types (from entity ontology) bypass this check — they are valid
+    #    targets for any command that accepts typed entity references.
     if spec.required_target_types and cmd.targets:
         for t in cmd.targets:
-            if t.prefix not in spec.required_target_types | {"engine", "parameter",
-                                                               "artifact", "atlas",
-                                                               "graph", "atlas_entry",
-                                                               "graph_query", "experiment"}:
+            _free = {"engine", "parameter", "artifact", "atlas", "graph",
+                     "atlas_entry", "graph_query", "experiment"}
+            if (t.prefix not in spec.required_target_types | _free
+                    and not is_entity_type(t.prefix)):
                 raise HILValidationError(
                     f"{cmd.verb} does not accept {t.prefix!r} targets. "
                     f"Expected: {sorted(spec.required_target_types)}",

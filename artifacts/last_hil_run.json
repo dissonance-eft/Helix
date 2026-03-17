@@ -1,12 +1,12 @@
 {
   "status": "ok",
   "message": null,
-  "artifact_dir": "artifacts/network_consensus_011",
+  "artifact_dir": "artifacts\\music_library_index_011",
   "result": {
-    "artifact_dir": "artifacts/network_consensus_791",
-    "status": "ok"
+    "status": "ok",
+    "message": "Music library indexed"
   },
-  "manifest_path": "artifacts/network_consensus_011/run_manifest.yaml",
+  "manifest_path": "artifacts\\music_library_index_011\\run_manifest.yaml",
   "validation": {
     "status": "UNSTABLE",
     "confidence": "LOW",

@@ -29,13 +29,23 @@ PACKAGES: list[tuple[str, str, str, bool]] = [
     ("pandas",      "pandas",          "core",   True),
     # Tier C symbolic analysis
     ("pretty_midi", "pretty_midi",     "tier_c", False),
-    # Tier D MIR / theory
-    ("music21",     "music21",         "tier_d", False),
+    # Tier C/D symbolic musicology toolchain
+    ("music21",     "music21",         "tier_c", False),   # primary musicology toolkit
+    ("symusic",     "symusic",         "tier_c", False),   # fast MIDI ingestion
+    ("musif",       "musif",           "tier_d", False),   # research-grade feature extraction
+    ("musicntwrk",  "musicntwrk",      "tier_d", False),   # harmonic/motif network analysis
+    # Tier D MIR
     ("librosa",     "librosa",         "tier_d", False),
     ("muspy",       "muspy",           "tier_d", False),
-    ("partitura",   "partitura",       "tier_d", False),
-    # Tier D similarity
+    ("partitura",   "partitura",       "tier_d", False),  # score parsing + onset features
+    ("essentia",    "essentia",        "tier_d", False),  # spectral MIR features
+    # Tier D similarity + clustering
     ("faiss",       "faiss-cpu",       "tier_d", False),
+    ("sklearn",     "scikit-learn",    "tier_d", False),  # t-SNE, k-means, silhouette
+    ("umap",        "umap-learn",      "tier_d", False),  # UMAP dimensionality reduction
+    ("hdbscan",     "hdbscan",         "tier_d", False),  # density-based clustering
+    # API
+    ("anthropic",   "anthropic",       "tier_d", False),  # LLM interpretation layer
 ]
 
 

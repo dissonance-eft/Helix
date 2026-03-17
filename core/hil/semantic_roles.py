@@ -23,16 +23,26 @@ class SemanticRole(str, Enum):
     IMPLEMENTS     = "implements"
     REFERENCES     = "references"
     TRACES         = "traces"
+    COMPOSED       = "composed"
+    MEMBER_OF      = "member_of"
+    APPEARS_IN     = "appears_in"
+    USES_CHIP      = "uses_chip"
+    COLLABORATED_WITH = "collaborated_with"
 
 
 COMMAND_ROLE_MAP: dict[str, SemanticRole] = {
-    "support":    SemanticRole.SUPPORTS,
-    "trace":      SemanticRole.TRACES,
-    "derives":    SemanticRole.DERIVES_FROM,
-    "implements": SemanticRole.IMPLEMENTS,
-    "tests":      SemanticRole.TESTS,
-    "contradicts": SemanticRole.CONTRADICTS,
-    "emerges":    SemanticRole.EMERGES_FROM,
+    "support":           SemanticRole.SUPPORTS,
+    "trace":             SemanticRole.TRACES,
+    "derives":           SemanticRole.DERIVES_FROM,
+    "implements":        SemanticRole.IMPLEMENTS,
+    "tests":             SemanticRole.TESTS,
+    "contradicts":       SemanticRole.CONTRADICTS,
+    "emerges":           SemanticRole.EMERGES_FROM,
+    "composed":          SemanticRole.COMPOSED,
+    "member_of":         SemanticRole.MEMBER_OF,
+    "appears_in":        SemanticRole.APPEARS_IN,
+    "uses_chip":         SemanticRole.USES_CHIP,
+    "collaborated_with": SemanticRole.COLLABORATED_WITH,
 }
 
 

@@ -10,18 +10,22 @@ from __future__ import annotations
 class HILError(Exception):
     """Base class for all HIL errors."""
 
-    def __init__(self, message: str, raw: str = "", position: int = -1):
+    def __init__(self, message: str, raw: str = "", position: int = -1, suggestion: str = None):
         super().__init__(message)
         self.raw      = raw
         self.position = position
+        self.suggestion = suggestion
 
     def to_dict(self) -> dict:
-        return {
+        d = {
             "error_type": type(self).__name__,
             "message":    str(self),
             "raw":        self.raw,
             "position":   self.position,
         }
+        if self.suggestion:
+            d["suggestion"] = self.suggestion
+        return d
 
 
 class HILSyntaxError(HILError):

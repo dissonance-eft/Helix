@@ -76,6 +76,7 @@ class SymbolicScore:
     sample_rate:          int                  = 44100
     notes:                list[NoteEvent]      = field(default_factory=list)
     reconstruction_stats: dict[str, Any]       = field(default_factory=dict)
+    metadata:             dict[str, Any]       = field(default_factory=dict)
 
     # ------------------------------------------------------------------
     # Accessors
@@ -115,6 +116,7 @@ class SymbolicScore:
             "pitch_range":          self.pitch_range,
             "avg_note_duration":    round(self.avg_duration(), 4),
             "reconstruction_stats": self.reconstruction_stats,
+            "metadata":             self.metadata,
             "notes":                [n.to_dict() for n in self.notes],
         }
 
@@ -122,6 +124,54 @@ class SymbolicScore:
         """Write JSON representation to *path*."""
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(self.to_dict(), indent=2))
+
+    def to_midi(self, path: Path) -> None:
+        """Export the symbolic score to a standard MIDI file."""
+        try:
+            import pretty_midi
+            midi = pretty_midi.PrettyMIDI()
+            
+            # Map chip channels to MIDI instruments (Simplified)
+            # 0-5 (FM) -> 1 (Piano/Synth), 6-8 (PSG) -> 81 (Lead), 9 (PSG Noise) -> 119 (Synth Drum)
+            instruments = {}
+            
+            for n in self.notes:
+                if n.channel not in instruments:
+                    # Basic mapping logic: 
+                    # FM 0-5 -> Piano/E-Piano, PSG 6-8 -> Square Wave
+                    program = 0 # Default Piano
+                    is_drum = False
+                    if n.chip == "psg":
+                        if n.channel == 9: # Noise
+                            is_drum = True
+                            program = 118 # Synth Drum
+                        else:
+                            program = 80 # Lead 1 (Square)
+                    else:
+                        program = 4 # Electric Piano / 0 Piano
+                    
+                    inst = pretty_midi.Instrument(program=program, is_drum=is_drum, name=f"Ch {n.channel} ({n.chip})")
+                    instruments[n.channel] = inst
+                    midi.instruments.append(inst)
+                
+                # Create the note
+                # MIDI note -1 means indeterminate, skip or map to default
+                note_num = n.note if n.note >= 0 else 60
+                duration = n.duration if n.duration > 0 else 0.1
+                
+                midi_note = pretty_midi.Note(
+                    velocity=n.velocity,
+                    pitch=note_num,
+                    start=n.start,
+                    end=n.start + duration
+                )
+                instruments[n.channel].notes.append(midi_note)
+            
+            path.parent.mkdir(parents=True, exist_ok=True)
+            midi.write(str(path))
+            print(f"      MIDI exported: {path.name}")
+        except Exception as e:
+            print(f"      MIDI export failed for {self.track_name}: {e}")
 
     @classmethod
     def load(cls, path: Path) -> "SymbolicScore":
@@ -144,5 +194,6 @@ class SymbolicScore:
             sample_rate=data.get("sample_rate", 44100),
             notes=notes,
             reconstruction_stats=data.get("reconstruction_stats", {}),
+            metadata=data.get("metadata", {}),
         )
         return score

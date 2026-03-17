@@ -49,6 +49,14 @@ class Scheduler:
             "ATLAS":     self._handle_atlas,
             "EXPORT":    self._handle_export,
             "ANALYZE":   self._handle_analyze,
+            "GRAPH":     self._handle_shortcut,
+            "SCAN":      self._handle_shortcut,
+            "INDEX":     self._handle_shortcut,
+            "INGEST":    self._handle_shortcut,
+            "LIST":      self._handle_shortcut,
+            "TRAIN":     self._handle_shortcut,
+            "ATTRIBUTION": self._handle_shortcut,
+            "DISCOVER":  self._handle_shortcut,
             "SYSTEM":    lambda e: self.system_handler.handle(e),
             "OPERATOR":  lambda e: self.system_handler.handle(e),
         }
@@ -199,9 +207,15 @@ class Scheduler:
 
     def _handle_export(self, envelope: dict) -> dict:
         target = envelope.get("target", "").lower()
+        sub = (envelope.get("subcommand") or "").lower()
         params = envelope.get("params", {})
         fmt = params.get("format", "wiki").lower()
         output = params.get("output", "helix_wiki")
+
+        if sub == "composer_report" or target == "composer_report":
+            # Map COMPOSER_REPORT to music_lab/analysis/composer_reports.py?
+            # Or just run it as an experiment shortcut
+            return self._handle_shortcut(envelope)
 
         if target == "atlas" and fmt == "wiki":
             try:
@@ -217,8 +231,12 @@ class Scheduler:
 
     def _handle_analyze(self, envelope: dict) -> dict:
         target = envelope.get("target", "").lower()
+        sub = (envelope.get("subcommand") or "").lower()
 
-        if target == "atlas":
+        if target in ("music", "track", "composer", "soundtrack") or sub in ("music", "track", "composer", "soundtrack"):
+            return self._handle_shortcut(envelope)
+
+        if target == "atlas" or sub == "atlas":
             try:
                 from core.analysis.invariant_engine import InvariantEngine
                 engine = InvariantEngine()
@@ -232,6 +250,50 @@ class Scheduler:
                 return {"status": "error", "message": f"Analysis failed: {e}"}
 
         return {"status": "error", "message": f"ANALYZE target {target!r} not supported"}
+
+    # ── Shortcut routing ──────────────────────────────────────────────────────
+
+    def _handle_shortcut(self, envelope: dict) -> dict:
+        """Translates high-level HIL verbs/subcommands into underlying experiments."""
+        verb = envelope.get("verb", "").upper()
+        sub = (envelope.get("subcommand") or "").lower()
+        target = (envelope.get("target") or "").lower()
+        
+        # Primary mapping: (verb, subcommand) -> experiment_name
+        mapping = {
+            ("SCAN", "filesystem"): "filesystem_scan",
+            ("SCAN", "music_library"): "music_library_index",
+            ("INDEX", "music_library"): "music_library_index",
+            ("INGEST", "music_library"): "music_library_ingestion",
+            ("INGEST", "composer_dataset"): "composer_training_sets",
+            ("LIST", "tracks"): "music_lab_list",
+            ("LIST", "composers"): "music_lab_list", 
+            ("LIST", "franchises"): "music_lab_list",
+            ("TRAIN", "composer_vectors"): "composer_style_vectors",
+            ("ATTRIBUTION", "soundtrack"): "composer_attribution",
+            ("GRAPH", "similarity"): "composer_similarity_graph",
+            ("GRAPH", "motif"): "motif_network_analysis",
+            ("GRAPH", "composer_styles"): "composer_style_space",
+            ("ANALYZE", "track"): "music_symbolic_analysis",
+            ("ANALYZE", "music"): "music_symbolic_analysis",
+            ("ANALYZE", "composer"): "composer_style_vectors",
+            ("ANALYZE", "soundtrack"): "soundtrack_analysis",
+            ("DISCOVER", "regimes"): "discovery_engine",
+            ("EXPORT", "composer_report"): "composer_report",
+        }
+        
+        # Check by target if subcommand missing or doesn't match
+        target_exp = mapping.get((verb, sub)) or mapping.get((verb, target))
+        
+        if not target_exp:
+             return {"status": "error", "message": f"HIL Shortcut {verb} {sub or target} not mapped to an experiment"}
+
+        # Reroute to RUN experiment:<target_exp>
+        envelope["target"] = target_exp
+        if "params" not in envelope: envelope["params"] = {}
+        envelope["params"]["subcommand"] = sub or target
+        
+        return self._handle_run(envelope)
 
     # ── Unimplemented verbs ───────────────────────────────────────────────────
 

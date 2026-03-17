@@ -82,53 +82,82 @@ class FormatRouter:
     # Tier A: static parse
     # ------------------------------------------------------------------
 
-    def parse(self, path: Path) -> dict[str, Any]:
+    def parse(self, path: Path, enrich: bool = True) -> dict[str, Any]:
         """
         Run the Tier A static parser for `path`.
         Returns the track's .to_dict() result or an error dict.
+
+        If `enrich=True` (default), codec-specific reference enrichment is
+        appended automatically via CodecReferenceLibrary.  Pass
+        `enrich=False` for raw parse output without reference lookup.
         """
         ext = path.suffix.lower()
         parser_type = _TIER_A_PARSERS.get(ext)
 
         if parser_type == "spc":
             from labs.music_lab.parsers.spc_parser import parse
-            return parse(path).to_dict()
+            result = parse(path).to_dict()
 
-        if parser_type == "nsf":
+        elif parser_type == "nsf":
             from labs.music_lab.parsers.nsf_parser import parse
-            return parse(path).to_dict()
+            result = parse(path).to_dict()
 
-        if parser_type == "sid":
+        elif parser_type == "sid":
             from labs.music_lab.parsers.sid_parser import parse
-            return parse(path).to_dict()
+            result = parse(path).to_dict()
 
-        if parser_type == "vgm":
+        elif parser_type == "vgm":
             try:
                 from labs.music_lab.vgm_parser import parse_vgm_file
                 track = parse_vgm_file(path)
-                return track.__dict__ if hasattr(track, "__dict__") else {}
+                result = track.__dict__ if hasattr(track, "__dict__") else {}
             except ImportError:
-                return {"path": str(path), "format": ext.lstrip(".").upper(),
-                        "error": "vgm_parser not importable"}
+                result = {"path": str(path), "format": ext.lstrip(".").upper(),
+                          "error": "vgm_parser not importable"}
 
-        return {"path": str(path), "format": ext.lstrip(".").upper(),
-                "error": f"No Tier A parser for {ext}"}
+        else:
+            result = {"path": str(path), "format": ext.lstrip(".").upper(),
+                      "error": f"No Tier A parser for {ext}"}
+
+        if enrich:
+            try:
+                from labs.music_lab.analysis.codec_reference import enrich as _enrich
+                result = _enrich(path, result)
+            except Exception:
+                pass  # enrichment is always non-blocking
+
+        return result
 
     # ------------------------------------------------------------------
     # Tier B: chip-state trace
     # ------------------------------------------------------------------
 
     def trace(self, path: Path, track: int = 0,
-              sample_rate: int = 44100) -> list[dict[str, Any]]:
+              sample_rate: int = 44100,
+              enrich: bool = True) -> list[dict[str, Any]]:
         """
         Run Tier B emulation trace for `path`.
         Returns list of ChipEvent dicts (may be empty if not supported).
+
+        If `enrich=True` (default), the raw event list is passed through
+        CodecReferenceLibrary.enrich_trace_result() so callers can access
+        per-channel patch-match data in result["reference"].
         """
         try:
             from labs.music_lab.emulation.chip_state_tracer import trace
-            return trace(path, track=track, sample_rate=sample_rate)
+            events = trace(path, track=track, sample_rate=sample_rate)
         except Exception:
-            return []
+            events = []
+
+        if enrich and events:
+            try:
+                from labs.music_lab.analysis.codec_reference import get_library
+                enriched = get_library().enrich_trace_result(path, events)
+                return enriched  # type: ignore[return-value]
+            except Exception:
+                pass  # enrichment is always non-blocking
+
+        return events
 
     # ------------------------------------------------------------------
     # Helpers

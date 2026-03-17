@@ -32,56 +32,65 @@ TOOLS_REF = LAB / "tools" / "reference"
 # ---------------------------------------------------------------------------
 
 REPOS = [
-    # (name, url, dest_dir, strip_extras)
-    # --- runtime algorithmic tools ---
+    # --- runtime algorithmic tools (add value to analysis) ---
+
+    # vampirefrog/vgm2x: VGM command stream conversion utilities
     {
         "name":  "vgm2x",
         "url":   "https://github.com/vampirefrog/vgm2x",
         "dest":  TOOLS_RT / "vgm2x",
         "strip": ["test", "tests", ".github", "examples"],
     },
-    {
-        "name":  "vgmio",
-        "url":   "https://github.com/vampirefrog/vgmio",
-        "dest":  TOOLS_RT / "vgmio",
-        "strip": ["test", "tests", ".github", "examples"],
-    },
+    # vampirefrog/libfmvoice: FM voice (patch) data structures for OPN/OPM chips.
+    # Provides authoritative operator field layout and parameter ranges.
     {
         "name":  "libfmvoice",
         "url":   "https://github.com/vampirefrog/libfmvoice",
         "dest":  TOOLS_RT / "libfmvoice",
         "strip": ["test", "tests", ".github", "examples"],
     },
-    {
-        "name":  "fmtoy",
-        "url":   "https://github.com/vampirefrog/fmtoy",
-        "dest":  TOOLS_RT / "fmtoy",
-        "strip": ["test", "tests", ".github", "gui", "editor", "ui"],
-    },
-    {
-        "name":  "fm2x",
-        "url":   "https://github.com/vampirefrog/fm2x",
-        "dest":  TOOLS_RT / "fm2x",
-        "strip": ["test", "tests", ".github"],
-    },
+    # vampirefrog/midilib: MIDI file I/O for VGM-derived note events export
     {
         "name":  "midilib",
         "url":   "https://github.com/vampirefrog/midilib",
         "dest":  TOOLS_RT / "midilib",
         "strip": ["test", "tests", ".github", "examples"],
     },
+    # sikthehedgehog/mdtools: Mega Drive SMPS sequence tools.
+    # mdtrk → MIDI conversion + SMPS disassembly; complements smps_voice_parser.py.
     {
-        "name":  "mml2smf",
-        "url":   "https://github.com/vampirefrog/mml2smf",
-        "dest":  TOOLS_RT / "mml2smf",
+        "name":  "mdtools",
+        "url":   "https://github.com/sikthehedgehog/mdtools",
+        "dest":  TOOLS_RT / "mdtools",
         "strip": ["test", "tests", ".github"],
     },
+    # Wohlstand/libOPNMIDI: OPN2 FM synthesis → MIDI conversion.
+    # Highest-quality FM-to-MIDI with proper envelope tracking.
+    # Powers Layer 2 MIDI export for Genesis tracks.
     {
-        "name":  "ym2608",
-        "url":   "https://github.com/mtrberzi/ym2608",
-        "dest":  TOOLS_RT / "ym2608",
-        "strip": ["test", "tests", ".github"],
+        "name":  "libOPNMIDI",
+        "url":   "https://github.com/Wohlstand/libOPNMIDI",
+        "dest":  TOOLS_RT / "libOPNMIDI",
+        "strip": ["test", "tests", ".github", "cmake", "src/chips/dosbox",
+                  "src/chips/nuked", "src/chips/gens"],
     },
+    # jotego/jt12: FPGA YM2612 — authoritative carrier/modulator topology reference.
+    # We extract the op_connect[] tables as static Python constants.
+    {
+        "name":  "jt12",
+        "url":   "https://github.com/jotego/jt12",
+        "dest":  TOOLS_RT / "jt12",
+        "strip": ["hdl", "ver", "sim", "modules", ".github", "test"],
+    },
+    # rhargreaves/mega-drive-midi-interface: MD MIDI ↔ YM2612 CC mapping.
+    # Bidirectional MIDI↔register translation; validates our register decode.
+    {
+        "name":  "mega-drive-midi-interface",
+        "url":   "https://github.com/rhargreaves/mega-drive-midi-interface",
+        "dest":  TOOLS_RT / "mega-drive-midi-interface",
+        "strip": ["test", "tests", ".github", "cmake", "docker"],
+    },
+
     # --- emulation C libraries ---
     {
         "name":  "libvgm",

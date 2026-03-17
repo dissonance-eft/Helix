@@ -43,6 +43,7 @@ FOOBAR_APPDATA = Path("C:/Users/dissonance/AppData/Roaming/foobar2000-v2")
 # ---------------------------------------------------------------------------
 
 DB_PATH                = DATA / "helix_music.db"
+SMPS_VOICE_LIBRARY_PATH = DATA / "smps_voice_library.json"
 TASTE_PATH             = DATA / "taste_vector.json"
 COMPOSER_PROFILES_PATH = DATA / "composer_profiles.json"
 CHIP_STATS_PATH        = DATA / "chip_usage_stats.json"

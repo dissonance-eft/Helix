@@ -1,0 +1,500 @@
+# HELIX
+
+Helix is a modular research workspace designed to discover structural invariants across complex systems.
+
+Rather than focusing on a single scientific domain, Helix treats domains as **substrates** — environments where structured signals can be analyzed, compared, and experimentally manipulated.
+
+Helix extracts structural fingerprints from datasets and compares them across very different systems to detect patterns that persist across domains.
+
+The system functions as a **personal research operating system** built around modular experimental substrates.
+
+---
+
+# Repository Structure
+
+    helix/
+
+    README.md
+    DISSONANCE.md
+
+    core/
+        kernel/
+        hil/
+        graph/
+        entities/
+        validator/
+        integrity/
+        analysis/
+        compiler/
+
+    engines/
+        python/
+        godot/
+
+    substrates/
+        math/
+        music/
+        games/
+        language/
+
+    labs/
+        music_lab/
+
+    atlas/
+        entities/
+        invariants/
+        models/
+        experiments/
+        regimes/
+        operators/
+
+    interface/
+        wiki/
+        apps/
+
+    artifacts/
+    runtime/
+
+Helix separates three layers:
+
+framework → Helix core  
+experiments → substrates  
+knowledge → Atlas  
+
+---
+
+# HELIX ONTOLOGY
+
+All Helix substrates operate within a shared coordinate system.
+
+These axes define the reasoning space used across the entire framework.
+
+STRUCTURE  
+Topology, constraints, geometry, and relationships between system components.
+
+TIME  
+Dynamics, iteration, latency, feedback loops, and temporal evolution.
+
+OBSERVATION  
+Signals, measurements, perceptual layers, and visibility into system state.
+
+ACTION  
+Interventions, experiments, modifications, and system manipulations used to test hypotheses.
+
+Each substrate maps its domain-specific data onto these four axes.
+
+This ensures that discoveries in one domain can be compared to discoveries in another.
+
+---
+
+# HELIX INTERFACE LANGUAGE (HIL)
+
+The Helix Interface Language (HIL) defines how agents interact with the Helix workspace.
+
+HIL is a structured command language used to communicate with Helix pipelines.
+
+Its role is to enforce:
+
+• structural validity  
+• substrate awareness  
+• reproducible experiment execution  
+• machine-interpretable outputs  
+
+LLMs interact with Helix through HIL rather than manipulating repository files directly.
+
+HIL grammar:
+
+    command = VERB [subcommand] {typed-ref | param}
+    typed-ref = [namespace.]type:slug
+    param = key:value  |  key=value  |  range:low..high
+
+Example commands:
+
+    SUBSTRATE run music stages:3,4,5 soundtrack:"Sonic 3 & Knuckles"
+    ENTITY get music.composer:jun_senoue
+    ENTITY list type=Composer namespace=music
+    GRAPH neighbors music.composer:jun_senoue
+    ANALYZE invariant:oscillator_locking range:0..1
+
+HIL routes commands to substrates and stores results in Atlas.
+All entity IDs use `namespace.type:slug` format (e.g. `music.composer:jun_senoue`).
+
+---
+
+# ENTITY SYSTEM
+
+Helix maintains a unified entity registry located in:
+
+    /core/entities
+
+Entities represent real-world or conceptual objects referenced across substrates.
+
+Each entity contains:
+
+• unique identifier  
+• entity type  
+• metadata  
+• external identifiers  
+• graph relationships  
+
+Example entity:
+
+    {
+        "id": "music.composer:jun_senoue",
+        "type": "Composer",
+        "name": "Jun Senoue",
+        "external_ids": {
+            "wikidata": "Q...",
+            "musicbrainz": "..."
+        }
+    }
+
+---
+
+# ENTITY GRAPH
+
+Entities connect through the Helix knowledge graph located in:
+
+    /core/graph
+
+Example relationships:
+
+composer → composed → track  
+track → appears_in → game  
+game → runs_on → platform  
+
+These relationships allow Helix to perform cross-substrate analysis.
+
+---
+
+# SUBSTRATES
+
+Substrates are independent research environments operating under the Helix ontology.
+
+Each substrate studies a domain whose artifacts can be converted into structured representations.
+
+Current substrates:
+
+Math  
+Music  
+Games  
+Language  
+
+Substrates remain modular and independently analyzable.
+
+---
+
+# ATLAS
+
+Atlas is the Helix knowledge graph and research archive.
+
+Atlas stores:
+
+• entities  
+• artifacts  
+• experiment results  
+• invariant hypotheses  
+
+Atlas also connects Helix data with external sources such as:
+
+Wikidata  
+MusicBrainz  
+Wikipedia  
+VGMDB  
+
+---
+
+# INGESTION PIPELINES
+
+Helix ingestion pipelines convert raw data into structured representations.
+
+Typical pipeline stages (Music substrate canonical):
+
+1 library ingestion
+2 metadata normalization
+3 synthesis architecture analysis
+4 symbolic music extraction
+5 computational musicology analysis
+6 MIR audio analysis
+7 feature synthesis
+8 style-space embedding
+9 knowledge graph integration
+10 LLM interpretation  
+
+Artifacts generated by pipelines are stored in:
+
+    /artifacts
+
+---
+
+# SUBSTRATE QUALIFICATION RULE
+
+A domain qualifies as a Helix substrate if:
+
+1. it produces structured artifacts or signals  
+2. those artifacts can be converted into graphs or vectors  
+3. those representations can be compared across systems  
+
+Helix core contains **no domain theory**.
+
+It only enforces structural discipline.
+
+---
+
+# LONG TERM GOAL
+
+Helix aims to construct a cross-domain research engine capable of discovering structural invariants across complex systems.
+
+Potential outputs include:
+
+• structural laws of complex systems  
+• cross-domain pattern libraries  
+• composer style maps  
+• gameplay topology studies  
+• linguistic cognition experiments  
+
+Helix treats domains as structured signal systems whose hidden architectures can be studied and compared.
+
+---
+
+# HELIX SPECIFICATION
+
+The following rules define the structural invariants of the Helix workspace.
+
+These rules are **binding** for all implementations of Helix.
+
+If implementation decisions conflict with these rules, **the README specification takes precedence**.
+
+---
+
+## SPEC-00 — Canonical Architecture
+
+The Helix repository topology is fixed.
+
+The following directories are required:
+
+    /core
+    /substrates
+    /labs
+    /atlas
+    /engines
+    /interface
+    /artifacts
+    /runtime
+
+New top-level directories should not be introduced without modifying this specification.
+
+---
+
+## SPEC-01 — Core System Responsibilities
+
+The `/core` directory defines the Helix framework itself.
+
+Core modules include:
+
+    kernel
+    hil
+    graph
+    entities
+    validator
+    integrity
+    analysis
+    compiler
+
+Responsibilities:
+
+kernel  
+Framework orchestration and runtime coordination.
+
+hil  
+Helix Interface Language implementation.
+
+graph  
+Knowledge graph infrastructure.
+
+entities  
+Entity schema definitions and entity registry.
+
+validator  
+Structural validation of artifacts and entities.
+
+integrity  
+Consistency checks and repository invariants.
+
+analysis  
+Shared analysis utilities used by substrates.
+
+compiler  
+Compilation of structured outputs and experiment artifacts.
+
+Core modules must remain **domain-agnostic**.
+
+---
+
+## SPEC-02 — Entity System
+
+All Helix entities must be stored in:
+
+    /core/entities
+
+Entities represent real-world or conceptual objects referenced across substrates.
+
+Required entity fields:
+
+    id
+    type
+    name
+    metadata
+    external_ids
+    relationships
+
+Example entity:
+
+    {
+        "id": "music.composer:jun_senoue",
+        "type": "Composer",
+        "name": "Jun Senoue",
+        "external_ids": {
+            "wikidata": "Q...",
+            "musicbrainz": "..."
+        }
+    }
+
+Entity identifiers must be globally unique.
+
+---
+
+## SPEC-03 — Knowledge Graph
+
+Entity relationships are stored in:
+
+    /core/graph
+
+Relationships define structural connections between entities.
+
+Example relationships:
+
+    composer → composed → track
+    track → appears_in → game
+    game → runs_on → platform
+
+The knowledge graph allows Helix to perform cross-domain structural analysis.
+
+---
+
+## SPEC-04 — Substrate Contract
+
+Substrates are independent experimental environments located in:
+
+    /substrates
+
+Each substrate must include:
+
+    README.md
+    ingestion pipeline
+    artifact outputs
+
+Substrates must map their domain-specific data onto the Helix ontology:
+
+    STRUCTURE
+    TIME
+    OBSERVATION
+    ACTION
+
+Substrates remain modular and must not modify the Helix core.
+
+---
+
+## SPEC-05 — Ingestion Pipeline Requirements
+
+All substrates must implement a structured ingestion pipeline.
+
+Minimum stages:
+
+    1 library ingestion
+    2 metadata normalization
+    3 structural parsing
+    4 feature extraction
+    5 vector generation
+    6 knowledge graph integration
+
+Pipeline outputs must produce structured artifacts suitable for Atlas storage.
+
+---
+
+## SPEC-06 — Artifact Storage
+
+Artifacts generated by Helix pipelines must be stored in:
+
+    /artifacts
+
+Artifacts may include:
+
+    feature vectors
+    experiment results
+    analysis outputs
+    generated models
+
+Artifacts must remain reproducible from raw data inputs.
+
+---
+
+## SPEC-07 — Atlas Knowledge Layer
+
+Atlas stores structured knowledge generated by Helix.
+
+Atlas contents include:
+
+    entities
+    invariants
+    models
+    experiments
+    regimes
+    operators
+
+Atlas functions as the research memory of the system.
+
+---
+
+## SPEC-08 — Helix Interface Language Compliance
+
+All automated interactions with Helix must occur through HIL.
+
+HIL commands use typed references with namespace-qualified entity IDs.
+
+Grammar:
+
+    VERB [subcommand] [namespace.]type:slug [param:value | param=value]
+
+Examples:
+
+    SUBSTRATE run music stages:3,4,5 soundtrack:"Sonic 3 & Knuckles"
+    ENTITY get music.composer:jun_senoue
+    GRAPH neighbors music.sound_chip:ym2612
+    ANALYZE invariant:oscillator_locking range:0..1
+
+This ensures deterministic and reproducible operations.
+
+---
+
+## SPEC-09 — Substrate Qualification Rule
+
+A domain qualifies as a Helix substrate if:
+
+1. it produces structured artifacts or signals  
+2. those artifacts can be converted into graphs or vectors  
+3. those representations can be compared across systems  
+
+Helix core does not contain domain theory.
+
+All domain logic belongs to substrates.
+
+---
+
+## SPEC-10 — Structural Integrity
+
+Helix prioritizes **structural stability over convenience**.
+
+Changes that affect repository topology, ontology, or entity schema must update this specification.
+
+All development must preserve the invariant architecture described in this document.

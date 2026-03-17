@@ -57,18 +57,26 @@ class SweepRunner:
             # Wait, better to just call it and collect the paths.
             
             envelope = {
-                "target": experiment_name,
-                "engine": engine_name,
-                "params": run_params,
-                "raw": f"SWEEP {parameter_name} val:{val} RUN {experiment_name}"
+                "verb":            "RUN",
+                "target":          experiment_name,
+                "engine":          engine_name,
+                "params":          run_params,
+                "targets":         [f"experiment:{experiment_name}"],
+                "source":          "hil",
+                "raw":             f"SWEEP parameter:{parameter_name} val:{val} experiment:{experiment_name}",
+                "canonical":       f"RUN experiment:{experiment_name} engine:{engine_name}",
+                "version":         "1.0",
+                "subcommand":      None,
+                "skip_validation": True,   # no adversarial cascade inside sweep
+                "skip_discovery":  True,   # invariant engine runs on summary only
             }
-            
-            # Run it
+
             run_result = self.experiment_runner.run(envelope)
             results.append({
-                "value": val,
-                "status": run_result["status"],
-                "dir": run_result["artifact_dir"]
+                "value":  val,
+                "status": run_result.get("status"),
+                "dir":    run_result.get("artifact_dir", ""),
+                "result": run_result.get("result"),
             })
             
         # 3. Create sweep summary artifact

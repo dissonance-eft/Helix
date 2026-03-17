@@ -159,6 +159,41 @@ class TrackDB:
             ).fetchall()
         return [dict(r) for r in rows]
 
+    def get_tracks_with_features(self, max_tier: int = 1) -> list[dict]:
+        """Fetch tracks joined with all available feature tables."""
+        with self._conn() as conn:
+            rows = conn.execute("""
+                SELECT 
+                    t.*, 
+                    c.keyon_density, c.pitch_center, c.pitch_range as chip_pitch_range,
+                    th.key_estimate, th.mode, th.tempo_bpm as theory_bpm, thr.tempo_bpm as audio_bpm
+                FROM tracks t
+                LEFT JOIN chip_features c ON t.id = c.track_id
+                LEFT JOIN theory_features th ON t.id = th.track_id
+                LEFT JOIN audio_features thr ON t.id = thr.track_id
+                WHERE t.max_tier >= ?
+            """, (max_tier,)).fetchall()
+        
+        results = []
+        for r in rows:
+            d = dict(r)
+            # Reconstruct nested feature dicts for pipeline compatibility
+            d["chip_features"] = {
+                "keyon_density": d.get("keyon_density"),
+                "pitch_center":  d.get("pitch_center"),
+                "pitch_range":   d.get("chip_pitch_range")
+            }
+            d["theory_features"] = {
+                "key_estimate": d.get("key_estimate"),
+                "mode":         d.get("mode"),
+                "tempo_bpm":    d.get("theory_bpm")
+            }
+            d["audio_features"] = {
+                "tempo_bpm":    d.get("audio_bpm")
+            }
+            results.append(d)
+        return results
+
     def get_unanalyzed(self, tier: int) -> list[dict]:
         """Return tracks that have not yet reached *tier*."""
         with self._conn() as conn:

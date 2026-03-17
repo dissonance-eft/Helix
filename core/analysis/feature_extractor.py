@@ -20,7 +20,11 @@ class FeatureExtractor:
             return {}
             
         features = {}
-        
+
+        # Guard: results.json may be a list in legacy artifacts
+        if not isinstance(data, dict):
+            return features
+
         # Extract basic statistics from numeric results
         numeric_values = []
         if isinstance(data, dict):
@@ -41,7 +45,7 @@ class FeatureExtractor:
             features["entropy"] = float(FeatureExtractor._estimate_entropy(numeric_values))
             
         # Spatial features (Godot)
-        if data.get("substrate") == "godot_spatial":
+        if isinstance(data, dict) and data.get("substrate") == "godot_spatial":
             features["is_spatial"] = 1.0
             if "agent_count" in data:
                 features["density"] = float(data["agent_count"]) # proxy

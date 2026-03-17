@@ -39,7 +39,8 @@ class PythonAdapter:
 
         try:
             # 2. Execute experiment
-            result_data = module.run(parameters)
+            # Unpack dict as keyword arguments to match def run(limit=0, **kwargs)
+            result_data = module.run(**parameters)
             
             # Phase 13 says engine adapter is responsible for artifact writing.
             # However, ExperimentRunner in Phase 12 also does this.

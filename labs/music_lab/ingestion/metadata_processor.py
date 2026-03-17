@@ -13,7 +13,11 @@ from labs.music_lab.config import (
     LIBRARY_ROOT as LIBRARY_PATH,
     ARTIFACTS as ARTIFACTS_DIR,
     REPORTS as REPORTS_DIR,
+    DB_PATH,
+    FOOBAR_APPDATA,
 )
+from labs.music_lab.ingestion.adapters.metadb_sqlite import MetadbSqliteReader
+from labs.music_lab.db.track_db import TrackDB
 
 # Format Definitions
 EMULATED_FORMATS = {
@@ -36,6 +40,25 @@ class MetadataProcessor:
         if not self.library_path.exists():
             print(f"Error: Library path {self.library_path} not found.")
             return
+
+        # 0. metadb.sqlite Ingestion
+        metadb_paths = [
+            self.library_path / "metadb.sqlite",
+            FOOBAR_APPDATA / "metadb.sqlite"
+        ]
+        for metadb_path in metadb_paths:
+            if metadb_path.exists():
+                print(f"Ingesting from metadb.sqlite at {metadb_path}...")
+                reader = MetadbSqliteReader(str(metadb_path))
+                sqlite_records = reader.read_all()
+                if sqlite_records:
+                    db = TrackDB(DB_PATH)
+                    normalized = [reader.normalize(r) for r in sqlite_records]
+                    db.populate_from_records(normalized)
+                    print(f"Ingested {len(normalized)} tracks from {metadb_path.name}")
+                # We only need to ingest from one if they are duplicates, 
+                # but searching multiple locations is safer.
+                break
 
         # 1. Scanning
         all_files = []
@@ -120,26 +143,48 @@ class MetadataProcessor:
             meta = {}
             audio_info = None
 
-            # 1. Check sidecar
+            # 1. Check sidecar (.meta.json or .tag)
             meta_filename = file_path.name + ".meta.json"
+            tag_filename  = file_path.name + ".tag"
+            
             if meta_filename in dir_files_set:
                 try:
                     with open(file_path.parent / meta_filename, 'r', encoding='utf-8') as f:
                         meta = json.load(f)
                 except:
                     pass
+            elif tag_filename in dir_files_set:
+                try:
+                    from mutagen.apev2 import APEv2
+                    ape = APEv2(file_path.parent / tag_filename)
+                    for key, val in ape.items():
+                        # APE keys are often simple strings
+                        norm_key = str(key).upper().replace(' ', '_')
+                        if norm_key not in meta:
+                            meta[norm_key] = str(val)
+                except Exception as e:
+                    # print(f"  APE parse error: {e}")
+                    pass
 
-            # 2. Mutagen
+            # 2. Mutagen (Internal Metadata)
+            # For chip-based emulated formats (VGM/VGZ/SPC/etc.), the external .tag
+            # sidecar is authoritative.  Only fall back to internal tags if no sidecar
+            # was found, and even then only use it for audio_info (duration/sample_rate).
+            codec_upper = file_path.suffix.lstrip('.').upper()
+            is_chip_format = codec_upper in EMULATED_FORMATS
+            sidecar_found = bool(meta)  # non-empty if .tag or .meta.json was loaded
             try:
                 m = MutagenFile(file_path)
                 if m:
                     audio_info = m.info
-                    # Merge internal tags if not overwritten by sidecar
-                    for key in m.keys():
-                        norm_key = key.upper().replace(':', '_') # Handle some tag types
-                        if norm_key not in meta:
-                            val = m[key]
-                            meta[norm_key] = val[0] if isinstance(val, list) else str(val)
+                    if not is_chip_format or not sidecar_found:
+                        # Merge internal tags only when: not a chip format,
+                        # OR chip format but no sidecar exists.
+                        for key in m.keys():
+                            norm_key = key.upper().replace(':', '_')
+                            if norm_key not in meta:
+                                val = m[key]
+                                meta[norm_key] = val[0] if isinstance(val, list) else str(val)
             except:
                 pass
 
@@ -161,22 +206,35 @@ class MetadataProcessor:
                 "format_category": "emulated_audio" if is_emulated else "rendered_audio",
 
                 # Metadata
-                "title": meta.get('TITLE', meta.get('TIT2', file_path.stem)),
-                "artist": meta.get('ARTIST', meta.get('TPE1', meta.get('COMPOSER', 'Unknown'))),
-                "album": meta.get('ALBUM', meta.get('TALB', file_path.parent.name)),
-                "date": meta.get('DATE', meta.get('TDRC', meta.get('YEAR', meta.get('TYER')))),
-                "genre": meta.get('GENRE', meta.get('TCON')),
-                "featuring": meta.get('FEATURING'),
-                "album_artist": meta.get('ALBUM ARTIST', meta.get('ALBUMARTIST', meta.get('TPE2'))),
-                "sound_team": meta.get('SOUND TEAM', meta.get('SOUND_TEAM')),
-                "franchise": meta.get('FRANCHISE'),
-                "track_number": meta.get('TRACKNUMBER', meta.get('TRCK', meta.get('TRACK'))),
-                "total_tracks": meta.get('TOTALTRACKS'),
-                "disc_number": meta.get('DISCNUMBER', meta.get('TPOS')),
-                "total_discs": meta.get('TOTALDISCS'),
-                "comment": meta.get('COMMENT', meta.get('COMM')),
-                "platform": meta.get('PLATFORM'),
-                "sound_chip": meta.get('SOUND CHIP', meta.get('SOUNDCHIP'))
+                # Metadata Mapping with Canon Precedence
+                # If sidecar (APE/JSON) has Title/Artist, it will be in meta['TITLE'] / meta['ARTIST']
+                # We specifically look for these first.
+                
+                "title": (meta.get('TITLE') or 
+                          meta.get('TIT2') or 
+                          meta.get('title') or 
+                          file_path.stem),
+                          
+                "artist": (meta.get('ARTIST') or 
+                           meta.get('TPE1') or 
+                           meta.get('COMPOSER') or 
+                           meta.get('artist') or 
+                           'Unknown'),
+                           
+                "album": meta.get('ALBUM', meta.get('TALB', meta.get('album', file_path.parent.name))),
+                "date": meta.get('DATE', meta.get('TDRC', meta.get('YEAR', meta.get('TYER', meta.get('date'))))),
+                "genre": meta.get('GENRE', meta.get('TCON', meta.get('genre'))),
+                "featuring": meta.get('FEATURING', meta.get('featuring')),
+                "album_artist": meta.get('ALBUM ARTIST', meta.get('ALBUMARTIST', meta.get('TPE2', meta.get('album_artist')))),
+                "sound_team": meta.get('SOUND TEAM', meta.get('SOUND_TEAM', meta.get('sound_team'))),
+                "franchise": meta.get('FRANCHISE', meta.get('franchise')),
+                "track_number": meta.get('TRACKNUMBER', meta.get('TRCK', meta.get('TRACK', meta.get('track_number')))),
+                "total_tracks": meta.get('TOTALTRACKS', meta.get('total_tracks')),
+                "disc_number": meta.get('DISCNUMBER', meta.get('TPOS', meta.get('disc_number'))),
+                "total_discs": meta.get('TOTALDISCS', meta.get('total_discs')),
+                "comment": meta.get('COMMENT', meta.get('COMM', meta.get('comment'))),
+                "platform": meta.get('PLATFORM', meta.get('platform')),
+                "sound_chip": meta.get('SOUND_CHIP', meta.get('SOUND CHIP', meta.get('SOUNDCHIP', meta.get('sound_chip'))))
             }
             return record
         except Exception as e:

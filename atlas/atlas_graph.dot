@@ -10,17 +10,24 @@ digraph HelixAtlas {
 
   // Nodes
   commitment_probe [label="commitment\nprobe", tooltip="OPERATOR: active", shape="pentagon", color="#3B1F2B", fontcolor="white", style="filled"];
+  composer_similarity [label="composer\nsimilarity", tooltip="OPERATOR: unknown", shape="pentagon", color="#3B1F2B", fontcolor="white", style="filled"];
+  composer_style_space [label="composer\nstyle\nspace", tooltip="MODEL: unknown", shape="diamond", color="#F18F01", fontcolor="white", style="filled"];
   control_subspace_collapse [label="control\nsubspace\ncollapse", tooltip="MODEL: candidate", shape="diamond", color="#F18F01", fontcolor="white", style="filled"];
   decision_compression [label="decision\ncompression", tooltip="INVARIANT: verified", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
   decision_compression_sweep [label="decision\ncompression\nsweep", tooltip="EXPERIMENT: completed", shape="box", color="#A23B72", fontcolor="white", style="filled"];
   epistemic_irreversibility [label="epistemic\nirreversibility", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
   finding_status_table [label="finding\nstatus\ntable", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
   last_hil_run [label="last\nhil\nrun", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
+  law_epistemic_irreversibility_noise [label="law\nepistemic\nirreversibility\nnoise", tooltip="INVARIANT: unknown", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  law_kuramoto_finite_size [label="law\nkuramoto\nfinite\nsize", tooltip="INVARIANT: unknown", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  law_kuramoto_transition [label="law\nkuramoto\ntransition", tooltip="INVARIANT: unknown", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
   local_incompleteness [label="local\nincompleteness", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
+  metadata [label="metadata", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
   oscillator_locking [label="oscillator\nlocking", tooltip="INVARIANT: verified", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
   probe_result [label="probe\nresult", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
   regime_transition [label="regime\ntransition", tooltip="INVARIANT: exploratory", shape="ellipse", color="#2E86AB", fontcolor="white", style="filled"];
   results [label="results", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
+  vgm_loop_structures [label="vgm\nloop\nstructures", tooltip="REGIME: unknown", shape="hexagon", color="#C73E1D", fontcolor="white", style="filled"];
 
   // Edges
   commitment_probe -> decision_compression [label="IMPLEMENTS", tooltip="IMPLEMENTS", color="#3B1F2B", style="dotted", arrowhead="box"];

@@ -105,6 +105,9 @@ class TrackFeatures:
     tl_mean_op1:            float = 0.0
     tl_mean_op2:            float = 0.0
     ams_fms_usage:          float = 0.0   # fraction of channels using LFO mod
+    dac_count:              int   = 0     # DAC (PCM) writes
+    dac_density:            float = 0.0
+    active_channels_count:  int   = 0     # Number of channels that ever keyed-on
 
     # PSG features
     psg_tone_count:         int   = 0
@@ -115,6 +118,7 @@ class TrackFeatures:
     silence_ratio:          float = 0.0
     rhythmic_entropy:       float = 0.0
     note_interval_mean:     float = 0.0
+    burst_density:          float = 0.0   # density of rapid note clusters
 
     # Chip config
     has_ym2612:             bool  = False
@@ -180,6 +184,7 @@ def extract(track: VGMTrack, symbolic: bool = False) -> TrackFeatures:
 
     psg_tone_count  = 0
     psg_noise_count = 0
+    dac_count       = 0
 
     wait_samples_total = 0
     keyon_times: list[int] = []
@@ -250,6 +255,10 @@ def extract(track: VGMTrack, symbolic: bool = False) -> TrackFeatures:
                 op_slot = (r >> 2) & 0x03
                 if ch_idx < 6:
                     ch_tl[ch_idx][op_slot] = v & 0x7F
+            
+            # DAC data (Port 0, Reg 0x2A)
+            elif r == 0x2A and port == 0:
+                dac_count += 1
 
         # --- PSG ---
         elif ev.kind == "psg":
@@ -274,6 +283,9 @@ def extract(track: VGMTrack, symbolic: bool = False) -> TrackFeatures:
     fm_total  = feat.keyon_count + 1
     psg_total = psg_tone_count + psg_noise_count
     feat.psg_to_fm_ratio  = psg_total / fm_total
+    feat.dac_count        = dac_count
+    feat.dac_density      = dac_count / max(duration_sec, 0.001)
+    feat.active_channels_count = len([c for c in ch_keyon_count.values() if c > 0])
 
     feat.silence_ratio = wait_samples_total / max(h.total_samples, 1)
 

@@ -44,8 +44,11 @@ class Dispatcher:
       HIL envelope -> source gate -> integrity gate -> scheduler -> engine -> result
     """
 
-    # Verbs that require an experiment or invariant target
-    _EXPERIMENT_VERBS: frozenset[str] = frozenset({"RUN", "PROBE", "SWEEP", "TRACE", "OBSERVE"})
+    # Verbs that require an experiment or invariant target (or are shortcut verbs)
+    _EXPERIMENT_VERBS: frozenset[str] = frozenset({
+        "RUN", "PROBE", "SWEEP", "TRACE", "OBSERVE",
+        "SCAN", "INDEX", "INGEST", "LIST", "TRAIN", "ATTRIBUTION"
+    })
 
     def __init__(self, skip_integrity: bool = False):
         self._skip_integrity = skip_integrity

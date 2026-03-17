@@ -11,15 +11,33 @@ from typing import Any
 
 @dataclass(frozen=True)
 class TypedRef:
-    """A typed object reference: prefix:name  e.g. invariant:decision_compression"""
-    prefix: str
-    name:   str
+    """
+    A typed object reference.
+
+    Supports two forms:
+      prefix:name              — legacy form, e.g. invariant:decision_compression
+      namespace.prefix:name   — namespaced form, e.g. music.composer:jun_senoue
+
+    Fields:
+      prefix    — entity type slug, e.g. "composer" or "invariant"
+      name      — entity slug, e.g. "jun_senoue"
+      namespace — substrate namespace, e.g. "music" (empty string if not namespaced)
+    """
+    prefix:    str
+    name:      str
+    namespace: str = ""
 
     def __str__(self) -> str:
+        if self.namespace:
+            return f"{self.namespace}.{self.prefix}:{self.name}"
         return f"{self.prefix}:{self.name}"
 
     def canonical(self) -> str:
-        return f"{self.prefix}:{self.name}"
+        return str(self)
+
+    def entity_id(self) -> str:
+        """Return the canonical entity ID for registry/resolver lookup."""
+        return str(self)
 
 
 @dataclass
