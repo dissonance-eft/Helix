@@ -1,0 +1,51 @@
+track_number,track_id,title,duration_sec,chip,composers,attribution_confidence,attribution_sources
+,s3k_01,Angel Island Zone Act 1,,,,1.0,
+,s3k_02,Angel Island Zone Act 2,,,,1.0,
+,s3k_03,Hydrocity Zone Act 1,,,,1.0,
+,s3k_04,Hydrocity Zone Act 2,,,,1.0,
+,s3k_05,Marble Garden Zone Act 1,,,Miyoko Takaoka | Miyoko Takaoka,1.0,sonic_retro_html
+,s3k_06,Marble Garden Zone Act 2,,,,1.0,
+,s3k_07,Carnival Night Zone Act 1,,,,1.0,
+,s3k_08,Carnival Night Zone Act 2,,,,1.0,
+,s3k_09,Flying Battery Zone Act 1,,,,1.0,
+,s3k_0a,Flying Battery Zone Act 2,,,,1.0,
+,s3k_0b,IceCap Zone Act 1,,,,1.0,
+,s3k_0c,IceCap Zone Act 2,,,,1.0,
+,s3k_0d,Launch Base Zone Act 1,,,,1.0,
+,s3k_0e,Launch Base Zone Act 2,,,,1.0,
+,s3k_0f,Mushroom Hill Zone Act 1,,,,1.0,
+,s3k_10,Mushroom Hill Zone Act 2,,,,1.0,
+,s3k_11,Sandopolis Zone Act 1,,,,1.0,
+,s3k_12,Sandopolis Zone Act 2,,,,1.0,
+,s3k_13,Lava Reef Zone Act 1,,,,1.0,
+,s3k_14,Hidden Palace Zone / Lava Reef Act 2,,,,1.0,
+,s3k_15,Sky Sanctuary Zone,,,,1.0,
+,s3k_16,Death Egg Zone Act 1,,,,1.0,
+,s3k_17,Death Egg Zone Act 2,,,,1.0,
+,s3k_18,Boss 1,,,,1.0,
+,s3k_19,Boss 2,,,Masanori Hikichi | Masanori Hikichi,1.0,sonic_retro_html
+,s3k_1a,The Doomsday Zone,,,,1.0,
+,s3k_1b,Bonus Stage - Magnetic Orbs,,,Jun Senoue,1.0,sonic_retro_html
+,s3k_1c,Special Stage - Blue Spheres,,,Yoshiaki Kashima | Yoshiaki Kashima,1.0,sonic_retro_html
+,s3k_1d,Bonus Stage - Slot Machine,,,Jun Senoue | Jun Senoue,1.0,sonic_retro_html
+,s3k_1e,Bonus Stage - Gumball Machine,,,Jun Senoue | Jun Senoue,1.0,sonic_retro_html
+,s3k_1f,Knuckles Appears,,,,1.0,
+,s3k_20,2P vs. - Azure Lake,,,,1.0,
+,s3k_21,2P vs. - Balloon Park,,,,1.0,
+,s3k_22,2P vs. - Desert Palace,,,,1.0,
+,s3k_23,2P vs. - Chrome Gadget,,,,1.0,
+,s3k_24,2P vs. - Endless Mine,,,,1.0,
+,s3k_25,Title Screen,,,,1.0,
+,s3k_26,Staff Roll,,,,1.0,
+,s3k_27,Game Over,,,Jun Senoue | Jun Senoue,1.0,sonic_retro_html
+,s3k_28,Continue,,,Jun Senoue | Jun Senoue,1.0,sonic_retro_html
+,s3k_29,Stage Clear - Act Passed,,,Jun Senoue | Jun Senoue,1.0,sonic_retro_html
+,s3k_2a,1UP - Extra Life,,,,1.0,
+,s3k_2b,Chaos Emerald,,,Yukifumi Makino | Yukifumi Makino,1.0,sonic_retro_html
+,s3k_2c,Power Up - Invincibility,,,,1.0,
+,s3k_2d,2P Menu - Player Select,,,,1.0,
+,s3k_2e,Unused Song / Boss 1 (S3 version),,,,1.0,
+,s3k_2f,Menu - Data Select,,,,1.0,
+,s3k_30,Final Eggman,,,,1.0,
+,s3k_31,Drowning,,,Yukifumi Makino | Yukifumi Makino,1.0,sonic_retro_html
+,s3k_32,All Clear - Victory,,,,1.0,

@@ -1,0 +1,502 @@
+[
+  {
+    "track_number": "",
+    "track_id": "s3k_01",
+    "title": "Angel Island Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_02",
+    "title": "Angel Island Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_03",
+    "title": "Hydrocity Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_04",
+    "title": "Hydrocity Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_05",
+    "title": "Marble Garden Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Miyoko Takaoka | Miyoko Takaoka",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_06",
+    "title": "Marble Garden Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_07",
+    "title": "Carnival Night Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_08",
+    "title": "Carnival Night Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_09",
+    "title": "Flying Battery Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_0a",
+    "title": "Flying Battery Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_0b",
+    "title": "IceCap Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_0c",
+    "title": "IceCap Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_0d",
+    "title": "Launch Base Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_0e",
+    "title": "Launch Base Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_0f",
+    "title": "Mushroom Hill Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_10",
+    "title": "Mushroom Hill Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_11",
+    "title": "Sandopolis Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_12",
+    "title": "Sandopolis Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_13",
+    "title": "Lava Reef Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_14",
+    "title": "Hidden Palace Zone / Lava Reef Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_15",
+    "title": "Sky Sanctuary Zone",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_16",
+    "title": "Death Egg Zone Act 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_17",
+    "title": "Death Egg Zone Act 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_18",
+    "title": "Boss 1",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_19",
+    "title": "Boss 2",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Masanori Hikichi | Masanori Hikichi",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_1a",
+    "title": "The Doomsday Zone",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_1b",
+    "title": "Bonus Stage - Magnetic Orbs",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Jun Senoue",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_1c",
+    "title": "Special Stage - Blue Spheres",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Yoshiaki Kashima | Yoshiaki Kashima",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_1d",
+    "title": "Bonus Stage - Slot Machine",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Jun Senoue | Jun Senoue",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_1e",
+    "title": "Bonus Stage - Gumball Machine",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Jun Senoue | Jun Senoue",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_1f",
+    "title": "Knuckles Appears",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_20",
+    "title": "2P vs. - Azure Lake",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_21",
+    "title": "2P vs. - Balloon Park",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_22",
+    "title": "2P vs. - Desert Palace",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_23",
+    "title": "2P vs. - Chrome Gadget",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_24",
+    "title": "2P vs. - Endless Mine",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_25",
+    "title": "Title Screen",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_26",
+    "title": "Staff Roll",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_27",
+    "title": "Game Over",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Jun Senoue | Jun Senoue",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_28",
+    "title": "Continue",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Jun Senoue | Jun Senoue",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_29",
+    "title": "Stage Clear - Act Passed",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Jun Senoue | Jun Senoue",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_2a",
+    "title": "1UP - Extra Life",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_2b",
+    "title": "Chaos Emerald",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Yukifumi Makino | Yukifumi Makino",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_2c",
+    "title": "Power Up - Invincibility",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_2d",
+    "title": "2P Menu - Player Select",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_2e",
+    "title": "Unused Song / Boss 1 (S3 version)",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_2f",
+    "title": "Menu - Data Select",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_30",
+    "title": "Final Eggman",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_31",
+    "title": "Drowning",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "Yukifumi Makino | Yukifumi Makino",
+    "attribution_confidence": 1.0,
+    "attribution_sources": "sonic_retro_html"
+  },
+  {
+    "track_number": "",
+    "track_id": "s3k_32",
+    "title": "All Clear - Victory",
+    "duration_sec": "",
+    "chip": "",
+    "composers": "",
+    "attribution_confidence": 1.0,
+    "attribution_sources": ""
+  }
+]

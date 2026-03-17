@@ -1,0 +1,932 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://gexf.net/1.3" xmlns:viz="http://gexf.net/1.3/viz" version="1.3">
+  <meta lastmodifieddate="2026-01-01">
+    <creator>HelixMusicLab</creator>
+    <description>Composer Collaboration Network</description>
+  </meta>
+  <graph defaultedgetype="directed" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="type" type="string" />
+      <attribute id="1" title="notes" type="string" />
+    </attributes>
+    <attributes class="edge" mode="static">
+      <attribute id="0" title="relation" type="string" />
+    </attributes>
+    <nodes>
+      <node id="composer:masayuki_nagao" label="Masayuki Nagao">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Originally employed at Sega, Masayuki Nagao was preparing to take a new job at Opus Corp., resulting in the company receiving a &quot;Sound Special Thanks&quot; credit." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:tatsuyuki_maeda" label="Tatsuyuki Maeda">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:jun_senoue" label="Jun Senoue">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="One of the few Sega of Japan employees to confirm Jackson's involvement in Sonic the Hedgehog 3 ." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="30" />
+      </node>
+      <node id="composer:yoshiaki_kashima" label="Yoshiaki Kashima">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Tasked with creating Sonic the Hedgehog 3' s music driver." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:brad_buxer" label="Brad Buxer">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Composer and one of Michael Jackson's closest professional collaborators at the time. One of three members of Jackson's sound team to confirm the artist's involvement in the project." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:darryl_ross" label="Darryl Ross">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:bobby_brooks" label="Bobby Brooks">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:cirocco_jones" label="Cirocco Jones">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:doug_grigsby_iii" label="Doug Grigsby III">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="One of three members of Jackson's sound team to confirm the artist's involvement in the project." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:geoff_grace" label="Geoff Grace">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:tokuhiko_uwabo" label="Tokuhiko Uwabo">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Responsible for managing the game's sound development, which entailed assigning Sega staff to production work and contracting outside composers; he confirms he did not compose for the soundtrack itself." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:sachio_ogawa" label="Sachio Ogawa">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masaru_setsumaru" label="Masaru Setsumaru">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="One of the few Sega of Japan employees to confirm Jackson's involvement in Sonic the Hedgehog 3 ." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:tomonori_sawada" label="Tomonori Sawada">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:yukifumi_makino" label="Yukifumi Makino">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Two jingles previously composed by Yukifumi Makino for the original Sonic the Hedgehog were included in Sonic the Hedgehog 3 and Sonic &amp; Knuckles ." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:miyoko_takaoka" label="Miyoko Takaoka">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Credited under Cube Corp., the sound production company she was contracted through. Between her and fellow Cube composer Masanori Hikichi, they created a total of eight tracks for the project." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masanori_hikichi" label="Masanori Hikichi">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Credited under Cube Corp., the sound production company he was contracted through. Between him and fellow Cube composer Miyoko Takaoka, they created a total of eight tracks for the project." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masanori_nakayama" label="Masanori Nakayama">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Received a &quot;Sound Special Thanks&quot; for an unknown contribution." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:michael_jackson" label="Michael Jackson">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="An American pop music artist who became involved in the composition of Sonic the Hedgehog 3' s soundtrack relatively late in development, bringing a number of members of his personal sound team to the project." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:c_cirocco_jones" label="C. Cirocco Jones">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="One of three members of Jackson's sound team to confirm the artist's involvement in the project." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:mayumi_nina_sakazaki" label="Mayumi Nina Sakazaki ()">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Michael Jackson's long-time Japanese coordinator, responsible for assisting the artist while working in the country. Receives a &quot;special thanks&quot; credit." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:bruce_connole" label="Bruce Connole">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Worked alongside bassist Damon Doiron, drummer Steve Golladay, and keyboardist Brad Buxer as guitarist and vocalist for new wave band The Jetzons . Part of a composition he worked on with Buxer, &quot;Hard Times,&quot; was the basis for Ice Cap Zone's theme." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:howard_drossin" label="Howard Drossin">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="STI's in-house composer. Recalls being called into the project last minute to create several jingles for Sonic 3 , most of which would go unused until the release of Sonic &amp; Knuckles . Received a &quot;Sound Special Thanks&quot; in Sonic 3' s credits." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:roger_hector" label="Roger Hector">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Responsible for both hiring and firing Jackson from the project, as well as assigning Howard Drossin to the project late in development. Hector was the first person within Sega to confirm Jackson's involvement." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:hisaki_nimiya" label="Hisaki Nimiya">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Coordinator" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:hisashi_suzuki" label="Hisashi Suzuki">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Sega of Japan executive, director, and engineer. The Sega representative who worked most closely with Michael Jackson during his past collaborations with the company. Suzuki was Jackson's primary point of contact for Sega, and the two reputedly developed a close friendship over the years." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:shigeaki_irie" label="Shigeaki Irie">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Ported the music of Sonic the Hedgehog 3 and Sonic &amp; Knuckles to the Sonic &amp; Knuckles Collection." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masaaki_nishizawa" label="Masaaki Nishizawa">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Ported the music of Sonic the Hedgehog 3 and Sonic &amp; Knuckles to the Sonic &amp; Knuckles Collection." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:goro_takahashi" label="Goro Takahashi">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="Ported the music of Sonic the Hedgehog 3 and Sonic &amp; Knuckles to the Sonic &amp; Knuckles Collection." />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="team:sega_sound_team_1994" label="Sega Sound Team (1993–1994)">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="15" />
+      </node>
+      <node id="team:jacksons_sound_team_1993" label="Jackson's Sound Team (1993)">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="15" />
+      </node>
+      <node id="team:cube_corp_1993" label="Cube Corp (1993)">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="15" />
+      </node>
+      <node id="team:sti_sound_1993" label="Sega Technical Institute Sound">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="15" />
+      </node>
+      <node id="studio:sega" label="Sega">
+        <attvalues>
+          <attvalue for="0" value="studio" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="237" g="201" b="72" a="1.0" />
+        <viz:size value="12" />
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="composer:masayuki_nagao" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="composer:tatsuyuki_maeda" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="composer:jun_senoue" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="composer:yoshiaki_kashima" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="composer:masayuki_nagao" target="composer:tatsuyuki_maeda" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="composer:masayuki_nagao" target="composer:jun_senoue" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="composer:masayuki_nagao" target="composer:yoshiaki_kashima" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="composer:masayuki_nagao" target="composer:brad_buxer" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="composer:masayuki_nagao" target="composer:darryl_ross" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="composer:masayuki_nagao" target="composer:bobby_brooks" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="composer:masayuki_nagao" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="composer:masayuki_nagao" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="composer:masayuki_nagao" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="13" source="composer:tatsuyuki_maeda" target="composer:jun_senoue" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="14" source="composer:tatsuyuki_maeda" target="composer:yoshiaki_kashima" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="15" source="composer:tatsuyuki_maeda" target="composer:brad_buxer" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="16" source="composer:tatsuyuki_maeda" target="composer:darryl_ross" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="17" source="composer:tatsuyuki_maeda" target="composer:bobby_brooks" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="18" source="composer:tatsuyuki_maeda" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="19" source="composer:tatsuyuki_maeda" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="20" source="composer:tatsuyuki_maeda" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="21" source="composer:jun_senoue" target="composer:yoshiaki_kashima" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="22" source="composer:jun_senoue" target="composer:brad_buxer" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="23" source="composer:jun_senoue" target="composer:darryl_ross" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="24" source="composer:jun_senoue" target="composer:bobby_brooks" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="25" source="composer:jun_senoue" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="26" source="composer:jun_senoue" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="27" source="composer:jun_senoue" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="28" source="composer:yoshiaki_kashima" target="composer:brad_buxer" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="29" source="composer:yoshiaki_kashima" target="composer:darryl_ross" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="30" source="composer:yoshiaki_kashima" target="composer:bobby_brooks" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="31" source="composer:yoshiaki_kashima" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="32" source="composer:yoshiaki_kashima" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="33" source="composer:yoshiaki_kashima" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="34" source="composer:brad_buxer" target="composer:darryl_ross" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="35" source="composer:brad_buxer" target="composer:bobby_brooks" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="36" source="composer:brad_buxer" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="37" source="composer:brad_buxer" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="38" source="composer:brad_buxer" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="39" source="composer:darryl_ross" target="composer:bobby_brooks" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="40" source="composer:darryl_ross" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="41" source="composer:darryl_ross" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="42" source="composer:darryl_ross" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="43" source="composer:bobby_brooks" target="composer:cirocco_jones" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="44" source="composer:bobby_brooks" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="45" source="composer:bobby_brooks" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="46" source="composer:cirocco_jones" target="composer:doug_grigsby_iii" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="47" source="composer:cirocco_jones" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="48" source="composer:doug_grigsby_iii" target="composer:geoff_grace" weight="0.9">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="49" source="composer:masayuki_nagao" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="50" source="composer:tatsuyuki_maeda" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="51" source="composer:jun_senoue" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="52" source="composer:yoshiaki_kashima" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="53" source="composer:tokuhiko_uwabo" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="54" source="composer:sachio_ogawa" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="55" source="composer:yoshiaki_kashima" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="56" source="composer:masaru_setsumaru" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="57" source="composer:tatsuyuki_maeda" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="58" source="composer:tomonori_sawada" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="59" source="composer:jun_senoue" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="60" source="composer:yukifumi_makino" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="61" source="composer:miyoko_takaoka" target="team:cube_corp_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="62" source="composer:masanori_hikichi" target="team:cube_corp_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="63" source="composer:michael_jackson" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="64" source="composer:brad_buxer" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="65" source="composer:bobby_brooks" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="66" source="composer:darryl_ross" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="67" source="composer:geoff_grace" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="68" source="composer:doug_grigsby_iii" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="69" source="composer:c_cirocco_jones" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="70" source="composer:mayumi_nina_sakazaki" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="71" source="composer:tokuhiko_uwabo" target="composer:sachio_ogawa" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="72" source="composer:tokuhiko_uwabo" target="composer:yoshiaki_kashima" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="73" source="composer:tokuhiko_uwabo" target="composer:masaru_setsumaru" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="74" source="composer:tokuhiko_uwabo" target="composer:tatsuyuki_maeda" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="75" source="composer:tokuhiko_uwabo" target="composer:tomonori_sawada" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="76" source="composer:tokuhiko_uwabo" target="composer:jun_senoue" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="77" source="composer:tokuhiko_uwabo" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="78" source="composer:sachio_ogawa" target="composer:yoshiaki_kashima" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="79" source="composer:sachio_ogawa" target="composer:masaru_setsumaru" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="80" source="composer:sachio_ogawa" target="composer:tatsuyuki_maeda" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="81" source="composer:sachio_ogawa" target="composer:tomonori_sawada" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="82" source="composer:sachio_ogawa" target="composer:jun_senoue" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="83" source="composer:sachio_ogawa" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="84" source="composer:yoshiaki_kashima" target="composer:masaru_setsumaru" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="85" source="composer:yoshiaki_kashima" target="composer:tatsuyuki_maeda" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="86" source="composer:yoshiaki_kashima" target="composer:tomonori_sawada" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="87" source="composer:yoshiaki_kashima" target="composer:jun_senoue" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="88" source="composer:yoshiaki_kashima" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="89" source="composer:masaru_setsumaru" target="composer:tatsuyuki_maeda" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="90" source="composer:masaru_setsumaru" target="composer:tomonori_sawada" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="91" source="composer:masaru_setsumaru" target="composer:jun_senoue" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="92" source="composer:masaru_setsumaru" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="93" source="composer:tatsuyuki_maeda" target="composer:tomonori_sawada" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="94" source="composer:tatsuyuki_maeda" target="composer:jun_senoue" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="95" source="composer:tatsuyuki_maeda" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="96" source="composer:tomonori_sawada" target="composer:jun_senoue" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="97" source="composer:tomonori_sawada" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="98" source="composer:jun_senoue" target="composer:yukifumi_makino" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="99" source="composer:miyoko_takaoka" target="composer:masanori_hikichi" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="100" source="composer:michael_jackson" target="composer:brad_buxer" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="101" source="composer:michael_jackson" target="composer:bobby_brooks" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="102" source="composer:michael_jackson" target="composer:darryl_ross" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="103" source="composer:michael_jackson" target="composer:geoff_grace" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="104" source="composer:michael_jackson" target="composer:doug_grigsby_iii" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="105" source="composer:michael_jackson" target="composer:c_cirocco_jones" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="106" source="composer:michael_jackson" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="107" source="composer:brad_buxer" target="composer:bobby_brooks" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="108" source="composer:brad_buxer" target="composer:darryl_ross" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="109" source="composer:brad_buxer" target="composer:geoff_grace" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="110" source="composer:brad_buxer" target="composer:doug_grigsby_iii" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="111" source="composer:brad_buxer" target="composer:c_cirocco_jones" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="112" source="composer:brad_buxer" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="113" source="composer:bobby_brooks" target="composer:darryl_ross" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="114" source="composer:bobby_brooks" target="composer:geoff_grace" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="115" source="composer:bobby_brooks" target="composer:doug_grigsby_iii" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="116" source="composer:bobby_brooks" target="composer:c_cirocco_jones" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="117" source="composer:bobby_brooks" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="118" source="composer:darryl_ross" target="composer:geoff_grace" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="119" source="composer:darryl_ross" target="composer:doug_grigsby_iii" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="120" source="composer:darryl_ross" target="composer:c_cirocco_jones" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="121" source="composer:darryl_ross" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="122" source="composer:geoff_grace" target="composer:doug_grigsby_iii" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="123" source="composer:geoff_grace" target="composer:c_cirocco_jones" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="124" source="composer:geoff_grace" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="125" source="composer:doug_grigsby_iii" target="composer:c_cirocco_jones" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="126" source="composer:doug_grigsby_iii" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+      <edge id="127" source="composer:c_cirocco_jones" target="composer:mayumi_nina_sakazaki" weight="0.85">
+        <attvalues>
+          <attvalue for="0" value="collaborated_with" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

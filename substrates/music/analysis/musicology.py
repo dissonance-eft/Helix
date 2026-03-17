@@ -34,11 +34,11 @@ def run(pipeline: "MusicSubstratePipeline") -> None:
         return
 
     try:
-        from labs.music_lab.config import ARTIFACTS, TIER_C_SYMBOLIC, VGM_ROOT, LIBRARY_ROOT
-        from labs.music_lab.analysis.theory_features.key_estimator import estimate, pitch_histogram
-        from labs.music_lab.analysis.theory_features.rhythm_analyzer import analyze as analyze_rhythm
-        from labs.music_lab.analysis.theory_features.motif_detector  import detect as detect_motifs
-        from labs.music_lab.analysis.symbolic_music.score_representation import SymbolicScore
+        from substrates.music.config import ARTIFACTS, TIER_C_SYMBOLIC, VGM_ROOT, LIBRARY_ROOT
+        from substrates.music.analysis.theory_features.key_estimator import estimate, pitch_histogram
+        from substrates.music.analysis.theory_features.rhythm_analyzer import analyze as analyze_rhythm
+        from substrates.music.analysis.theory_features.motif_detector  import detect as detect_motifs
+        from substrates.music.analysis.symbolic_music.score_representation import SymbolicScore
     except ImportError as exc:
         print(f"    Musicology modules unavailable: {exc}")
         return

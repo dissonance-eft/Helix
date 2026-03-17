@@ -41,9 +41,9 @@ def run(pipeline: "MusicSubstratePipeline") -> int:
         return 0
 
     try:
-        from labs.music_lab.vgm_parser import parse_vgm_file
-        from labs.music_lab.feature_extractor import extract as _extract
-        from labs.music_lab.config import TIER_A_STATIC
+        from substrates.music.vgm_parser import parse_vgm_file
+        from substrates.music.feature_extractor import extract as _extract
+        from substrates.music.config import TIER_A_STATIC
         from substrates.music.analysis.synthesis_profiler import profile_vgm_track
     except ImportError as exc:
         print(f"    Chip analysis imports unavailable: {exc}")

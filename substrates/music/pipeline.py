@@ -58,7 +58,7 @@ class MusicSubstratePipeline:
 
     Stages 3, 4, 6, 9 are implemented directly via the modular
     substrates/music/ components.  All other stages delegate to
-    labs.music_lab.master_pipeline.MasterPipeline.
+    substrates.music.master_pipeline.MasterPipeline.
 
     Args:
         stages:            stage numbers to run (default: all 1–10)
@@ -175,7 +175,7 @@ class MusicSubstratePipeline:
 
     def _get_legacy(self) -> Any:
         if self._legacy is None:
-            from labs.music_lab.master_pipeline import MasterPipeline
+            from substrates.music.master_pipeline import MasterPipeline
             self._legacy = MasterPipeline(
                 stages=list(range(1, 19)),
                 limit=self.limit,
@@ -189,12 +189,12 @@ class MusicSubstratePipeline:
         return self._legacy
 
     def _delegate_to_legacy(self, legacy_stage_nums: list[int]) -> None:
-        from labs.music_lab.master_pipeline import STAGE_NAME as _LEGACY_STAGE_NAME
+        from substrates.music.master_pipeline import STAGE_NAME as _LEGACY_STAGE_NAME
         mp = self._get_legacy()
         if mp._db is None and any(s > 1 for s in legacy_stage_nums):
             try:
-                from labs.music_lab.db.track_db import TrackDB
-                from labs.music_lab.config import DB_PATH
+                from substrates.music.db.track_db import TrackDB
+                from substrates.music.config import DB_PATH
                 mp._db = TrackDB(DB_PATH)
             except Exception as exc:
                 print(f"    Warning: could not init legacy DB: {exc}")
@@ -214,8 +214,8 @@ class MusicSubstratePipeline:
         mp = self._get_legacy()
         if mp._db is None:
             try:
-                from labs.music_lab.db.track_db import TrackDB
-                from labs.music_lab.config import DB_PATH
+                from substrates.music.db.track_db import TrackDB
+                from substrates.music.config import DB_PATH
                 mp._db = TrackDB(DB_PATH)
             except Exception:
                 return None
@@ -244,7 +244,7 @@ class MusicSubstratePipeline:
 
     def _stage_llm_interpretation(self) -> None:
         try:
-            from labs.music_lab.analysis import llm_interpreter
+            from substrates.music.analysis import llm_interpreter
         except ImportError as exc:
             print(f"    LLM interpreter unavailable: {exc}")
             return

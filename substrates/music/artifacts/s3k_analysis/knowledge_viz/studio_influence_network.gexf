@@ -1,0 +1,471 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gexf xmlns="http://gexf.net/1.3" xmlns:viz="http://gexf.net/1.3/viz" version="1.3">
+  <meta lastmodifieddate="2026-01-01">
+    <creator>HelixMusicLab</creator>
+    <description>Studio &amp; Infrastructure Network</description>
+  </meta>
+  <graph defaultedgetype="directed" mode="static">
+    <attributes class="node" mode="static">
+      <attribute id="0" title="type" type="string" />
+      <attribute id="1" title="notes" type="string" />
+    </attributes>
+    <attributes class="edge" mode="static">
+      <attribute id="0" title="relation" type="string" />
+    </attributes>
+    <nodes>
+      <node id="studio:sega" label="Sega">
+        <attvalues>
+          <attvalue for="0" value="studio" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="237" g="201" b="72" a="1.0" />
+        <viz:size value="20" />
+      </node>
+      <node id="platform:sega_genesis" label="Sega Genesis / Mega Drive">
+        <attvalues>
+          <attvalue for="0" value="platform" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="176" g="122" b="161" a="1.0" />
+        <viz:size value="15" />
+      </node>
+      <node id="driver:smps_z80_s3k" label="SMPS Z80 (Sonic 3 &amp; Knuckles variant)">
+        <attvalues>
+          <attvalue for="0" value="driver" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="255" g="157" b="167" a="1.0" />
+        <viz:size value="12" />
+      </node>
+      <node id="game:sonic_3_and_knuckles" label="Sonic 3 &amp; Knuckles">
+        <attvalues>
+          <attvalue for="0" value="game" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="225" g="87" b="89" a="1.0" />
+        <viz:size value="18" />
+      </node>
+      <node id="team:sega_sound_team_1994" label="Sega Sound Team (1993–1994)">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="12" />
+      </node>
+      <node id="team:jacksons_sound_team_1993" label="Jackson's Sound Team (1993)">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="12" />
+      </node>
+      <node id="team:cube_corp_1993" label="Cube Corp (1993)">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="12" />
+      </node>
+      <node id="team:sti_sound_1993" label="Sega Technical Institute Sound">
+        <attvalues>
+          <attvalue for="0" value="team" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="118" g="183" b="178" a="1.0" />
+        <viz:size value="12" />
+      </node>
+      <node id="composer:masayuki_nagao" label="Masayuki Nagao">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:tatsuyuki_maeda" label="Tatsuyuki Maeda">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:jun_senoue" label="Jun Senoue">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:yoshiaki_kashima" label="Yoshiaki Kashima">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:brad_buxer" label="Brad Buxer">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:darryl_ross" label="Darryl Ross">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:bobby_brooks" label="Bobby Brooks">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:cirocco_jones" label="Cirocco Jones">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:doug_grigsby_iii" label="Doug Grigsby III">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:geoff_grace" label="Geoff Grace">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:tokuhiko_uwabo" label="Tokuhiko Uwabo">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:sachio_ogawa" label="Sachio Ogawa">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masaru_setsumaru" label="Masaru Setsumaru">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:tomonori_sawada" label="Tomonori Sawada">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:yukifumi_makino" label="Yukifumi Makino">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:miyoko_takaoka" label="Miyoko Takaoka">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masanori_hikichi" label="Masanori Hikichi">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masanori_nakayama" label="Masanori Nakayama">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:michael_jackson" label="Michael Jackson">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:c_cirocco_jones" label="C. Cirocco Jones">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:mayumi_nina_sakazaki" label="Mayumi Nina Sakazaki ()">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:bruce_connole" label="Bruce Connole">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:howard_drossin" label="Howard Drossin">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:roger_hector" label="Roger Hector">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:hisaki_nimiya" label="Hisaki Nimiya">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:hisashi_suzuki" label="Hisashi Suzuki">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:shigeaki_irie" label="Shigeaki Irie">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:masaaki_nishizawa" label="Masaaki Nishizawa">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+      <node id="composer:goro_takahashi" label="Goro Takahashi">
+        <attvalues>
+          <attvalue for="0" value="composer" />
+          <attvalue for="1" value="" />
+        </attvalues>
+        <viz:color r="78" g="121" b="167" a="1.0" />
+        <viz:size value="10" />
+      </node>
+    </nodes>
+    <edges>
+      <edge id="0" source="composer:masayuki_nagao" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="1" source="composer:tatsuyuki_maeda" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="2" source="composer:jun_senoue" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="3" source="composer:yoshiaki_kashima" target="team:sega_sound_team_1994" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="4" source="game:sonic_3_and_knuckles" target="platform:sega_genesis" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="runs_on" />
+        </attvalues>
+      </edge>
+      <edge id="5" source="game:sonic_3_and_knuckles" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="developed_by" />
+        </attvalues>
+      </edge>
+      <edge id="6" source="game:sonic_3_and_knuckles" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="published_by" />
+        </attvalues>
+      </edge>
+      <edge id="7" source="game:sonic_3_and_knuckles" target="driver:smps_z80_s3k" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="uses_sound_driver" />
+        </attvalues>
+      </edge>
+      <edge id="8" source="soundtrack:s3k_ost" target="game:sonic_3_and_knuckles" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="documents" />
+        </attvalues>
+      </edge>
+      <edge id="9" source="composer:masayuki_nagao" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="10" source="composer:tatsuyuki_maeda" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="11" source="composer:jun_senoue" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="12" source="composer:yoshiaki_kashima" target="studio:sega" weight="1.0">
+        <attvalues>
+          <attvalue for="0" value="worked_at" />
+        </attvalues>
+      </edge>
+      <edge id="13" source="composer:tokuhiko_uwabo" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="14" source="composer:sachio_ogawa" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="15" source="composer:yoshiaki_kashima" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="16" source="composer:masaru_setsumaru" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="17" source="composer:tatsuyuki_maeda" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="18" source="composer:tomonori_sawada" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="19" source="composer:jun_senoue" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="20" source="composer:yukifumi_makino" target="team:sega_sound_team_1994" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="21" source="composer:miyoko_takaoka" target="team:cube_corp_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="22" source="composer:masanori_hikichi" target="team:cube_corp_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="23" source="composer:michael_jackson" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="24" source="composer:brad_buxer" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="25" source="composer:bobby_brooks" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="26" source="composer:darryl_ross" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="27" source="composer:geoff_grace" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="28" source="composer:doug_grigsby_iii" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="29" source="composer:c_cirocco_jones" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+      <edge id="30" source="composer:mayumi_nina_sakazaki" target="team:jacksons_sound_team_1993" weight="0.95">
+        <attvalues>
+          <attvalue for="0" value="member_of" />
+        </attvalues>
+      </edge>
+    </edges>
+  </graph>
+</gexf>

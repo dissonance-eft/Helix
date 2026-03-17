@@ -1,0 +1,3639 @@
+{
+  "composers": [
+    {
+      "composer_id": "masayuki_nagao",
+      "full_name": "Masayuki Nagao",
+      "aliases": [
+        "マサユキ・ナガオ"
+      ],
+      "nationality": "Japanese",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega",
+        "Sonic Team",
+        "Opus Corp"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {
+        "vgmdb": "15",
+        "vgmpf": "Masayuki_Nagao",
+        "wikidata": "Q14934873"
+      },
+      "bio_summary": "Originally employed at Sega, Masayuki Nagao was preparing to take a new job at Opus Corp., resulting in the company receiving a \"Sound Special Thanks\" credit.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "signature": "Minor-key melodic writing, stepwise bass lines, high rhythmic density",
+        "preferred_chip": "YM2612",
+        "source_roles": [
+          "Sound Programmer",
+          "Sound Designer",
+          "Arranger"
+        ],
+        "group": "Sega Sound Team / Opus Corp",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "tatsuyuki_maeda",
+      "full_name": "Tatsuyuki Maeda",
+      "aliases": [
+        "マエダ・タツユキ"
+      ],
+      "nationality": "Japanese",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {
+        "vgmdb": "298",
+        "vgmpf": "Tatsuyuki_Maeda"
+      },
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "signature": "Driving rock-influenced rhythms, modal harmonic language, prominent bass",
+        "source_roles": [
+          "Composer",
+          "Arranger",
+          "Sound Effects"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "jun_senoue",
+      "full_name": "Jun Senoue",
+      "aliases": [
+        "瀬上純"
+      ],
+      "nationality": "Japanese",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega",
+        "Hardline Records"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994",
+        "crush_40"
+      ],
+      "external_ids": {
+        "vgmdb": "29",
+        "wikipedia": "Jun_Senoue",
+        "wikidata": "Q4175052",
+        "lastfm": "Jun Senoue"
+      },
+      "bio_summary": "One of the few Sega of Japan employees to confirm Jackson's involvement in Sonic the Hedgehog 3 .",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Arranger"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "yoshiaki_kashima",
+      "full_name": "Yoshiaki Kashima",
+      "aliases": [
+        "鹿島由明",
+        "Milpo"
+      ],
+      "nationality": "Japanese",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {
+        "vgmdb": "516"
+      },
+      "bio_summary": "Tasked with creating Sonic the Hedgehog 3' s music driver.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "notes": "Special Stage music recycled from SegaSonic Bros.",
+        "source_roles": [
+          "Composer",
+          "Arranger",
+          "Sound Programmer",
+          "Sound Designer",
+          "Sound Driver Programming"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "brad_buxer",
+      "full_name": "Brad Buxer",
+      "aliases": [],
+      "nationality": "American",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {
+        "wikipedia": "Brad_Buxer",
+        "wikidata": "Q4957085"
+      },
+      "bio_summary": "Composer and one of Michael Jackson's closest professional collaborators at the time. One of three members of Jackson's sound team to confirm the artist's involvement in the project.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "signature": "IceCap Zone Act 1 (based on 'Hard Times' by The Jetzons)",
+        "notes": "Michael Jackson associate; contributed to Sonic 3",
+        "source_roles": [
+          "Composer",
+          "Arranger"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "darryl_ross",
+      "full_name": "Darryl Ross",
+      "aliases": [],
+      "nationality": "American",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "notes": "Michael Jackson associate; Sonic 3 contributor",
+        "source_roles": [
+          "Audio Engineer"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "bobby_brooks",
+      "full_name": "Bobby Brooks",
+      "aliases": [
+        "Bobby"
+      ],
+      "nationality": "American",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Audio Engineer"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "cirocco_jones",
+      "full_name": "Cirocco Jones",
+      "aliases": [],
+      "nationality": "American",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {}
+    },
+    {
+      "composer_id": "doug_grigsby_iii",
+      "full_name": "Doug Grigsby III",
+      "aliases": [],
+      "nationality": "American",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": "One of three members of Jackson's sound team to confirm the artist's involvement in the project.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Bassist"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "geoff_grace",
+      "full_name": "Geoff Grace",
+      "aliases": [],
+      "nationality": "American",
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Arranger"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "tokuhiko_uwabo",
+      "full_name": "Tokuhiko Uwabo",
+      "aliases": [
+        "Bo"
+      ],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {},
+      "bio_summary": "Responsible for managing the game's sound development, which entailed assigning Sega staff to production work and contracting outside composers; he confirms he did not compose for the soundtrack itself.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Sound Director"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "sachio_ogawa",
+      "full_name": "Sachio Ogawa",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {},
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "masaru_setsumaru",
+      "full_name": "Masaru Setsumaru",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {},
+      "bio_summary": "One of the few Sega of Japan employees to confirm Jackson's involvement in Sonic the Hedgehog 3 .",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Sound Programmer",
+          "Sound Designer",
+          "Arranger"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "tomonori_sawada",
+      "full_name": "Tomonori Sawada",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {},
+      "bio_summary": null,
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "yukifumi_makino",
+      "full_name": "Yukifumi Makino",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega"
+      ],
+      "sound_teams": [
+        "sega_sound_team_1994"
+      ],
+      "external_ids": {},
+      "bio_summary": "Two jingles previously composed by Yukifumi Makino for the original Sonic the Hedgehog were included in Sonic the Hedgehog 3 and Sonic & Knuckles .",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Arranger",
+          "Sound Effects"
+        ],
+        "group": "Sega Sound Team",
+        "uncredited": true,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "miyoko_takaoka",
+      "full_name": "Miyoko Takaoka",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Cube Corp"
+      ],
+      "sound_teams": [
+        "cube_corp_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": "Credited under Cube Corp., the sound production company she was contracted through. Between her and fellow Cube composer Masanori Hikichi, they created a total of eight tracks for the project.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Arranger"
+        ],
+        "group": "Cube Corp",
+        "uncredited": true,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "masanori_hikichi",
+      "full_name": "Masanori Hikichi",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Cube Corp"
+      ],
+      "sound_teams": [
+        "cube_corp_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": "Credited under Cube Corp., the sound production company he was contracted through. Between him and fellow Cube composer Miyoko Takaoka, they created a total of eight tracks for the project.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Arranger"
+        ],
+        "group": "Cube Corp",
+        "uncredited": true,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "masanori_nakayama",
+      "full_name": "Masanori Nakayama",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Studio Who"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Received a \"Sound Special Thanks\" for an unknown contribution.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Unknown Role"
+        ],
+        "group": "Studio Who",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "michael_jackson",
+      "full_name": "Michael Jackson",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": "An American pop music artist who became involved in the composition of Sonic the Hedgehog 3' s soundtrack relatively late in development, bringing a number of members of his personal sound team to the project.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Vocalist"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": true,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "c_cirocco_jones",
+      "full_name": "C. Cirocco Jones",
+      "aliases": [
+        "Scirocco"
+      ],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": "One of three members of Jackson's sound team to confirm the artist's involvement in the project.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer",
+          "Arranger",
+          "Sound Programmer"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "mayumi_nina_sakazaki",
+      "full_name": "Mayumi Nina Sakazaki ()",
+      "aliases": [
+        "MRM"
+      ],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "MJJ Productions"
+      ],
+      "sound_teams": [
+        "jacksons_sound_team_1993"
+      ],
+      "external_ids": {},
+      "bio_summary": "Michael Jackson's long-time Japanese coordinator, responsible for assisting the artist while working in the country. Receives a \"special thanks\" credit.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Coordinator"
+        ],
+        "group": "Jackson's Sound Team",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "bruce_connole",
+      "full_name": "Bruce Connole",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Worked alongside bassist Damon Doiron, drummer Steve Golladay, and keyboardist Brad Buxer as guitarist and vocalist for new wave band The Jetzons . Part of a composition he worked on with Buxer, \"Hard Times,\" was the basis for Ice Cap Zone's theme.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer"
+        ],
+        "group": "None",
+        "uncredited": true,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "howard_drossin",
+      "full_name": "Howard Drossin",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega Technical Institute"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "STI's in-house composer. Recalls being called into the project last minute to create several jingles for Sonic 3 , most of which would go unused until the release of Sonic & Knuckles . Received a \"Sound Special Thanks\" in Sonic 3' s credits.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Composer"
+        ],
+        "group": "Sega Technical Institute",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "roger_hector",
+      "full_name": "Roger Hector",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega Technical Institute"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Responsible for both hiring and firing Jackson from the project, as well as assigning Howard Drossin to the project late in development. Hector was the first person within Sega to confirm Jackson's involvement.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "General Manager"
+        ],
+        "group": "Sega Technical Institute",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "hisaki_nimiya",
+      "full_name": "Hisaki Nimiya",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "[[sega:sega:Sega Enterprises, Ltd."
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Coordinator",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Sega of Japan]]"
+        ],
+        "group": "[[sega:sega:Sega Enterprises, Ltd.",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "hisashi_suzuki",
+      "full_name": "Hisashi Suzuki",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Sega of Japan"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Sega of Japan executive, director, and engineer. The Sega representative who worked most closely with Michael Jackson during his past collaborations with the company. Suzuki was Jackson's primary point of contact for Sega, and the two reputedly developed a close friendship over the years.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Director"
+        ],
+        "group": "Sega of Japan",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "shigeaki_irie",
+      "full_name": "Shigeaki Irie",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Unlimited Sound Project"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Ported the music of Sonic the Hedgehog 3 and Sonic & Knuckles to the Sonic & Knuckles Collection.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Sound Programmer",
+          "Arranger"
+        ],
+        "group": "Unlimited Sound Project",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "masaaki_nishizawa",
+      "full_name": "Masaaki Nishizawa",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Unlimited Sound Project"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Ported the music of Sonic the Hedgehog 3 and Sonic & Knuckles to the Sonic & Knuckles Collection.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Sound Programmer",
+          "Arranger"
+        ],
+        "group": "Unlimited Sound Project",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    },
+    {
+      "composer_id": "goro_takahashi",
+      "full_name": "Goro Takahashi",
+      "aliases": [],
+      "nationality": null,
+      "birth_year": null,
+      "years_active": null,
+      "instruments": [],
+      "studios": [
+        "Unlimited Sound Project"
+      ],
+      "sound_teams": [],
+      "external_ids": {},
+      "bio_summary": "Ported the music of Sonic the Hedgehog 3 and Sonic & Knuckles to the Sonic & Knuckles Collection.",
+      "bio_url": null,
+      "fingerprint_vector": null,
+      "cluster_memberships": [],
+      "representative_tracks": [],
+      "style_traits": {
+        "source_roles": [
+          "Sound Programmer",
+          "Arranger"
+        ],
+        "group": "Unlimited Sound Project",
+        "uncredited": false,
+        "source": "sonic_retro_html"
+      }
+    }
+  ],
+  "tracks": [
+    {
+      "track_id": "s3k_01",
+      "title": "Angel Island Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "01"
+      }
+    },
+    {
+      "track_id": "s3k_02",
+      "title": "Angel Island Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "02"
+      }
+    },
+    {
+      "track_id": "s3k_03",
+      "title": "Hydrocity Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "03"
+      }
+    },
+    {
+      "track_id": "s3k_04",
+      "title": "Hydrocity Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "04"
+      }
+    },
+    {
+      "track_id": "s3k_05",
+      "title": "Marble Garden Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "05"
+      }
+    },
+    {
+      "track_id": "s3k_06",
+      "title": "Marble Garden Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "06"
+      }
+    },
+    {
+      "track_id": "s3k_07",
+      "title": "Carnival Night Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "07"
+      }
+    },
+    {
+      "track_id": "s3k_08",
+      "title": "Carnival Night Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "08"
+      }
+    },
+    {
+      "track_id": "s3k_0b",
+      "title": "IceCap Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "0B"
+      }
+    },
+    {
+      "track_id": "s3k_0c",
+      "title": "IceCap Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "0C"
+      }
+    },
+    {
+      "track_id": "s3k_0d",
+      "title": "Launch Base Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "0D"
+      }
+    },
+    {
+      "track_id": "s3k_0e",
+      "title": "Launch Base Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "0E"
+      }
+    },
+    {
+      "track_id": "s3k_0f",
+      "title": "Mushroom Hill Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "0F"
+      }
+    },
+    {
+      "track_id": "s3k_10",
+      "title": "Mushroom Hill Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "10"
+      }
+    },
+    {
+      "track_id": "s3k_09",
+      "title": "Flying Battery Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "09"
+      }
+    },
+    {
+      "track_id": "s3k_0a",
+      "title": "Flying Battery Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "0A"
+      }
+    },
+    {
+      "track_id": "s3k_11",
+      "title": "Sandopolis Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "11"
+      }
+    },
+    {
+      "track_id": "s3k_12",
+      "title": "Sandopolis Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "12"
+      }
+    },
+    {
+      "track_id": "s3k_13",
+      "title": "Lava Reef Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "13"
+      }
+    },
+    {
+      "track_id": "s3k_14",
+      "title": "Hidden Palace Zone / Lava Reef Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "14"
+      }
+    },
+    {
+      "track_id": "s3k_15",
+      "title": "Sky Sanctuary Zone",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "15"
+      }
+    },
+    {
+      "track_id": "s3k_16",
+      "title": "Death Egg Zone Act 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "16"
+      }
+    },
+    {
+      "track_id": "s3k_17",
+      "title": "Death Egg Zone Act 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "17"
+      }
+    },
+    {
+      "track_id": "s3k_1a",
+      "title": "The Doomsday Zone",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "1A"
+      }
+    },
+    {
+      "track_id": "s3k_18",
+      "title": "Boss 1",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "18"
+      }
+    },
+    {
+      "track_id": "s3k_2e",
+      "title": "Unused Song / Boss 1 (S3 version)",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "2E"
+      }
+    },
+    {
+      "track_id": "s3k_19",
+      "title": "Boss 2",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "19"
+      }
+    },
+    {
+      "track_id": "s3k_30",
+      "title": "Final Eggman",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "30"
+      }
+    },
+    {
+      "track_id": "s3k_1c",
+      "title": "Special Stage - Blue Spheres",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "1C"
+      }
+    },
+    {
+      "track_id": "s3k_1b",
+      "title": "Bonus Stage - Magnetic Orbs",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "1B"
+      }
+    },
+    {
+      "track_id": "s3k_1d",
+      "title": "Bonus Stage - Slot Machine",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "1D"
+      }
+    },
+    {
+      "track_id": "s3k_1e",
+      "title": "Bonus Stage - Gumball Machine",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "1E"
+      }
+    },
+    {
+      "track_id": "s3k_20",
+      "title": "2P vs. - Azure Lake",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "20"
+      }
+    },
+    {
+      "track_id": "s3k_21",
+      "title": "2P vs. - Balloon Park",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "21"
+      }
+    },
+    {
+      "track_id": "s3k_22",
+      "title": "2P vs. - Desert Palace",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "22"
+      }
+    },
+    {
+      "track_id": "s3k_23",
+      "title": "2P vs. - Chrome Gadget",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "23"
+      }
+    },
+    {
+      "track_id": "s3k_24",
+      "title": "2P vs. - Endless Mine",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "24"
+      }
+    },
+    {
+      "track_id": "s3k_25",
+      "title": "Title Screen",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "25"
+      }
+    },
+    {
+      "track_id": "s3k_1f",
+      "title": "Knuckles Appears",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "1F"
+      }
+    },
+    {
+      "track_id": "s3k_26",
+      "title": "Staff Roll",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "26"
+      }
+    },
+    {
+      "track_id": "s3k_27",
+      "title": "Game Over",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "27"
+      }
+    },
+    {
+      "track_id": "s3k_28",
+      "title": "Continue",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "28"
+      }
+    },
+    {
+      "track_id": "s3k_29",
+      "title": "Stage Clear - Act Passed",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "29"
+      }
+    },
+    {
+      "track_id": "s3k_2a",
+      "title": "1UP - Extra Life",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "2A"
+      }
+    },
+    {
+      "track_id": "s3k_2b",
+      "title": "Chaos Emerald",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "2B"
+      }
+    },
+    {
+      "track_id": "s3k_2c",
+      "title": "Power Up - Invincibility",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "2C"
+      }
+    },
+    {
+      "track_id": "s3k_2d",
+      "title": "2P Menu - Player Select",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "2D"
+      }
+    },
+    {
+      "track_id": "s3k_2f",
+      "title": "Menu - Data Select",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "2F"
+      }
+    },
+    {
+      "track_id": "s3k_31",
+      "title": "Drowning",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "31"
+      }
+    },
+    {
+      "track_id": "s3k_32",
+      "title": "All Clear - Victory",
+      "game_id": "sonic_3_and_knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "duration_sec": null,
+      "chip": null,
+      "track_number": null,
+      "composers": [],
+      "attribution_confidence": 1.0,
+      "external_ids": {
+        "sonic_retro_id": "32"
+      }
+    }
+  ],
+  "games": [
+    {
+      "game_id": "sonic_3_and_knuckles",
+      "title": "Sonic 3 & Knuckles",
+      "platform": "Sega Genesis / Mega Drive",
+      "year": 1994,
+      "developer": "Sonic Team / Sega",
+      "publisher": "Sega",
+      "composers": [
+        "masayuki_nagao",
+        "tatsuyuki_maeda",
+        "jun_senoue",
+        "yoshiaki_kashima",
+        "brad_buxer",
+        "darryl_ross",
+        "bobby_brooks",
+        "cirocco_jones",
+        "doug_grigsby_iii",
+        "geoff_grace"
+      ],
+      "sound_team": "sega_sound_team_1994",
+      "external_ids": {
+        "vgmdb": "359",
+        "wikipedia": "Sonic_3_%26_Knuckles"
+      }
+    }
+  ],
+  "teams": [
+    {
+      "team_id": "sega_sound_team_1994",
+      "name": "Sega Sound Team (1993–1994)",
+      "company": "Sega",
+      "members": [
+        "masayuki_nagao",
+        "tatsuyuki_maeda",
+        "jun_senoue",
+        "yoshiaki_kashima"
+      ],
+      "active_years": "1993–1994"
+    },
+    {
+      "team_id": "jacksons_sound_team_1993",
+      "name": "Jackson's Sound Team (1993)",
+      "company": "MJJ Productions",
+      "members": [
+        "michael_jackson",
+        "brad_buxer",
+        "bobby_brooks",
+        "darryl_ross",
+        "geoff_grace",
+        "doug_grigsby_iii",
+        "cirocco_jones"
+      ],
+      "active_years": "1993"
+    },
+    {
+      "team_id": "cube_corp_1993",
+      "name": "Cube Corp (1993)",
+      "company": "Cube Corp",
+      "members": [
+        "miyoko_takaoka",
+        "masanori_hikichi"
+      ],
+      "active_years": "1993"
+    },
+    {
+      "team_id": "sti_sound_1993",
+      "name": "Sega Technical Institute Sound",
+      "company": "Sega Technical Institute",
+      "members": [
+        "howard_drossin"
+      ],
+      "active_years": "1993"
+    }
+  ],
+  "soundtracks": [
+    {
+      "soundtrack_id": "s3k_ost",
+      "title": "Sonic the Hedgehog 3 Original Soundtrack",
+      "game_id": "sonic_3_and_knuckles",
+      "year": 1994,
+      "label": "Sega",
+      "catalog_number": null,
+      "disc_count": null,
+      "track_count": null,
+      "format": "CD",
+      "composers": [
+        "masayuki_nagao",
+        "tatsuyuki_maeda",
+        "jun_senoue",
+        "yoshiaki_kashima",
+        "brad_buxer"
+      ],
+      "external_ids": {
+        "vgmdb": "359"
+      }
+    }
+  ],
+  "studios": [
+    {
+      "studio_id": "sega",
+      "name": "Sega",
+      "country": "Japan",
+      "founded_year": 1965,
+      "dissolved_year": null,
+      "parent_company": null,
+      "studio_type": "developer_publisher",
+      "notable_series": [
+        "Sonic",
+        "Streets of Rage",
+        "Phantasy Star"
+      ],
+      "external_ids": {
+        "wikidata": "Q122741",
+        "wikipedia": "Sega"
+      }
+    }
+  ],
+  "platforms": [
+    {
+      "platform_id": "sega_genesis",
+      "name": "Sega Genesis / Mega Drive",
+      "manufacturer": "Sega",
+      "release_year": 1988,
+      "cpu": "Motorola 68000 + Zilog Z80",
+      "sound_chips": [
+        "YM2612",
+        "SN76489"
+      ],
+      "external_ids": {
+        "wikidata": "Q152763",
+        "wikipedia": "Mega_Drive"
+      }
+    }
+  ],
+  "drivers": [
+    {
+      "driver_id": "smps_z80_s3k",
+      "name": "SMPS Z80 (Sonic 3 & Knuckles variant)",
+      "platform": "sega_genesis",
+      "developer": "Yoshiaki Kashima / Sega Sound Team",
+      "games_using": [
+        "sonic_3_and_knuckles"
+      ],
+      "chips": [
+        "YM2612",
+        "SN76489"
+      ],
+      "features": [
+        "DAC sample playback",
+        "FM synthesis (6 channels)",
+        "PSG (4 channels)",
+        "PCM drums",
+        "loop support with offset"
+      ],
+      "notes": "Custom variant of SMPS written for S3K by Yoshiaki 'Milpo' Kashima.",
+      "external_ids": {
+        "vgmpf": "SMPS",
+        "sega_retro": "SMPS",
+        "github": "andlabs/s2-sound-driver"
+      }
+    }
+  ],
+  "relationships": [
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.8,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.8,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.8,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:cirocco_jones",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.8,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:doug_grigsby_iii",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.8,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:geoff_grace",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.8,
+      "source_name": "sonic_retro",
+      "notes": ""
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:tatsuyuki_maeda",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:yoshiaki_kashima",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:brad_buxer",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:yoshiaki_kashima",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:brad_buxer",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:yoshiaki_kashima",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:brad_buxer",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:brad_buxer",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:cirocco_jones",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:cirocco_jones",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:cirocco_jones",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "composer:doug_grigsby_iii",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.9,
+      "source_name": "sonic_retro",
+      "notes": "Co-composed Sonic 3 & Knuckles (1994)"
+    },
+    {
+      "source": "game:sonic_3_and_knuckles",
+      "relation": "runs_on",
+      "target": "platform:sega_genesis",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "game:sonic_3_and_knuckles",
+      "relation": "developed_by",
+      "target": "studio:sega",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "game:sonic_3_and_knuckles",
+      "relation": "published_by",
+      "target": "studio:sega",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "game:sonic_3_and_knuckles",
+      "relation": "uses_sound_driver",
+      "target": "driver:smps_z80_s3k",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "soundtrack:s3k_ost",
+      "relation": "documents",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "worked_at",
+      "target": "studio:sega",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "worked_at",
+      "target": "studio:sega",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "worked_at",
+      "target": "studio:sega",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "worked_at",
+      "target": "studio:sega",
+      "confidence": 1.0,
+      "source_name": "seed",
+      "notes": ""
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masaru_setsumaru",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masaru_setsumaru",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:tomonori_sawada",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:tomonori_sawada",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masayuki_nagao",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yukifumi_makino",
+      "relation": "member_of",
+      "target": "team:sega_sound_team_1994",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yukifumi_makino",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:miyoko_takaoka",
+      "relation": "member_of",
+      "target": "team:cube_corp_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:miyoko_takaoka",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masanori_hikichi",
+      "relation": "member_of",
+      "target": "team:cube_corp_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masanori_hikichi",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:geoff_grace",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:geoff_grace",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:doug_grigsby_iii",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:doug_grigsby_iii",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:c_cirocco_jones",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:c_cirocco_jones",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:mayumi_nina_sakazaki",
+      "relation": "member_of",
+      "target": "team:jacksons_sound_team_1993",
+      "confidence": 0.95,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:bruce_connole",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:howard_drossin",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:shigeaki_irie",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masaaki_nishizawa",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:goro_takahashi",
+      "relation": "worked_on",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:sachio_ogawa",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:yoshiaki_kashima",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:masaru_setsumaru",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:tatsuyuki_maeda",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:tomonori_sawada",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tokuhiko_uwabo",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "collaborated_with",
+      "target": "composer:yoshiaki_kashima",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "collaborated_with",
+      "target": "composer:masaru_setsumaru",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "collaborated_with",
+      "target": "composer:tatsuyuki_maeda",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "collaborated_with",
+      "target": "composer:tomonori_sawada",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:sachio_ogawa",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:masaru_setsumaru",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:tatsuyuki_maeda",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:tomonori_sawada",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:masaru_setsumaru",
+      "relation": "collaborated_with",
+      "target": "composer:tatsuyuki_maeda",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:masaru_setsumaru",
+      "relation": "collaborated_with",
+      "target": "composer:tomonori_sawada",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:masaru_setsumaru",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:masaru_setsumaru",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:tomonori_sawada",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tatsuyuki_maeda",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tomonori_sawada",
+      "relation": "collaborated_with",
+      "target": "composer:jun_senoue",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:tomonori_sawada",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "collaborated_with",
+      "target": "composer:yukifumi_makino",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Sega Sound Team)"
+    },
+    {
+      "source": "composer:miyoko_takaoka",
+      "relation": "collaborated_with",
+      "target": "composer:masanori_hikichi",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Cube Corp)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:brad_buxer",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:c_cirocco_jones",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:michael_jackson",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:bobby_brooks",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:c_cirocco_jones",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:brad_buxer",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:darryl_ross",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:c_cirocco_jones",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:bobby_brooks",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:geoff_grace",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:c_cirocco_jones",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:darryl_ross",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:geoff_grace",
+      "relation": "collaborated_with",
+      "target": "composer:doug_grigsby_iii",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:geoff_grace",
+      "relation": "collaborated_with",
+      "target": "composer:c_cirocco_jones",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:geoff_grace",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:doug_grigsby_iii",
+      "relation": "collaborated_with",
+      "target": "composer:c_cirocco_jones",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:doug_grigsby_iii",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "composer:c_cirocco_jones",
+      "relation": "collaborated_with",
+      "target": "composer:mayumi_nina_sakazaki",
+      "confidence": 0.85,
+      "source_name": "sonic_retro_html",
+      "notes": "Co-worked on S3K (Jackson's Sound Team)"
+    },
+    {
+      "source": "track:s3k_01",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_02",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_03",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_04",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_05",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:miyoko_takaoka",
+      "relation": "wrote",
+      "target": "track:s3k_05",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Miyoko Takaoka"
+    },
+    {
+      "source": "composer:miyoko_takaoka",
+      "relation": "attributed_to",
+      "target": "track:s3k_05",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Miyoko Takaoka"
+    },
+    {
+      "source": "track:s3k_06",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_07",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_08",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_0b",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_0c",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_0d",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_0e",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_0f",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_10",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_09",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_0a",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_11",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_12",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_13",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_14",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_15",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_16",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_17",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_1a",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_18",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_2e",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_19",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:masanori_hikichi",
+      "relation": "wrote",
+      "target": "track:s3k_19",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Masanori Hikichi"
+    },
+    {
+      "source": "composer:masanori_hikichi",
+      "relation": "attributed_to",
+      "target": "track:s3k_19",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Masanori Hikichi"
+    },
+    {
+      "source": "track:s3k_30",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_1c",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "wrote",
+      "target": "track:s3k_1c",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Yoshiaki Kashima"
+    },
+    {
+      "source": "composer:yoshiaki_kashima",
+      "relation": "attributed_to",
+      "target": "track:s3k_1c",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Yoshiaki Kashima"
+    },
+    {
+      "source": "track:s3k_1b",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "wrote",
+      "target": "track:s3k_1b",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition: Jun Senoue"
+    },
+    {
+      "source": "track:s3k_1d",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "wrote",
+      "target": "track:s3k_1d",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "attributed_to",
+      "target": "track:s3k_1d",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "track:s3k_1e",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "wrote",
+      "target": "track:s3k_1e",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "attributed_to",
+      "target": "track:s3k_1e",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "track:s3k_20",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_21",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_22",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_23",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_24",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_25",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_1f",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_26",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_27",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "wrote",
+      "target": "track:s3k_27",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "attributed_to",
+      "target": "track:s3k_27",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "track:s3k_28",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "wrote",
+      "target": "track:s3k_28",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "attributed_to",
+      "target": "track:s3k_28",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "track:s3k_29",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "wrote",
+      "target": "track:s3k_29",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "composer:jun_senoue",
+      "relation": "attributed_to",
+      "target": "track:s3k_29",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Jun Senoue"
+    },
+    {
+      "source": "track:s3k_2a",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_2b",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yukifumi_makino",
+      "relation": "wrote",
+      "target": "track:s3k_2b",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Yukifumi Makino"
+    },
+    {
+      "source": "composer:yukifumi_makino",
+      "relation": "attributed_to",
+      "target": "track:s3k_2b",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Yukifumi Makino"
+    },
+    {
+      "source": "track:s3k_2c",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_2d",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_2f",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "track:s3k_31",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    },
+    {
+      "source": "composer:yukifumi_makino",
+      "relation": "wrote",
+      "target": "track:s3k_31",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Composition: Composition and Arrangement: Yukifumi Makino"
+    },
+    {
+      "source": "composer:yukifumi_makino",
+      "relation": "attributed_to",
+      "target": "track:s3k_31",
+      "confidence": 0.9,
+      "source_name": "sonic_retro_html",
+      "notes": "Arrangement: Composition and Arrangement: Yukifumi Makino"
+    },
+    {
+      "source": "track:s3k_32",
+      "relation": "part_of",
+      "target": "game:sonic_3_and_knuckles",
+      "confidence": 1.0,
+      "source_name": "sonic_retro_html",
+      "notes": ""
+    }
+  ],
+  "_meta": {
+    "saved_at": "2026-03-17T00:23:27.307823+00:00",
+    "composers": 29,
+    "tracks": 50,
+    "games": 1,
+    "teams": 4,
+    "relationships": 235
+  }
+}

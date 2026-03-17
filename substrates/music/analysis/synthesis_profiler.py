@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from labs.music_lab.vgm_parser import VGMTrack
+    from substrates.music.vgm_parser import VGMTrack
 
 
 # ---------------------------------------------------------------------------
