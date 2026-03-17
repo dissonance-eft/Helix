@@ -20,6 +20,7 @@ from .parser            import parse
 from .validator         import validate
 from .normalizer        import normalize
 from .dispatch_interface import dispatch
+from .interpreter       import run_command
 
 # Compat API
 from .grammar    import parse_command
@@ -40,7 +41,7 @@ from .aliases          import resolve_alias, list_aliases
 
 __all__ = [
     # New API
-    "parse", "validate", "normalize", "dispatch",
+    "parse", "validate", "normalize", "dispatch", "run_command",
     # Compat API
     "parse_command", "validate_command", "normalize_command",
     # Types

@@ -50,7 +50,7 @@ _TOKEN_PATTERNS: list[tuple[str, str]] = [
     # e.g. invariant:decision_compression  or  music.composer:jun_senoue
     # Also supports prefix:"quoted value" or prefix:unquoted_value
     # Value may start with a digit (e.g. stages:3,4,5 or track:01_angel)
-    ("TYPED_REF", r'[a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)?:(?:"[^"]*"|\'[^\']*\'|[a-zA-Z0-9_][a-zA-Z0-9_.\-,]*)'),
+    ("TYPED_REF", r'[a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)?:(?:"[^"]*"|\'[^\']*\'|[a-zA-Z0-9_][a-zA-Z0-9_.\-,:]*)'),
     # key=value style params (alternative to key:value)
     ("PARAM_EQ",  r'[a-zA-Z_][a-zA-Z0-9_]*=(?:"[^"]*"|\'[^\']*\'|[^\s]+)'),
     ("RANGE",     r"\d+(?:\.\d+)?\.\.\d+(?:\.\d+)?"),
