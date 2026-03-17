@@ -1,0 +1,14 @@
+experiment: epistemic_irreversibility
+engine: python
+parameters:
+  range: 0.01..0.3
+  steps: 12
+  noise: 0.22090909090909092
+timestamp: 2026-03-15T23:12:44.026557
+helix_version: 1.0
+hil_command: "SWEEP parameter:noise val:0.22090909090909092 experiment:epistemic_irreversibility"
+integrity_status: True
+artifact_paths:
+  - results.json
+  - parameters.json
+  - metadata.json

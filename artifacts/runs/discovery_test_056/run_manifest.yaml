@@ -1,0 +1,12 @@
+experiment: discovery_test
+engine: python
+parameters:
+  engine: engine:python
+timestamp: 2026-03-15T21:24:25.815093
+helix_version: 1.0
+hil_command: "RUN experiment:discovery_test engine:python"
+integrity_status: True
+artifact_paths:
+  - results.json
+  - parameters.json
+  - metadata.json

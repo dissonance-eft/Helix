@@ -221,7 +221,7 @@ COMMAND_REGISTRY: dict[str, CommandSpec] = {
         verb="SYSTEM",
         subcommands=frozenset({
             "sync", "status", "diff", "log", "add", "commit", "push", "pull",
-            "clean", "move", "rename", "delete", "mkdir", "list",
+            "clean", "move", "rename", "delete", "mkdir", "list", "create"
         }),
         required_target_types=frozenset(),
         optional_params=frozenset({"message", "verbose", "mode", "src", "dest", "path", "n"}),

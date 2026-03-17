@@ -30,7 +30,7 @@ from core.hil.context import CommandContext
 from core.hil.errors import HILError
 from core.hil.parser import parse
 from core.hil.validator import validate
-from core.entities.resolver import EntityNotFoundError, EntityResolver
+from core.kernel.schema.entities.resolver import EntityNotFoundError, EntityResolver
 
 
 def run_command(raw: str, context: CommandContext | None = None) -> dict:
@@ -132,7 +132,7 @@ class HILInterpreter:
             type_str  = params.get("type", target.prefix.capitalize())
             if self._ctx.registry is None:
                 return self._error(cmd, "No registry in context")
-            from core.entities.schema import Entity
+            from core.kernel.schema.entities.schema import Entity
             entity = Entity(
                 id=entity_id,
                 type=type_str,

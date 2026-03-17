@@ -1,28 +1,4 @@
 {
-  "status": "ok",
-  "message": null,
-  "artifact_dir": "artifacts\\music_library_index_011",
-  "result": {
-    "status": "ok",
-    "message": "Music library indexed"
-  },
-  "manifest_path": "artifacts\\music_library_index_011\\run_manifest.yaml",
-  "validation": {
-    "status": "UNSTABLE",
-    "confidence": "LOW",
-    "replication": {
-      "variance": 0.0,
-      "passed": true,
-      "count": 5
-    },
-    "perturbation": {
-      "resilience": 1.0,
-      "passed": true
-    },
-    "null_model": {
-      "null_model_difference": 0.0,
-      "passed": false
-    }
-  },
-  "discovered_invariants": null
+  "status": "error",
+  "message": "Sync failed: Command '['git', 'commit', '-m', 'Save template system implementation and schema alignment']' returned non-zero exit status 1."
 }

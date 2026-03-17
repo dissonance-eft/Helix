@@ -25,9 +25,9 @@ def _run_integrity_gate(verbose: bool = False) -> bool:
 
 
 
-from core.runner.experiment_runner import ExperimentRunner
-from core.runner.sweep_runner import SweepRunner
-from core.runner.scheduler import Scheduler
+from core.kernel.runtime.orchestration.experiment_runner import ExperimentRunner
+from core.kernel.runtime.orchestration.sweep_runner import SweepRunner
+from core.kernel.runtime.scheduling.scheduler import Scheduler
 
 from core.kernel.engine_registry import EngineRegistry
 

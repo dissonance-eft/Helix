@@ -40,7 +40,7 @@ class SystemHandler:
         params = envelope.get("params", {})
 
         if verb == "SYSTEM":
-            return self._handle_system(subcommand, params)
+            return self._handle_system(subcommand, params, envelope.get("targets", []))
         elif verb == "OPERATOR":
             return self._handle_operator(subcommand, params)
 
@@ -48,7 +48,7 @@ class SystemHandler:
 
     # ── SYSTEM ────────────────────────────────────────────────────────────────
 
-    def _handle_system(self, subcommand: str, params: dict) -> dict:
+    def _handle_system(self, subcommand: str, params: dict, targets: list = None) -> dict:
         handlers = {
             "sync":   self._sys_sync,
             "status": self._sys_status,
@@ -64,6 +64,7 @@ class SystemHandler:
             "delete": self._sys_delete,
             "mkdir":  self._sys_mkdir,
             "list":   self._sys_list,
+            "create": self._sys_create,
         }
         fn = handlers.get(subcommand)
         if fn is None:
@@ -74,11 +75,11 @@ class SystemHandler:
                     f"Available: {', '.join(sorted(handlers))}"
                 ),
             }
-        return fn(params)
+        return fn(params, targets)
 
     # ── Git operations ────────────────────────────────────────────────────────
 
-    def _sys_sync(self, params: dict) -> dict:
+    def _sys_sync(self, params: dict, targets: list = None) -> dict:
         """git add -A + commit + push."""
         message = params.get("message", f"HELIX AUTO-SYNC: {datetime.now().isoformat()}")
         try:
@@ -89,7 +90,7 @@ class SystemHandler:
         except subprocess.CalledProcessError as e:
             return {"status": "error", "message": f"Sync failed: {e}"}
 
-    def _sys_status(self, params: dict) -> dict:
+    def _sys_status(self, params: dict, targets: list = None) -> dict:
         """git status --short + disk usage (Python-native, MSYS2-safe)."""
         try:
             res = subprocess.run(
@@ -112,7 +113,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_diff(self, params: dict) -> dict:
+    def _sys_diff(self, params: dict, targets: list = None) -> dict:
         """git diff HEAD (staged + unstaged)."""
         try:
             res = subprocess.run(
@@ -123,7 +124,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_log(self, params: dict) -> dict:
+    def _sys_log(self, params: dict, targets: list = None) -> dict:
         """git log --oneline -n <n>."""
         n = int(params.get("n", 10))
         try:
@@ -135,7 +136,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_add(self, params: dict) -> dict:
+    def _sys_add(self, params: dict, targets: list = None) -> dict:
         """git add <path> or git add -A."""
         path = params.get("path")
         args = ["git", "add", path] if path else ["git", "add", "-A"]
@@ -145,7 +146,7 @@ class SystemHandler:
         except subprocess.CalledProcessError as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_commit(self, params: dict) -> dict:
+    def _sys_commit(self, params: dict, targets: list = None) -> dict:
         """git commit -m <message> (no push)."""
         message = params.get("message")
         if not message:
@@ -156,7 +157,7 @@ class SystemHandler:
         except subprocess.CalledProcessError as e:
             return {"status": "error", "message": f"Commit failed: {e}"}
 
-    def _sys_push(self, params: dict) -> dict:
+    def _sys_push(self, params: dict, targets: list = None) -> dict:
         """git push origin main."""
         try:
             subprocess.run(["git", "push", "origin", "main"], cwd=self.repo_root, check=True)
@@ -164,7 +165,7 @@ class SystemHandler:
         except subprocess.CalledProcessError as e:
             return {"status": "error", "message": f"Push failed: {e}"}
 
-    def _sys_pull(self, params: dict) -> dict:
+    def _sys_pull(self, params: dict, targets: list = None) -> dict:
         """git pull."""
         try:
             res = subprocess.run(
@@ -177,7 +178,7 @@ class SystemHandler:
 
     # ── File operations ───────────────────────────────────────────────────────
 
-    def _sys_clean(self, params: dict) -> dict:
+    def _sys_clean(self, params: dict, targets: list = None) -> dict:
         """Remove __pycache__ trees (Python-native, MSYS2-safe)."""
         import shutil
         try:
@@ -193,7 +194,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_move(self, params: dict) -> dict:
+    def _sys_move(self, params: dict, targets: list = None) -> dict:
         """Move or rename a file/directory."""
         src  = params.get("src")
         dest = params.get("dest")
@@ -218,7 +219,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_delete(self, params: dict) -> dict:
+    def _sys_delete(self, params: dict, targets: list = None) -> dict:
         """Delete a file or directory."""
         path = params.get("path")
         if not path:
@@ -240,7 +241,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_mkdir(self, params: dict) -> dict:
+    def _sys_mkdir(self, params: dict, targets: list = None) -> dict:
         """Create a directory (parents=True)."""
         path = params.get("path")
         if not path:
@@ -256,7 +257,7 @@ class SystemHandler:
         except Exception as e:
             return {"status": "error", "message": str(e)}
 
-    def _sys_list(self, params: dict) -> dict:
+    def _sys_list(self, params: dict, targets: list = None) -> dict:
         """List directory contents."""
         path = params.get("path", ".")
         target = (self.repo_root / path).resolve()
@@ -268,6 +269,24 @@ class SystemHandler:
             return {"status": "ok", "path": path, "items": items}
         except Exception as e:
             return {"status": "error", "message": str(e)}
+
+    def _sys_create(self, params: dict, targets: list = None) -> dict:
+        """Create a new file from a template."""
+        if not targets:
+            return {"status": "error", "message": "SYSTEM create requires a typed target (e.g. substrate:<name>)."}
+        
+        target = targets[0]
+        if ":" in target:
+            type_prefix, name = target.split(":", 1)
+        else:
+            return {"status": "error", "message": "Target must be of format type_prefix:name"}
+        
+        try:
+            from core.hil.templates import instantiate_template
+            path = instantiate_template(type_prefix, name)
+            return {"status": "ok", "message": f"Created {type_prefix} template at {path}"}
+        except Exception as e:
+            return {"status": "error", "message": f"Template creation failed: {e}"}
 
     # ── OPERATOR ──────────────────────────────────────────────────────────────
 

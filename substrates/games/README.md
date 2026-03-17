@@ -1,23 +1,146 @@
-# Helix Games Substrate
+============================================================
+HELIX SUBSTRATE SPECIFICATION
+GAMES LAB
+============================================================
 
-**Status: Planned / Stub**
+Document Type: Substrate Specification
+Subsystem: Games
+Location: substrates/games/
+Purpose: analysis of agent decision systems in strategic environments
 
-The Games substrate will provide library scanning, ROM analysis, gameplay structure extraction, and knowledge graph integration over game libraries.
+------------------------------------------------------------
+1. PURPOSE
+------------------------------------------------------------
 
-## Planned Pipeline Stages
+The Games substrate studies complex agent behavior inside
+structured environments.
 
-| Stage | Name | Description |
-|-------|------|-------------|
-| 1 | `library_ingestion` | Scan and ingest game library metadata |
-| 2 | `rom_analysis` | ROM header parsing, platform detection |
-| 3 | `gameplay_extraction` | Gameplay mechanic and structure extraction |
-| 4 | `asset_analysis` | Sprite, tile, audio asset cataloguing |
-| 5 | `narrative_analysis` | Story structure, dialogue, world-building |
-| 6 | `knowledge_graph` | Entity registry + graph integration |
-| 7 | `llm_interpretation` | LLM-assisted interpretation |
+Games provide controlled systems where agents must:
 
-## Entry Point
+• interpret information
+• make decisions
+• adapt strategies
+• coordinate or compete
 
-```python
-from substrates.games.pipeline import GamesSubstratePipeline
-```
+These environments produce rich decision dynamics.
+
+
+------------------------------------------------------------
+2. DOMAIN TYPES
+------------------------------------------------------------
+
+board games
+competitive strategy games
+cooperative games
+economic simulations
+reinforcement learning environments
+human gameplay logs
+
+
+------------------------------------------------------------
+3. REPOSITORY STRUCTURE
+------------------------------------------------------------
+
+substrates/games/
+
+README.md
+
+datasets/
+
+game_logs/
+replays/
+simulation_outputs/
+
+pipelines/
+
+ingestion/
+replay_parsing/
+state_reconstruction/
+strategy_analysis/
+policy_detection/
+pattern_detection/
+atlas_integration/
+
+models/
+
+strategy_models/
+agent_models/
+
+experiments/
+
+coordination_games/
+competitive_games/
+cooperative_games/
+policy_collapse/
+
+analysis/
+
+strategy_space_analysis/
+decision_tree_analysis/
+
+artifacts/
+
+game_artifacts/
+
+
+------------------------------------------------------------
+4. GAME ANALYSIS PIPELINE
+------------------------------------------------------------
+
+INGESTION
+
+game replays
+agent logs
+simulation outputs
+
+
+STATE RECONSTRUCTION
+
+game state graphs
+agent state transitions
+
+
+STRATEGY ANALYSIS
+
+policy inference
+decision trees
+
+
+FEATURE EXTRACTION
+
+action distributions
+policy entropy
+decision compression metrics
+
+
+PATTERN DETECTION
+
+strategy clusters
+equilibrium structures
+policy collapse
+
+
+ATLAS INTEGRATION
+
+strategy regimes
+coordination patterns
+decision invariants
+
+
+------------------------------------------------------------
+5. RELATIONSHIP TO HELIX
+------------------------------------------------------------
+
+Game environments allow Helix to observe real decision
+processes under pressure.
+
+They are ideal systems for studying:
+
+decision compression
+coordination equilibria
+strategy phase transitions
+
+
+============================================================
+END OF SUBSTRATE SPECIFICATIONS
+============================================================

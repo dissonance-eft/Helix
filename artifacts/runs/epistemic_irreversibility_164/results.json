@@ -1,0 +1,28 @@
+{
+    "probe_name": "epistemic_irreversibility",
+    "signal": 23.363095600131306,
+    "confidence": "HIGH",
+    "passed": true,
+    "domain": "dynamical_systems",
+    "findings": {
+        "mean_info_loss_bits": 23.363095600131306,
+        "commitment_bias": 0.06782689718574007,
+        "unstable_ratio": 0.97
+    },
+    "features": {
+        "final_states_stats": {
+            "mean": 0.06782689718574007,
+            "variance": 0.046892079450805146,
+            "max": 0.6177745116595388,
+            "min": -0.5285126738635878
+        },
+        "final_states_entropy": 1.982219873726523,
+        "irreversibility_distribution_stats": {
+            "mean": 23.363095600131306,
+            "variance": 0.0,
+            "max": 23.363095600131306,
+            "min": 23.363095600131306
+        },
+        "irreversibility_distribution_entropy": 2.1623265891184758e-08
+    }
+}

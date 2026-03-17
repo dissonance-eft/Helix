@@ -15,8 +15,8 @@ from dataclasses import dataclass, field
 from typing import TYPE_CHECKING, Any
 
 if TYPE_CHECKING:
-    from core.entities.registry import EntityRegistry
-    from core.entities.schema import Entity
+    from core.kernel.schema.entities.registry import EntityRegistry
+    from core.kernel.schema.entities.schema import Entity
     from core.graph.entity_graph import EntityGraph
 
 
@@ -48,7 +48,7 @@ class CommandContext:
         Returns a fully-populated CommandContext backed by the on-disk state.
         If the atlas files do not exist, returns an empty context (no error).
         """
-        from core.entities.registry import EntityRegistry
+        from core.kernel.schema.entities.registry import EntityRegistry
         from core.graph.entity_graph import EntityGraph
 
         registry = EntityRegistry.load()

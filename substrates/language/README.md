@@ -1,23 +1,155 @@
-# Helix Language Substrate
+============================================================
+HELIX SUBSTRATE SPECIFICATION
+LANGUAGE LAB
+============================================================
 
-**Status: Planned / Stub**
+Document Type: Substrate Specification
+Subsystem: Language
+Location: substrates/language/
+Purpose: analysis of symbolic communication systems
 
-The Language substrate will provide corpus ingestion, linguistic analysis, and knowledge graph integration over natural language text.
+------------------------------------------------------------
+1. PURPOSE
+------------------------------------------------------------
 
-## Planned Pipeline Stages
+The Language substrate analyzes structured communication
+systems and symbolic compression.
 
-| Stage | Name | Description |
-|-------|------|-------------|
-| 1 | `corpus_ingestion` | Scan and ingest text corpora |
-| 2 | `tokenization` | Tokenize and normalise text |
-| 3 | `syntactic_analysis` | Parse trees, dependency structures |
-| 4 | `semantic_analysis` | Embeddings, sense disambiguation |
-| 5 | `discourse_analysis` | Coherence, argumentation, narrative |
-| 6 | `knowledge_graph` | Entity registry + graph integration |
-| 7 | `llm_interpretation` | LLM-assisted interpretation |
+Language is treated as a dynamic information system where
+meaning emerges through:
 
-## Entry Point
+• symbol sequences
+• grammar structures
+• semantic relationships
+• contextual inference
+• communication protocols
 
-```python
-from substrates.language.pipeline import LanguageSubstratePipeline
-```
+The goal is to detect structural invariants that appear in
+symbolic systems.
+
+Examples include:
+
+semantic compression
+symbol emergence
+communication efficiency
+grammar stability
+information bottlenecks
+
+
+------------------------------------------------------------
+2. DOMAIN TYPES
+------------------------------------------------------------
+
+natural language corpora
+constructed languages
+dialog systems
+semantic networks
+translation datasets
+communication protocols
+
+
+------------------------------------------------------------
+3. REPOSITORY STRUCTURE
+------------------------------------------------------------
+
+substrates/language/
+
+README.md
+
+datasets/
+
+corpora/
+dialogues/
+translation_sets/
+semantic_networks/
+
+pipelines/
+
+ingestion/
+parsing/
+syntactic_analysis/
+semantic_analysis/
+embedding_generation/
+pattern_detection/
+atlas_integration/
+
+models/
+
+embedding_models/
+semantic_models/
+
+experiments/
+
+symbol_emergence/
+semantic_drift/
+communication_efficiency/
+
+analysis/
+
+semantic_space_analysis/
+grammar_structure_analysis/
+
+artifacts/
+
+language_artifacts/
+
+
+------------------------------------------------------------
+4. LANGUAGE ANALYSIS PIPELINE
+------------------------------------------------------------
+
+INGESTION
+
+text corpora
+dialogue logs
+translation datasets
+
+
+PARSING
+
+tokenization
+syntax trees
+dependency graphs
+
+
+STRUCTURAL ANALYSIS
+
+grammar extraction
+semantic network construction
+
+
+FEATURE EXTRACTION
+
+embeddings
+syntax vectors
+communication efficiency metrics
+
+
+PATTERN DETECTION
+
+semantic clustering
+symbol emergence
+information bottlenecks
+
+
+ATLAS INTEGRATION
+
+language invariants
+symbol networks
+semantic regimes
+
+
+------------------------------------------------------------
+5. RELATIONSHIP TO HELIX
+------------------------------------------------------------
+
+Language systems allow Helix to analyze how meaning and
+structure emerge from symbol sequences.
+
+Language is particularly useful for studying compression and
+information transfer.
+
+
+============================================================
+END OF SUBSTRATE SPECIFICATIONS
+============================================================

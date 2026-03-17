@@ -9,7 +9,7 @@ re-exported here so the HIL parser has a single import path.
 """
 from __future__ import annotations
 
-from core.entities.ontology import (
+from core.kernel.schema.entities.ontology import (
     ENTITY_CORE_TYPES,
     ENTITY_RESERVED_TYPES,
     ENTITY_ONTOLOGY,
@@ -21,6 +21,7 @@ OBJECT_TYPES: frozenset[str] = frozenset({
     "artifact", "engine", "parameter", "atlas", "graph",
     "atlas_entry", "graph_query",
     "music", "track", "composer", "soundtrack", "sound_team", "platform", "sound_chip", "domain",
+    "substrate", "pipeline", "dataset", "roadmap_entry", "application", "entity"
 })
 
 ATLAS_BACKED_TYPES: frozenset[str] = frozenset({

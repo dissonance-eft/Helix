@@ -1,535 +1,588 @@
-# HELIX
+============================================================
+HELIX REPOSITORY ARCHITECTURE SPECIFICATION
+============================================================
 
-Helix is a modular research workspace designed to discover structural invariants across complex systems.
+Document Type: Repository Architecture Specification
+System: Helix
+Version: 1.0
+Purpose: Defines the canonical structure and organizational
+grammar of the Helix repository.
 
-Rather than focusing on a single scientific domain, Helix treats domains as **substrates** — environments where structured signals can be analyzed, compared, and experimentally manipulated.
+Scope: This document specifies the permanent architectural
+structure of the Helix repository, including subsystem
+boundaries, directory templates, pipeline symmetry rules,
+and repository governance constraints.
 
-Helix extracts structural fingerprints from datasets and compares them across very different systems to detect patterns that persist across domains.
+This document is intended to be sufficiently detailed that
+the Helix repository could be reconstructed from this
+specification alone.
 
-The system functions as a **personal research operating system** built around modular experimental substrates.
+This document serves as:
 
----
+• repository architecture blueprint
+• anti-drift structural constraint system
+• onboarding guide for humans and LLM agents
+• reconstruction template for the Helix system
 
-# Repository Structure
 
-    helix/
+------------------------------------------------------------
+1. SYSTEM PURPOSE
+------------------------------------------------------------
 
-    README.md
-    DISSONANCE.md
+Helix is a modular research workspace designed to discover
+structural invariants across complex systems.
 
-    core/
-        kernel/
-        hil/
-        graph/
-        entities/
-        validator/
-        integrity/
-        analysis/
-        compiler/
+Helix is not a single analysis tool. Instead it functions as
+a pattern-mining engine capable of analyzing multiple domains
+through standardized analysis pipelines.
 
-    engines/
-        python/
-        godot/
+Domains are implemented as modular "substrates".
 
-    substrates/
-        math/
-        music/
-        games/
-        language/
+Substrates ingest domain-specific data, extract structural
+signals, and export structured knowledge into the Helix
+knowledge graph known as the Atlas.
 
-    labs/
-        music_lab/
+Helix prioritizes:
 
-    atlas/
-        entities/
-        invariants/
-        models/
-        experiments/
-        regimes/
-        operators/
+• cross-domain structural comparison
+• deterministic experiment pipelines
+• invariant discovery
+• explicit provenance tracking
+• reproducible computational experiments
 
-    interface/
-        wiki/
-        apps/
 
-    artifacts/
-    runtime/
+------------------------------------------------------------
+2. CORE DESIGN PHILOSOPHY
+------------------------------------------------------------
 
-Helix separates three layers:
+Helix architecture follows several strict design principles.
 
-framework → Helix core  
-experiments → substrates  
-knowledge → Atlas  
+Constraint First Design
 
----
+The architecture is defined by structural constraints before
+implementation details.
 
-# HELIX ONTOLOGY
+Specification Driven Development
 
-All Helix substrates operate within a shared coordinate system.
+Documentation defines architecture. Code implements the
+architecture.
 
-These axes define the reasoning space used across the entire framework.
+Subsystem Isolation
 
-STRUCTURE  
-Topology, constraints, geometry, and relationships between system components.
+Each subsystem has clearly defined responsibilities and
+interfaces.
 
-TIME  
-Dynamics, iteration, latency, feedback loops, and temporal evolution.
+Cross-Domain Symmetry
 
-OBSERVATION  
-Signals, measurements, perceptual layers, and visibility into system state.
+Substrates follow standardized pipeline stages to enable
+comparative analysis across domains.
 
-ACTION  
-Interventions, experiments, modifications, and system manipulations used to test hypotheses.
+Reconstructibility
 
-Each substrate maps its domain-specific data onto these four axes.
+The repository must be reconstructible from specification
+documents alone.
 
-This ensures that discoveries in one domain can be compared to discoveries in another.
+Anti Drift Governance
 
----
+Architectural layers may not be bypassed by new features.
 
-# HELIX INTERFACE LANGUAGE (HIL)
 
-The Helix Interface Language (HIL) defines how agents interact with the Helix workspace.
-
-HIL is a structured command language used to communicate with Helix pipelines.
-
-Its role is to enforce:
-
-• structural validity  
-• substrate awareness  
-• reproducible experiment execution  
-• machine-interpretable outputs  
-
-LLMs interact with Helix through HIL rather than manipulating repository files directly.
-
-HIL grammar:
-
-    command = VERB [subcommand] {typed-ref | param}
-    typed-ref = [namespace.]type:slug
-    param = key:value  |  key=value  |  range:low..high
-
-Example commands:
-
-    SUBSTRATE run music stages:3,4,5 soundtrack:"Sonic 3 & Knuckles"
-    ENTITY get music.composer:jun_senoue
-    ENTITY list type=Composer namespace=music
-    GRAPH neighbors music.composer:jun_senoue
-    ANALYZE invariant:oscillator_locking range:0..1
-
-HIL routes commands to substrates and stores results in Atlas.
-All entity IDs use `namespace.type:slug` format (e.g. `music.composer:jun_senoue`).
-
----
-
-# ENTITY SYSTEM
-
-Helix maintains a unified entity registry located in:
-
-    /core/entities
-
-Entities represent real-world or conceptual objects referenced across substrates.
-
-Each entity contains:
-
-• unique identifier  
-• entity type  
-• metadata  
-• external identifiers  
-• graph relationships  
-
-Example entity:
-
-    {
-        "id": "music.composer:jun_senoue",
-        "type": "Composer",
-        "name": "Jun Senoue",
-        "external_ids": {
-            "wikidata": "Q...",
-            "musicbrainz": "..."
-        }
-    }
-
----
-
-# ENTITY GRAPH
-
-Entities connect through the Helix knowledge graph located in:
-
-    /core/graph
-
-Example relationships:
-
-composer → composed → track  
-track → appears_in → game  
-game → runs_on → platform  
-
-These relationships allow Helix to perform cross-substrate analysis.
-
----
-
-# SUBSTRATES
-
-Substrates are independent research environments operating under the Helix ontology.
-
-Each substrate studies a domain whose artifacts can be converted into structured representations.
-
-Current substrates:
-
-Math  
-Music  
-Games  
-Language  
-
-Substrates remain modular and independently analyzable.
-
----
-
-# ATLAS
-
-Atlas is the Helix knowledge graph and research archive.
-
-Atlas stores:
-
-• entities  
-• artifacts  
-• experiment results  
-• invariant hypotheses  
-
-Atlas also connects Helix data with external sources such as:
-
-Wikidata  
-MusicBrainz  
-Wikipedia  
-VGMDB  
-
----
-
-# INGESTION PIPELINES
-
-Helix ingestion pipelines convert raw data into structured representations.
-
-Typical pipeline stages (Music substrate canonical):
-
-1 library ingestion
-2 metadata normalization
-3 synthesis architecture analysis
-4 symbolic music extraction
-5 MIR audio analysis
-6 musicology analysis
-7 feature synthesis
-8 style-space embedding
-9 knowledge graph integration
-10 LLM interpretation
-
-Artifacts generated by pipelines are stored in:
-
-    /artifacts/music/{run_id}/stage{N}_{name}/
-
-Each pipeline invocation generates a unique run_id (timestamp + hex suffix),
-ensuring all runs are independently reproducible and non-destructive.
-
----
-
-# SUBSTRATE QUALIFICATION RULE
-
-A domain qualifies as a Helix substrate if:
-
-1. it produces structured artifacts or signals  
-2. those artifacts can be converted into graphs or vectors  
-3. those representations can be compared across systems  
-
-Helix core contains **no domain theory**.
-
-It only enforces structural discipline.
-
----
-
-# LONG TERM GOAL
-
-Helix aims to construct a cross-domain research engine capable of discovering structural invariants across complex systems.
-
-Potential outputs include:
-
-• structural laws of complex systems  
-• cross-domain pattern libraries  
-• composer style maps  
-• gameplay topology studies  
-• linguistic cognition experiments  
-
-Helix treats domains as structured signal systems whose hidden architectures can be studied and compared.
-
----
-
-# HELIX SPECIFICATION
-
-The following rules define the structural invariants of the Helix workspace.
-
-These rules are **binding** for all implementations of Helix.
-
-If implementation decisions conflict with these rules, **the README specification takes precedence**.
-
----
-
-## SPEC-00 — Canonical Architecture
-
-The Helix repository topology is fixed.
-
-The following directories are required:
-
-    /core
-    /substrates
-    /labs
-    /atlas
-    /engines
-    /interface
-    /artifacts
-    /runtime
-
-New top-level directories should not be introduced without modifying this specification.
-
----
-
-## SPEC-01 — Core System Responsibilities
-
-The `/core` directory defines the Helix framework itself.
-
-Core modules include:
-
-    kernel
-    hil
-    graph
-    entities
-    validator
-    integrity
-    analysis
-    compiler
-
-Responsibilities:
-
-kernel  
-Framework orchestration and runtime coordination.
-
-hil  
-Helix Interface Language implementation.
-
-graph  
-Knowledge graph infrastructure.
-
-entities  
-Entity schema definitions and entity registry.
-
-validator  
-Structural validation of artifacts and entities.
-
-integrity  
-Consistency checks and repository invariants.
-
-analysis  
-Shared analysis utilities used by substrates.
-
-compiler  
-Compilation of structured outputs and experiment artifacts.
-
-Core modules must remain **domain-agnostic**.
-
----
-
-## SPEC-02 — Entity System
-
-All Helix entities must be stored in:
-
-    /core/entities
-
-Entities represent real-world or conceptual objects referenced across substrates.
-
-Required entity fields:
-
-    id
-    type
-    name
-    metadata
-    external_ids
-    relationships
-
-Example entity:
-
-    {
-        "id": "music.composer:jun_senoue",
-        "type": "Composer",
-        "name": "Jun Senoue",
-        "external_ids": {
-            "wikidata": "Q...",
-            "musicbrainz": "..."
-        }
-    }
-
-Entity identifiers must be globally unique.
-
----
-
-## SPEC-03 — Knowledge Graph
-
-Entity relationships are stored in:
-
-    /core/graph
-
-Relationships define structural connections between entities.
-
-Example relationships:
-
-    composer → composed → track
-    track → appears_in → game
-    game → runs_on → platform
-
-The knowledge graph allows Helix to perform cross-domain structural analysis.
-
----
-
-## SPEC-04 — Substrate Contract
-
-Substrates are independent experimental environments located in:
-
-    /substrates
-
-Each substrate must include:
-
-    README.md
-    ingestion pipeline
-    artifact outputs
-
-Substrates must map their domain-specific data onto the Helix ontology:
-
-    STRUCTURE
-    TIME
-    OBSERVATION
-    ACTION
-
-Substrates remain modular and must not modify the Helix core.
-
-The music substrate is organized into modular components:
-
-    substrates/music/
-        pipeline.py            — thin 10-stage orchestrator (SPEC-04 canonical)
-        run_context.py         — run_id generation + artifact path resolution
-        ingest/
-            library_scanner.py     — stage 1: filesystem scan + DB ingestion
-            metadata_normalizer.py — stage 2: chip register parse + sidecar merge
-        analysis/
-            chip.py                — stage 3: chip features + YM2612 synthesis profiles
-            synthesis_profiler.py  — YM2612 algorithm/operator/envelope extractor
-            symbolic.py            — stage 4: note event reconstruction
-            mir.py                 — stage 5: MIR audio features
-            musicology.py          — stage 6: key/tempo/motif/harmonic analysis
-        models/
-            feature_fusion.py      — stage 7: 64-dim vectors + FAISS + composer fingerprints
-            style_embedding.py     — stage 8: UMAP/PCA style space
-        kg/
-            entity_builder.py      — entity creation from DB track records
-            graph_integration.py   — stage 9: entity registry + graph + atlas files
-            library_index.py       — atlas/music/library_index.json builder
-
-Atlas entity files are written to:
-
-    atlas/entities/{namespace}/{type}/{slug}.json
-    atlas/music/library_index.json
-
----
-
-## SPEC-05 — Ingestion Pipeline Requirements
-
-All substrates must implement a structured ingestion pipeline.
-
-Minimum stages:
-
-    1 library ingestion
-    2 metadata normalization
-    3 structural parsing
-    4 feature extraction
-    5 vector generation
-    6 knowledge graph integration
-
-Pipeline outputs must produce structured artifacts suitable for Atlas storage.
-
----
-
-## SPEC-06 — Artifact Storage
-
-Artifacts generated by Helix pipelines must be stored in:
-
-    /artifacts/{substrate}/{run_id}/stage{N}_{name}/
-
-Each run gets a unique, timestamped run_id. Artifacts may include:
-
-    feature vectors
-    experiment results
-    analysis outputs
-    generated models
-    synthesis profiles (chip-format instruments)
-
-Artifacts must remain reproducible from raw data inputs.
-
-The library index maps local audio files to entity IDs without filesystem rescanning:
-
-    atlas/music/library_index.json
-
----
-
-## SPEC-07 — Atlas Knowledge Layer
-
-Atlas stores structured knowledge generated by Helix.
-
-Atlas contents include:
-
-    entities
-    invariants
-    models
-    experiments
-    regimes
-    operators
-
-Atlas functions as the research memory of the system.
-
----
-
-## SPEC-08 — Helix Interface Language Compliance
-
-All automated interactions with Helix must occur through HIL.
-
-HIL commands use typed references with namespace-qualified entity IDs.
-
-Grammar:
-
-    VERB [subcommand] [namespace.]type:slug [param:value | param=value]
-
-Examples:
-
-    SUBSTRATE run music stages:3,4,5 soundtrack:"Sonic 3 & Knuckles"
-    ENTITY get music.composer:jun_senoue
-    GRAPH neighbors music.sound_chip:ym2612
-    ANALYZE invariant:oscillator_locking range:0..1
-
-This ensures deterministic and reproducible operations.
-
----
-
-## SPEC-09 — Substrate Qualification Rule
-
-A domain qualifies as a Helix substrate if:
-
-1. it produces structured artifacts or signals  
-2. those artifacts can be converted into graphs or vectors  
-3. those representations can be compared across systems  
-
-Helix core does not contain domain theory.
-
-All domain logic belongs to substrates.
-
----
-
-## SPEC-10 — Structural Integrity
-
-Helix prioritizes **structural stability over convenience**.
-
-Changes that affect repository topology, ontology, or entity schema must update this specification.
-
-All development must preserve the invariant architecture described in this document.
+------------------------------------------------------------
+3. HELIX COORDINATE SYSTEM
+------------------------------------------------------------
+
+All Helix analysis operates within a shared conceptual
+coordinate system.
+
+STRUCTURE
+
+Topology, geometry, constraints, and relationships between
+system components.
+
+TIME
+
+Dynamics, iteration, latency, temporal evolution.
+
+OBSERVATION
+
+Signals, measurements, perceptual access to system state.
+
+ACTION
+
+Interventions, control operations, perturbations,
+decision operations.
+
+Every substrate maps domain-specific signals onto these
+four conceptual axes.
+
+This enables cross-domain reasoning and invariant discovery.
+
+
+------------------------------------------------------------
+4. HELIX REPOSITORY STRUCTURE
+------------------------------------------------------------
+
+The Helix repository is organized around stable architectural
+subsystems.
+
+The repository tree represents the structural grammar of
+the system.
+
+Helix/
+
+├── README.md
+│   Repository architecture specification (this document)
+│
+├── HELIX.md
+│   System-level architecture specification
+│
+├── OPERATOR.md
+│   Operator interaction model and research workflow
+│
+├── core/
+│
+│   Core architectural enforcement layer.
+│
+│   The core defines system behavior, HIL, and the kernel.
+│
+│   ├── README.md
+│   │   Core subsystem specification
+│   │
+│   ├── kernel/
+│   │
+│   │   Kernel subsystem managing schema, graph, and runtime.
+│   │
+│   ├── schema/
+│   │
+│   │   Core system schemas.
+│   │
+│   │   ├── entities/
+│   │   ├── invariants/
+│   │   ├── experiments/
+│   │   ├── observations/
+│   │   └── signals/
+│   │
+│   ├── hil/
+│   │
+│   │   Helix Interface Language.
+│   │
+│   │   ├── grammar/
+│   │   ├── commands/
+│   │   └── execution/
+│   │
+│   ├── graph/
+│   │
+│   │   Atlas graph infrastructure.
+│   │
+│   │   ├── storage/
+│   │   ├── indexing/
+│   │   └── traversal/
+│   │
+│   └── runtime/
+│
+│       Core runtime services.
+│
+│       ├── orchestration/
+│       ├── scheduling/
+│       └── logging/
+│
+│
+├── atlas/
+│
+│   Canonical Helix knowledge graph.
+│
+│   atlas/
+│
+│   ├── README.md
+│   │   Atlas subsystem specification
+│   │
+│   ├── entities/
+│   │
+│   │   Domain objects stored in the knowledge graph.
+│   │
+│   │   ├── music/
+│   │   ├── math/
+│   │   ├── language/
+│   │   ├── agents/
+│   │   └── systems/
+│   │
+│   ├── invariants/
+│   │
+│   │   Cross-domain structural invariants.
+│   │
+│   │   ├── structural/
+│   │   ├── dynamical/
+│   │   ├── informational/
+│   │   └── decision/
+│   │
+│   ├── experiments/
+│   │
+│   │   Reproducible computational experiments.
+│   │
+│   ├── observations/
+│   │
+│   │   Raw signals extracted from substrates.
+│   │
+│   ├── signals/
+│   │
+│   │   Processed measurable system signals.
+│   │
+│   ├── models/
+│   │
+│   │   Analytical models derived from signals.
+│   │
+│   └── schemas/
+│
+│
+├── substrates/
+│
+│   Domain analysis systems.
+│
+│   Each substrate implements a deterministic analysis
+│   pipeline and exports structured results to the Atlas.
+│
+│   substrates/
+│
+│   ├── README.md
+│   │
+│   │   Substrate architecture specification
+│   │
+│   ├── music/
+│   │
+│   │   Music Lab analysis system.
+│   │
+│   │   ├── README.md
+│   │
+│   │   ├── ingestion/
+│   │
+│   │   ├── parsing/
+│   │
+│   │   ├── structural_analysis/
+│   │
+│   │   ├── feature_extraction/
+│   │
+│   │   ├── chip_analysis/
+│   │
+│   │   ├── signal_analysis/
+│   │
+│   │   ├── symbolic_analysis/
+│   │
+│   │   ├── embeddings/
+│   │
+│   │   ├── clustering/
+│   │
+│   │   └── atlas_export/
+│   │
+│   ├── math/
+│   │
+│   │   Theoretical basis and core structural invariant analysis substrate.
+│   │   This module represents the original logical core of Helix, designed
+│   │   to validate hypotheses and establish structural metrics across systems.
+│   │
+│   │   ├── ingestion/
+│   │   ├── parsing/
+│   │   ├── topology_analysis/
+│   │   ├── flow_analysis/
+│   │   ├── simulation/
+│   │   ├── interpretation/
+│   │   │   ├── (Original logic pipelines and theories relocated from `atlas/docs`)
+│   │   └── atlas_export/
+│   │
+│   ├── language/
+│   │
+│   │   Linguistic analysis substrate.
+│   │
+│   │   ├── ingestion/
+│   │   ├── parsing/
+│   │   ├── structural_analysis/
+│   │   ├── embedding_generation/
+│   │   └── atlas_export/
+│   │
+│   └── agents/
+│
+│       Multi-agent simulation substrate.
+│
+│       ├── environments/
+│       ├── simulations/
+│       ├── decision_analysis/
+│       └── atlas_export/
+│
+│
+├── datasets/
+│
+│   Raw datasets used by Helix substrates.
+│
+│   datasets/
+│
+│   ├── music/
+│   │
+│   │   ├── vgm/
+│   │   ├── rendered_audio/
+│   │   ├── symbolic/
+│   │   └── metadata/
+│   │
+│   ├── math/
+│   │
+│   ├── language/
+│   │
+│   └── agents/
+│
+│
+├── artifacts/
+│
+│   Deterministic outputs from pipeline runs.
+│
+│   artifacts/
+│
+│   ├── runs/
+│   ├── features/
+│   ├── embeddings/
+│   ├── clusters/
+│   └── reports/
+│
+│
+├── governance/
+│
+│   Validation and promotion rules for Atlas content.
+│
+│   governance/
+│
+│   ├── validation/
+│   ├── promotion/
+│   └── audit/
+│
+│
+├── labs/
+│
+│   Experimental research modules.
+│
+│   labs/
+│
+│   ├── prototypes/
+│   └── experiments/
+│
+│
+└── applications/
+    Practical tools built using Helix invariants.
+
+    applications/
+
+    ├── visualization/
+    ├── diagnostics/
+    └── interfaces/
+
+
+------------------------------------------------------------
+5. STANDARD PIPELINE STAGES
+------------------------------------------------------------
+
+All substrates implement deterministic analysis pipelines.
+
+Standard pipeline stages:
+
+1. Ingestion
+2. Parsing
+3. Structural Analysis
+4. Feature Extraction
+5. Domain Analysis
+6. Measurement Synthesis
+7. Embedding Generation
+8. Pattern Detection
+9. Atlas Integration
+10. Interpretation
+
+
+------------------------------------------------------------
+6. SCRIPT PLACEMENT RULE
+------------------------------------------------------------
+
+Helix intentionally avoids generic script directories.
+
+Scripts must be placed inside the pipeline stage they
+implement.
+
+Example
+
+music/parsing/
+music/analysis/
+
+
+------------------------------------------------------------
+7. DIRECTORY CREATION RULES
+------------------------------------------------------------
+
+New directories must follow existing architectural layers.
+
+New domain → new substrate
+
+New invariant type → atlas/invariants/
+
+New dataset → datasets/
+
+New tool → applications/
+
+Architectural layers must not be bypassed.
+
+
+------------------------------------------------------------
+8. REPOSITORY RECONSTRUCTION RULE
+------------------------------------------------------------
+
+The Helix repository must be reconstructible from:
+
+README.md
+HELIX.md
+Substrate specifications
+Atlas schemas
+HIL specification
+
+These documents define the architecture of the system.
+
+------------------------------------------------------------
+9: HELIX INTERFACE LANGUAGE (HIL)
+------------------------------------------------------------
+
+The Helix Interface Language (HIL) is the structured command system
+used to operate the Helix environment.
+
+HIL serves as the operational interface between users, agents,
+and the Helix architecture.
+
+All system operations must be expressible through HIL.
+
+The full language specification is defined in:
+
+HIL.md
+
+------------------------------------------------------------
+10. HELIX RUNTIME ENVIRONMENT
+------------------------------------------------------------
+
+Helix operates across multiple runtime environments.
+
+The runtime environment provides the computational
+infrastructure required to execute analysis pipelines.
+
+Helix itself remains environment-agnostic.
+
+------------------------------------------------------------
+10.1 PRIMARY RUNTIME LAYERS
+------------------------------------------------------------
+
+Helix is typically executed across the following runtime layers.
+
+Python Runtime
+
+Primary orchestration layer.
+
+Used for:
+
+• pipeline coordination
+• graph interaction
+• feature extraction
+• experiment management
+
+
+MSYS2 Environment
+
+Provides a Unix-like environment on Windows systems.
+
+Used for:
+
+• compiling native libraries
+• executing audio analysis tools
+• running command-line utilities
+• managing C/C++ dependencies
+
+
+External Tooling
+
+Substrates may rely on external libraries or tools.
+
+Examples include:
+
+ffmpeg
+sox
+libvgm
+vgmtools
+audio decoding libraries
+
+------------------------------------------------------------
+10.2 RUNTIME ARCHITECTURE
+------------------------------------------------------------
+
+Helix execution follows a layered runtime model.
+
+Helix Specification Layer
+    System architecture definitions.
+
+HIL Interface Layer
+    Structured command interface.
+
+Kernel Services
+    Graph management and entity resolution.
+
+Substrate Pipelines
+    Domain-specific analysis systems.
+
+External Tools
+    Audio processors, simulation engines,
+    parsing libraries.
+
+Runtime Environment
+    Python runtime and MSYS2 system environment.
+
+
+Execution flow can be conceptualized as:
+
+Specification
+    ↓
+HIL Command
+    ↓
+Kernel Services
+    ↓
+Substrate Pipeline
+    ↓
+External Tool
+    ↓
+Artifact Generation
+    ↓
+Atlas Integration
+
+------------------------------------------------------------
+11. ARCHITECTURAL CONSISTENCY RULE
+------------------------------------------------------------
+
+All Helix operations must be representable through HIL.
+
+This ensures that:
+
+• system behavior remains observable
+• agents interact through a common interface
+• repository architecture remains aligned with execution
+
+------------------------------------------------------------
+12. GOVERNANCE AND TEMPLATES
+------------------------------------------------------------
+
+All new structural repository content must originate
+from templates stored in `governance/templates/`.
+
+Direct manual creation of structural files is discouraged.
+
+This enforces standardization across:
+• substrates
+• pipeline stages
+• experiments
+• invariants
+• atlas entities
+• datasets
+• roadmap probes
+• applications
+
+Templates are instantiated through the Helix Interface Language
+(e.g., `SYSTEM create substrate <name>`).
+
+------------------------------------------------------------
+END OF HELIX REPOSITORY ARCHITECTURE SPECIFICATION
+------------------------------------------------------------

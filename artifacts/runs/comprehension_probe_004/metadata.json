@@ -1,0 +1,12 @@
+{
+  "experiment": "comprehension_probe",
+  "language": "spanish",
+  "corpus": "subtitles",
+  "difficulty": "A2",
+  "signal": 0.0067,
+  "passed": false,
+  "final_sync": 0.0067,
+  "features": {
+    "signal": 0.0067
+  }
+}

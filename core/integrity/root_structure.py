@@ -30,12 +30,19 @@ ALLOWED_DIRS: frozenset[str] = frozenset({
     "interface",
     "artifacts",
     "runtime",
+    "substrates",
+    "applications",
+    "datasets",
+    "governance",
 })
 
 ALLOWED_FILES: frozenset[str] = frozenset({
     "HELIX.md",
     "OPERATOR.md",
     "ROADMAP.md",
+    "README.md",
+    "HIL.md",
+    "DISSONANCE.md",
     "helix",
     ".git",
     ".gitignore",
