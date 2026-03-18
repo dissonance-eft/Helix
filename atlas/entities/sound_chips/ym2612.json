@@ -1,0 +1,146 @@
+{
+  "entity_id": "music.sound_chip:ym2612",
+  "entity_type": "SOUND_CHIP",
+  "name": "YM2612",
+  "aliases": ["OPN2", "YM3438 (CMOS variant)"],
+  "manufacturer": "Yamaha",
+  "family": "OPN (FM Operator Type-N)",
+  "architecture": "4-operator FM synthesis",
+  "source_adapters": [
+    "adapter_nuked_opn2",
+    "adapter_chiptext",
+    "adapter_vgmfile"
+  ],
+
+  "hardware": {
+    "fm_channels": 6,
+    "operators_per_channel": 4,
+    "algorithms": 8,
+    "dac_channel": 6,
+    "dac_mode": "Channel 6 may be switched to 8-bit DAC for PCM sample playback",
+    "lfo_enabled": true,
+    "lfo_rate_count": 8,
+    "ssg_envelope": false,
+    "timer_a": true,
+    "timer_b": true,
+    "csm_mode": "Timer A overflow triggers key-on for all FM channels simultaneously"
+  },
+
+  "clock": {
+    "genesis_ntsc_hz": 7670454,
+    "genesis_pal_hz": 7600489,
+    "internal_divisor": 6,
+    "fm_sample_rate_ntsc_hz": 53267,
+    "note": "VGM header field: hz_ym2612 at offset 0x2C"
+  },
+
+  "opn_type_flags": {
+    "source": "adapter_chiptext / chiptext.c OPN_TYPE_* constants",
+    "OPN_TYPE_SSG": 0,
+    "OPN_TYPE_LFOPAN": 2,
+    "OPN_TYPE_6CH": 4,
+    "OPN_TYPE_DAC": 8,
+    "active_flags": ["OPN_TYPE_LFOPAN", "OPN_TYPE_6CH", "OPN_TYPE_DAC"],
+    "active_mask": 14
+  },
+
+  "lfo": {
+    "source": "adapter_chiptext OPN_LFO_TABLE",
+    "rates_hz": ["3.98", "5.56", "6.02", "6.37", "6.88", "9.63", "48.1", "72.2"],
+    "pms_depth_levels": 8,
+    "ams_depth_levels": 4
+  },
+
+  "algorithm_topology": {
+    "source": "adapter_nuked_opn2 / Nuked-OPN2 ym3438.h CARRIER_SLOTS table",
+    "description": "Maps algorithm number → carrier operators (audio output) vs modulators",
+    "algorithms": {
+      "0": {
+        "carrier_slots": [3],
+        "modulator_slots": [0, 1, 2],
+        "carrier_count": 1,
+        "topology": "OP1→OP2→OP3→OP4 (serial chain, single carrier)"
+      },
+      "1": {
+        "carrier_slots": [3],
+        "modulator_slots": [0, 1, 2],
+        "carrier_count": 1,
+        "topology": "(OP1+OP2)→OP3→OP4"
+      },
+      "2": {
+        "carrier_slots": [3],
+        "modulator_slots": [0, 1, 2],
+        "carrier_count": 1,
+        "topology": "(OP1+(OP2→OP3))→OP4"
+      },
+      "3": {
+        "carrier_slots": [3],
+        "modulator_slots": [0, 1, 2],
+        "carrier_count": 1,
+        "topology": "((OP1→OP2)+OP3)→OP4"
+      },
+      "4": {
+        "carrier_slots": [1, 3],
+        "modulator_slots": [0, 2],
+        "carrier_count": 2,
+        "topology": "(OP1→OP2) + (OP3→OP4) (dual carrier)"
+      },
+      "5": {
+        "carrier_slots": [1, 2, 3],
+        "modulator_slots": [0],
+        "carrier_count": 3,
+        "topology": "OP1→(OP2+OP3+OP4) (triple carrier, one modulator)"
+      },
+      "6": {
+        "carrier_slots": [1, 2, 3],
+        "modulator_slots": [0],
+        "carrier_count": 3,
+        "topology": "(OP1→OP2) + OP3 + OP4"
+      },
+      "7": {
+        "carrier_slots": [0, 1, 2, 3],
+        "modulator_slots": [],
+        "carrier_count": 4,
+        "topology": "OP1+OP2+OP3+OP4 (fully parallel, additive synthesis)"
+      }
+    }
+  },
+
+  "envelope_generator": {
+    "stages": ["AR (Attack Rate)", "D1R (Decay 1 Rate)", "D2R (Decay 2 Rate / Sustain)", "RR (Release Rate)"],
+    "sustain_level": "D1L (Decay 1 Level, 0-15)",
+    "rate_bits": 5,
+    "total_level_bits": 7,
+    "total_level_range": "0 (loudest) — 127 (silent)"
+  },
+
+  "operator_parameters": {
+    "per_operator": ["MUL (frequency multiplier)", "DT1 (fine detune)", "TL (total level)", "AR", "D1R", "AM_EN (LFO AM enable)", "D2R", "RR", "D1L", "SSG_EG (not used in YM2612)"],
+    "per_channel": ["ALG (algorithm)", "FB (feedback 0-7)", "AMS (LFO amplitude mod sensitivity)", "FMS (LFO frequency mod sensitivity)", "PAN (left/right output enable)"]
+  },
+
+  "frequency": {
+    "fnumber_bits": 11,
+    "block_bits": 3,
+    "formula": "Fout = (clock / 144) × (FNumber / 2^(21 - Block))",
+    "note": "FNumber + Block encodes pitch; same encoding as YM2203/YM2608 OPN family"
+  },
+
+  "known_uses": [
+    "Sega Genesis / Mega Drive (primary FM chip, paired with SN76489 PSG)",
+    "Sega 32X (paired with PWM chip)",
+    "Aamber Pegasus (Australian home computer)"
+  ],
+
+  "analysis_notes": {
+    "brightness_proxy": "Mean TL of carrier operators — lower TL = brighter/louder. Computed by adapter_nuked_opn2.analyze_patch()",
+    "dual_carrier_flag": "Algorithms 4-7 have ≥2 carriers — correlates with layered voice perception and higher harmonic density",
+    "dac_detection": "Channel 6 DAC mode: Key-Off on Ch6 + high-frequency writes to reg 0x2A = PCM sample stream",
+    "feedback_brightness": "High feedback (FB=6-7) on modulator OP1 injects harmonic distortion into the FM chain — correlates with perceived roughness"
+  },
+
+  "invariant_links": [
+    "decision_compression — FM patch parameter choices collapse a high-dimensional possibility space",
+    "oscillator_locking — harmonic alignment between channels at the FM register level"
+  ]
+}
