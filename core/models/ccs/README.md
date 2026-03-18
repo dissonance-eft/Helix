@@ -1,7 +1,7 @@
 # CCS — Cognitive Coordinate System
 
 **Location**: `core/models/ccs/`
-**Version**: 1.0.0
+**Version**: 1.1.0
 **Status**: Standalone module. Not integrated with other modules.
 
 ---
@@ -28,7 +28,6 @@ All values are in [0.0, 1.0]. All values are derived from observable features. N
 ## What It Is Not
 
 - Not a genre classifier
-- Not a similarity score between two entities
 - Not a quality metric
 - Not a perceptual model
 
@@ -80,9 +79,22 @@ Produce a JSON file conforming to `schema/ccs_schema.json`:
 
 All 6 axes are required. Omitting any axis invalidates the embedding.
 
+The `evidence.notes` or `source_version` field must record the normalization reference used (corpus name + method). See `SPEC.md` Section 6.
+
 ### Validate an embedding
 
 Check against the schema, verify evidence coherence, and confirm determinism per `tests/validation_protocol.md`.
+
+### Compare two embeddings
+
+Euclidean distance and alignment score are defined in `SPEC.md` Section 7:
+
+```
+d = √Σ(Aᵢ − Bᵢ)²                          # Euclidean distance, range [0, √6]
+alignment_score = 1 − (d / √6)             # normalized to [0, 1]
+```
+
+`alignment_score = 1.0` means identical structure. `0.0` means maximally opposite. Only compare embeddings sharing the same `ccs_version`. Comparisons involving `confidence < 0.30` must be flagged.
 
 ### Interpret an embedding
 
