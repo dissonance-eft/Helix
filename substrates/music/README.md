@@ -28,16 +28,20 @@ Redundancy in this document is intentional. Explicit beats implicit.
 
 ### Musical Object, Not File
 
-The Music Substrate does not treat tracks as files. Each ingested work is a **Unified Musical Object (UMO)** with potentially multiple aligned dialect views:
+The Music Substrate does not treat tracks as files. Each ingested work is a **Unified Musical Object (UMO)** — a structured entity defined by `core/kernel/schema/umo_schema.json` with the following top-level fields:
 
-| View | Dialect | Source |
-|------|---------|--------|
-| `control_view` | `chip_control` | Register event timelines (VGM, NSF, SPC, S98, GBS, ...) |
-| `symbolic_view` | `symbolic_music` | MIDI, MusicXML, music21 score objects |
-| `perceptual_view` | `perceptual_audio` | librosa/essentia feature vectors |
-| `structural_view` | (derived) | Detected motifs, patterns, invariant candidates |
+| UMO Field | Schema Key | Source |
+|-----------|-----------|--------|
+| Causal layer | `representations.causal` | Register event timelines (VGM, NSF, SPC, S98, GBS, ...) |
+| Symbolic layer | `representations.symbolic` | MIDI, MusicXML, music21 score objects |
+| Perceptual layer | `representations.perceptual` | librosa/essentia feature vectors |
+| Metadata | `representations.metadata` | Tag files, foobar2000 dialect (recorded + normalized) |
+| Alignment map | `alignment_map` | Cross-layer links: causal ⇄ symbolic ⇄ perceptual |
+| Conflicts | `conflicts` | Cross-layer disagreements (first-class data, never discarded) |
+| Invariants | `invariants` | Patterns surviving across ≥2 dialect layers |
+| Identity | `identity` | Inferred composer profile + evidence tracks |
 
-Views are aligned to the same underlying work. Where a single source is available, the UMO has one populated view. The pipeline's job is to extract and align additional views where translation is possible.
+All dialect layers under `representations` are optional — a UMO may be populated with one, two, or all three. `alignment_map`, `conflicts`, and `invariants` are required arrays (may be empty). The pipeline's job is to extract and align as many layers as the source format permits.
 
 ### Observability Depth by Format Family
 
