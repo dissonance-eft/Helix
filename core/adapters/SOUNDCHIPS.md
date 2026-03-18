@@ -239,3 +239,191 @@ as "covered" in this map.
 | HuC6280 | huc6280.c in MAME `src/devices/sound/` | PC Engine audio — primary timing reference |
 | no$gba | problemkaputt.de/gbatek.htm | GBA Direct Sound + DS DSPCM — register reference |
 | anomie's SNES docs | anomie.x.fc2.com | SPC700 instruction set, S-DSP (16-bit precision BRR coefficients) |
+
+---
+
+## Research Directions
+
+These directions use the adapter data for Helix invariant research and math substrate work.
+Each is executable from existing adapter constants without new hardware knowledge.
+
+---
+
+### R1 — Hardware CCS Envelope (chip capability vectors)
+
+Each chip imposes hard upper bounds on CCS axes before a composer touches it.
+The DMG APU has a ceiling on Structural Density and Control Entropy that the SNES
+S-DSP does not. These bounds are computable directly from adapter constants:
+
+| Axis | Hardware proxy |
+|------|---------------|
+| Structural Density | max simultaneous voices × max envelope rate |
+| Control Entropy | pitch resolution × volume resolution × waveform count |
+| Generative Constraint | scale coverage (what fraction of 12-TET is reachable without detune) |
+| Attractor Stability | loop support in driver + hardware repeat registers |
+| Basin Permeability | key-on delay + envelope release floor |
+| Recurrence Depth | polyphony × available timbres (upper bound on layering) |
+
+**Output**: a per-chip CCS capability vector (6-element, all values 0–1).
+
+**Research use**: compare capability vector against observed corpus distribution from VGM/NSF
+files. The gap between hardware ceiling and corpus median is a *composer constraint index* —
+how much of the chip's expressible space is actually used. Chips used near their ceiling
+(e.g., S-DSP in late SNES titles) look different from chips used conservatively.
+
+**Connection to Helix**: direct CCS atlas input. Feeds the same embedding space as
+probe-derived invariants. Chip-level CCS vectors become reference coordinates.
+
+**Adapters needed**: all Full adapters. No new code — constants already present.
+
+---
+
+### R2 — Pitch Discretization Error (Diophantine fingerprint)
+
+Every chip encodes frequency as an integer (period register, F-number, clock divisor).
+The integer maps to a frequency that deviates from 12-TET. The error is chip-specific
+and computable for every MIDI note 0–127.
+
+**Formula pattern** (varies by chip):
+- NES APU triangle: `f = 1,789,773 / (32 × (period + 1))`
+- SN76489: `f = 3,579,545 / (32 × period)`
+- AY-3-8910: `f = clock / (16 × period)`  (clock varies by platform)
+- Game Boy: `f = 131,072 / (2048 − period)`
+
+For each chip and each target MIDI note, the closest achievable integer period produces
+a cents deviation from true equal temperament. The 128-element error vector is a
+*chip intonation fingerprint*.
+
+**What it encodes**: the error distribution is a consequence of the clock divider chain.
+Chips with heavily-composite clocks (AY at 1.75 MHz = 5 × 5 × 7 × ... ) have different
+error profiles than chips with near-prime clocks. The structure of which notes land
+in-tune vs. sharp/flat encodes number-theoretic properties of the hardware.
+
+**Math substrate connection**: this is a Diophantine approximation problem. Given a
+target frequency ratio (e.g., `2^(n/12)` for semitone `n`), find the integer period
+`p` minimizing `|f(p) − f_target|`. The period tables in all PSG adapters are solved
+instances. The research question: do chips with better Diophantine approximation
+properties (smaller mean tuning error) produce music that scores differently on
+Control Entropy or Generative Constraint?
+
+**Artifacts**: per-chip tuning error tables (128 × N_chips matrix). Computable from
+adapter constants with no external data.
+
+---
+
+### R3 — Hardware Oscillator Locking (probe candidate)
+
+The `oscillator_locking` invariant is verified at 100% confidence across
+games/language/music. The soundchip corpus provides a physical substrate to test
+whether the same invariant appears at the hardware level — not as a compositional
+choice but as a consequence of integer period registers.
+
+**Mechanism**: when two PSG channels play at periods `p1` and `p2`, their waveforms
+phase-lock when `p1/p2` is a simple rational (1:2, 2:3, 3:4, etc.). Integer period
+registers force specific rationals. The question: in the actual VGM corpus, do
+simultaneously active channel period ratios cluster around simple rationals more
+than a null model predicts?
+
+**Probe design**:
+1. Parse VGM register stream for all PSG events (SN76489, AY, NES triangle/pulse)
+2. At each timestep, record the set of active channel periods
+3. Compute pairwise period ratios for active channels
+4. Test against null (uniform period distribution): are simple rationals over-represented?
+
+**Expected result**: yes, because composers tune channels to intervals, and intervals
+are simple frequency ratios. The interesting sub-question is whether the over-representation
+is stronger on chips with coarser period resolution (where the integer quantization
+actively forces nearby rationals) than on chips with finer resolution.
+
+**Connection to Helix**: if the oscillator_locking invariant appears here, it extends
+from an observed pattern in media to a structural property of discrete hardware.
+That is a domain-agnostic claim with much stronger grounding.
+
+**Adapters needed**: `adapter_nuked_psg.py`, `adapter_ay8910.py`, `adapter_nes_apu.py`,
+`adapter_gb_apu.py`. VGM parser already emits register events.
+
+---
+
+### R4 — Envelope Systems as Discrete Dynamical Systems
+
+ADSR is a 4-state finite automaton. The soundchip adapters contain six distinct
+implementations of the same abstract machine:
+
+| Chip | Implementation notes |
+|------|---------------------|
+| NES APU | 4-bit volume, decay-only looping, length counter as hard gate |
+| SN76489 | 4-bit attenuator, no envelope — volume is static per note |
+| AY-3-8910 | 1 global envelope generator, 16 shapes, shared across all 3 channels |
+| Game Boy | Per-channel 4-bit envelope (NR12/NR22), direction + pace, 64-step |
+| SNES S-DSP | 14-step attack, 8-step decay, 8-step sustain, 31-step release via rate table |
+| SID 6581/8580 | True 4-phase ADSR, exponential approximation, 8-bit rates per phase |
+
+**Research**: model each as a discrete-time system. Extract effective time constants
+at boundary conditions (fastest attack, slowest release). Compute the dynamic range
+each envelope can express (ratio of peak to minimum non-zero value). Compare how
+finely each can grade transitions (step count × step size).
+
+**Math substrate connection**: each envelope is an integer-parameterized approximation
+to an exponential or linear continuous-time curve. The approximation error (deviation
+from a true exponential decay) is computable and chip-specific. This is the same
+Diophantine flavor as the pitch problem: how well can a quantized integer system
+approximate a continuous ideal?
+
+**Cross-chip invariant candidate**: do all envelope implementations converge to
+similar effective attack/release ratio distributions in practice (corpus-measured)?
+If yes, that is a hardware-level instance of a constraint-invariant: composers
+exploit available envelope resolution up to a consistent ceiling regardless of chip.
+
+---
+
+### R5 — FM Algorithm Topology (graph invariants → spectral constraint)
+
+The YM2612 (and OPM, OPL3) implements FM synthesis as a directed graph of operators.
+Each algorithm is a specific wiring — operators feed into other operators (modulators)
+or directly to output (carriers). The 8 YM2612 algorithms span a range from full
+series (all modulation, minimum spectral bandwidth) to full parallel (all carriers,
+maximum spectral bandwidth).
+
+**Graph representation**: each algorithm is an adjacency matrix (4×4 for OPN2).
+Computable properties:
+- DAG depth: how many modulation hops from input to output
+- Carrier count: how many operators reach output (= spectral component count)
+- Feedback edges: self-modulation loops (only op 1 in OPN2)
+- Branching factor: how many operators each modulator feeds
+
+**Key structural claim**: DAG depth determines the *transfer function complexity* of
+the patch. Algorithm 7 (4 carriers, 0 modulators, depth 1) produces maximum spectral
+bandwidth with minimum interaction. Algorithm 0 (1 carrier, 3 modulators in series,
+depth 4) produces maximum modulation depth and minimum bandwidth. The graph structure
+is a hard constraint on the information-theoretic capacity of the patch.
+
+**Research**: run against S3K corpus via `adapter_s3k_driver.py` + `adapter_smps.py`.
+Questions:
+- Which algorithms dominate by composer? (Composer fingerprint)
+- Does algorithm depth correlate with CCS Structural Density in the track?
+- Do tracks scored as high-Generative-Constraint use lower-depth algorithms
+  (more constrained spectral output)?
+
+**Connection to Helix**: direct probe candidate in the music lab. Algorithm topology
+is a causal-layer structural variable; CCS coordinates are perceptual/symbolic-layer
+outputs. A correlation between them is a cross-layer invariant — the kind Helix is
+designed to detect.
+
+**Adapters needed**: `adapter_nuked_opn2.py` (algorithm definitions),
+`adapter_smps.py` (patch parsing), `adapter_s3k_driver.py` (per-track voice sourcing).
+
+---
+
+### Execution Order
+
+| # | Direction | Prerequisites | Output | Substrate |
+|---|-----------|--------------|--------|-----------|
+| R2 | Pitch discretization error | All PSG adapters (done) | Per-chip tuning tables | Math |
+| R3 | Oscillator locking probe | VGM parser + PSG adapters (done) | Probe artifact | Helix / Music |
+| R1 | Hardware CCS vectors | All Full adapters (done) | CCS reference coordinates | Helix / CCS |
+| R5 | FM algorithm topology | adapter_nuked_opn2 + adapter_smps (done) | Probe artifact | Helix / Music |
+| R4 | Envelope dynamics | All Full adapters (done) | Cross-chip comparison | Math |
+
+R2 and R3 are executable now with no new adapter work. R1, R4, R5 need small
+computation scripts but no new hardware knowledge — all constants are already
+in the adapters.
