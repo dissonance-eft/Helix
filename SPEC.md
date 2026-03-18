@@ -877,21 +877,58 @@ A track or work processed by Helix is not represented as a single file. It is a 
 | `perceptual_view` | `perceptual_audio` | Spectral features, MFCCs, chroma, onset/tempo summaries |
 | `structural_view` | (cross-dialect) | Motifs, patterns, invariants, form detected across views |
 
-Conceptual schema:
+Canonical schema (`core/kernel/schema/umo_schema.json`):
 
 ```json
 {
-  "id": "...",
-  "control_view":   { "format": "VGM", "register_events": [] },
-  "symbolic_view":  { "format": "MIDI", "notes": [], "chords": [] },
-  "perceptual_view":{ "mfcc": [], "chroma": [], "spectral_centroid": [] },
-  "structural_view":{ "motifs": [], "form": [], "patterns": [] },
-  "alignment_map":  { "control_to_symbolic": [], "symbolic_to_perceptual": [] },
-  "provenance":     { "source_files": [], "pipeline_version": "..." }
+  "entity_id": "music.track:<slug>",
+  "representations": {
+    "causal":     { "operator_topology": {}, "carrier_slots": [], "temporal_trajectories": [] },
+    "symbolic":   { "melody": {}, "harmony": {}, "rhythm": {}, "voice_structure": {} },
+    "perceptual": { "timbre_descriptors": {}, "spectral_profile": {}, "brightness": 0.0, "roughness": 0.0 },
+    "metadata": {
+      "recorded":   { "title": "...", "artist": "...", "sound_chip": "..." },
+      "normalized": {}
+    }
+  },
+  "alignment_map": [
+    {
+      "causal": "dual_carriers_ch0",
+      "perceptual": "layered_timbre",
+      "symbolic": "parallel_voices",
+      "temporal_scope": "0.0-4.2s",
+      "granularity": "phrase",
+      "confidence": 0.87
+    }
+  ],
+  "conflicts": [
+    {
+      "type": "causal_symbolic_mismatch",
+      "temporal_scope": "verse_1",
+      "confidence": 0.72,
+      "causal": {},
+      "symbolic": {}
+    }
+  ],
+  "invariants": [
+    {
+      "name": "dual_carrier_layering",
+      "evidence": {
+        "causal":     { "carrier_slots": [0, 1] },
+        "perceptual": { "polyphony_estimate": 2.0 }
+      },
+      "evidence_dialects": ["causal", "perceptual"],
+      "confidence": 0.91
+    }
+  ],
+  "identity": {
+    "inferred_profile": { "topology_preference": "dual_carrier", "feedback_tendency": "high" },
+    "evidence_tracks": []
+  }
 }
 ```
 
-Views are optional: a UMO may be fully populated, partially populated, or contain a single view. Helix must never treat a single-view UMO as complete.
+All dialect views under `representations` are optional — a UMO may be fully populated, partially populated, or contain a single view. `alignment_map`, `conflicts`, and `invariants` are required arrays (may be empty). Invariants require evidence from ≥2 dialects (`evidence_dialects` enforces this structurally). Helix must never treat a single-view UMO as structurally complete.
 
 ## §UMO-2 — Observability Depth
 

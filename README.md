@@ -6,6 +6,8 @@ Helix analyzes data, extracts measurable structure, and records the results so t
 
 The system is designed to help both humans and reasoning systems understand how complex structures appear across different domains such as music, language, simulations, and other structured data.
 
+Structure is invariant. Observation is partial. Alignment recovers truth.
+
 ---
 
 # Philosophy
