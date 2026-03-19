@@ -70,3 +70,12 @@ data/music/source/code/*/.git/
 *.iso
 data/music/source/audio/
 data/music/source/midi/
+
+# ── Music Library: generated substrate (all pipeline-generated, never committed) ──
+core/library/music/album/
+core/library/music/artist/
+!core/library/music/album/**/*.gitkeep
+!core/library/music/artist/**/*.gitkeep
+!core/library/music/INGESTION.md
+!core/library/music/.compiler_manifest.json
+!core/library/music/.gitkeep

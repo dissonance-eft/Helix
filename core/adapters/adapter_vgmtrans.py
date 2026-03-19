@@ -106,7 +106,9 @@ def _find_binary() -> Path | None:
             return Path(found)
     # Common install paths
     for home_candidate in [
+        Path.home() / "VGMTrans" / "VGMTrans-v1.3" / "VGMTrans.exe",
         Path.home() / "VGMTrans" / "VGMTrans.exe",
+        Path("C:/Users/dissonance/VGMTrans/VGMTrans-v1.3/VGMTrans.exe"),
         Path("C:/Program Files/VGMTrans/VGMTrans.exe"),
     ]:
         if home_candidate.exists():

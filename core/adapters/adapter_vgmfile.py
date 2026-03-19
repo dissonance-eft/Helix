@@ -57,6 +57,8 @@ from io import StringIO
 from pathlib import Path
 from typing import Any
 
+from core.adapters.adapter_chip_library import ChipLibrary
+
 
 class AdapterError(Exception):
     """Raised when the adapter cannot process its input."""
@@ -484,8 +486,28 @@ class Adapter:
             import re
             normalized["title_slug"] = re.sub(r"[^a-z0-9]+", "_", title.lower()).strip("_")
 
+        # --- Automated Library Enrichment ---
+        # For each chip in the header, look up its full library specs
+        chip_details: dict[str, Any] = {}
+        for chip_name, clock in header.get("chip_clocks", {}).items():
+            # Standardize names for lookup
+            lookup_key = chip_name.lower().replace(" ", "_").replace("-", "_")
+            # Special case for SN76489 (it's often 'PSG' in VGM headers)
+            if lookup_key == "sn76489": lookup_key = "sn76489"
+            
+            detail = ChipLibrary.get_chip(lookup_key)
+            if detail:
+                chip_details[chip_name] = {
+                    "id": detail.get("id"),
+                    "architecture": detail.get("properties", {}).get("architecture"),
+                    "hardware": detail.get("properties", {}).get("hardware"),
+                    "analysis_notes": detail.get("properties", {}).get("analysis_notes"),
+                    "invariant_links": detail.get("properties", {}).get("invariant_links")
+                }
+
         return {
             "header":   header,
+            "chip_library_enrichment": chip_details,
             "metadata": {
                 "recorded":   recorded,
                 "normalized": normalized,
