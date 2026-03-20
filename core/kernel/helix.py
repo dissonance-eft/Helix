@@ -69,12 +69,12 @@ def cmd_verify():
 
     moved = enforce_root_quarantine()
     if moved: print(f"Quarantined files: {moved}")
-    imp_violations = validate_forge_imports(ROOT / 'labs')
+    imp_violations = validate_forge_imports(ROOT / 'applications' / 'labs')
     if imp_violations: return False
     # Exclude corpus/ — external repos are analysis subjects, not Helix code
     # Silent drop violations in labs research code are advisory-only (not a hard fail)
     sd_violations = {
-        k: v for k, v in scan_for_silent_drops(ROOT / 'labs').items()
+        k: v for k, v in scan_for_silent_drops(ROOT / 'applications' / 'labs').items()
         if 'corpus' not in Path(k).parts
     }
     if sd_violations:
@@ -177,7 +177,7 @@ def cmd_probe_run_all(lab_name=None):
     probe_registry = import_module('core.kernel.dispatcher.probe_registry')
     probe_runner = import_module('core.kernel.dispatcher.probe_runner')
 
-    probes_dir = ROOT / 'labs' / 'probes'
+    probes_dir = ROOT / 'applications' / 'labs' / 'probes'
     registry = probe_registry.discover_probes(probes_dir)
 
     if not registry:

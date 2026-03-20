@@ -3,7 +3,7 @@ Probe Registry — core/kernel/dispatcher/probe_registry.py
 
 Discover and catalog probe instruments from labs/probes/.
 
-Probes are Python scripts in labs/probes/ that:
+Probes are Python scripts in applications/labs/probes/ that:
   - Define a class inheriting from HelixProbe (from probe_interface.py)
   - Implement a standalone __main__ block for subprocess execution
   - Are named <probe_name>_probe.py or <probe_name>.py
@@ -47,7 +47,7 @@ def discover_probes(probes_dir: str | Path) -> dict[str, ProbeRecord]:
     Ignores __init__.py, probe_interface.py, and files starting with _.
 
     Args:
-        probes_dir: Path to 04_labs/probes/
+        probes_dir: Path to applications/labs/probes/
 
     Returns:
         dict mapping probe_name → ProbeRecord

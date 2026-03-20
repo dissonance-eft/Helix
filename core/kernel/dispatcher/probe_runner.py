@@ -38,7 +38,7 @@ def _load_lab_dataset(probe_name: str, lab_name: str) -> tuple[dict, Path]:
     Returns (dataset_dict, dataset_path).
     Raises FileNotFoundError if no dataset found.
     """
-    lab_dir = ROOT / "labs" / "datasets" / lab_name
+    lab_dir = ROOT / "applications" / "labs" / "datasets" / lab_name
     if not lab_dir.exists():
         raise FileNotFoundError(f"Lab directory not found: {lab_dir}")
 
@@ -98,7 +98,7 @@ def run_probe(
     artifact_lock = import_module("core.kernel.runtime.artifact_lock")
 
     # --- Discover probe ---
-    probes_dir = ROOT / "labs" / "probes"
+    probes_dir = ROOT / "applications" / "labs" / "probes"
     record = probe_registry.get_probe(probe_name, probes_dir)
     if record is None:
         raise ValueError(

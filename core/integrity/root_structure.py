@@ -26,24 +26,16 @@ ALLOWED_DIRS: frozenset[str] = frozenset({
     "core",
     "codex",
     "domains",
-    "labs",
     "applications",
     "docs",
+    ".git",
+    ".claude",
 })
 
 ALLOWED_FILES: frozenset[str] = frozenset({
-    "HELIX.md",
-    "OPERATOR.md",
-    "SPEC.md",
-    "ROADMAP.md",
     "README.md",
-    "HSL.md",
-    "DISSONANCE.md",
     "helix",
-    ".git",
     ".gitignore",
-    ".claude",
-    "pyproject.toml",
 })
 
 ALLOWED: frozenset[str] = ALLOWED_DIRS | ALLOWED_FILES

@@ -64,5 +64,5 @@ LAYER_PATHS = {
     Layer.DOCS:         "docs/",
     Layer.APPLICATIONS: "applications/",
     Layer.DOMAINS:      "domains/",
-    Layer.LABS:         "labs/",
+    Layer.LABS:         "applications/labs/",
 }
