@@ -70,3 +70,4 @@ labs/              ← Research probes, experiments, datasets
 | [GOVERNANCE.md](docs/GOVERNANCE.md) | Validation rules, promotion gates |
 | [INVARIANTS.md](docs/INVARIANTS.md) | Named invariants, confidence tiers |
 | [STRUCTURE.md](core/STRUCTURE.md) | Architectural laws (brief) |
+| [ENFORCEMENT.md](core/enforcement/ENFORCEMENT.md) | Centralized enforcement authority |
