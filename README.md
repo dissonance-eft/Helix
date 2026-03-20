@@ -45,7 +45,9 @@ codex/
 └── library/       ← Priors and reference data (not version-controlled)
 
 domains/           ← Structured domain pipelines (music, games, ...)
-labs/              ← Research probes, experiments, datasets
+
+applications/      ← Domain-specific interface layer
+└── labs/          ← Research probes, experiments, datasets
 ```
 
 ---
