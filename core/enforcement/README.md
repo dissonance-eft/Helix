@@ -29,26 +29,34 @@ Helix is a governed system. All operations must comply with these laws or fail i
 - **Observability**: Hidden mutations are illegal. Every architectural transformation must be logged in metadata.
 - **Pre-Commit Gate**: No entity may be committed to persistence without passing the `pre_persistence_check`.
 
-## Failure States
+## Canonical Persistence Gateway
 
-Helix defines failure explicitly via the `FailureState` registry in `failure_states.py`. Violations trigger immediate system halt (exceptions) or isolated logging depending on the configured severity.
+Helix enforces a single canonical entry point for all persistent data. No module is permitted to write directly to JSON storage using raw filesystem calls.
 
-| Code | Severity | Context |
-| :--- | :--- | :--- |
-| `INVALID_SCHEMA` | HIGH | Critical metadata missing or malformed data types. |
-| `INVALID_ID` | HIGH | Illegal characters or structure in entity identifier. |
-| `CROSS_LAYER_VIOLATION` | CRITICAL | Unauthorized cross-layer dependency or write. |
-| `ILLEGAL_ATLAS_WRITE` | CRITICAL | Attempted direct filesystem mutation of atlas/. |
+### The `enforce_persistence` Protocol
+The `enforce_persistence(data, path)` function serves as the system's hard gate:
+1.  **Authorize**: Verifies the call-stack origin (Only `core/compiler/` or `tests/` are authorized).
+2.  **Audit**: Checks the target path against the claimed layer (e.g., Atlas vs Library).
+3.  **Validate**: Runs full schema, ID, and relationship validation.
+4.  **Log**: Ensures mutation metadata is present.
+5.  **Commit**: Performs an atomic filesystem swap to prevent data corruption.
 
-## Integration
+## Shadow Audit Layer
 
-The enforcement layer is integrated as a hard gate within the `core.compiler.atlas_compiler.atlas_commit` and `core.compiler.registry_writer.write_registry` pipelines.
+The system includes a shadow audit layer to detect drift in already-persisted states.
 
-```python
-from core.enforcement import pre_persistence_check
+### `audit_system_state(root_path)`
+This function scans the Codex (`codex/atlas` and `codex/library`) for:
+-   **Invalid IDs**: Non-canonical identifiers.
+-   **Schema Drift**: Entities missing required core or CCS fields.
+-   **Misplacement**: Artifacts located in the wrong substrate or plural directory.
+-   **Corruption**: Malformed JSON or unparseable entities.
 
-def commit(entity, path):
-    # This call will raise EnforcementError if any law is violated
-    pre_persistence_check(entity, path)
-    path.write_text(json.dumps(entity))
-```
+Run the audit periodically to ensure the repository remains in a valid architectural state.
+
+## Failure Response
+
+Enforcement violations are treated as critical system breaches.
+-   **Runtime**: Unauthorized write attempts raise `IllegalWriteError` and print a `[!] ENFORCEMENT BREACH` alert to stdout.
+-   **Validation**: Failed entities raise `ValidationError`.
+-   **Persistence**: Corruption or atomic swap failures raise `EnforcementError`.

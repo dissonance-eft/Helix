@@ -166,10 +166,8 @@ class AtlasGraph:
         }
 
     def save(self, path: Path = ATLAS_GRAPH_JSON) -> None:
-        from core.enforcement import authorize_atlas_write
-        authorize_atlas_write()
-        path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(json.dumps(self.to_dict(), indent=2))
+        from core.enforcement import enforce_persistence
+        enforce_persistence(self.to_dict(), path, is_atlas=True)
 
     @classmethod
     def load(cls, path: Path = ATLAS_GRAPH_JSON) -> "AtlasGraph":

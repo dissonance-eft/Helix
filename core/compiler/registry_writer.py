@@ -53,7 +53,7 @@ def append_to_registry(domain, artifact_path, pss, bas, csi, fragility_gradient,
     
     registry_data["cross_project_registry"].append(new_entry)
     
-    with open(INDEX_PATH, 'w', encoding='utf-8') as f:
-        json.dump(registry_data, f, indent=4)
+    from core.enforcement import enforce_persistence
+    enforce_persistence(registry_data, INDEX_PATH, is_atlas=True)
         
     return True

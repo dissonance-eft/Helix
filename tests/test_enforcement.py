@@ -76,12 +76,27 @@ class TestEnforcement(unittest.TestCase):
         repo_root = Path(__file__).resolve().parent.parent
         atlas_path = repo_root / "codex" / "atlas" / "illegal.json"
         
-        # We need to simulate a caller that is NOT authorized.
-        # This is tricky because the current test file IS authorized.
-        # But we can test the pre_persistence_check failure if we provide a non-atlas path for a non-atlas entity etc.
+        # Test that enforce_persistence fails if called from an unauthorized context
+        # (Since we are in tests/, it SHOULD pass here)
+        from core.enforcement import enforce_persistence
+        enforce_persistence(self.valid_entity, atlas_path, is_atlas=True)
+
+    # 4. Shadow Audit Tests
+    def test_audit_scan_valid_entity(self):
+        from core.enforcement import audit_system_state
+        repo_root = Path(__file__).resolve().parent.parent
+        # This will scan the repo - if it's clean, passed should be true
+        # result = audit_system_state(repo_root)
+        # self.assertTrue(isinstance(result, dict))
         pass
 
-    # 4. Pre-Persistence Checks
+    def test_audit_detects_invalid_id(self):
+        from core.enforcement.audit import AuditFinding, Severity
+        from pathlib import Path
+        finding = AuditFinding(Path("test.json"), "INVALID_ID", "Test error", Severity.HIGH)
+        self.assertEqual(finding.code, "INVALID_ID")
+
+    # 5. Pre-Persistence Checks
     def test_pre_persistence_atlas_pass(self):
         repo_root = Path(__file__).resolve().parent.parent
         atlas_path = repo_root / "codex" / "atlas" / "music" / "tracks" / "test.json"

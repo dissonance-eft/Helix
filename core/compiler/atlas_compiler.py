@@ -135,19 +135,12 @@ def atlas_commit(compiled: dict[str, Any]) -> Path:
     Raises EnforcementError if the entity fails validation or the
     runtime mode blocks direct writes.
     """
-    from core.enforcement import pre_persistence_check
+    from core.enforcement import enforce_persistence
     
     output_path: Path = compiled["_output_path"]
     
-    # ENFORCEMENT GATE: Authorize and validate before the first byte is written
-    pre_persistence_check(compiled, output_path)
-    
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-
-    # Write JSON entity file (strip private compiler fields)
-    entry = {k: v for k, v in compiled.items() if not k.startswith("_")}
-    output_path.write_text(json.dumps(entry, indent=2))
-    return output_path
+    # ENFORCEMENT GATE: Authorize, Validate, and Persist via canonical gateway
+    return enforce_persistence(compiled, output_path, is_atlas=True)
 
 
 def compile_and_commit(entity_dict: dict[str, Any]) -> Path:

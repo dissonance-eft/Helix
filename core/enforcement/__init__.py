@@ -17,15 +17,18 @@ from core.enforcement.validators import (
 from core.enforcement.runtime_checks import (
     authorize_atlas_write,
     pre_persistence_check,
+    enforce_persistence,
     IllegalWriteError,
     LayerViolationError
 )
+from core.enforcement.audit import audit_system_state
 
 __all__ = [
     "FAILURE_STATES", "Severity",
     "Law", "Layer", "LAYER_PATHS",
     "validate_id", "validate_entity_schema", 
     "EnforcementError", "ValidationError", "IDError",
-    "authorize_atlas_write", "pre_persistence_check",
-    "IllegalWriteError", "LayerViolationError"
+    "authorize_atlas_write", "pre_persistence_check", "enforce_persistence",
+    "IllegalWriteError", "LayerViolationError",
+    "audit_system_state"
 ]
