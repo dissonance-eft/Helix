@@ -17,7 +17,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
-ATLAS_GRAPH_JSON = Path(__file__).parent.parent.parent / "atlas" / "atlas_graph.json"
+ATLAS_GRAPH_JSON = Path(__file__).resolve().parent.parent.parent.parent.parent / "codex" / "atlas" / "atlas_graph.json"
 
 # Valid node and edge types
 NODE_TYPES = frozenset({
@@ -166,6 +166,8 @@ class AtlasGraph:
         }
 
     def save(self, path: Path = ATLAS_GRAPH_JSON) -> None:
+        from core.enforcement import authorize_atlas_write
+        authorize_atlas_write()
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(self.to_dict(), indent=2))
 

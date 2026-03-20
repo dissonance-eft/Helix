@@ -2,11 +2,16 @@ import json
 from pathlib import Path
 from datetime import datetime
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 ATLAS_DIR = ROOT / 'codex' / 'atlas'
 INDEX_PATH = ATLAS_DIR / 'index.json'
 
 def append_to_registry(domain, artifact_path, pss, bas, csi, fragility_gradient, classification, related_domains=None):
+    from core.enforcement import authorize_atlas_write
+    
+    # ENFORCEMENT GATE: Authorize Atlas write
+    authorize_atlas_write()
+    
     if related_domains is None:
         related_domains = []
         

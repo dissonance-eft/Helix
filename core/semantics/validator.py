@@ -102,6 +102,27 @@ class SemanticValidator:
                         f"allowed for entity type {entity_type!r}"
                     )
 
+        # 4. Global Enforcement Layer Check
+        try:
+            from core.enforcement import validate_entity_schema
+            # Map 'id' -> 'entity_id', 'type' -> 'entity_type' if missing for enforcement check
+            compat_data = dict(data)
+            if 'entity_id' not in compat_data and 'id' in compat_data:
+                compat_data['entity_id'] = compat_data['id']
+            if 'entity_type' not in compat_data and 'type' in compat_data:
+                compat_data['entity_type'] = compat_data['type']
+            
+            # Use 'source' default if missing to allow semantic pass, enforcement will catch it if it's a real write
+            if 'source' not in compat_data:
+                compat_data['source'] = 'inferred'
+            if 'created_at' not in compat_data:
+                from datetime import datetime, timezone
+                compat_data['created_at'] = datetime.now(timezone.utc).isoformat()
+                
+            validate_entity_schema(compat_data, is_atlas=False)
+        except Exception as e:
+            errors.append(f"Enforcement violation: {str(e)}")
+
         return ValidationResult(
             valid=len(errors) == 0,
             errors=errors,

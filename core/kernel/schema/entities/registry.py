@@ -16,7 +16,7 @@ from typing import Any
 from core.kernel.schema.entities.schema import Entity
 
 _DEFAULT_REGISTRY_PATH = (
-    Path(__file__).parent.parent.parent.parent.parent / "atlas" / "entities" / "registry.json"
+    Path(__file__).resolve().parent.parent.parent.parent.parent / "codex" / "atlas" / "entities" / "registry.json"
 )
 
 
@@ -102,6 +102,8 @@ class EntityRegistry:
         }
 
     def save(self, path: Path = _DEFAULT_REGISTRY_PATH) -> None:
+        from core.enforcement import authorize_atlas_write
+        authorize_atlas_write()
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(json.dumps(self.to_dict(), indent=2))
 

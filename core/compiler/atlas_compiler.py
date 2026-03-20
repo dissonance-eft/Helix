@@ -52,7 +52,7 @@ from typing import Any
 
 REPO_ROOT       = Path(__file__).resolve().parent.parent.parent
 ARTIFACTS_DIR   = REPO_ROOT / "artifacts"
-ATLAS_DIR       = REPO_ROOT / "atlas"
+ATLAS_DIR       = REPO_ROOT / "codex" / "atlas"
 INVARIANTS_DIR  = ATLAS_DIR / "invariants"
 EXPERIMENTS_DIR = ATLAS_DIR / "experiments"
 MODELS_DIR      = ATLAS_DIR / "models"
@@ -132,13 +132,19 @@ def atlas_commit(compiled: dict[str, Any]) -> Path:
     Write a compiled entry to the Atlas filesystem.
 
     This is the ONLY authorized path for writing to atlas/.
-    Raises CompilationError if the entity fails validation or the
+    Raises EnforcementError if the entity fails validation or the
     runtime mode blocks direct writes.
     """
+    from core.enforcement import pre_persistence_check
+    
     output_path: Path = compiled["_output_path"]
+    
+    # ENFORCEMENT GATE: Authorize and validate before the first byte is written
+    pre_persistence_check(compiled, output_path)
+    
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
-    # Write JSON entity file
+    # Write JSON entity file (strip private compiler fields)
     entry = {k: v for k, v in compiled.items() if not k.startswith("_")}
     output_path.write_text(json.dumps(entry, indent=2))
     return output_path
