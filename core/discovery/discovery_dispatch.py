@@ -35,7 +35,7 @@ class DiscoveryDispatch:
         execution_results = []
         for cmd_str in candidate_cmds:
             # All operations must go through HIL dispatcher
-            from core.hil.interpreter import run_command
+            from core.hsl.interpreter import run_command
             res = run_command(cmd_str)
             execution_results.append({
                 "command": cmd_str,

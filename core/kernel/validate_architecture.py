@@ -2,26 +2,21 @@ import os
 import ast
 from pathlib import Path
 
-ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'helix.py').exists())
+ROOT = Path(__file__).resolve().parent.parent.parent
 
 ALLOWED_ROOT_ENTITIES = {
     ".git",
     ".gitignore",
     ".agents",
-    "HELIX.md",
-    "OPERATOR.md",
-    "REBUILD_CHECKPOINT.md",
-    "operator.json",
-    "helix.py",
-    "00_kernel",
-    "01_basis",
-    "02_governance",
-    "03_engines",
-    "04_labs",
-    "05_applications",
-    "06_atlas",
-    "07_artifacts",
-    "docs"
+    ".claude",
+    "README.md",
+    "helix",
+    "core",
+    "codex",
+    "domains",
+    "labs",
+    "applications",
+    "docs",
 }
 
 class ArchitectureViolation(Exception):
@@ -36,9 +31,9 @@ def validate_repository_topology():
             )
 
 def _check_import(module_name, area, filepath, lineno):
-    if area == "module" and "04_labs" in module_name:
+    if area == "module" and "labs" in module_name:
         raise ArchitectureViolation(f"FLOW_VIOLATION: Module {filepath}:{lineno} illegally imports from {module_name}")
-    if area == "workspace" and ("04_labs" in module_name and "modules" in module_name):
+    if area == "workspace" and ("labs" in module_name and "modules" in module_name):
         raise ArchitectureViolation(f"FLOW_VIOLATION: Workspace {filepath}:{lineno} illegally imports from module {module_name}")
 
 def _check_write(node, filepath, area):
@@ -51,10 +46,10 @@ def _check_write(node, filepath, area):
             path_str = arg0.s
             
         if isinstance(path_str, str):
-            if area == "module" and "07_artifacts" not in path_str and "stdout" not in path_str:
-                raise ArchitectureViolation(f"FLOW_VIOLATION: Module {filepath} attempting write outside of 06_artifacts to '{path_str}'")
-            if area == "forge_experiment" and "04_labs" in path_str:
-                raise ArchitectureViolation(f"FLOW_VIOLATION: Forge experiment {filepath} attempting write to workspace '{path_str}'")
+            if area == "module" and "artifacts" not in path_str and "stdout" not in path_str:
+                raise ArchitectureViolation(f"FLOW_VIOLATION: Module {filepath} attempting write outside of artifacts to '{path_str}'")
+            if area == "experiment" and "labs" in path_str:
+                raise ArchitectureViolation(f"FLOW_VIOLATION: Experiment {filepath} attempting write to workspace '{path_str}'")
 
 def check_ast_file(filepath, area):
     with open(filepath, "r", encoding="utf-8") as f:
@@ -91,27 +86,16 @@ def check_ast_file(filepath, area):
 
 def validate_ast_dependencies():
     # corpus/ contains external repos used as analysis subjects — skip AST checks
-    SKIP_PARTS = {"corpus", "experiments_legacy"}
+    SKIP_PARTS = {"corpus", "legacy_experiments"}
 
-    modules_dir = ROOT / "04_labs" / "modules"
-    if modules_dir.exists():
-        for root, _, files in os.walk(modules_dir):
-            if any(p in Path(root).parts for p in SKIP_PARTS):
-                continue
-            for file in files:
-                if file.endswith(".py"):
-                    check_ast_file(Path(root) / file, "module")
-
-    labs_dir = ROOT / "04_labs"
+    labs_dir = ROOT / "labs"
     if labs_dir.exists():
         for root, _, files in os.walk(labs_dir):
             if any(p in Path(root).parts for p in SKIP_PARTS):
                 continue
-            if "modules" in Path(root).parts:
-                continue
             for file in files:
                 if file.endswith(".py"):
-                    check_ast_file(Path(root) / file, "forge_experiment")
+                    check_ast_file(Path(root) / file, "experiment")
 
 def execute():
     try:

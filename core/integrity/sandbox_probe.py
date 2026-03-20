@@ -17,8 +17,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
-from core.hil.validator import validate_command
-from core.hil.normalizer import normalize_command
+from core.hsl.validator import validate_command
+from core.hsl.normalizer import normalize_command
 
 
 RESTRICTED_COMMANDS = [

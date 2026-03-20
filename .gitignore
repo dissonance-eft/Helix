@@ -1,81 +1,34 @@
-# Runtime directory (local, non-architectural)
-runtime/cache/
-runtime/tmp/
-runtime/claude/
-
-# Python
+# ── Python ──
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.egg-info/
 
-# Temp / logs
-*.log
-*.tmp
-
-# Virtual environments
+# ── Virtual environments ──
 .venv/
 venv/
 env/
 
-# OS
+# ── OS ──
 .DS_Store
 Thumbs.db
 
-# Editors
+# ── Editors ──
 .vscode/
 .idea/
 
-# Jupyter
+# ── Jupyter ──
 .ipynb_checkpoints/
 
-# Local experiment outputs
-experiments/output/
-/05_applications/eft/
+# ── Temp / logs ──
+*.log
+*.tmp
 
-# ── Data layer: processed outputs (all pipeline-generated, never committed) ──
-data/music/processed/
-data/language/processed/
-data/agents/processed/
-# Allow folder structure stubs (empty .gitkeep files are fine)
-!data/music/processed/**/.gitkeep
-!data/language/processed/**/.gitkeep
-
-# ── Execution layer: run artifacts and archives ──
-execution/runs/*/archive/
-execution/runs/*.zip
-execution/runs/*.tar.gz
-execution/runs/symbolic_scores/
-# Large per-run output JSONs (not probe_result.json)
-execution/runs/*/*_catalog.json
-execution/runs/*/*_rankings.json
-execution/runs/*/*_registry.json
-execution/runs/*/wikidata_*.json
-execution/logs/reports/*.json
-
-# ── Atlas: generated registries (rebuilt by COMPILE_ATLAS) ──
-atlas/entities/registry.json
-atlas/entities/entity_graph.json
-# Numbered per-run invariant artifacts (execution output, not structure)
-atlas/invariants/invariant_*_[0-9]*.json
-
-# ── Source code repos with their own git history ──
-# These are substrate language references stored as plain directories (not submodules)
-data/music/source/github/
-data/music/source/code/*/.git/
+# ── Library: raw data / priors (large, not version-controlled) ──
+codex/library/
 
 # ── Binary / rendered outputs ──
 *.nrg
 *.bin
 *.iso
-data/music/source/audio/
-data/music/source/midi/
-
-# ── Music Library: generated substrate (all pipeline-generated, never committed) ──
-core/library/music/album/
-core/library/music/artist/
-!core/library/music/album/**/*.gitkeep
-!core/library/music/artist/**/*.gitkeep
-!core/library/music/INGESTION.md
-!core/library/music/.compiler_manifest.json
-!core/library/music/.gitkeep

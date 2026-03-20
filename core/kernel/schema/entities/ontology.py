@@ -6,7 +6,7 @@ Single-source entity type definitions for the Helix entity system.
 Consumed by:
   core/entities/schema.py  — validation
   core/entities/registry.py — type filtering
-  core/hil/ontology.py      — HIL parser entity type recognition
+  core.hsl/ontology.py      — HIL parser entity type recognition
 """
 from __future__ import annotations
 

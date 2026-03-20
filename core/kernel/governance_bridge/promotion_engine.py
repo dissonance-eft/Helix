@@ -1,8 +1,8 @@
 """
-Promotion Engine — 03_engines/governance_bridge/promotion_engine.py
+Promotion Engine — core/governance/promotion_engine.py
 
 Run the 6-criterion Atlas promotion gate for a named invariant.
-Reads from 06_atlas/<invariant_name>.json, updates with promotion status.
+Reads from codex/atlas/<invariant_name>.json, updates with promotion status.
 """
 
 from __future__ import annotations
@@ -11,7 +11,7 @@ from importlib import import_module
 from pathlib import Path
 
 
-ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'helix.py').exists())
+ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'README.md').exists())
 
 
 def promote_invariant(
@@ -24,7 +24,7 @@ def promote_invariant(
 
     Args:
         invariant_name: Name of the invariant (matches atlas filename).
-        atlas_dir:      Path to 06_atlas/ (default: ROOT/06_atlas).
+        atlas_dir:      Path to codex/atlas/ (default: ROOT/codex/atlas).
         verbose:        Print criterion results.
 
     Returns:
@@ -34,7 +34,7 @@ def promote_invariant(
         FileNotFoundError: If atlas entry doesn't exist.
     """
     if atlas_dir is None:
-        atlas_dir = ROOT / "06_atlas"
+        atlas_dir = ROOT / "codex" / "atlas"
     atlas_dir = Path(atlas_dir)
 
     atlas_path = atlas_dir / f"{invariant_name}.json"
@@ -48,7 +48,7 @@ def promote_invariant(
         atlas_entry = json.load(f)
 
     # Run promotion gates
-    gates = import_module("02_governance.promotion_gates")
+    gates = import_module("core.kernel.promotion_gates")
     gate_result = gates.evaluate_promotion(atlas_entry)
 
     if verbose:
@@ -61,9 +61,7 @@ def promote_invariant(
 
     # Write promotion status back to atlas entry
     atlas_entry["promotion_status"] = "PROMOTED" if gate_result["passed"] else "BLOCKED"
-    atlas_entry["last_promotion_check"] = import_module(
-        "03_engines.runtime.run_manifest"
-    ).datetime.now().isoformat() if False else __import__(
+    atlas_entry["last_promotion_check"] = __import__(
         "datetime"
     ).datetime.now(__import__("datetime").timezone.utc).isoformat()
 

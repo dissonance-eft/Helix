@@ -36,7 +36,7 @@ ENTITY_NODE_TYPES: frozenset[str] = frozenset({
     "SOUND_TEAM",
 })
 
-# Entity edge types — correspond to HIL semantic roles in core/hil/semantic_roles.py
+# Entity edge types — correspond to HIL semantic roles in core.hsl/semantic_roles.py
 ENTITY_EDGE_TYPES: frozenset[str] = frozenset({
     "COMPOSED",           # composer → track
     "APPEARS_IN",         # track → game

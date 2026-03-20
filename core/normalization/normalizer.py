@@ -4,17 +4,17 @@ Normalization — Normalizer
 Standalone normalization layer for the Helix execution pipeline.
 
 Position in pipeline:
-  HIL input → [Normalizer] → Semantics → Operators → Atlas
+  HSL input → [Normalizer] → Semantics → Operators → Atlas
 
 Responsibilities:
-  1. Alias resolution       — human shorthand → canonical HIL
+  1. Alias resolution       — human shorthand → canonical HSL
   2. Casing normalization   — verbs upper, slugs lower
   3. Canonical ID enforcement — entity IDs validated against pattern
   4. Typed reference resolution — prefix:name → registry entity (if registry provided)
   5. Deduplication detection — warn if entity ID already registered
 
 This module is the authoritative normalization gate.
-core/hil/normalizer.py delegates here.
+core.hsl/normalizer.py delegates here.
 """
 from __future__ import annotations
 
@@ -26,7 +26,7 @@ from core.normalization.id_enforcer import enforce_id, is_valid_id
 
 class Normalizer:
     """
-    Converts raw HIL input to canonical form and validates entity IDs.
+    Converts raw HSL input to canonical form and validates entity IDs.
 
     Usage:
         n = Normalizer()
@@ -41,20 +41,20 @@ class Normalizer:
         """
         self._registry = registry
 
-    # ── HIL normalization ──────────────────────────────────────────────────
+    # ── HSL normalization ──────────────────────────────────────────────────
 
     def normalize(self, raw: str) -> str:
         """
-        Normalize raw input to a canonical HIL string.
+        Normalize raw input to a canonical HSL string.
 
         Steps:
           1. Alias resolution
           2. Parse to AST
           3. AST → canonical string
         """
-        from core.hil.aliases import resolve_alias
-        from core.hil.parser import parse
-        from core.hil.errors import HILSyntaxError
+        from core.hsl.aliases import resolve_alias
+        from core.hsl.parser import parse
+        from core.hsl.errors import HSLSyntaxError
 
         tokens = raw.strip().split()
         if not tokens:
@@ -70,10 +70,10 @@ class Normalizer:
     def normalize_command(self, raw: str) -> dict:
         """
         Normalize and return a legacy envelope dict.
-        Backward-compatible with core/hil/normalizer.normalize_command().
+        Backward-compatible with core.hsl/normalizer.normalize_command().
         """
-        from core.hil.aliases import resolve_alias
-        from core.hil.parser import parse
+        from core.hsl.aliases import resolve_alias
+        from core.hsl.parser import parse
 
         tokens = raw.strip().split()
         if not tokens:
@@ -89,7 +89,7 @@ class Normalizer:
             "verb":      cmd.verb.lower(),
             "target":    str(primary) if primary else (cmd.subcommand or ""),
             "params":    {k: str(v) for k, v in cmd.params.items()},
-            "source":    "hil",
+            "source":    "hsl",
             "version":   "1.0",
             "canonical": cmd.canonical(),
             "ast":       cmd.to_dict(),
@@ -150,7 +150,7 @@ _default_normalizer = Normalizer()
 
 
 def normalize(raw: str) -> str:
-    """Normalize raw input to canonical HIL string (no registry)."""
+    """Normalize raw input to canonical HSL string (no registry)."""
     return _default_normalizer.normalize(raw)
 
 

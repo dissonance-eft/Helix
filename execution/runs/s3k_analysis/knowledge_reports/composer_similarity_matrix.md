@@ -1,4 +1,0 @@
-## Composer Cosine Similarity Matrix
-
-| |  |
-| --- |  |

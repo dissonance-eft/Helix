@@ -1,1 +1,1 @@
-# 03_engines/governance_bridge/__init__.py
+# core/kernel/governance_bridge/__init__.py

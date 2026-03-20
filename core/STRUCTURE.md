@@ -15,5 +15,5 @@
 
 ## 4. SCHEMA UNIFICATION
 - **Single Canonical Schema**: Both Library and Atlas entities must conform to the unified schema defined in the system SPEC.
-- **Dot-Separated Identity**: Every entry must use the `<domain>.<type>.<identifier>` ID format.
+- **Colon-Separated Identity**: Every entry must use the `<domain>.<type>:<slug>` ID format.
 - **Structured Evidence**: Loose evidence arrays are prohibited; all evidence must use the formal structured schema.

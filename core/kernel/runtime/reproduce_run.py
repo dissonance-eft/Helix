@@ -1,5 +1,5 @@
 """
-Reproducibility Engine — 03_engines/runtime/reproduce_run.py
+Reproducibility Engine — core/kernel/runtime/reproduce_run.py
 
 Re-runs a previous probe execution and compares numerical outputs
 within defined tolerances to verify deterministic reproduction.
@@ -30,7 +30,7 @@ EXACT_FIELDS: set[str] = {"passed", "probe_name", "domain"}
 # ---------------------------------------------------------------------------
 
 def _find_run_dir(run_id: str, artifacts_root: Path) -> Path | None:
-    """Scan 07_artifacts/probes/*/run_id for the original run directory."""
+    """Scan artifacts/probes/*/run_id for the original run directory."""
     probes_root = artifacts_root / "probes"
     if not probes_root.exists():
         return None
@@ -136,11 +136,11 @@ def reproduce_run(
     Re-run a previous probe execution and compare outputs within tolerance.
 
     Steps:
-    1. Locate original run directory in 07_artifacts/probes/*/
+    1. Locate original run directory in artifacts/probes/*/
     2. Load probe_result.json + run_manifest.json
     3. Re-run probe via probe_runner.run_probe(auto_rebuild_atlas=False)
     4. Compare field-by-field within TOLERANCES
-    5. Write reproduce_result.json to 07_artifacts/repro_checks/<run_id>/
+    5. Write reproduce_result.json to artifacts/repro_checks/<run_id>/
     6. If mismatch: flag atlas entry with DEGRADED + record non_reproducible_runs
 
     Returns
@@ -152,15 +152,15 @@ def reproduce_run(
     from pathlib import Path as _Path
     import sys
 
-    _root = next(p for p in Path(__file__).resolve().parents if (p / 'helix.py').exists())
+    _root = next(p for p in Path(__file__).resolve().parents if (p / 'README.md').exists())
 
     if artifacts_root is None:
-        artifacts_root = _root / "07_artifacts"
+        artifacts_root = _root / "artifacts"
     else:
         artifacts_root = _Path(artifacts_root)
 
     if atlas_dir is None:
-        atlas_dir = _root / "06_atlas"
+        atlas_dir = _root / "codex" / "atlas"
     else:
         atlas_dir = _Path(atlas_dir)
 
@@ -212,7 +212,7 @@ def reproduce_run(
     # 3. Re-run probe
     sys.path.insert(0, str(_root))
     try:
-        from engines.orchestrator import probe_runner  # type: ignore
+        from core.kernel.dispatcher import probe_runner
         repro = probe_runner.run_probe(
             probe_name=probe_name,
             lab_name=lab_name,

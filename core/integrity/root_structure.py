@@ -24,18 +24,11 @@ ROOT = Path(__file__).parent.parent.parent
 
 ALLOWED_DIRS: frozenset[str] = frozenset({
     "core",
+    "codex",
+    "domains",
     "labs",
-    "engines",
-    "atlas",
-    "interface",
-    "artifacts",
-    "runtime",
-    "substrates",
     "applications",
-    "datasets",
-    "governance",
-    "data",
-    "execution",
+    "docs",
 })
 
 ALLOWED_FILES: frozenset[str] = frozenset({

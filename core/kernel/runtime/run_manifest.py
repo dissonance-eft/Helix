@@ -1,9 +1,9 @@
 """
-Run Manifest — 03_engines/runtime/run_manifest.py
+Run Manifest — core/kernel/runtime/run_manifest.py
 
 Build, hash, and persist run manifests for probe execution tracking.
 Every probe run gets a unique run_id, dataset hash, probe code hash,
-probe version, and environment snapshot written to 07_artifacts/.
+probe version, and environment snapshot.
 """
 
 from __future__ import annotations

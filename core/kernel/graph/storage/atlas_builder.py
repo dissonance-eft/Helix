@@ -1,12 +1,12 @@
 """
-Atlas Builder — 03_engines/atlas/atlas_builder.py
+Atlas Builder — core/kernel/graph/storage/atlas_builder.py
 
-Scan all probe run artifacts and generate Atlas invariant entries in 06_atlas/.
+Scan all probe run artifacts and generate Atlas invariant entries in codex/atlas/.
 
-Reads:  07_artifacts/probes/<probe_name>/<run_id>/probe_result.json
-        07_artifacts/probes/<probe_name>/<run_id>/run_manifest.json
-Writes: 06_atlas/<probe_name>.json
-        06_atlas/index.json
+Reads:  artifacts/probes/<probe_name>/<run_id>/probe_result.json
+        artifacts/probes/<probe_name>/<run_id>/run_manifest.json
+Writes: codex/atlas/<probe_name>.json
+        codex/atlas/index.json
 """
 
 from __future__ import annotations
@@ -17,7 +17,7 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'helix.py').exists())
+ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'README.md').exists())
 
 
 # ---------------------------------------------------------------------------
@@ -82,7 +82,7 @@ def build_atlas_entry(
     """
     Build a single Atlas invariant entry from a list of probe run results.
     """
-    scoring = import_module("03_engines.atlas.confidence_scoring")
+    scoring = import_module("core.kernel.graph.storage.confidence_scoring")
     agg = scoring.aggregate_run_results(run_results)
     confidence = scoring.score_confidence(
         agg["observed_domains"], agg["pass_rate"], agg["mean_signal"]
@@ -130,15 +130,15 @@ def build_atlas(
     verbose: bool = True,
 ) -> dict[str, Path]:
     """
-    Scan all probe artifacts and write Atlas entries to 06_atlas/.
+    Scan all probe artifacts and write Atlas entries to codex/atlas/.
 
     Returns:
         dict mapping probe_name → atlas file path written.
     """
     if artifacts_root is None:
-        artifacts_root = ROOT / "07_artifacts"
+        artifacts_root = ROOT / "artifacts"
     if atlas_dir is None:
-        atlas_dir = ROOT / "06_atlas"
+        atlas_dir = ROOT / "codex" / "atlas"
 
     artifacts_root = Path(artifacts_root)
     atlas_dir = Path(atlas_dir)

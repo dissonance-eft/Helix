@@ -1,9 +1,9 @@
 """
-Probe Registry — 03_engines/orchestrator/probe_registry.py
+Probe Registry — core/kernel/dispatcher/probe_registry.py
 
-Discover and catalog probe instruments from 04_labs/probes/.
+Discover and catalog probe instruments from labs/probes/.
 
-Probes are Python scripts in 04_labs/probes/ that:
+Probes are Python scripts in labs/probes/ that:
   - Define a class inheriting from HelixProbe (from probe_interface.py)
   - Implement a standalone __main__ block for subprocess execution
   - Are named <probe_name>_probe.py or <probe_name>.py

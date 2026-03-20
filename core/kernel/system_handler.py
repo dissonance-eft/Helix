@@ -282,7 +282,7 @@ class SystemHandler:
             return {"status": "error", "message": "Target must be of format type_prefix:name"}
         
         try:
-            from core.hil.templates import instantiate_template
+            from core.hsl.templates import instantiate_template
             path = instantiate_template(type_prefix, name)
             return {"status": "ok", "message": f"Created {type_prefix} template at {path}"}
         except Exception as e:

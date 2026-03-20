@@ -1,1 +1,1 @@
-# 03_engines/substrate/__init__.py
+# core/kernel/substrate/__init__.py

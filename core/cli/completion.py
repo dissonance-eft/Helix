@@ -1,6 +1,6 @@
 from typing import List
-from core.hil.command_registry import list_verbs, get_spec
-from core.hil.ontology import OBJECT_TYPES
+from core.hsl.command_registry import list_verbs, get_spec
+from core.hsl.ontology import OBJECT_TYPES
 
 class HILCompleter:
     """Tab completion engine for HIL verbs, subcommands, and types."""

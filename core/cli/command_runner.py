@@ -2,8 +2,8 @@ from __future__ import annotations
 import sys
 import json
 from typing import Any, Dict
-from core.hil.interpreter import run_command
-from core.hil.context import CommandContext
+from core.hsl.interpreter import run_command
+from core.hsl.context import CommandContext
 
 class CommandRunner:
     """

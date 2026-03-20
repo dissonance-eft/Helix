@@ -7,23 +7,23 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from importlib import import_module
-hashing = import_module('03_engines.infra.hashing')
+hashing = import_module('core.kernel.infra.hashing')
 compute_sha256 = hashing.compute_sha256
 validate_artifact_integrity = hashing.validate_artifact_integrity
 
-root_guard = import_module('03_engines.infra.root_guard')
+root_guard = import_module('core.kernel.infra.root_guard')
 enforce_root_quarantine = root_guard.enforce_root_quarantine
 
-result = import_module('03_engines.infra.result')
+result = import_module('core.kernel.infra.result')
 Result = result.Result
 
-silent_drop = import_module('02_governance.no_silent_drop_scan')
+silent_drop = import_module('core.kernel.no_silent_drop_scan')
 scan_for_silent_drops = silent_drop.scan_for_silent_drops
 
-val_rings = import_module('02_governance.validate_rings')
+val_rings = import_module('core.kernel.validate_rings')
 validate_forge_imports = val_rings.validate_forge_imports
 
-schemas = import_module('02_governance.truth_layer.schemas')
+schemas = import_module('core.kernel.truth_layer.schemas')
 validate_schema = schemas.validate_schema
 
 
@@ -34,13 +34,13 @@ def write_artifact(run_id, relative_path, data, schema_type=None):
     if not run_id:
         raise Exception("MISSING_RUN_ID")
 
-    abs_path = (ROOT / '07_artifacts' / run_id / relative_path).resolve()
-    artifacts_dir = (ROOT / '07_artifacts').resolve()
+    artifacts_dir = (ROOT / 'artifacts').resolve()
+    abs_path = (artifacts_dir / run_id / relative_path).resolve()
     if not str(abs_path).startswith(str(artifacts_dir)):
         raise Exception("ILLEGAL_WRITE_OUTSIDE_ARTIFACTS")
 
     abs_path.parent.mkdir(parents=True, exist_ok=True)
-    manifest_path = ROOT / '07_artifacts' / run_id / 'run_manifest.json'
+    manifest_path = artifacts_dir / run_id / 'run_manifest.json'
     manifest = {}
     if manifest_path.exists():
         with open(manifest_path, 'r') as f:
@@ -61,7 +61,7 @@ def write_artifact(run_id, relative_path, data, schema_type=None):
 
 def cmd_verify():
     try:
-        val_arch = import_module('02_governance.validate_architecture')
+        val_arch = import_module('core.kernel.validate_architecture')
         val_arch.execute()
     except Exception as e:
         print(e)
@@ -69,21 +69,21 @@ def cmd_verify():
 
     moved = enforce_root_quarantine()
     if moved: print(f"Quarantined files: {moved}")
-    imp_violations = validate_forge_imports(ROOT / '04_labs')
+    imp_violations = validate_forge_imports(ROOT / 'labs')
     if imp_violations: return False
     # Exclude corpus/ — external repos are analysis subjects, not Helix code
-    # Silent drop violations in 04_labs research code are advisory-only (not a hard fail)
+    # Silent drop violations in labs research code are advisory-only (not a hard fail)
     sd_violations = {
-        k: v for k, v in scan_for_silent_drops(ROOT / '04_labs').items()
+        k: v for k, v in scan_for_silent_drops(ROOT / 'labs').items()
         if 'corpus' not in Path(k).parts
     }
     if sd_violations:
-        print(f"[ADVISORY] {len(sd_violations)} files with silent drops in 04_labs (research code — not blocking)")
+        print(f"[ADVISORY] {len(sd_violations)} files with silent drops in labs (research code — not blocking)")
     return True
 
 
 def cmd_audit(run_id):
-    manifest_path = ROOT / '07_artifacts' / run_id / 'run_manifest.json'
+    manifest_path = ROOT / 'artifacts' / run_id / 'run_manifest.json'
     if not manifest_path.exists(): return False
     return validate_artifact_integrity(manifest_path)
 
@@ -91,31 +91,31 @@ def cmd_audit(run_id):
 def cmd_run():
     print("Rebuilding atlas...")
     import shutil
-    atlas_dir = ROOT / '06_atlas'
+    atlas_dir = ROOT / 'codex' / 'atlas'
     if atlas_dir.exists():
         shutil.rmtree(atlas_dir)
     atlas_dir.mkdir(parents=True, exist_ok=True)
     (atlas_dir / "index.json").write_text('{"status": "rebuilt"}')
     print("Atlas rebuilt successfully.")
     from importlib import import_module
-    artifact_lifecycle = import_module('03_engines.infra.artifact_lifecycle')
+    artifact_lifecycle = import_module('core.kernel.infra.artifact_lifecycle')
     artifact_lifecycle.compact_all()
 
 
 def cmd_lock_kernel():
-    kernel_lock = import_module('03_engines.substrate.kernel_lock')
+    kernel_lock = import_module('core.kernel.substrate.kernel_lock')
     success = kernel_lock.lock_kernel(ROOT)
     sys.exit(0 if success else 1)
 
 
 def cmd_unlock_kernel():
-    kernel_lock = import_module('03_engines.substrate.kernel_lock')
+    kernel_lock = import_module('core.kernel.substrate.kernel_lock')
     success = kernel_lock.unlock_kernel(ROOT)
     sys.exit(0 if success else 1)
 
 
 def cmd_kernel_status():
-    kernel_lock = import_module('03_engines.substrate.kernel_lock')
+    kernel_lock = import_module('core.kernel.substrate.kernel_lock')
     status = kernel_lock.kernel_status(ROOT)
     print(json.dumps(status, indent=2))
     if status.get('locked'):
@@ -127,8 +127,8 @@ def cmd_kernel_status():
 
 
 def cmd_watchdog_start():
-    watchdog = import_module('03_engines.substrate.architecture_watchdog')
-    artifacts_root = ROOT / '07_artifacts'
+    watchdog = import_module('core.kernel.substrate.architecture_watchdog')
+    artifacts_root = ROOT / 'artifacts'
     print('[WATCHDOG] Starting architecture watchdog (blocking). Press Ctrl+C to stop.')
     try:
         watchdog.start_watchdog(ROOT, artifacts_root, background=False)
@@ -137,7 +137,7 @@ def cmd_watchdog_start():
 
 
 def cmd_probe_run(probe_name, lab_name=None):
-    probe_runner = import_module('03_engines.orchestrator.probe_runner')
+    probe_runner = import_module('core.kernel.dispatcher.probe_runner')
     lab = lab_name or 'games'
     try:
         summary = probe_runner.run_probe(probe_name, lab_name=lab, verbose=True)
@@ -152,10 +152,10 @@ def cmd_probe_run(probe_name, lab_name=None):
 
 
 def cmd_atlas_build():
-    atlas_builder = import_module('03_engines.atlas.atlas_builder')
+    atlas_builder = import_module('core.kernel.graph.storage.atlas_builder')
     written = atlas_builder.build_atlas(
-        artifacts_root=ROOT / '07_artifacts',
-        atlas_dir=ROOT / '06_atlas',
+        artifacts_root=ROOT / 'artifacts',
+        atlas_dir=ROOT / 'codex' / 'atlas',
         verbose=True,
     )
     print(f'\n[ATLAS] Built {len(written)} invariant entries.')
@@ -163,7 +163,7 @@ def cmd_atlas_build():
 
 
 def cmd_promote_invariant(invariant_name):
-    promotion_engine = import_module('03_engines.governance_bridge.promotion_engine')
+    promotion_engine = import_module('core.governance.promotion_engine')
     try:
         result = promotion_engine.promote_invariant(invariant_name, verbose=True)
         sys.exit(0 if result['passed'] else 1)
@@ -174,14 +174,14 @@ def cmd_promote_invariant(invariant_name):
 
 def cmd_probe_run_all(lab_name=None):
     """Run all discovered probes against a lab dataset, then rebuild Atlas once."""
-    probe_registry = import_module('03_engines.orchestrator.probe_registry')
-    probe_runner = import_module('03_engines.orchestrator.probe_runner')
+    probe_registry = import_module('core.kernel.dispatcher.probe_registry')
+    probe_runner = import_module('core.kernel.dispatcher.probe_runner')
 
-    probes_dir = ROOT / '04_labs' / 'probes'
+    probes_dir = ROOT / 'labs' / 'probes'
     registry = probe_registry.discover_probes(probes_dir)
 
     if not registry:
-        print('[PROBE_RUN_ALL] No probes found in 04_labs/probes/.')
+        print('[PROBE_RUN_ALL] No probes found in labs/probes/.')
         sys.exit(1)
 
     lab = lab_name or 'games'
@@ -209,10 +209,10 @@ def cmd_probe_run_all(lab_name=None):
 
     print('\n[PROBE_RUN_ALL] Rebuilding Atlas...')
     try:
-        atlas_builder = import_module('03_engines.atlas.atlas_builder')
+        atlas_builder = import_module('core.kernel.graph.storage.atlas_builder')
         atlas_builder.build_atlas(
-            artifacts_root=ROOT / '07_artifacts',
-            atlas_dir=ROOT / '06_atlas',
+            artifacts_root=ROOT / 'artifacts',
+            atlas_dir=ROOT / 'codex' / 'atlas',
             verbose=True,
         )
     except Exception as e:
@@ -229,7 +229,7 @@ def cmd_probe_run_all(lab_name=None):
 
 def cmd_reproduce(run_id):
     """Re-run a probe with the same dataset and compare results within tolerance."""
-    reproduce_mod = import_module('03_engines.runtime.reproduce_run')
+    reproduce_mod = import_module('core.kernel.runtime.reproduce_run')
     try:
         result = reproduce_mod.reproduce_run(run_id, verbose=True)
         status = 'REPRODUCIBLE' if result.get('reproducible') else 'NON_REPRODUCIBLE'
@@ -244,17 +244,17 @@ def cmd_reproduce(run_id):
 
 def cmd_cross_probe_analysis(lab_name=None, probe_filter=None):
     """Compare and correlate outputs across multiple probes and domains."""
-    analysis_mod = import_module('03_engines.analysis.cross_probe_analysis')
+    analysis_mod = import_module('core.analysis.cross_probe_analysis')
     probes = probe_filter.split(',') if probe_filter else None
 
     report = analysis_mod.run_cross_probe_analysis(
-        artifacts_root=ROOT / '07_artifacts',
+        artifacts_root=ROOT / 'artifacts',
         probe_filter=probes,
         lab_filter=lab_name,
         verbose=True,
     )
 
-    out_path = ROOT / '07_artifacts' / 'cross_probe_report.json'
+    out_path = ROOT / 'artifacts' / 'cross_probe_report.json'
     out_path.parent.mkdir(parents=True, exist_ok=True)
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(report, f, indent=2)
@@ -319,7 +319,7 @@ if __name__ == '__main__':
                 '  cross-probe-analysis [--lab <l>] [--probes p1,p2]  Compare outputs across probes\n'
                 '  atlas-build                               Scan artifacts and generate Atlas entries\n'
                 '  promote-invariant <name>                  Run promotion gate for an invariant\n'
-                '  lock-kernel                               Set chattr +i on 00_kernel/ (Linux/WSL2)\n'
+                '  lock-kernel                               Set chattr +i on kernel/ (Linux/WSL2)\n'
                 '  unlock-kernel                             Remove chattr +i (requires HELIX_KERNEL_UNLOCK=1)\n'
                 '  kernel-status                             Report current kernel lock state\n'
                 '  watchdog-start                            Start architecture watchdog (blocking)\n'

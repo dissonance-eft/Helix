@@ -1,4 +1,0 @@
-digraph "stylistic_similarity" {
-  rankdir=LR;
-  node [shape=box fontname=Helvetica];
-}

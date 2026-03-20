@@ -1,4 +1,0 @@
-.SUFFIXES	:	.s .src
-.SHELLCMD	:	ECHO ECHO/ DEL
-
-

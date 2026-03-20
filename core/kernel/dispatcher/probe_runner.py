@@ -1,5 +1,5 @@
 """
-Probe Runner — 03_engines/orchestrator/probe_runner.py
+Probe Runner — core/kernel/dispatcher/probe_runner.py
 
 Orchestrate a single probe run end-to-end:
   1. Discover probe script via probe_registry
@@ -20,7 +20,7 @@ from pathlib import Path
 from typing import Any
 
 
-ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'helix.py').exists())
+ROOT = next(p for p in Path(__file__).resolve().parents if (p / 'helix').exists() or (p / 'README.md').exists())
 
 
 # ---------------------------------------------------------------------------
@@ -32,13 +32,13 @@ def _load_lab_dataset(probe_name: str, lab_name: str) -> tuple[dict, Path]:
     Load dataset for a probe in a lab.
 
     Resolution order:
-      1. 04_labs/<lab_name>/<probe_name>_dataset.json  (probe-specific)
-      2. First .json file alphabetically in 04_labs/<lab_name>/
+      1. labs/datasets/<lab_name>/<probe_name>_dataset.json  (probe-specific)
+      2. First .json file alphabetically in labs/datasets/<lab_name>/
 
     Returns (dataset_dict, dataset_path).
     Raises FileNotFoundError if no dataset found.
     """
-    lab_dir = ROOT / "04_labs" / lab_name
+    lab_dir = ROOT / "labs" / "datasets" / lab_name
     if not lab_dir.exists():
         raise FileNotFoundError(f"Lab directory not found: {lab_dir}")
 
@@ -78,7 +78,7 @@ def run_probe(
     Args:
         probe_name:         Name of the probe (e.g. 'decision_compression').
         lab_name:           Lab to source the dataset from (e.g. 'games').
-        artifacts_root:     Root for artifact output (default: ROOT/07_artifacts).
+        artifacts_root:     Root for artifact output (default: ROOT/artifacts).
         timeout:            Max probe subprocess execution time in seconds.
         verbose:            Print progress messages.
         auto_rebuild_atlas: If True, rebuild Atlas after artifact bundle write.
@@ -88,17 +88,17 @@ def run_probe(
         artifact_dir, artifacts_present, and probe metadata.
     """
     if artifacts_root is None:
-        artifacts_root = ROOT / "07_artifacts"
+        artifacts_root = ROOT / "artifacts"
     artifacts_root = Path(artifacts_root)
 
     # --- Load probe modules ---
-    probe_registry = import_module("03_engines.orchestrator.probe_registry")
-    run_manifest_mod = import_module("03_engines.runtime.run_manifest")
-    sandbox = import_module("03_engines.substrate.sandbox_runner")
-    artifact_lock = import_module("03_engines.runtime_hooks.artifact_lock")
+    probe_registry = import_module("core.kernel.dispatcher.probe_registry")
+    run_manifest_mod = import_module("core.kernel.runtime.run_manifest")
+    sandbox = import_module("core.kernel.substrate.sandbox_runner")
+    artifact_lock = import_module("core.kernel.runtime.artifact_lock")
 
     # --- Discover probe ---
-    probes_dir = ROOT / "04_labs" / "probes"
+    probes_dir = ROOT / "labs" / "probes"
     record = probe_registry.get_probe(probe_name, probes_dir)
     if record is None:
         raise ValueError(
@@ -183,10 +183,10 @@ def run_probe(
     # --- Auto-rebuild Atlas ---
     if auto_rebuild_atlas:
         try:
-            atlas_builder = import_module("03_engines.atlas.atlas_builder")
+            atlas_builder = import_module("core.kernel.graph.storage.atlas_builder")
             atlas_builder.build_atlas(
                 artifacts_root=artifacts_root,
-                atlas_dir=ROOT / "06_atlas",
+                atlas_dir=ROOT / "codex" / "atlas",
                 verbose=False,
             )
         except Exception as e:

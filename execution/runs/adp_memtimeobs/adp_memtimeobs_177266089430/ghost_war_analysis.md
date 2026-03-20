@@ -1,1 +1,0 @@
-PSF entirely dictates survival. Seed amplitude is effectively statistical noise; boundary geometric efficiency (PSF) consumed 89% of winners.

@@ -2,12 +2,15 @@ import os
 import json
 from pathlib import Path
 
+ROOT = Path(__file__).resolve().parent.parent.parent
+
 class PatternStore:
     """
     Manages the storage and retrieval of discovered invariants in Atlas.
+    All writes go through codex/atlas/invariants/.
     """
     
-    INVARIANTS_DIR = Path("06_atlas/invariants") if os.path.exists("06_atlas") else Path("atlas/invariants")
+    INVARIANTS_DIR = ROOT / "codex" / "atlas" / "invariants"
 
     @classmethod
     def save_invariant(cls, name: str, data: dict):

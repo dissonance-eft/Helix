@@ -1,5 +1,5 @@
 """
-Artifact Lock — 03_engines/runtime_hooks/artifact_lock.py
+Artifact Lock — core/kernel/runtime/artifact_lock.py
 
 Lock a probe run artifact directory as immutable using chattr +i (Linux/WSL2).
 On Windows, warns and returns False — no enforcement applied.

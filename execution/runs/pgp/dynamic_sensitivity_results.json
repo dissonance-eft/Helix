@@ -1,6 +1,0 @@
-{
-    "SRD_uplift_scales_with_nonlinearity": false,
-    "FHO_outperforms_under_latency": false,
-    "Centrality_degrades": false,
-    "LOG": "STATIC_EXPOSURE_ONLY"
-}

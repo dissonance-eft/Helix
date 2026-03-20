@@ -13,19 +13,14 @@ ROOT_WHITELIST = {
     '.git',
     '.gitignore',
     '.agents',
-    'HELIX.md',
-    'OPERATOR.md',
-    'REBUILD_CHECKPOINT.md',
-    'operator.json',
-    'helix.py',
-    '00_kernel',
-    '01_basis',
-    '02_governance',
-    '03_engines',
-    '04_labs',
-    '05_applications',
-    '06_atlas',
-    '07_artifacts',
+    '.claude',
+    'README.md',
+    'helix',
+    'core',
+    'codex',
+    'domains',
+    'labs',
+    'applications',
     'docs',
 }
 
@@ -41,12 +36,11 @@ def get_git_commit():
 def scan_root(strict_mode=False):
     """
     Scans the Helix repository root for non-whitelisted items.
-    Moves violations to 06_artifacts/quarantine/ and logs them in root_drift_log.json.
+    Moves violations to runtime/quarantine/ and logs them in root_drift_log.json.
     If strict_mode is True, aborts execution via SystemExit if violations are found.
     """
-    artifacts_dir = ROOT / '07_artifacts' / 'artifacts'
-    quarantine_dir = artifacts_dir / 'quarantine'
-    drift_log_path = artifacts_dir / 'root_drift_log.json'
+    quarantine_dir = ROOT / 'runtime' / 'quarantine'
+    drift_log_path = ROOT / 'runtime' / 'root_drift_log.json'
     
     violations = []
     

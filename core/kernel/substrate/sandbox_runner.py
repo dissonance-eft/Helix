@@ -1,5 +1,5 @@
 """
-Sandbox Runner — 03_engines/substrate/sandbox_runner.py
+Sandbox Runner — core/kernel/substrate/sandbox_runner.py
 
 Execute probe scripts as isolated subprocesses with environment injection.
 No network, writes restricted to HELIX_ARTIFACT_DIR via env var.

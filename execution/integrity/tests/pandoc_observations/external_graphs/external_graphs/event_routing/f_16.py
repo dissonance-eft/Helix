@@ -1,6 +1,0 @@
-import f_19
-def run():
-    print('test')
-    assert True
-
-

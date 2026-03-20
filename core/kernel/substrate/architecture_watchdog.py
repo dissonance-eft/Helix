@@ -1,5 +1,5 @@
 """
-Architecture Watchdog — 03_engines/substrate/architecture_watchdog.py
+Architecture Watchdog — core/kernel/substrate/architecture_watchdog.py
 
 Polls architecture integrity at a fixed interval and logs violations.
 Runs blocking (foreground) or can be called from a background thread.
@@ -21,8 +21,8 @@ def _run_check(root: Path, artifacts_root: Path) -> list[str]:
 
     # Check required layers exist
     required = [
-        "00_kernel", "01_basis", "02_governance", "03_engines",
-        "04_labs", "05_applications", "06_atlas", "07_artifacts",
+        "core", "codex", "domains", "labs",
+        "applications", "docs",
     ]
     for layer in required:
         if not (root / layer).exists():
@@ -30,12 +30,11 @@ def _run_check(root: Path, artifacts_root: Path) -> list[str]:
 
     # Check no unauthorized root items
     allowed = {
-        ".git", ".gitignore", ".agents",
-        "HELIX.md", "OPERATOR.md", "REBUILD_CHECKPOINT.md", "operator.json",
-        "helix.py",
-        "00_kernel", "01_basis", "02_governance", "03_engines",
-        "04_labs", "05_applications", "06_atlas", "07_artifacts",
-        "docs", "__pycache__",
+        ".git", ".gitignore", ".agents", ".claude",
+        "README.md", "helix",
+        "core", "codex", "domains", "labs",
+        "applications", "docs",
+        "__pycache__",
     }
     for item in root.iterdir():
         if item.name not in allowed:
@@ -55,7 +54,7 @@ def start_watchdog(
 
     Args:
         root:           Repo root path.
-        artifacts_root: Path to 07_artifacts/ for logging violations.
+        artifacts_root: Path for logging violations.
         background:     If True, return immediately (caller manages threading).
         poll_interval:  Seconds between checks.
     """

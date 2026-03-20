@@ -53,12 +53,12 @@ class OperatorRegistry:
 
     def require(self, name: str) -> OperatorSpec:
         """
-        Return OperatorSpec by name, or raise HILValidationError if not found.
+        Return OperatorSpec by name, or raise HSLValidationError if not found.
         Used by interpreter._exec_run() to enforce closed-world assumption.
         """
         spec = self.get(name)
         if spec is None:
-            from core.hil.errors import HSLValidationError
+            from core.hsl.errors import HSLValidationError
             raise HSLValidationError(
                 f"Unknown operator {name!r}. "
                 f"Registered operators: {', '.join(sorted(self._operators))}",

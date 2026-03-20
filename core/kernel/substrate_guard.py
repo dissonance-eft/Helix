@@ -7,14 +7,14 @@ ROOT = Path(__file__).resolve().parent.parent.parent
 
 def check_substrate(strict_mode=False):
     """
-    Ensures that experimental layers (03_forge, 04_workspaces) 
-    do not write back into the immutable substrate (00_core, 01_protocol, 02_runtime).
+    Ensures that experimental layers (labs/) 
+    do not write back into the immutable substrate (core/kernel, core/compiler, core/governance).
     """
-    artifacts_dir = ROOT / '07_artifacts' / 'artifacts'
-    log_path = artifacts_dir / 'substrate_violation_log.json'
+    violation_log_dir = ROOT / 'runtime'
+    log_path = violation_log_dir / 'substrate_violation_log.json'
     
-    immutable_dirs = ['00_kernel', '02_governance', '03_engines']
-    test_dirs = ['04_labs', '04_labs']
+    immutable_dirs = ['core/kernel', 'core/governance', 'core/compiler']
+    test_dirs = ['labs']
     
     violations = []
     
@@ -50,7 +50,7 @@ def check_substrate(strict_mode=False):
                     
     if violations:
         print("[SUBSTRATE GUARD] Detected illegal upward write vectors!")
-        artifacts_dir.mkdir(parents=True, exist_ok=True)
+        violation_log_dir.mkdir(parents=True, exist_ok=True)
         # load existing logs if any
         log_entries = []
         if log_path.exists():

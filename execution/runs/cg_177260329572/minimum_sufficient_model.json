@@ -1,3 +1,0 @@
-{
-    "structural_predictor": "IF (centralized_decision == True OR competition_type == winner_take_all) THEN FUNNEL ELSE IF (competition_type == symmetry_break) THEN HYBRID ELSE FIELD"
-}
