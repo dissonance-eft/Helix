@@ -11,7 +11,10 @@ try:
     MUTAGEN_AVAILABLE = True
 except ImportError:
     MUTAGEN_AVAILABLE = False
-from substrates.music.ingestion.normalization.track_identity import TrackIdentity, SourceRecord
+try:
+    from domains.music.ingestion.normalization.track_identity import TrackIdentity, SourceRecord
+except ImportError:
+    from domains.music.ingestion.track_identity import TrackIdentity, SourceRecord
 
 COMMON_AUDIO_EXTENSIONS = {'.mp3', '.flac', '.opus', '.aac', '.wav', '.ogg'}
 EMULATED_EXTENSIONS = {

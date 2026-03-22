@@ -33,12 +33,12 @@ from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from typing import Any
 
-from substrates.music.vgm_parser import VGMTrack, VGMEvent
+from domains.music.parsing.vgm_parser import VGMTrack, VGMEvent
 
 # Symbolic reconstruction (optional — imported lazily to avoid circular deps)
 try:
-    from substrates.music.analysis.symbolic_music.vgm_note_reconstructor import reconstruct as _symbolic_reconstruct
-    from substrates.music.analysis.symbolic_music.score_representation import SymbolicScore
+    from domains.music.parsing.vgm_note_reconstructor import reconstruct as _symbolic_reconstruct
+    from domains.music.parsing.score_representation import SymbolicScore
     _SYMBOLIC_AVAILABLE = True
 except ImportError:
     _SYMBOLIC_AVAILABLE = False
@@ -132,6 +132,11 @@ class TrackFeatures:
     symbolic_pitch_range:   int   = 0
     symbolic_avg_duration:  float = 0.0
     symbolic_score:         object = None   # SymbolicScore | None
+
+    # Loop point features
+    loop_event_index:       int   = -1    # index in events list where is_loop first becomes True
+    loop_point_s:           float = 0.0   # loop point in seconds (from header)
+    has_loop:               bool  = False
 
 
 # ---------------------------------------------------------------------------

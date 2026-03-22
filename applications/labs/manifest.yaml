@@ -1,0 +1,42 @@
+manifest_schema: manifest_schema_v1
+application: labs
+version: "1.0"
+status: active
+
+purpose: >
+  Exploratory experiments and datasets. Labs are upstream of canonical domains —
+  they generate data and run experiments whose verified findings graduate into
+  domain invariant candidates. Labs may not write to Atlas directly.
+
+relationship_to_helix: >
+  Downstream-from-library, upstream-of-domains. Labs consume raw data and
+  produce experimental results. They do not define canonical structure.
+  Substrate guard prevents labs from importing core.kernel or core.governance directly.
+
+docs:
+  readme: null  # no README present
+  spec: null    # no SPEC present
+
+entry_point:
+  current: "applications/labs/ (scripts and experiment dirs directly)"
+  hsl_implemented: false
+
+structure:
+  datasets: applications/labs/datasets/
+  experiments: applications/labs/experiments/
+  legacy_experiments: applications/labs/legacy_experiments/
+  outputs: applications/labs/outputs/   # generated analysis artifacts — not committed to git
+
+required_domains: []  # labs are pre-domain; they feed into domains
+required_core:
+  - core/kernel/substrate_guard.py  # enforces boundary
+
+implementation_maturity: active
+notes: >
+  Contains music VGM analysis scripts, experiment outputs, and legacy experiments.
+  Most active application in terms of data generation.
+
+known_gaps:
+  - No README or SPEC
+  - No formal manifest of which experiments are canonical vs exploratory
+  - vgm_note_extractor.py lives at labs root — should be under a subdirectory

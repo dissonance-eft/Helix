@@ -1,4 +1,4 @@
-# Helix Atlas
+﻿# Helix Atlas
 
 *Last updated: 2026-03-18*
 
@@ -70,7 +70,7 @@ Not yet populated. Will be filled when the music library is reparsed. Entity fil
 
 ## Embeddings
 
-CCS (Cognitive Coordinate System) structural embeddings. 6-axis characterization of music entities derived from observable features. Schema: `core/models/ccs/schema/ccs_schema.json`.
+CCS (Cognitive Coordinate System) structural embeddings. 6-axis characterization of music entities derived from observable features. Schema: `core/models/substrate/schema/substrate_schema.json`.
 
 ### Track Embeddings (`embeddings/music/tracks/`)
 
@@ -125,3 +125,4 @@ Raw Data → Feature Extraction → Artifact (data/processed/ or execution/runs/
 ```
 
 Artifacts are disposable and recomputable. Atlas entities are resolved and reusable. Do not treat Atlas entities as artifacts.
+

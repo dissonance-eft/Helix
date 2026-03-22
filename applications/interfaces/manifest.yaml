@@ -1,0 +1,39 @@
+manifest_schema: manifest_schema_v1
+application: interfaces
+version: "1.0"
+status: active
+
+purpose: >
+  External interface tooling. Currently contains the RRS (Rapid Research Shell)
+  tool, which provides an interactive interface into the Helix research workflow.
+
+relationship_to_helix: >
+  Downstream consumer of core. Interfaces dispatch to Helix components via
+  sanctioned paths (HSL or operator layer). Must not bypass the compiler gate.
+
+docs:
+  readme: null  # no top-level README present for interfaces/
+  spec: null
+
+entry_point:
+  current: "applications/interfaces/rrs/rrs_tool/rrs.py"
+  hsl_implemented: unknown
+
+structure:
+  rrs_tool: applications/interfaces/rrs/rrs_tool/rrs.py
+
+required_domains: []  # interfaces are domain-agnostic
+required_core:
+  - core/hsl/  # target entry point
+  - core/operators/
+
+implementation_maturity: active
+notes: >
+  rrs.py is a substantive implementation (20KB). No README or SPEC exists
+  for the interfaces application or for the RRS tool specifically.
+
+known_gaps:
+  - No README for interfaces/ or rrs/
+  - No SPEC documenting RRS command interface or authority
+  - No manifest for RRS tool itself
+  - HSL integration status of RRS unknown

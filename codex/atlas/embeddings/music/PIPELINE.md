@@ -1,8 +1,8 @@
-# CCS Embedding Pipeline — Music Domain
+﻿# CCS Embedding Pipeline — Music Domain
 
-**Schema**: `core/models/ccs/schema/ccs_schema.json`
-**Spec**: `core/models/ccs/SPEC.md`
-**Validation**: `core/models/ccs/tests/validation_protocol.md`
+**Schema**: `core/models/substrate/schema/substrate_schema.json`
+**Spec**: `core/models/substrate/SPEC.md`
+**Validation**: `core/models/substrate/tests/validation_protocol.md`
 
 ---
 
@@ -45,7 +45,7 @@ All signals extracted must be named and stored in `evidence.signals`. Unextracte
 
 ## Stage 2 — CCS Axis Computation
 
-Apply the formulas defined in `core/models/ccs/SPEC.md` Section 2. Rules:
+Apply the formulas defined in `core/models/substrate/SPEC.md` Section 2. Rules:
 
 - Use only signals extracted in Stage 1
 - Apply domain normalization against the current corpus baseline
@@ -75,7 +75,7 @@ Populate the `evidence` block:
 
 ## Stage 4 — Schema Validation
 
-Validate the assembled embedding against `core/models/ccs/schema/ccs_schema.json`.
+Validate the assembled embedding against `core/models/substrate/schema/substrate_schema.json`.
 
 - All 6 axes present and in [0.0, 1.0] → proceed
 - Missing or out-of-range axis → reject, do not write to atlas
@@ -148,3 +148,4 @@ When the music library is reparsed:
 ## Invariant
 
 Same input → same embedding. If reparse produces different values for the same underlying VGM/tag data, the discrepancy is a pipeline bug, not expected behavior.
+

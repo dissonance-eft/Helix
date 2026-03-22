@@ -1,11 +1,10 @@
 """
-substrates.music.ingest — Library ingestion and metadata normalization.
+domains.music.ingestion — Library ingestion and metadata normalization.
 
 Stages:
-  1  library_ingestion      — scan filesystem, ingest track records into DB
-  2  metadata_normalization — chip register parse + APEv2/.tag sidecar processing
+  1  library_scanner      — scan filesystem, ingest track records
+  2  metadata_normalizer  — chip register parse + sidecar processing
+  3  adapters/            — source-specific adapters (Spotify, VGM, etc.)
 """
-from .library_scanner    import run as scan
-from .metadata_normalizer import run as normalize
 
-__all__ = ["scan", "normalize"]
+__all__ = ["library_scanner", "metadata_normalizer", "adapters"]

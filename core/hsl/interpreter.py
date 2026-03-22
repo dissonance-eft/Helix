@@ -548,7 +548,164 @@ class HSLInterpreter:
     # ── ANALYZE ───────────────────────────────────────────────────────────────
 
     def _exec_analyze(self, cmd: HSLCommand) -> dict:
-        return self._unsupported(cmd)
+        """
+        ANALYZE TRACK track:<id>
+        ANALYZE COMPOSER composer:<id>   (runs on all confirmed tracks for that composer)
+
+        Resolves source_artifact from library JSON, runs codec_pipeline.analyze(),
+        writes result to artifacts/analysis/<entity_id>.json.
+        """
+        import json as _json
+        from pathlib import Path as _Path
+
+        sub = (cmd.subcommand or "").upper()
+        target = cmd.primary_target()
+
+        # Parser stores 'track:some.id' as params, not as typed targets.
+        # Resolve from either source.
+        entity_id     = None
+        entity_prefix = None
+        if target is not None:
+            entity_id     = target.entity_id()
+            entity_prefix = getattr(target, "prefix", "").lower()
+        else:
+            for key in ("track", "composer", "music"):
+                if key in cmd.params:
+                    val           = cmd.params[key]
+                    entity_id     = f"{key}:{val}" if not val.startswith(key) else val
+                    entity_prefix = key
+                    break
+
+        if entity_id is None:
+            return self._error(cmd, "ANALYZE requires a target: ANALYZE TRACK track:<id>  or  ANALYZE COMPOSER composer:<id>")
+
+        # ── resolve file path from library ────────────────────────────────
+        def _find_source(entity_id: str) -> str | None:
+            """Resolve source_artifact path from entity graph or library JSON."""
+            # entity_id may be 'track:music.track.sonic_3_knuckles.mushroom_hill_zone_act_1'
+            # Graph stores nodes as 'music.track:mushroom_hill_zone_act_1'
+            # Extract the track slug (last dot-separated segment after the album prefix)
+            slug = entity_id.split(":")[-1]          # e.g. music.track.sonic_3_knuckles.mushroom_hill_zone_act_1
+            slug = slug.split(".")[-1]               # e.g. mushroom_hill_zone_act_1
+
+            # 1. Check entity graph first (fastest)
+            graph_path = _Path(__file__).resolve().parent.parent.parent / "codex" / "atlas" / "index" / "entity_graph.json"
+            if graph_path.exists():
+                try:
+                    graph = _json.loads(graph_path.read_text(encoding="utf-8"))
+                    for node in graph.get("nodes", []):
+                        node_id = node.get("id", "")
+                        # Match on slug: 'music.track:mushroom_hill_zone_act_1'
+                        if slug in node_id and node.get("type", "").upper() == "TRACK":
+                            sa = node.get("source") or node.get("metadata", {}).get("source")
+                            if sa:
+                                return sa
+                except Exception:
+                    pass
+
+            # 2. Fallback: walk library JSONs
+            lib = _Path(__file__).resolve().parent.parent.parent / "codex" / "library" / "music" / "album"
+            # Strip hash suffix from slug (e.g. marble_garden_zone_act_1_9c02b -> marble_garden_zone_act_1)
+            import re as _re
+            slug_clean = _re.sub(r'_[0-9a-f]{5,}$', '', slug)
+            for jf in lib.rglob("*.json"):
+                if jf.name == "album.json":
+                    continue
+                stem = jf.stem.lstrip('0123456789').lstrip('_')  # strip leading track number
+                if slug_clean not in stem and slug not in jf.stem:
+                    continue
+                try:
+                    obj  = _json.loads(jf.read_text(encoding="utf-8", errors="replace"))
+                    meta = obj.get("metadata", {})
+                    src  = meta.get("source") or obj.get("source")
+                    if src:
+                        return src
+                except Exception:
+                    pass
+            return None
+
+
+        def _run_single(entity_id: str, file_path: str) -> dict:
+            from domains.music.analysis.codec_pipeline import analyze
+            result = analyze(file_path)
+            result_dict = result.to_dict() if hasattr(result, "to_dict") else vars(result)
+
+            # Enrich with library metadata for fingerprinting
+            lib = _Path(__file__).resolve().parent.parent.parent / "codex" / "library" / "music" / "album"
+            import re as _re
+            slug = entity_id.split(":")[-1].split(".")[-1]
+            slug_clean = _re.sub(r'_[0-9a-f]{5,}$', '', slug)
+            lib_meta = {}
+            for jf in lib.rglob("*.json"):
+                if jf.name == "album.json": continue
+                stem = jf.stem.lstrip('0123456789').lstrip('_')
+                if slug_clean in stem or slug in jf.stem:
+                    try:
+                        obj  = _json.loads(jf.read_text(encoding="utf-8", errors="replace"))
+                        meta = obj.get("metadata", {})
+                        lib_meta = {
+                            "library_artist": meta.get("artist", ""),
+                            "library_title":  meta.get("title",  ""),
+                            "library_game":   meta.get("album",  ""),
+                        }
+                        break
+                    except Exception:
+                        pass
+            result_dict.update(lib_meta)
+
+            # Write artifact
+            artifacts_dir = _Path(__file__).resolve().parent.parent.parent / "artifacts" / "analysis"
+            artifacts_dir.mkdir(parents=True, exist_ok=True)
+            slug_file = entity_id.replace(":", "_").replace(".", "_")
+            out  = artifacts_dir / f"{slug_file}.json"
+            out.write_text(_json.dumps({"entity_id": entity_id, "source": file_path, "analysis": result_dict}, indent=2, default=str), encoding="utf-8")
+            return {"entity_id": entity_id, "source": file_path, "artifact": str(out), "analysis": result_dict}
+
+        # ── TRACK mode ────────────────────────────────────────────────────
+        if sub in ("TRACK", "") and entity_prefix in ("track", "music"):
+            src = _find_source(entity_id)
+            if not src:
+                return self._error(cmd, f"Could not resolve source_artifact for {entity_id}. Ensure the track is indexed in the library.")
+            if not _Path(src).exists():
+                return self._error(cmd, f"source_artifact file not found on disk: {src}")
+            try:
+                result = _run_single(entity_id, src)
+                return self._ok(cmd, result)
+            except Exception as e:
+                return self._error(cmd, f"Analysis failed for {entity_id}: {e}")
+
+        # ── COMPOSER mode — run on all confirmed tracks ───────────────────
+        if sub == "COMPOSER" or entity_prefix == "composer":
+            composer_name = entity_id.split(":")[-1].replace("_", " ").title()
+            lib = _Path(__file__).resolve().parent.parent.parent / "codex" / "library" / "music" / "album"
+            results = []
+            errors  = []
+            for jf in sorted(lib.rglob("*.json")):
+                if jf.name == "album.json":
+                    continue
+                try:
+                    obj  = _json.loads(jf.read_text(encoding="utf-8", errors="replace"))
+                    meta = obj.get("metadata", {})
+                    artist = meta.get("artist", "")
+                    if composer_name.lower() not in artist.lower():
+                        continue
+                    src = meta.get("source") or obj.get("source")
+                    if not src or not _Path(src).exists():
+                        continue
+                    r = _run_single(obj.get("id", jf.stem), src)
+                    results.append(r)
+                except Exception as ex:
+                    errors.append(str(ex))
+            if not results and not errors:
+                return self._error(cmd, f"No confirmed tracks found in library for composer: {composer_name}")
+            return self._ok(cmd, {
+                "composer":  composer_name,
+                "analyzed":  len(results),
+                "errors":    errors,
+                "tracks":    [r["entity_id"] for r in results],
+            })
+
+        return self._error(cmd, f"ANALYZE {sub!r} not recognised. Use: ANALYZE TRACK track:<id>  or  ANALYZE COMPOSER composer:<id>")
 
     # ── OPERATOR ──────────────────────────────────────────────────────────────
 

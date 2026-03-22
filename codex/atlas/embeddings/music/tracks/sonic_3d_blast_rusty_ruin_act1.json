@@ -1,13 +1,12 @@
 {
   "entity_id": "music.track:sonic_3d_blast_rusty_ruin_act1",
-  "ccs_version": "1.0.0",
-  "ccs_embedding": {
+  "substrate_version": "2.0.0",
+  "substrate": {
+    "possibility_space": 0.71,
+    "constraint": 0.65,
     "attractor_stability": 0.82,
-    "generative_constraint": 0.65,
-    "recurrence_depth": 0.63,
-    "structural_density": 0.76,
-    "control_entropy": 0.71,
-    "basin_permeability": 0.27
+    "basin_permeability": 0.27,
+    "recurrence_depth": 0.63
   },
   "evidence": {
     "signals": [
@@ -26,19 +25,19 @@
       {
         "name": "scale_adherence_ratio",
         "value": 0.79,
-        "axis": "generative_constraint",
+        "axis": "constraint",
         "unit": "ratio"
       },
       {
         "name": "rhythmic_quantization_error",
         "value": 0.11,
-        "axis": "generative_constraint",
+        "axis": "constraint",
         "unit": "ratio"
       },
       {
         "name": "harmonic_vocab_size_normalized",
         "value": 0.31,
-        "axis": "generative_constraint",
+        "axis": "constraint",
         "unit": "ratio"
       },
       {
@@ -50,37 +49,37 @@
       {
         "name": "note_density",
         "value": 9.4,
-        "axis": "structural_density",
+        "axis": "possibility_space",
         "unit": "events/second"
       },
       {
         "name": "harmonic_rhythm_rate",
         "value": 0.71,
-        "axis": "structural_density",
+        "axis": "possibility_space",
         "unit": "chord_changes/bar_normalized"
       },
       {
         "name": "timbre_change_rate",
         "value": 0.58,
-        "axis": "structural_density",
+        "axis": "possibility_space",
         "unit": "events/second_normalized"
       },
       {
         "name": "pitch_class_entropy",
         "value": 0.74,
-        "axis": "control_entropy",
+        "axis": "possibility_space",
         "unit": "bits_normalized"
       },
       {
         "name": "dynamic_entropy",
         "value": 0.65,
-        "axis": "control_entropy",
+        "axis": "constraint",
         "unit": "bits_normalized"
       },
       {
         "name": "articulation_entropy",
         "value": 0.73,
-        "axis": "control_entropy",
+        "axis": "constraint",
         "unit": "bits_normalized"
       },
       {
@@ -112,5 +111,5 @@
   },
   "confidence": 0.71,
   "computed_at": "2026-03-18T00:00:00Z",
-  "source_version": "analysis_v1"
+  "source_version": "analysis_v2"
 }

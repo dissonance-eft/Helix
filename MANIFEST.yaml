@@ -1,0 +1,232 @@
+# MANIFEST.yaml
+# =============================================================================
+# Machine-readable operational index of the Helix repository.
+#
+# AUTHORITY RULES:
+#   README.md  = human-readable operational description
+#   SPEC.md    = formal domain / system definition
+#   This file  = machine-readable structural index + runtime truth summary
+#
+# This manifest describes what currently exists and where authority lives.
+# It is NOT the source of system truth. When this file and a prose doc disagree,
+# the prose doc (README/SPEC) is authoritative for design intent;
+# this manifest is authoritative for structural facts (paths, status, references).
+#
+# Schema version: manifest_schema_v1
+# Validator: core/governance/validation/manifest_validator.py
+# =============================================================================
+
+manifest_schema: manifest_schema_v1
+system: helix
+version: "2.2"
+status: active  # active | deprecated | experimental
+
+description: >
+  Helix is a structural research system for discovering and validating invariants
+  across heterogeneous domains. It enforces a single write path through a compiler-
+  gated Atlas, with domain-specific pipelines feeding into a shared cross-domain
+  embedding format.
+
+docs:
+  readme: README.md
+  docs_root: docs/
+  docs_manifest: docs/manifest.yaml
+  docs_index: docs/README.md
+  # Scoped subtrees
+  architecture:
+    index: docs/architecture/
+    architecture: docs/architecture/ARCHITECTURE.md
+    pipeline: docs/architecture/PIPELINE.md
+    spec: docs/architecture/SPEC.md
+    entity_schema: docs/architecture/ENTITY_SCHEMA.md
+    operator_spec: docs/architecture/OPERATOR_SPEC.md
+    hsl: docs/architecture/HSL.md
+  governance:
+    index: docs/governance/
+    governance: docs/governance/GOVERNANCE.md
+    manifest_authority: docs/governance/MANIFEST_AUTHORITY.md
+  invariants:
+    index: docs/invariants/
+    invariants_index: docs/invariants/INVARIANTS.md
+    decision_compression: docs/invariants/decision_compression_principle.md
+  research:
+    index: docs/research/
+    dcp_open_questions: docs/research/dcp_trajectory_open_questions.md
+  profiles:
+    index: docs/profiles/
+    dissonance: docs/profiles/DISSONANCE.md
+  core:
+    enforcement: core/enforcement/ENFORCEMENT.md
+
+# Canonical architecture layers — in pipeline order
+layers:
+  - name: hsl
+    path: core/hsl/
+    role: entry_point
+    description: Sole legal entry point for all system execution
+
+  - name: normalization
+    path: core/normalization/
+    role: preprocessing
+    description: ID format and schema unification
+
+  - name: semantics
+    path: core/semantics/
+    role: preprocessing
+    description: Entity type and property resolution
+
+  - name: operators
+    path: core/operators/
+    role: orchestration
+    description: Nine core operators; orchestrate but do not execute domain work
+
+  - name: adapters
+    path: core/adapters/
+    role: translation
+    description: Domain-to-canonical translation layer
+
+  - name: compiler
+    path: core/compiler/
+    role: persistence_gate
+    description: Sole Atlas write authority; atlas_compiler.py is the enforcement point
+
+  - name: enforcement
+    path: core/enforcement/
+    role: runtime_guard
+    description: Persistence gate, shadow audit, failure states
+
+  - name: governance
+    path: core/governance/
+    role: validation
+    description: Atlas promotion criteria, audit, boundary enforcement
+
+  - name: kernel
+    path: core/kernel/
+    role: runtime
+    description: Dispatcher, substrate guards, ring import validation
+
+  - name: integrity
+    path: core/integrity/
+    role: structural_enforcement
+    description: Root structure enforcement, architecture watchdog
+
+# Canonical data stores
+stores:
+  library:
+    path: codex/library/
+    description: Reference storage — read-only input side of Atlas
+  atlas:
+    path: codex/atlas/
+    description: Research memory — write side; compiler-gated only
+
+# Canonical domains
+domains:
+  - name: math
+    path: domains/math/
+    manifest: domains/math/manifest.yaml
+    status: partial  # implemented | partial | stub | not_started
+    runtime_maturity: partial
+    fixture_present: true
+
+  - name: music
+    path: domains/music/
+    manifest: domains/music/manifest.yaml
+    status: implemented
+    runtime_maturity: partial
+    fixture_present: false
+
+  - name: language
+    path: domains/language/
+    manifest: domains/language/manifest.yaml
+    status: stub
+    runtime_maturity: stub
+    fixture_present: false
+
+  - name: games
+    path: domains/games/
+    manifest: domains/games/manifest.yaml
+    status: stub
+    runtime_maturity: stub
+    fixture_present: false
+
+  - name: cognition
+    path: domains/cognition/
+    manifest: domains/cognition/manifest.yaml
+    status: stub
+    runtime_maturity: partial  # pass-3: fixtures + probes + validation implemented
+    fixture_present: true      # branching.py + attractor.py
+
+# Canonical applications
+applications:
+  - name: labs
+    path: applications/labs/
+    manifest: applications/labs/manifest.yaml
+    status: active
+    description: Exploratory experiments and datasets; upstream of domains
+
+  - name: interfaces
+    path: applications/interfaces/
+    manifest: applications/interfaces/manifest.yaml
+    status: active
+    description: External interfaces — currently contains RRS tool
+
+  - name: diagnostics
+    path: applications/diagnostics/
+    manifest: applications/diagnostics/manifest.yaml
+    status: active
+    description: Diagnostic and evaluation tooling
+
+# Governance / enforcement references
+governance:
+  validation_root: core/governance/validation/
+  boundary_validator: core/governance/validation/boundary_validator.py
+  manifest_validator: core/governance/validation/manifest_validator.py
+  manifest_health: core/governance/validation/manifest_health.py
+  ring_import_validator: core/kernel/validate_rings.py
+  substrate_guard: core/kernel/substrate_guard.py
+  root_structure: core/integrity/root_structure.py
+  atlas_compiler: core/compiler/atlas_compiler.py
+
+# Confidence / calibration status (system-wide)
+calibration:
+  embedding_confidence_floor: 0.30
+  calibration_status: provisional
+  calibration_procedure: >
+    Run K=0 Kuramoto null model N>=100 times; compute mean+2*std of projected
+    embedding L2 norms; set floor per domain. Not yet performed for any domain.
+
+# Named invariant families (canonical registry — see docs/invariants/INVARIANTS.md for full descriptions)
+invariants:
+  - name: Decision Compression Principle
+    id: decision_compression
+    status: CANDIDATE
+    authoritative_doc: docs/invariants/decision_compression_principle.md
+    machine_readable: codex/library/invariants/decision_compression_principle.yaml
+    event_schema: core/invariants/dcp/event.py
+    math_hook: domains/math/analysis/dcp.py
+    research_note: docs/research/dcp_trajectory_open_questions.md
+
+  - name: Oscillator Locking
+    id: oscillator_locking
+    status: CANDIDATE
+    atlas_entry: codex/atlas/invariants/invariant_oscillator_sync.json
+
+  - name: Epistemic Irreversibility Principle
+    id: epistemic_irreversibility
+    status: CANDIDATE
+    atlas_entry: codex/atlas/invariants/invariant_epistemic_irreversibility.json
+
+# Structural integrity notes
+known_gaps:
+  - HSL entry point not implemented for any domain
+  - Math pipeline.py is a stub; e2e.py is the current canonical path
+  - Language domain pipeline is a stub; no runtime path
+  - Games domain pipeline is a stub; no runtime path
+  - No domain-specific confidence calibration performed
+  - Atlas persistence from domain e2e paths not yet wired through enforce_persistence()
+  - application/interfaces/rrs has no README or SPEC
+  - DCP null-baseline falsification (F1) not yet run; required before any tier promotion
+
+generated_at: "2026-03-21T20:25:00-04:00"
+
+

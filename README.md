@@ -87,14 +87,15 @@ The following documents constitute the full state of the Helix system. An agent 
 
 | Doc | Purpose |
 |-----|---------|
-| [ARCHITECTURE.md](docs/ARCHITECTURE.md) | Layer model, data flow, and separation rules |
-| [PIPELINE.md](docs/PIPELINE.md) | Step-by-step Library → Core → Atlas execution |
-| [HSL.md](docs/HSL.md) | Helix Structural Language — full specification |
-| [SPEC.md](docs/SPEC.md) | Complete technical specification |
-| [ENTITY_SCHEMA.md](docs/ENTITY_SCHEMA.md) | Entity schema, canonical ID format, all 19 entity types |
-| [OPERATOR_SPEC.md](docs/OPERATOR_SPEC.md) | All 9 core operators and their behavioral contracts |
-| [GOVERNANCE.md](docs/GOVERNANCE.md) | Validation rules, confidence tiers, promotion gates |
-| [INVARIANTS.md](docs/INVARIANTS.md) | Named invariants and their current confidence tiers |
+| [ARCHITECTURE.md](docs/architecture/ARCHITECTURE.md) | Layer model, data flow, and separation rules |
+| [PIPELINE.md](docs/architecture/PIPELINE.md) | Step-by-step Library → Core → Atlas execution |
+| [HSL.md](docs/architecture/HSL.md) | Helix Structural Language — full specification |
+| [SPEC.md](docs/architecture/SPEC.md) | Complete technical specification |
+| [ENTITY_SCHEMA.md](docs/architecture/ENTITY_SCHEMA.md) | Entity schema, canonical ID format, all 19 entity types |
+| [OPERATOR_SPEC.md](docs/architecture/OPERATOR_SPEC.md) | All 9 core operators and their behavioral contracts |
+| [GOVERNANCE.md](docs/governance/GOVERNANCE.md) | Validation rules, confidence tiers, promotion gates |
+| [MANIFEST_AUTHORITY.md](docs/governance/MANIFEST_AUTHORITY.md) | Authority rules between README / SPEC / manifest |
+| [INVARIANTS.md](docs/invariants/INVARIANTS.md) | Named invariants and their current confidence tiers |
 | [STRUCTURE.md](core/STRUCTURE.md) | Architectural laws — brief, authoritative |
 | [ENFORCEMENT.md](core/enforcement/ENFORCEMENT.md) | Centralized enforcement: persistence gate, shadow audit, failure policy |
-| [DISSONANCE.md](docs/DISSONANCE.md) | Primary Operator Profile |
+| [DISSONANCE.md](docs/profiles/DISSONANCE.md) | Primary Operator Profile |

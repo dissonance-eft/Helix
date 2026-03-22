@@ -1,389 +1,188 @@
-# HELIX GAMES SUBSTRATE SPECIFICATION
+# HELIX GAMES SUBSTRATE
 
-**Version:** 2.0
-**Status:** Authoritative formal substrate specification
-**Authority:** This document is the implementation contract for the Helix Games Substrate.
-**Purpose:** Enable reconstruction of the Games Substrate without architectural invention. If code conflicts with this document, this document takes precedence until intentionally revised.
-
----
-
-## 0. WHY THIS DOCUMENT EXISTS
-
-This document is the formal design specification for the Helix Games Substrate.
-
-Its purpose:
-- An LLM can rebuild the substrate without inventing architecture
-- Domain logic is not misplaced into Core or Labs
-- Future implementations follow the same structural DNA
+**Version:** 2.1
+**Status:** Authoritative target specification — see §11 for current implementation status
+**Reference SPEC:** [SPEC.md](SPEC.md)
 
 ---
 
-## 1. SUBSTRATE IDENTITY
+## 1. PURPOSE
 
-### 1.1 What the Games Substrate is
+The Games Substrate extracts the latent decision architecture underlying gameplay. Games provide controlled adversarial systems with fully observable replay logs, deterministic state, and measurable decision pressure — making them ideal research subjects for Helix invariant discovery.
 
-The Games Substrate studies complex agent behavior inside structured environments.
-
-Games provide controlled systems where agents must:
-- interpret information under uncertainty
-- make sequential decisions
-- adapt strategies in response to opponent or environment
-- coordinate or compete with other agents
-
-These environments produce rich, measurable decision dynamics. They are ideal research subjects for Helix because they are:
-- fully observable (replay logs capture all state)
-- deterministic given the same input
-- adversarially structured (decision pressure is non-trivial)
-- cross-domain applicable (decision invariants found in games appear in language and music)
-
-### 1.2 What the Games Substrate is not
-
-The Games Substrate is not:
-- a game engine or runtime
-- a game AI training framework
-- a reinforcement learning research platform
-- a game development toolkit
-
-It exists to extract decision structure from game data, not to produce playable agents.
-
-### 1.3 Core identity statement
-
-The Games Substrate extracts the latent decision architecture underlying game play.
-
-It studies:
-- how agents form and execute strategies
-- how decision spaces compress under pressure
-- where irreversible decision points occur
-- what equilibria and phase transitions exist in strategy space
+Scope: replay log ingestion, game state reconstruction, strategy and policy analysis, decision compression metric extraction, artifact generation. Not a game engine, training framework, or development toolkit.
 
 ---
 
-## 2. CLOSED SYSTEM LAW
+## 2. ROLE WITHIN HELIX
 
-The Games Substrate operates under Helix's Closed System Law.
+The substrate provides the **Decision Structure Extraction bridge** between Library input and Atlas output:
 
-**Substrates never write to Atlas directly.**
+- **Input**: Game replays, agent logs, simulation outputs (`codex/library/games/`)
+- **Engine**: 6-stage pipeline — ingestion → state reconstruction → strategy analysis → feature extraction → pattern detection → artifact generation
+- **Output**: Game entity artifacts → Atlas Compiler → Atlas (codex/atlas/games/)
 
-The substrate produces artifacts. The Atlas Compiler converts artifacts into Atlas entities.
+The Games domain is a **primary test bed** for Helix invariants. Games provide the cleanest experimental conditions for initial detection of `decision_compression` and `oscillator_locking`.
 
-**Pipeline:**
+---
+
+## 3. COORDINATE SYSTEM SEPARATION
+
+Two distinct axis systems exist. They are **not interchangeable**.
+
+### A. Games-Domain Structural Signals (`GamesStructuralSignals`)
+
+Domain-local. Extracted from game state trajectories and agent decision sequences. Does not directly enter the Atlas.
+
+Key signals:
+
+| Signal | Stage | Description |
+|--------|-------|-------------|
+| `decision_entropy_slope` | Feature | Rate of entropy reduction approaching decision point |
+| `phase_coherence` | Feature | Degree of synchronization at steady state (multi-agent) |
+| `policy_entropy` | Feature | Shannon entropy of action distribution at decision point |
+| `action_distribution` | Feature | Per-agent action frequency per game phase |
+| `strategy_cluster_id` | Pattern | k-means cluster assignment over policy vectors |
+| `equilibrium_flag` | Pattern | Detected stable strategy equilibrium |
+| `policy_collapse_flag` | Pattern | Detected convergence to degenerate strategy |
+
+### B. Shared Cross-Domain Embedding (`HelixEmbedding`)
+
+System-wide format. Required on all Atlas entities. Six axes: Complexity, Structure, Repetition, Density, Expression, Variation. All float in [0.0, 1.0].
+
+Games-domain signals project into this format via the artifact preparation layer. The mapping is explicit and domain-specific — see [SPEC.md §2](SPEC.md).
+
+**Rule**: Never treat games signal names as equivalent to HelixEmbedding axis names. The mapping is deliberate, not implied.
+
+---
+
+## 4. PIPELINE (TARGET ARCHITECTURE)
+
+```
+Game Replays / Agent Logs
+    ↓
+Ingestion + Parsing (Stage 1)
+    ↓  [canonical game event format]
+State Reconstruction (Stage 2)
+    ↓  [game state graph, agent state transitions]
+Strategy Analysis (Stage 3)
+    ↓  [policy inference, decision tree reconstruction]
+Feature Extraction (Stage 4)
+    ↓  [GamesStructuralSignals]
+Pattern Detection (Stage 5)
+    ↓  [strategy clusters, equilibria, phase transitions]
+Artifact Generation (Stage 6)
+    ↓  [artifacts/games/<session_id>/]
+Atlas Compilation
+    ↓
+Atlas (codex/atlas/games/)
+```
+
+**Operator orchestration**:
 ```
 RUN operator:SCAN substrate:games
-    → discover game datasets
-    → write game entity artifacts to artifacts/games/
-
-RUN operator:ANALYZE entity:game_session:<id>
-    → analyze decision structure
-    → write analysis artifacts to artifacts/games/
-
+RUN operator:ANALYZE entity:game.session:<id>
 RUN operator:COMPILE_ATLAS
-    → compile artifacts to atlas/games/
 ```
 
 ---
 
-## 3. HELIX LAYER POSITION
+## 5. ENTRY POINT
 
-```
-HIL
-→ Normalization
-→ Semantics
-→ Operator Runtime (SCAN, ANALYZE, COMPILE_ATLAS)
-→ Atlas Compiler
-→ Atlas
+**Target**: HIL/HSL commands — `RUN operator:SCAN substrate:games`, `PROBE invariant:decision_compression lab:games`\
+**Current**: Direct Python pipeline via `pipeline.py` (partial stub). No implemented runtime extraction path in `godot_engine/` subdirectory beyond structural scaffolding.
 
-Operator Runtime
-       │
-       ▼
-Games Substrate Pipeline
-       │
-       ▼
- artifacts/games/
-       │
-       ▼
-  Atlas Compiler
-       │
-       ▼
-  atlas/games/
-```
-
-### 3.1 Substrate responsibility
-
-The Games Substrate is responsible for:
-- replay log ingestion and parsing
-- game state reconstruction from replays
-- strategy and policy analysis
-- decision compression metric extraction
-- feature extraction (action distributions, policy entropy, decision trees)
-- pattern detection (equilibria, strategy clusters, policy collapse)
-- artifact generation
-
-### 3.2 Games Lab responsibility
-
-Games Lab (`labs/games_lab/`) is responsible for higher-level experimentation:
-- comparative strategy experiments across games
-- policy embedding and clustering studies
-- cross-game invariant validation
-- research notebooks and visualization
-- anything exploratory or replaceable without affecting canonical artifacts
+HIL command syntax is defined (see §4 and [SPEC.md §9](SPEC.md)) but not fully implemented.
 
 ---
 
-## 4. DOMAIN TYPES
+## 6. CONFIDENCE / CALIBRATION STATUS
 
-The Games Substrate analyzes:
+Games-domain invariant confidence is based on observed pass rate across runs. Active probe results:
 
-| Domain | Examples |
-|--------|---------|
-| Board games | Chess, Go, Shogi, checkers |
-| Competitive strategy games | RTS, MOBA, card games |
-| Cooperative games | Pandemic, co-op RTS |
-| Economic simulations | Market simulations, auction environments |
-| Reinforcement learning environments | OpenAI Gym environments, Atari, custom |
-| Human gameplay logs | Professional match replays, tournament data |
+| Probe | Status | Pass Rate | Domains |
+|-------|--------|-----------|---------|
+| `decision_compression` | Verified | 86% | 3 |
+| `oscillator_locking` | Verified | 100% | 3 |
+
+**Note**: These verification statuses are from previous experimental runs. The governance promotion criteria (6-criterion gate) applies. Confidence thresholds for embedding are global provisional (0.30) and not domain-calibrated.
 
 ---
 
-## 5. ACTIVE PROBES
+## 7. FORMAL PRINCIPLES
 
-### 5.1 decision_compression
+Games provide the primary empirical substrate for:
 
-The `decision_compression` probe tests the Decision Compression Principle (DCP):
-
-> When an agent faces a critical irreversible decision, the available decision space compresses measurably before and after the decision point.
-
-**Status:** Verified (86% pass rate, 3 domains)
-**Dataset:** `decision_compression_dataset.json`
-**Signal:** `decision_entropy_slope` — rate of entropy reduction approaching decision point
-
-### 5.2 oscillator_locking
-
-The `oscillator_locking` probe tests synchronization behavior in multi-agent systems:
-
-> Coupled agents converge to synchronized oscillation patterns under sufficient coupling strength, regardless of initial phase difference.
-
-**Status:** Verified (100% pass rate, 3 domains)
-**Dataset:** `oscillator_locking_dataset.json`
-**Signal:** `phase_coherence` — degree of synchronization at steady state
+- **DCP (Decision Compression Principle)**: Policy entropy drops sharply approaching irreversible moves — the clearest cross-domain DCP signal
+- **EIP (Epistemic Irreversibility Principle)**: Game decision points as canonical irreversible state transitions
+- **Oscillator Locking**: Multi-agent coordination emergence in cooperative games — cross-domain signal alongside math/music
 
 ---
 
-## 6. ANALYSIS PIPELINE
+## 8. CAPABILITIES (TARGET)
 
-The Games Substrate uses a deterministic, stage-based pipeline.
-
-### 6.1 Stage sequence
-
-```
-1. INGESTION
-   game replays, agent logs, simulation outputs
-   → parse to canonical game event format
-
-2. STATE RECONSTRUCTION
-   game event sequences → game state graphs
-   → agent state transition sequences
-
-3. STRATEGY ANALYSIS
-   policy inference from state transitions
-   → decision tree reconstruction
-
-4. FEATURE EXTRACTION
-   action distributions (per agent, per game phase)
-   policy entropy (at each decision point)
-   decision compression metrics
-   equilibrium detection
-   phase transition identification
-
-5. PATTERN DETECTION
-   strategy clusters (k-means over policy vectors)
-   equilibrium structures
-   policy collapse events
-   coordination emergence
-
-6. ARTIFACT GENERATION
-   write to artifacts/games/<session_id>/
-```
-
-### 6.2 Artifact outputs
-
-All artifacts written to `artifacts/games/<session_id>/`:
-
-| Artifact | Description |
-|----------|-------------|
-| `game_state_graph.json` | Reconstructed state transitions |
-| `policy_vectors.json` | Per-agent policy feature vectors |
-| `decision_entropy.json` | Entropy time series at decision points |
-| `strategy_clusters.json` | Strategy cluster assignments |
-| `compression_metrics.json` | DCP compression measurements |
-| `phase_transitions.json` | Detected phase transitions in strategy space |
+- Replay log ingestion and canonical game event parsing
+- Game state reconstruction from replay sequences
+- Strategy and policy analysis via decision tree reconstruction
+- Decision compression metric extraction (DCP signal)
+- Pattern detection: equilibria, strategy clusters, policy collapse, coordination emergence
+- Cross-game invariant validation via labs
 
 ---
 
-## 7. ENTITY TYPES
+## 9. CANONICAL FIXTURE
 
-### 7.1 Games entities
+**Active probes**: `decision_compression` and `oscillator_locking`
 
-| Entity Type | ID Format | Description |
-|-------------|-----------|-------------|
-| `Game` | `game:<slug>` | Game definition (rules, structure) |
-| `GameSession` | `game.session:<id>` | Single game instance or match |
-| `Agent` | `game.agent:<slug>` | Decision-making agent |
-| `Strategy` | `game.strategy:<slug>` | Identified strategy pattern |
-| `Equilibrium` | `game.equilibrium:<slug>` | Stable strategy equilibrium |
-| `DecisionPoint` | `game.decision:<id>` | Critical irreversible decision moment |
+Both probes have been verified at multi-domain level (86% and 100% pass rates, 3 domains each). These are the most empirically grounded invariants in the Helix system.
 
-### 7.2 Relationships
+Probe datasets:
+- `applications/labs/datasets/games/decision_compression_dataset.json`
+- `applications/labs/datasets/games/oscillator_locking_dataset.json`
 
-```
-Agent → PLAYS_IN → GameSession
-GameSession → INSTANCE_OF → Game
-Agent → USES_STRATEGY → Strategy
-GameSession → EXHIBITS_EQUILIBRIUM → Equilibrium
-GameSession → CONTAINS_DECISION_POINT → DecisionPoint
-DecisionPoint → SUPPORTS → Invariant
-```
+**No formal validation harness exists yet** under `domains/games/validation/`. The existing verification happened through lab probes, not through a Helix-native domain validation fixture. See §12.
 
 ---
 
-## 8. DATASET CONTRACT
+## 10. IMPLEMENTATION MILESTONES
 
-### 8.1 Probe dataset convention
-
-Probe runner loads `{probe_name}_dataset.json` first, then falls back to first `.json` alphabetically.
-
-Each dataset JSON must contain:
-```json
-{
-  "probe_name": "decision_compression",
-  "domain": "games",
-  "items": [
-    {
-      "session_id": "...",
-      "game": "...",
-      "decision_points": [...],
-      "action_sequences": [...]
-    }
-  ]
-}
-```
-
-### 8.2 Dataset locations
-
-```
-labs/games/
-├── decision_compression_dataset.json
-└── oscillator_locking_dataset.json
-```
+| Milestone | Status |
+|-----------|--------|
+| **Canonical fixture defined** | ✅ Two active probes with verified pass rates |
+| **Domain architecture** | ✅ Well-specified — entity types, artifact schemas, pipeline stages |
+| **Domain runtime** | ⚠️ Partial — `godot_engine/` dir present; pipeline stub only |
+| **HSL/HIL entry point** | ⚠️ Defined in spec; implementation status unknown |
+| **Formal validation harness** | ❌ Not implemented under `domains/games/validation/` |
+| **Atlas persistence** | ⚠️ Defined in spec; enforcement gate integration not confirmed |
 
 ---
 
-## 9. REPOSITORY STRUCTURE
+## 11. CURRENT IMPLEMENTATION STATUS
 
-```
-substrates/games/
-├── README.md                     ← this document
-├── datasets/
-│   ├── game_logs/                ← raw replay files
-│   ├── replays/                  ← parsed replay cache
-│   └── simulation_outputs/       ← simulation result dumps
-├── pipelines/
-│   ├── ingestion/                ← stage 1: parse replays to events
-│   ├── replay_parsing/           ← stage 2: reconstruct game states
-│   ├── state_reconstruction/     ← state graph construction
-│   ├── strategy_analysis/        ← stage 3: policy inference
-│   ├── policy_detection/         ← strategy identification
-│   ├── pattern_detection/        ← stage 5: clustering, equilibria
-│   └── atlas_integration/        ← artifact prep for compiler
-├── models/
-│   ├── strategy_models/          ← strategy classifiers
-│   └── agent_models/             ← agent behavior models
-└── experiments/
-    ├── coordination_games/
-    ├── competitive_games/
-    ├── cooperative_games/
-    └── policy_collapse/
-```
+| Component | Status |
+|-----------|--------|
+| Pipeline architecture (`pipeline.py`) | ⚠️ Partial stub |
+| Game engine adapter (`godot_engine/`) | ⚠️ Directory present; content not verified |
+| Ingestion | ❌ Not implemented |
+| State reconstruction | ❌ Not implemented |
+| Strategy analysis | ❌ Not implemented |
+| Feature extraction | ❌ Not implemented |
+| Pattern detection | ❌ Not implemented |
+| Domain validation harness (`validation/`) | ❌ Not implemented |
+| HSL/HIL orchestration | ⚠️ Defined; not confirmed implemented |
+| Null-baseline confidence calibration | ❌ Not performed |
 
 ---
 
-## 10. HIL CONTRACT
+## 12. KNOWN GAPS
 
-All orchestration occurs through HIL.
-
-Examples:
-```
-RUN operator:SCAN substrate:games
-RUN operator:ANALYZE entity:game.session:chess_match_001
-PROBE invariant:decision_compression lab:games
-PROBE invariant:oscillator_locking lab:games
-ATLAS list domain:games
-ENTITY get game.session:chess_match_001
-GRAPH support invariant:decision_compression
-```
+- No implemented runtime extraction path (pipeline is a stub)
+- No formal domain validation harness under `domains/games/validation/`
+- Dataset path references in old docs used `labs/games/` — canonical path is `applications/labs/datasets/games/`
+- Repository structure in old docs referenced `substrates/games/` — actual path is `domains/games/`
+- HIL/HSL orchestration is specified but runtime implementation not confirmed
+- Probe verification (86%/100%) reflects past lab runs, not a current validated harness
 
 ---
 
-## 11. RELATIONSHIP TO HELIX INVARIANTS
-
-The Games Substrate is a primary test bed for Helix invariants.
-
-Games provide the clearest signals for:
-
-| Invariant | Games signal |
-|-----------|-------------|
-| `decision_compression` | Policy entropy drops sharply approaching irreversible moves |
-| `oscillator_locking` | Multi-agent coordination emergence in cooperative games |
-
-Both invariants are cross-substrate: they appear in games, music, and language. The Games Substrate provides the cleanest experimental conditions for initial detection.
-
----
-
-## 12. ANTI-DRIFT RULES
-
-- Do not write game analysis directly to `atlas/` — use the artifact pipeline
-- Do not invent alternative orchestration languages — HIL only
-- Do not place exploratory experiments in the substrate — use Games Lab
-- Do not rename `decision_compression` or `oscillator_locking` without spec revision
-
----
-
-## 13. RECONSTRUCTION SPECIFICATION
-
-A future system can reconstruct the Games Substrate from this document.
-
-Required components:
-- [ ] 6-stage analysis pipeline (ingest → reconstruct → strategy → features → patterns → artifacts)
-- [ ] Artifact schemas matching §6.2
-- [ ] Entity types matching §7.1 with correct ID format
-- [ ] Probe datasets for `decision_compression` and `oscillator_locking`
-- [ ] All artifacts written to `artifacts/games/`, never to `atlas/`
-- [ ] HIL-only orchestration interface
-
----
-
-*This document is the authoritative specification for the Helix Games Substrate.*
-*Version 2.0 — 2026-03-17*
-
-
----
-
-## Architecture Guardrail
-
-**Helix Architecture Law**
-`HIL → Operator → Adapter → Toolkit → Artifact → Atlas Compiler`
-
-* Operators orchestrate
-* Adapters translate
-* Toolkits execute
-* Artifacts store results
-* Atlas compiler creates entities
-
-**Prohibited Patterns**
-- `master_pipeline.py`
-- Direct toolkit calls from operators
-- Toolkits writing artifacts
-- Toolkits writing Atlas entities
-- Operators writing Atlas entities
-- Monolithic pipelines
-
-*All new modules must follow the template registry located in `runtime/templates/`.*
+*For formal signal definitions, entity schemas, artifact schemas, and promotion conditions, see [SPEC.md](SPEC.md).*

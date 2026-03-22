@@ -1,0 +1,44 @@
+manifest_schema: manifest_schema_v1
+application: diagnostics
+version: "1.0"
+status: active
+
+purpose: >
+  Diagnostic and evaluation tooling. Currently contains the music lab CFP v1
+  benchmark runner and evaluation infrastructure.
+
+relationship_to_helix: >
+  Downstream consumer. Runs evaluations on domain output and Helix system
+  behavior. Does not produce canonical domain artifacts.
+
+docs:
+  readme: null
+  spec: null
+  evaluation_spec: applications/diagnostics/music_lab_cfp_v1/evaluation_spec.md
+  split_policy: applications/diagnostics/music_lab_cfp_v1/split_policy.md
+
+entry_point:
+  current: "applications/diagnostics/music_lab_cfp_v1/runner.py"
+  hsl_implemented: false
+
+structure:
+  music_lab_cfp_v1:
+    path: applications/diagnostics/music_lab_cfp_v1/
+    runner: applications/diagnostics/music_lab_cfp_v1/runner.py
+    benchmark_manifest: applications/diagnostics/music_lab_cfp_v1/benchmark_manifest.json
+    evaluation_spec: applications/diagnostics/music_lab_cfp_v1/evaluation_spec.md
+
+required_domains:
+  - music
+required_core:
+  - core/compiler/atlas_compiler.py  # target; actual wiring unverified
+
+implementation_maturity: active
+notes: >
+  runner.py is substantive (17KB). benchmark_manifest.json already present
+  as a domain-specific manifest — predates this manifest system.
+
+known_gaps:
+  - No top-level README for diagnostics/
+  - benchmark_manifest.json format predates manifest_schema_v1; not validated by manifest_validator.py
+  - runner.py wiring to compiler gate not confirmed

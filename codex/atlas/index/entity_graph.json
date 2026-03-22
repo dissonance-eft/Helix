@@ -1,4 +1,4 @@
-{
+﻿{
   "nodes": [
     {
       "id": "music.track:gumball_machine",
@@ -7,7 +7,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\40 - Gumball Machine.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\40 - Gumball Machine.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -18,7 +18,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -29,7 +29,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\50 - IceCap Zone Act 2 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\50 - IceCap Zone Act 2 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -40,7 +40,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\34 - Balloon Park.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\34 - Balloon Park.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -51,7 +51,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\04 - Hydrocity Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\04 - Hydrocity Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -62,7 +62,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\18 - Flying Battery Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\18 - Flying Battery Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -73,7 +73,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\28 - Big Arms.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\28 - Big Arms.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -84,7 +84,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -95,7 +95,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\27 - Boss Theme.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\27 - Boss Theme.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -106,7 +106,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\29 - The Doomsday Zone.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\29 - The Doomsday Zone.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -117,7 +117,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\07 - Carnival Night Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\07 - Carnival Night Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -128,7 +128,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -139,7 +139,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\56 - Competition Menu (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\56 - Competition Menu (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -150,7 +150,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\13 - Sub-Boss (S3).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\13 - Sub-Boss (S3).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -161,7 +161,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\51 - Launch Base Zone Act 1 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\51 - Launch Base Zone Act 1 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -172,7 +172,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\35 - Chrome Gadget.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\35 - Chrome Gadget.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -183,7 +183,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\43 - Blue Spheres.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\43 - Blue Spheres.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -194,7 +194,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -205,7 +205,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\22 - Lava Reef Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\22 - Lava Reef Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -216,7 +216,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\24 - Death Egg Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\24 - Death Egg Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -227,7 +227,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\23 - Sky Sanctuary Zone.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\23 - Sky Sanctuary Zone.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -238,7 +238,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\09 - IceCap Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\09 - IceCap Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -249,7 +249,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\36 - Desert Palace.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\36 - Desert Palace.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -260,7 +260,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -271,7 +271,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\11 - Launch Base Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\11 - Launch Base Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -282,7 +282,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -293,7 +293,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\05 - Marble Garden Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\05 - Marble Garden Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -304,7 +304,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -315,7 +315,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\17 - Flying Battery Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\17 - Flying Battery Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -326,7 +326,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\44 - Invincibility (S&K).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\44 - Invincibility (S&K).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -337,7 +337,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\33 - Azure Lake.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\33 - Azure Lake.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -348,7 +348,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\46 - Angel Island Zone Act 2 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\46 - Angel Island Zone Act 2 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -359,7 +359,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\48 - Carnival Night Zone Act 2 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\48 - Carnival Night Zone Act 2 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -370,7 +370,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\52 - Launch Base Zone Act 2 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\52 - Launch Base Zone Act 2 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -381,7 +381,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\41 - Magnetic Orbs.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\41 - Magnetic Orbs.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -392,7 +392,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\30 - Staff Roll (S&K).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\30 - Staff Roll (S&K).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -403,7 +403,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\16 - Mushroom Hill Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\16 - Mushroom Hill Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -414,7 +414,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\32 - Competition Menu.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\32 - Competition Menu.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -425,7 +425,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\39 - Knuckles' Theme (S&K).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\39 - Knuckles' Theme (S&K).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -436,7 +436,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\45 - Angel Island Zone Act 1 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\45 - Angel Island Zone Act 1 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -447,7 +447,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\06 - Marble Garden Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\06 - Marble Garden Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -458,7 +458,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -469,7 +469,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\57 - Staff Roll (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\57 - Staff Roll (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -480,7 +480,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\53 - Sky Sanctuary Zone (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\53 - Sky Sanctuary Zone (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -491,7 +491,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\55 - Mushroom Valley Zone Act 2 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\55 - Mushroom Valley Zone Act 2 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -502,7 +502,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\12 - Launch Base Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\12 - Launch Base Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -513,7 +513,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -524,7 +524,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -535,7 +535,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\38 - Knuckles' Theme (S3).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\38 - Knuckles' Theme (S3).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -546,7 +546,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\42 - Slot Machine.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\42 - Slot Machine.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -557,7 +557,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\14 - Staff Roll (S3).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\14 - Staff Roll (S3).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -568,7 +568,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -579,7 +579,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\47 - Carnival Night Zone Act 1 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\47 - Carnival Night Zone Act 1 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -590,7 +590,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\15 - Mushroom Hill Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\15 - Mushroom Hill Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -601,7 +601,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\20 - Sandopolis Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\20 - Sandopolis Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -612,7 +612,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -623,7 +623,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\02 - Angel Island Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\02 - Angel Island Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -634,7 +634,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\31 - Data Select.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\31 - Data Select.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -645,7 +645,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\19 - Sandopolis Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\19 - Sandopolis Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -656,7 +656,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\26 - Sub-Boss (S&K).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\26 - Sub-Boss (S&K).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -667,7 +667,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\49 - IceCap Zone Act 1 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\49 - IceCap Zone Act 1 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -678,7 +678,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\08 - Carnival Night Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\08 - Carnival Night Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -689,7 +689,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\25 - Death Egg Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\25 - Death Egg Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -700,7 +700,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\54 - Mushroom Valley Zone Act 1 (Beta).vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\54 - Mushroom Valley Zone Act 1 (Beta).vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -711,7 +711,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\58 - Unused.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\58 - Unused.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -722,7 +722,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\03 - Hydrocity Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\03 - Hydrocity Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -733,7 +733,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\01 - Angel Island Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\01 - Angel Island Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -744,7 +744,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\21 - Lava Reef Zone Act 1.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\21 - Lava Reef Zone Act 1.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -755,7 +755,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "track_db",
+        "source": "track_db",
         "extraction_method": "library_scan"
       }
     },
@@ -766,7 +766,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\37 - Endless Mine.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\37 - Endless Mine.vgz",
         "extraction_method": "library_scan"
       }
     },
@@ -777,7 +777,7 @@
       "metadata": {
         "source": "music_substrate_pipeline",
         "source_stage": "knowledge_graph_integration",
-        "source_artifact": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\10 - IceCap Zone Act 2.vgz",
+        "source": "C:\\Users\\dissonance\\Music\\VGM\\S\\Sonic 3 & Knuckles\\10 - IceCap Zone Act 2.vgz",
         "extraction_method": "library_scan"
       }
     }

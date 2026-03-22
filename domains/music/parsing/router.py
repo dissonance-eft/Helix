@@ -8,6 +8,10 @@ Maps file extensions to:
 Usage:
     result = FormatRouter().parse(path)     # Tier A static parse
     events = FormatRouter().trace(path)     # Tier B chip-state trace
+
+Note: ID666 (SPC) and GD3 (VGM) tags are intentionally NOT used.
+      Metadata is sourced from the Helix library (codex/library/music/).
+      Only structural/synthesis data is extracted from format headers.
 """
 
 from __future__ import annotations
@@ -34,21 +38,24 @@ _TIER_A_PARSERS: dict[str, str] = {
 
 # Tier B: emulation type
 _TIER_B_ENGINE: dict[str, str] = {
-    ".vgm":  "libvgm",
-    ".vgz":  "libvgm",
-    ".gym":  "libvgm",
-    ".spc":  "gme",
-    ".nsf":  "gme",
-    ".nsfe": "gme",
-    ".gbs":  "gme",
-    ".hes":  "gme",
-    ".kss":  "gme",
-    ".ay":   "gme",
-    ".sgc":  "gme",
-    # vgmstream formats
+    ".vgm":     "libvgm",
+    ".vgz":     "libvgm",
+    ".gym":     "libvgm",
+    ".spc":     "gme",
+    ".nsf":     "gme",
+    ".nsfe":    "gme",
+    ".gbs":     "gme",
+    ".hes":     "gme",
+    ".kss":     "gme",
+    ".ay":      "gme",
+    ".sgc":     "gme",
+    # vgmstream formats (render-to-waveform → essentia path)
     ".2sf":     "vgmstream",
+    ".mini2sf": "vgmstream",
     ".ncsf":    "vgmstream",
+    ".minincsf":"vgmstream",
     ".usf":     "vgmstream",
+    ".miniusf": "vgmstream",
     ".gsf":     "vgmstream",
     ".psf":     "vgmstream",
     ".psf2":    "vgmstream",
@@ -56,6 +63,11 @@ _TIER_B_ENGINE: dict[str, str] = {
     ".dsf":     "vgmstream",
     ".s98":     "vgmstream",
     ".minipsf": "vgmstream",
+}
+
+# Waveform-only formats — no chip data, straight to essentia
+_WAVEFORM_EXTENSIONS: set[str] = {
+    ".mp3", ".opus", ".flac", ".ogg", ".wav", ".m4a", ".aac"
 }
 
 # All known emulated formats (Tier A+B)
@@ -73,6 +85,9 @@ class FormatRouter:
         ext = Path(file_path).suffix.lower()
         return _TIER_A_PARSERS.get(ext)
 
+    def is_waveform_only(self, path: Path) -> bool:
+        return path.suffix.lower() in _WAVEFORM_EXTENSIONS
+
     def route(self, file_path: str) -> str:
         """Legacy API: return decoder engine name."""
         t = self.get_decoder_type(file_path)
@@ -87,41 +102,59 @@ class FormatRouter:
         Run the Tier A static parser for `path`.
         Returns the track's .to_dict() result or an error dict.
 
-        If `enrich=True` (default), codec-specific reference enrichment is
-        appended automatically via CodecReferenceLibrary.  Pass
-        `enrich=False` for raw parse output without reference lookup.
+        Note: ID666 (SPC) and GD3 (VGM) tag data is present in the raw
+        parser output but is ignored by the pipeline. Library metadata
+        is used instead. Parsers extract synthesis/structure data only.
+
+        If `enrich=True`, codec-specific reference enrichment is appended
+        via CodecReferenceLibrary. Pass `enrich=False` for raw parse output.
         """
         ext = path.suffix.lower()
         parser_type = _TIER_A_PARSERS.get(ext)
 
         if parser_type == "spc":
-            from substrates.music.parsers.spc_parser import parse
+            from domains.music.parsing.spc_parser import parse
             result = parse(path).to_dict()
 
         elif parser_type == "nsf":
-            from substrates.music.parsers.nsf_parser import parse
+            from domains.music.parsing.nsf_parser import parse
             result = parse(path).to_dict()
 
         elif parser_type == "sid":
-            from substrates.music.parsers.sid_parser import parse
+            from domains.music.parsing.sid_parser import parse
             result = parse(path).to_dict()
 
         elif parser_type == "vgm":
-            try:
-                from substrates.music.vgm_parser import parse_vgm_file
-                track = parse_vgm_file(path)
-                result = track.__dict__ if hasattr(track, "__dict__") else {}
-            except ImportError:
-                result = {"path": str(path), "format": ext.lstrip(".").upper(),
-                          "error": "vgm_parser not importable"}
+            from domains.music.parsing.vgm_parser import parse
+            track = parse(path)
+            result = {
+                "path":             str(track.path),
+                "format":           ext.lstrip(".").upper(),
+                "version":          hex(track.header.version),
+                "total_samples":    track.header.total_samples,
+                "loop_offset":      track.header.loop_offset,
+                "loop_samples":     track.header.loop_samples,
+                "loop_point_s":     track.header.loop_offset / 44100.0 if track.header.loop_offset else None,
+                "duration_s":       track.header.total_samples / 44100.0,
+                "has_loop":         bool(track.header.loop_offset),
+                "chips":            _vgm_chip_names(track.header),
+                "ym2612_clock":     track.header.ym2612_clock,
+                "psg_clock":        track.header.sn76489_clock,
+                "ym2151_clock":     track.header.ym2151_clock,
+                "event_count":      len(track.events),
+                "error":            track.error,
+            }
 
         else:
-            result = {"path": str(path), "format": ext.lstrip(".").upper(),
-                      "error": f"No Tier A parser for {ext}"}
+            result = {
+                "path": str(path),
+                "format": ext.lstrip(".").upper(),
+                "error": f"No Tier A parser for {ext}",
+            }
 
         if enrich:
             try:
-                from substrates.music.analysis.codec_reference import enrich as _enrich
+                from core.adapters.adapter_chip_library import enrich as _enrich
                 result = _enrich(path, result)
             except Exception:
                 pass  # enrichment is always non-blocking
@@ -139,25 +172,49 @@ class FormatRouter:
         Run Tier B emulation trace for `path`.
         Returns list of ChipEvent dicts (may be empty if not supported).
 
-        If `enrich=True` (default), the raw event list is passed through
-        CodecReferenceLibrary.enrich_trace_result() so callers can access
-        per-channel patch-match data in result["reference"].
+        For VGM/VGZ: uses libvgm bridge.
+        For SPC/NSF/GBS etc: uses GME bridge.
+        For PSF/USF/mini*: uses vgmstream render → waveform (no chip events).
         """
-        try:
-            from substrates.music.emulation.chip_state_tracer import trace
-            events = trace(path, track=track, sample_rate=sample_rate)
-        except Exception:
-            events = []
+        engine = _TIER_B_ENGINE.get(path.suffix.lower(), "")
+        events: list[dict[str, Any]] = []
 
-        if enrich and events:
+        if engine == "libvgm":
             try:
-                from substrates.music.analysis.codec_reference import get_library
-                enriched = get_library().enrich_trace_result(path, events)
-                return enriched  # type: ignore[return-value]
+                from core.adapters.adapter_libvgm import Adapter
+                events = Adapter().execute({"file_path": str(path), "track": track})
             except Exception:
-                pass  # enrichment is always non-blocking
+                pass
+
+        elif engine == "gme":
+            try:
+                from core.adapters.adapter_gme import Adapter
+                events = Adapter().execute({"file_path": str(path), "track": track})
+            except Exception:
+                pass
+
+        elif engine == "vgmstream":
+            # vgmstream produces waveform only — no chip events
+            # caller should use waveform_analyze() instead
+            return []
 
         return events
+
+    # ------------------------------------------------------------------
+    # Waveform path: essentia
+    # ------------------------------------------------------------------
+
+    def waveform_analyze(self, path: Path) -> dict[str, Any]:
+        """
+        Run essentia waveform analysis on an audio file.
+        Used for: mp3, opus, flac, m4a, ogg, wav, and vgmstream-rendered files.
+        """
+        try:
+            from core.adapters.adapter_essentia import Adapter
+            return Adapter().execute({"file_path": str(path)})
+        except Exception as e:
+            return {"source_path": str(path), "adapter": "essentia",
+                    "available": False, "error": str(e)}
 
     # ------------------------------------------------------------------
     # Helpers
@@ -172,3 +229,13 @@ class FormatRouter:
     @staticmethod
     def is_emulated(ext: str) -> bool:
         return ext.lstrip(".").lower() in {e.lstrip(".") for e in ALL_EMULATED_EXTENSIONS}
+
+
+def _vgm_chip_names(header) -> list[str]:
+    """Derive chip name list from VGM header clock fields."""
+    chips = []
+    if getattr(header, "ym2612_clock", 0):   chips.append("YM2612")
+    if getattr(header, "sn76489_clock", 0):  chips.append("SN76489")
+    if getattr(header, "ym2151_clock", 0):   chips.append("YM2151")
+    if getattr(header, "ym2413_clock", 0):   chips.append("YM2413")
+    return chips

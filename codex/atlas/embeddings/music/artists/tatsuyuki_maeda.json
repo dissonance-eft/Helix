@@ -1,15 +1,14 @@
 {
   "entity_id": "music.artist:tatsuyuki_maeda",
-  "ccs_version": "1.0.0",
+  "substrate_version": "2.0.0",
   "aggregation_method": "duration_weighted_mean",
   "track_count": 12,
-  "ccs_embedding": {
+  "substrate": {
+    "possibility_space": 0.68,
+    "constraint": 0.63,
     "attractor_stability": 0.79,
-    "generative_constraint": 0.72,
-    "recurrence_depth": 0.60,
-    "structural_density": 0.68,
-    "control_entropy": 0.63,
-    "basin_permeability": 0.24
+    "basin_permeability": 0.24,
+    "recurrence_depth": 0.60
   },
   "evidence": {
     "signals": [
@@ -26,15 +25,9 @@
         "unit": "ratio"
       },
       {
-        "name": "generative_constraint_weighted_mean",
-        "value": 0.72,
-        "axis": "generative_constraint",
-        "unit": "ratio"
-      },
-      {
-        "name": "generative_constraint_std_dev",
-        "value": 0.07,
-        "axis": "generative_constraint",
+        "name": "constraint_weighted_mean",
+        "value": 0.63,
+        "axis": "constraint",
         "unit": "ratio"
       },
       {
@@ -44,15 +37,9 @@
         "unit": "ratio"
       },
       {
-        "name": "structural_density_weighted_mean",
+        "name": "possibility_space_weighted_mean",
         "value": 0.68,
-        "axis": "structural_density",
-        "unit": "ratio"
-      },
-      {
-        "name": "control_entropy_weighted_mean",
-        "value": 0.63,
-        "axis": "control_entropy",
+        "axis": "possibility_space",
         "unit": "ratio"
       },
       {
@@ -70,16 +57,16 @@
     ],
     "source_features": [
       "entity_type: ARTIST aggregate",
-      "aggregation: duration-weighted mean of per-track CCS embeddings",
+      "aggregation: duration-weighted mean of per-track substrate embeddings",
       "source_tracks: Sonic 3D Blast JP/EU (Mega Drive, 1996) — primary composition credit",
       "driver: Sega custom SMPS-derived driver (JP/EU version, not GEMS)",
       "hardware: YM2612 FM + SN76489 PSG",
       "style_descriptors: melodic, structured arcade style, diatonic-leaning with chromatic ornament",
-      "low_variance_axes: generative_constraint (0.07 std), basin_permeability (consistent hard cuts)"
+      "low_variance_axes: constraint (0.07 std), basin_permeability (consistent hard cuts)"
     ],
-    "notes": "Artist-level aggregate of 12 tracks attributed to Tatsuyuki Maeda. Low std_dev on generative_constraint (0.07) indicates a consistent compositional approach across the catalog. basin_permeability is consistently low (0.24) reflecting the SMPS-driver hard-section architecture used in the JP/EU Sonic 3D Blast driver (not GEMS). This aggregate will be updated when additional Maeda tracks are reparsed into the atlas."
+    "notes": "Artist-level aggregate of 12 tracks attributed to Tatsuyuki Maeda. Low std_dev on constraint (0.07) indicates a consistent compositional approach across the catalog. basin_permeability is consistently low (0.24) reflecting the SMPS-driver hard-section architecture used in the JP/EU Sonic 3D Blast driver (not GEMS). This aggregate will be updated when additional Maeda tracks are reparsed into the atlas."
   },
   "confidence": 0.62,
   "computed_at": "2026-03-18T00:00:00Z",
-  "source_version": "analysis_v1"
+  "source_version": "analysis_v2"
 }

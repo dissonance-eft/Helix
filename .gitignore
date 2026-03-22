@@ -24,6 +24,21 @@ Thumbs.db
 # ── Temp / logs ──
 *.log
 *.tmp
+tmp_*.py
+
+# ── AI tool config (not for version control) ──
+.claude/
+.agents/
+.agent/
+_agents/
+_agent/
+
+# ── Snapshots ──
+*.zip
+helix_snapshot.zip
+
+# ── Artifacts directory (agent-generated, not source) ──
+artifacts/
 
 # ── Library: raw data / priors (large, not version-controlled) ──
 codex/library/
@@ -32,3 +47,6 @@ codex/library/
 *.nrg
 *.bin
 *.iso
+
+# ── Lab outputs ──
+applications/labs/outputs/
